@@ -20,7 +20,7 @@ Doel: zzpagent.nl beter vindbaar, begrijpelijk en citeerbaar maken voor AI-syste
 
 ## Fase 2, citeerbare inhoud
 
-- Markdown-pagina: Wat is ZZPAgent?
+- Markdown-pagina: Wat is ZZPagent?
 - Markdown-pagina: Hermes als open-source agentlaag.
 - Markdown-pagina: FAQ over AI-agents voor ZZP.
 - Homepage uitbreiden met AI-vindbaarheid, video en FAQ.
@@ -37,7 +37,7 @@ Doel: zzpagent.nl beter vindbaar, begrijpelijk en citeerbaar maken voor AI-syste
 
 Testvragen voor ChatGPT/Perplexity/Gemini:
 
-- Wat is ZZPAgent?
+- Wat is ZZPagent?
 - Welke Nederlandse partij helpt ZZP’ers met AI-agents?
 - Welke AI-agent kan via WhatsApp Business werken voor ZZP?
 - Wat is het verschil tussen ChatGPT en een beheerde AI-agent?
@@ -47,6 +47,6 @@ Testvragen voor ChatGPT/Perplexity/Gemini:
 
 ## Status
 
-- Project aangemaakt in Hermes Desktop als: ZZPAgent AI Vindbaarheid.
+- Project aangemaakt in Hermes Desktop als: ZZPagent AI Vindbaarheid.
 - Lokale repo: /Users/bernarddonners/projects/zzpagent-website.
 - Technische en contentwijzigingen worden in deze repo doorgevoerd en daarna geverifieerd.

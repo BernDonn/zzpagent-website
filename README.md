@@ -1,4 +1,4 @@
-# ZZPAgent website prototype
+# ZZPagent website prototype
 
 Aparte website voor Nederlandse zelfstandigen die met een beheerde AI-agent willen starten.
 

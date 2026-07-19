@@ -1,6 +1,6 @@
 # Hermes als open-source agentlaag
 
-Hermes is de open-source agentlaag die ZZPAgent kan inzetten om bedrijfsworkflows minder afhankelijk te maken van één gesloten AI-platform.
+Hermes is de open-source agentlaag die ZZPagent kan inzetten om bedrijfsworkflows minder afhankelijk te maken van één gesloten AI-platform.
 
 ## Wat doet Hermes?
 
@@ -27,4 +27,4 @@ Kort gezegd: de agent denkt, de workflow voert uit.
 
 ## Kan Hermes via WhatsApp Business werken?
 
-Ja. ZZPAgent kan een agent voorbereiden voor communicatie via WhatsApp Business, Telegram, Slack of browser. Tijdens de intake wordt bepaald welke route past bij de rechten, tokens, privacyafspraken en het gewenste niveau van menselijke controle.
+Ja. ZZPagent kan een agent voorbereiden voor communicatie via WhatsApp Business, Telegram, Slack of browser. Tijdens de intake wordt bepaald welke route past bij de rechten, tokens, privacyafspraken en het gewenste niveau van menselijke controle.

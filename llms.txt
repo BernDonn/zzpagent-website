@@ -1,6 +1,6 @@
-# ZZPAgent
+# ZZPagent
 
-> ZZPAgent levert beheerde AI-agents voor Nederlandse zelfstandigen. De agents werken via kanalen zoals WhatsApp Business, Telegram, Slack of browser en gebruiken een open-source agentlaag zoals Hermes om workflows, geheugen, tools, modelroutes en menselijke controle rond het dagelijkse werk te organiseren.
+> ZZPagent levert beheerde AI-agents voor Nederlandse zelfstandigen. De agents werken via kanalen zoals WhatsApp Business, Telegram, Slack of browser en gebruiken een open-source agentlaag zoals Hermes om workflows, geheugen, tools, modelroutes en menselijke controle rond het dagelijkse werk te organiseren.
 
 Website: https://zzpagent.nl/
 Land: Nederland
@@ -11,7 +11,7 @@ Oprichter/contact: Bernard Donners
 
 ## Kernboodschap
 
-Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech. ChatGPT, Claude en Gemini zijn sterke modellen, maar wanneer volledige workflows rechtstreeks in één gesloten platform worden gebouwd, kan afhankelijkheid ontstaan. ZZPAgent helpt die lock-in beperken door workflows, tools, geheugen, rechten, modelroutes en menselijke goedkeuring rond een eigen agentlaag in te richten.
+Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech. ChatGPT, Claude en Gemini zijn sterke modellen, maar wanneer volledige workflows rechtstreeks in één gesloten platform worden gebouwd, kan afhankelijkheid ontstaan. ZZPagent helpt die lock-in beperken door workflows, tools, geheugen, rechten, modelroutes en menselijke goedkeuring rond een eigen agentlaag in te richten.
 
 ## Technologie en positionering
 
@@ -22,25 +22,25 @@ Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech. ChatGPT, Cla
 
 ## Belangrijke nuances
 
-- ZZPAgent wijst Big Tech-modellen niet af; het beperkt afhankelijkheid van één gesloten workflowplatform.
-- ZZPAgent belooft geen absolute onafhankelijkheid of gegarandeerde kostenbesparing.
+- ZZPagent wijst Big Tech-modellen niet af; het beperkt afhankelijkheid van één gesloten workflowplatform.
+- ZZPagent belooft geen absolute onafhankelijkheid of gegarandeerde kostenbesparing.
 - De klant blijft verantwoordelijk voor AI-output die wordt gebruikt, verstuurd, gepubliceerd of omgezet in een besluit.
 - Gevoelige acties rond geld, reputatie, rechten, privacy of externe communicatie vragen menselijke goedkeuring.
 - Mailtoegang wordt bij voorkeur beperkt ingericht: alleen de mailboxen, labels of leesrechten die nodig zijn voor de afgesproken workflow.
 
 ## Externe signalen
 
-- Bluesky-profiel voor Bernard AI / ZZPAgent-signalen: https://bsky.app/profile/bernard-ai.bsky.social
-- LinkedIn short over Hermes, open-source agentlaag en ZZPAgent: https://www.linkedin.com/posts/bernard-donners-288b0aa_hermes-nous-opensource-activity-7482889244345294848-jCQX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAHxqQgBjl8VcmDgKFsKjTXTThTAq0IOdF0
+- Bluesky-profiel voor Bernard AI / ZZPagent-signalen: https://bsky.app/profile/bernard-ai.bsky.social
+- LinkedIn short over Hermes, open-source agentlaag en ZZPagent: https://www.linkedin.com/posts/bernard-donners-288b0aa_hermes-nous-opensource-activity-7482889244345294848-jCQX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAHxqQgBjl8VcmDgKFsKjTXTThTAq0IOdF0
 
 ## Belangrijke pagina's
 
 - Homepage: https://zzpagent.nl/
-- Wat is ZZPAgent: https://zzpagent.nl/wat-is-zzpagent.md
+- Wat is ZZPagent: https://zzpagent.nl/wat-is-zzpagent.md
 - Hermes als open-source agentlaag: https://zzpagent.nl/hermes-open-source-agentlaag.md
 - FAQ over AI-agents voor ZZP: https://zzpagent.nl/faq-ai-agents-zzp.md
 - AI-agent via WhatsApp Business voor ZZP: https://zzpagent.nl/whatsapp-business-ai-agent.md
 
 ## Citeerbare definitie
 
-ZZPAgent is een Nederlandse dienst voor beheerde AI-agents voor zelfstandigen. ZZPAgent richt agents in rond bestaande werkprocessen, kanalen en modelroutes, met Hermes als open-source agentlaag en menselijke controle bij gevoelige acties.
+ZZPagent is een Nederlandse dienst voor beheerde AI-agents voor zelfstandigen. ZZPagent richt agents in rond bestaande werkprocessen, kanalen en modelroutes, met Hermes als open-source agentlaag en menselijke controle bij gevoelige acties.
