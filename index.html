@@ -274,10 +274,10 @@
     .compare-note{margin-top:18px;background:#f0e6d6;border:1px solid var(--line);border-radius:24px;padding:18px 20px;color:#304034;line-height:1.6}
     .compare-aside{margin-top:16px;max-width:860px;padding:14px 16px;border:1px solid rgba(20,63,43,.12);border-radius:18px;background:rgba(255,250,241,.72);color:#546259;font-size:13px;line-height:1.55;box-shadow:0 8px 24px rgba(20,35,24,.04)}
     .why-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:28px;align-items:start}
-    .why-grid .why-intro{grid-column:1 / -1;max-width:980px}
-    .why-grid .why-copy{grid-column:1}
+    .why-grid .why-intro{grid-column:1;max-width:760px}
+    .why-grid .why-copy{display:grid;gap:10px}
     .why-grid .compare-aside{max-width:none}
-    .why-video-card{grid-column:2;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:16px;box-shadow:0 12px 35px rgba(20,35,24,.06);align-self:start;margin-top:0}
+    .why-video-card{grid-column:2;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:16px;box-shadow:0 12px 35px rgba(20,35,24,.06);align-self:start;margin-top:221px}
     .why-video-card .tag{margin-bottom:12px}
     .evolution-preview{display:block;margin:0 0 14px 0;text-decoration:none;color:inherit}
     .evolution-preview img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(20,35,24,.06)}
@@ -334,7 +334,7 @@
     @media(max-width:900px){
       .section{padding:64px 20px}
       .hero,.two-col,.proof,.footer-cta,.trust-layout,.compare-grid,.why-grid{grid-template-columns:1fr}
-      .why-video-card{margin-top:18px}
+      .why-video-card{grid-column:1;margin-top:18px}
       .why-video-card video{max-height:none}
       .products,.grid,.usecases,.deploy-grid,.provider-grid,.legal-grid,.integration-grid{grid-template-columns:1fr}
       .hero{min-height:auto;padding-top:48px}
@@ -454,7 +454,11 @@
           <h2>Van AI-tool naar digitale medewerker voor ZZP’ers</h2>
           <p class="lead">Veel ZZP’ers gebruiken ChatGPT, Claude of Perplexity voor content, e-mails, samenvattingen of offertes. Nuttig, maar met een toenemend risico van vendor lock-in door de afhankelijkheid van één leverancier.</p>
           <p class="lead">Met Hermes zet je de volgende stap: van losse AI-hulp naar een autonome agent die context onthoudt, tools gebruikt en proactief werk kan voorbereiden. Je persoonlijke assistent dus. En hij staat altijd aan en is bereikbaar via WhatsApp, Signal, Telegram of de Hermes-app op je mobiel.</p>
-          <div class="tag" style="display:inline-block;margin:0 0 14px 0">Voorkom vendor lock-in</div>
+          <div class="tag" style="display:inline-block;margin:68px 0 8px 0">Voorkom vendor lock-in</div>
+          <div class="why-copy">
+            <p class="muted">OpenAI en Anthropic zullen hun investeringen terug willen verdienen met het aanbieden van autonome systemen waar je afhankelijk van wordt. Hebben zulke systemen zich eenmaal genesteld in je bedrijf, dan kom je er niet eenvoudig meer vanaf.</p>
+            <p class="muted">Open-source systemen zijn transparant, breed getest door veel gebruikers en hebben deze vendor lock-in niet. Daardoor houd jij grip op je eigen workflows en de systeemintelligentie van je bedrijf.</p>
+          </div>
         </div>
         <aside class="why-video-card" aria-label="Hermes-video">
           <a class="evolution-preview" href="assets/evolutie-nederlands.png" target="_blank" rel="noopener" aria-label="Open de evolutie van AI als grotere afbeelding">
@@ -465,10 +469,6 @@
             <source src="assets/hermes-agent-overview.mp4" type="video/mp4">
           </video>
         </aside>
-        <div class="why-copy">
-          <p class="muted">OpenAI en Anthropic zullen hun investeringen terug willen verdienen met het aanbieden van autonome systemen waar je afhankelijk van wordt. Hebben zulke systemen zich eenmaal genesteld in je bedrijf, dan kom je er niet eenvoudig meer vanaf.</p>
-          <p class="muted">Open-source systemen zijn transparant, breed getest door veel gebruikers en hebben deze vendor lock-in niet. Daardoor houd jij grip op je eigen workflows en de systeemintelligentie van je bedrijf.</p>
-        </div>
       </div>
     </section>
 
