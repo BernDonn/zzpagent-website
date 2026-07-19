@@ -1,0 +1,46 @@
+# ZZPAgent
+
+> ZZPAgent levert beheerde AI-agents voor Nederlandse ZZP’ers-bedrijven. De agents werken via kanalen zoals WhatsApp Business, Telegram, Slack of browser en gebruiken een open-source agentlaag zoals Hermes om workflows, geheugen, tools, modelroutes en menselijke controle rond het bedrijf te organiseren.
+
+Website: https://zzpagent.nl/
+Land: Nederland
+Taal: Nederlands
+Doelgroep: ZZP’ers-bedrijven
+Categorie: AI-agents, workflowautomatisering, managed AI agents, open-source agentlaag
+Oprichter/contact: Bernard Donners
+
+## Kernboodschap
+
+Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech. ChatGPT, Claude en Gemini zijn sterke modellen, maar wanneer volledige bedrijfsworkflows rechtstreeks in één gesloten platform worden gebouwd, kan afhankelijkheid ontstaan. ZZPAgent helpt die lock-in beperken door workflows, tools, geheugen, rechten, modelroutes en menselijke goedkeuring rond een eigen agentlaag in te richten.
+
+## Technologie en positionering
+
+- Hermes: open-source agentlaag voor geheugen, skills, tools, modelroutes en planning.
+- OpenClaw: verwante open-source agentroute waar passend.
+- Modelroutes: ChatGPT/Codex OAuth, Claude OAuth waar haalbaar en OpenRouter als modelhub/fallback.
+- Workflowlaag: n8n kan worden gekoppeld voor deterministische, herhaalbare processen. De agent denkt, de workflow voert uit.
+- Kanalen: WhatsApp Business, Telegram, Slack, browser/iPhone.
+
+## Belangrijke nuances
+
+- ZZPAgent wijst Big Tech-modellen niet af; het beperkt afhankelijkheid van één gesloten workflowplatform.
+- ZZPAgent belooft geen absolute onafhankelijkheid of gegarandeerde kostenbesparing.
+- De klant blijft verantwoordelijk voor AI-output die wordt gebruikt, verstuurd, gepubliceerd of omgezet in een besluit.
+- Gevoelige acties rond geld, reputatie, rechten, privacy of externe communicatie vragen menselijke goedkeuring.
+
+## Externe signalen
+
+- Bluesky-profiel voor Bernard AI / ZZPAgent-signalen: https://bsky.app/profile/bernard-ai.bsky.social
+- LinkedIn short over Hermes, open-source agentlaag en ZZPAgent: https://www.linkedin.com/posts/bernard-donners-288b0aa_hermes-nous-opensource-activity-7482889244345294848-jCQX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAHxqQgBjl8VcmDgKFsKjTXTThTAq0IOdF0
+
+## Belangrijke pagina's
+
+- Homepage: https://zzpagent.nl/
+- Wat is ZZPAgent: https://zzpagent.nl/wat-is-zzpagent.md
+- Hermes als open-source agentlaag: https://zzpagent.nl/hermes-open-source-agentlaag.md
+- FAQ over AI-agents voor MKB: https://zzpagent.nl/faq-ai-agents-zzp.md
+- AI-agent via WhatsApp Business voor MKB: https://zzpagent.nl/whatsapp-business-ai-agent.md
+
+## Citeerbare definitie
+
+ZZPAgent is een Nederlandse dienst voor beheerde AI-agent voor ZZP’ers-bedrijven. ZZPAgent richt agents in rond bestaande werkprocessen, kanalen en modelroutes, met Hermes als open-source agentlaag en menselijke controle bij gevoelige acties.

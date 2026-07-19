@@ -1,0 +1,1408 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZZPAgent, AI-agent voor ZZP’ers die snel willen automatiseren</title>
+  <meta name="description" content="ZZPAgent levert beheerde AI-agent voor ZZP’ers die snel willen automatiseren: veilig, controleerbaar en AVG-bewust." />
+  <link rel="canonical" href="https://zzpagent.nl/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ZZPAgent, AI-agents voor ZZP’ers" />
+  <meta property="og:description" content="Beheerde AI-agents voor ZZP, met Hermes, WhatsApp, Telegram, modelkeuze, menselijke controle en minder workflow-lock-in." />
+  <meta property="og:url" content="https://zzpagent.nl/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://zzpagent.nl/#organization",
+        "name": "ZZPAgent",
+        "url": "https://zzpagent.nl/",
+        "description": "ZZPAgent levert beheerde AI-agents voor Nederlandse zelfstandigen en kleine ondernemers, met open-source agentlagen zoals Hermes, modelkeuze, menselijke controle en workflowautomatisering.",
+        "founder": {"@type": "Person", "name": "Bernard Donners"},
+        "areaServed": {"@type": "Country", "name": "Nederland"},
+        "knowsAbout": ["AI-agents", "Hermes", "OpenClaw", "workflowautomatisering", "n8n", "WhatsApp Business", "Telegram bots", "modelkeuze", "vendor lock-in", "menselijke controle"]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://zzpagent.nl/#service",
+        "name": "ZZPAgent",
+        "url": "https://zzpagent.nl/",
+        "image": "https://zzpagent.nl/assets/mkbagents-open-source-devices.jpg",
+        "description": "Implementatie, configuratie en beheer van AI-agents voor ZZP rond bestaande workflows, kanalen en modelroutes.",
+        "provider": {"@id": "https://zzpagent.nl/#organization"},
+        "areaServed": "NL",
+        "serviceType": "Managed AI agents and workflow automation"
+      }
+    ]
+  }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+    :root{
+      --bg:#f6f2ea;
+      --paper:#fffaf1;
+      --ink:#101512;
+      --muted:#5e665f;
+      --line:#ded5c4;
+      --green:#163f2b;
+      --green2:#23563c;
+      --lime:#d7f268;
+      --sand:#eadcc5;
+      --blue:#1b3f55;
+      --shadow: 0 22px 70px rgba(16,21,18,.12);
+      --radius: 28px;
+      --max: 1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 8% 2%, rgba(215,242,104,.38), transparent 26rem),
+        radial-gradient(circle at 90% 10%, rgba(35,86,60,.18), transparent 28rem),
+        linear-gradient(180deg, #fbf7ef 0%, var(--bg) 52%, #efe6d7 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    .nav{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter: blur(18px);
+      background:rgba(246,242,234,.78);
+      border-bottom:1px solid rgba(222,213,196,.7);
+    }
+    .nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:18px 24px;gap:20px}
+    .nav-left{display:flex;align-items:center;gap:14px;min-width:0;flex-shrink:0}
+    .brand{font-weight:800;letter-spacing:-.04em;font-size:22px;display:flex;align-items:center;gap:10px;white-space:nowrap;flex-shrink:0}
+    .brand-dot{width:12px;height:12px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 6px rgba(215,242,104,.23)}
+    .nav-links{display:flex;gap:14px;align-items:center;font-size:13px;color:#303832;margin-left:auto}
+    .nav .button{padding:11px 14px}
+    .language-toggle{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:rgba(255,250,241,.9);border-radius:999px;padding:5px;color:var(--green);font-size:12px;font-weight:850;box-shadow:0 8px 22px rgba(22,63,43,.08);white-space:nowrap}
+    .language-toggle button{border:0;background:transparent;color:var(--green);border-radius:999px;padding:7px 9px;font:inherit;cursor:pointer;opacity:.55}
+    .language-toggle button.active{background:var(--green);color:#fff;opacity:1}
+    .button{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 18px;font-weight:700;border:1px solid var(--green);background:var(--green);color:#fff;box-shadow:0 10px 26px rgba(22,63,43,.16)}
+    .button.secondary{background:transparent;color:var(--green);box-shadow:none}
+    .button.light{background:var(--lime);color:#17240f;border-color:var(--lime)}
+    .section{max-width:var(--max);margin:0 auto;padding:86px 24px}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start;min-height:auto;padding-top:74px;padding-bottom:40px}
+    .eyebrow{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--line);background:rgba(255,250,241,.72);padding:8px 12px;border-radius:999px;color:var(--green);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em}
+    h1,h2,h3,p{margin:0}
+    h1{font-size:clamp(50px, 6.6vw, 86px);font-weight:800;line-height:.98;letter-spacing:-.04em;margin:24px 0 24px;max-width:900px}
+    h2{font-size:clamp(36px, 4.7vw, 58px);font-weight:700;line-height:1.04;letter-spacing:-.03em;margin:14px 0 18px}
+    h3{font-size:24px;font-weight:700;letter-spacing:-.025em;margin-bottom:12px}
+    .lead{font-size:clamp(18px,1.8vw,22px);line-height:1.55;letter-spacing:-.005em;color:#323b34;max-width:760px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 24px}
+    .trust-row{display:flex;gap:10px;flex-wrap:wrap;color:#2b362e;font-size:14px}
+    .pill{border:1px solid var(--line);background:rgba(255,250,241,.82);padding:9px 12px;border-radius:999px;font-weight:650}
+    .agent-card{background:#122b20;color:#f7f2e7;border-radius:38px;padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+    .phone-frame{width:168px;margin:14px auto 0 auto;background:#1a1a1a;border-radius:20px;padding:8px 3px 6px 3px;border:2px solid #333;position:relative;max-height:340px}
+    .phone-notch{width:42px;height:4px;background:#333;margin:0 auto 6px auto;border-radius:8px}
+    .phone-screen{background:linear-gradient(135deg,#0e1621 0%,#1a2a3a 50%,#0e1621 100%);border-radius:10px;overflow:hidden;min-height:180px;position:relative}
+    .tg-header{background:#2a6ea8;padding:7px 10px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .tg-back{color:#fff;font-size:13px;line-height:1}
+    .tg-contact{display:flex;flex-direction:column}
+    .tg-chat{padding:8px 8px;display:flex;flex-direction:column;gap:7px;min-height:110px}
+    .tg-msg{max-width:88%;padding:6px 8px;border-radius:10px;font-size:10px;line-height:1.35;position:relative}
+    .tg-msg-agent{background:#2b5278;color:#fff;align-self:flex-start;border-bottom-left-radius:3px}
+    .tg-msg-user{background:#1ea356;color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
+    .tg-msg-time{font-size:8px;margin-top:3px;opacity:.65;text-align:right}
+    .tg-input-bar{background:#17212b;padding:6px 10px;margin:0 3px 3px 3px;border-radius:12px;display:flex;align-items:center}
+    .phone-home{width:26px;height:3px;background:#444;margin:6px auto 0 auto;border-radius:3px}
+    .hero-phone{width:min(188px,52vw);height:390px;margin:14px auto 0;position:relative;overflow:visible;border-radius:34px;background:linear-gradient(90deg,#050607 0%,#2b2d2d 3%,#080909 7%,#0f1112 50%,#353636 93%,#050606 100%);box-shadow:inset 0 0 0 2px rgba(255,255,255,.50),inset 0 0 0 6px rgba(0,0,0,.88),0 24px 46px rgba(0,0,0,.26)}
+    .hero-phone:before{content:"";position:absolute;left:50%;top:11px;transform:translateX(-50%);width:72px;height:20px;border-radius:999px;background:#050607;z-index:5;box-shadow:inset 18px 0 28px rgba(255,255,255,.04),0 1px 3px rgba(255,255,255,.12)}
+    .hero-phone:after{content:"";position:absolute;inset:10px;border-radius:28px;background:linear-gradient(118deg,rgba(255,255,255,.16),transparent 22% 58%,rgba(255,255,255,.07) 62%,transparent 76%),linear-gradient(180deg,#050607,#111516 72%,#050607);pointer-events:none;z-index:0}
+    .hero-phone-screen{position:absolute;left:7.2%;top:7.3%;width:85.6%;height:85.5%;border-radius:25px;overflow:hidden;background:linear-gradient(145deg,rgba(7,12,17,.98),rgba(16,24,33,.96));box-shadow:inset 0 0 18px rgba(255,255,255,.08);z-index:2}
+    .hero-phone-screen:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 26% 18%,rgba(65,185,213,.18),transparent 24%),linear-gradient(112deg,transparent 0 52%,rgba(255,255,255,.07) 53%,transparent 72%);z-index:0;pointer-events:none}
+    .hero-phone-screen .tg-header{position:relative;z-index:2;background:rgba(29,95,146,.92);padding:8px 10px 7px;margin-top:15px}
+    .hero-phone-screen .agent-motion{position:absolute;z-index:1;inset:52px 10px 42px;min-height:0;padding:9px 8px 7px;background:transparent}
+    .hero-phone-screen .signal-chip{font-size:7.5px;padding:4px 6px}
+    .hero-phone-screen .sort-line{height:18px}
+    .hero-phone-screen .briefing-card strong{font-size:8.6px}
+    .hero-phone-screen .briefing-card p{font-size:7.4px;line-height:1.22}
+    .hero-phone-screen .tg-input-bar{position:absolute;left:8px;right:8px;bottom:10px;z-index:3;margin:0;background:rgba(23,33,43,.94);padding:6px 10px;border-radius:13px}
+    .agent-motion{position:relative;min-height:172px;padding:10px 8px 8px;overflow:hidden;background:radial-gradient(circle at 18% 14%,rgba(40,166,205,.24),transparent 22%),linear-gradient(135deg,#0e1621 0%,#19283a 56%,#0d1723 100%)}
+    .agent-motion:before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(105,213,238,.35) 1px,transparent 1.6px);background-size:16px 16px;opacity:.28;animation:signalPulse 4.8s ease-in-out infinite}
+    .agent-motion:after{content:"";position:absolute;left:-45%;top:22%;width:58%;height:2px;background:linear-gradient(90deg,transparent,rgba(215,242,104,.8),transparent);filter:blur(.2px);animation:scanLine 5.8s ease-in-out infinite}
+    .motion-stage{position:relative;z-index:1;display:grid;gap:7px}
+    .motion-status{display:flex;align-items:center;justify-content:space-between;gap:6px;color:#b9c8d3;font-size:8px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    .motion-dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(215,242,104,.14),0 0 16px rgba(215,242,104,.7);animation:dotBreath 1.8s ease-in-out infinite}
+    .signal-stack{display:grid;gap:5px;margin-top:3px}
+    .signal-chip{display:flex;align-items:center;justify-content:space-between;gap:6px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.08);border-radius:12px;padding:6px 7px;color:#eaf3ee;font-size:8.5px;line-height:1.15;opacity:0;transform:translateX(-12px) scale(.98);animation:signalIn 5.8s ease-in-out infinite}
+    .signal-chip:nth-child(2){animation-delay:.22s}.signal-chip:nth-child(3){animation-delay:.44s}.signal-chip:nth-child(4){animation-delay:.66s}
+    .signal-chip span:first-child{font-weight:850}.signal-chip small{color:var(--lime);font-size:7px;font-weight:850;text-transform:uppercase;letter-spacing:.06em}
+    .sort-line{height:28px;position:relative;margin:1px 2px 0}.sort-line i{position:absolute;width:6px;height:6px;border-radius:50%;background:#5cc8df;box-shadow:0 0 12px rgba(92,200,223,.75);opacity:0;animation:routeDot 5.8s ease-in-out infinite}.sort-line i:nth-child(1){left:8%;top:7px}.sort-line i:nth-child(2){left:25%;top:16px;animation-delay:.12s}.sort-line i:nth-child(3){left:42%;top:4px;animation-delay:.24s}.sort-line i:nth-child(4){left:61%;top:15px;animation-delay:.36s}.sort-line i:nth-child(5){left:78%;top:8px;background:var(--lime);animation-delay:.48s}
+    .briefing-card{border:1px solid rgba(132,171,197,.34);background:linear-gradient(180deg,rgba(20,33,45,.96),rgba(13,24,36,.96));color:#edf5fa;border-radius:14px;padding:8px 9px;box-shadow:0 12px 24px rgba(0,0,0,.18);opacity:0;transform:translateY(12px) scale(.97);animation:briefingReveal 5.8s ease-in-out infinite}
+    .briefing-card strong{display:flex;align-items:center;gap:5px;font-size:9.5px;letter-spacing:-.01em}.briefing-card strong:before{content:"✓";display:grid;place-items:center;width:13px;height:13px;border-radius:50%;background:#204b69;color:#d7f268;font-size:9px}.briefing-card p{margin:5px 0 0;font-size:8.6px;line-height:1.28;color:#c7d8e3}
+    .typing-dots{display:flex;gap:3px;align-items:center;margin-top:4px}.typing-dots b{width:4px;height:4px;border-radius:50%;background:#9ab0a2;animation:typeDot 1.2s ease-in-out infinite}.typing-dots b:nth-child(2){animation-delay:.18s}.typing-dots b:nth-child(3){animation-delay:.36s}
+    @keyframes signalPulse{0%,100%{opacity:.18;transform:translateY(0)}45%{opacity:.42;transform:translateY(-4px)}}
+    @keyframes scanLine{0%,18%{transform:translateX(0);opacity:0}34%,50%{opacity:1}70%,100%{transform:translateX(250%);opacity:0}}
+    @keyframes dotBreath{0%,100%{transform:scale(.88);opacity:.75}50%{transform:scale(1.15);opacity:1}}
+    @keyframes signalIn{0%,8%{opacity:0;transform:translateX(-12px) scale(.98)}16%,44%{opacity:1;transform:translateX(0) scale(1)}60%,100%{opacity:.18;transform:translateX(10px) scale(.96)}}
+    @keyframes routeDot{0%,35%{opacity:0;transform:translateX(0) scale(.8)}47%,62%{opacity:1;transform:translateX(18px) scale(1)}78%,100%{opacity:0;transform:translateX(38px) scale(.7)}}
+    @keyframes briefingReveal{0%,50%{opacity:0;transform:translateY(12px) scale(.97)}62%,92%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-4px) scale(.99)}}
+    @keyframes typeDot{0%,100%{opacity:.35;transform:translateY(0)}50%{opacity:1;transform:translateY(-2px)}}
+    @media (prefers-reduced-motion: reduce){.agent-motion:before,.agent-motion:after,.motion-dot,.signal-chip,.sort-line i,.briefing-card,.typing-dots b{animation:none!important}.signal-chip,.briefing-card{opacity:1;transform:none}.sort-line i{opacity:.65}}
+    .hero .agent-card{margin-top:76px;max-height:480px}
+    .agent-card:before{content:none}
+    .card-top{display:flex;justify-content:center;align-items:center;text-align:center;position:relative;z-index:1}
+    .status{color:#bde9c5;font-size:13px}
+    .metric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:12px;border-radius:18px;color:#fff}
+    .chat{margin-top:22px;display:grid;gap:12px;position:relative;z-index:1}
+    .bubble{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:15px;line-height:1.35;color:#f4efe4}
+    .bubble.agent{background:var(--paper);color:#172019}
+    .mini{font-size:13px;color:#c7d5cc;margin-bottom:6px}
+    .logos{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;color:#646b65;text-transform:uppercase;letter-spacing:.08em;font-size:13px;font-weight:760}
+    .sector-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;color:#202720;text-transform:none;letter-spacing:0;font-size:16px;font-weight:650}
+    .two-col{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+    .statement{font-size:clamp(28px,4vw,50px);line-height:1.08;letter-spacing:-.04em;font-weight:800}
+    .muted{color:var(--muted);line-height:1.65;font-size:17px;letter-spacing:-.003em}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+    .tile{background:rgba(255,250,241,.78);border:1px solid var(--line);border-radius:var(--radius);padding:24px;min-height:220px;box-shadow:0 12px 35px rgba(20,35,24,.05)}
+    .tile .nr{color:var(--green);font-weight:850;font-size:13px;letter-spacing:.12em;margin-bottom:42px;display:block}
+    .tile.dark{background:var(--green);color:#fff;border-color:var(--green)}
+    .tile.dark .muted{color:#dfe8db}
+    .usecases{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:32px}
+    .case{background:#fffaf1;border:1px solid var(--line);border-radius:26px;padding:0;overflow:hidden;box-shadow:0 12px 35px rgba(20,35,24,.05)}
+    .case summary,.integration-card summary{list-style:none;cursor:pointer}
+    .case summary::-webkit-details-marker,.integration-card summary::-webkit-details-marker{display:none}
+    .case-summary,.integration-summary{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:20px 22px}
+    .case-summary small,.integration-summary .tag{font-weight:850;letter-spacing:.1em;color:var(--green);text-transform:uppercase}
+    .case-summary h3,.integration-summary h3{margin:6px 0 0;font-size:22px;line-height:1.12}
+    .expand-label{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(22,63,43,.14);background:#f0e6d6;border-radius:999px;padding:8px 11px;color:var(--green);font-size:13px;font-weight:850;white-space:nowrap}
+    .expand-label:after{content:"+";display:grid;place-items:center;width:20px;height:20px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+    details[open] > summary .expand-label:after{content:"−"}
+    .case-body,.integration-body{display:grid;gap:16px;padding:0 22px 22px;border-top:1px solid rgba(222,213,196,.72)}
+    .case-body{padding-top:18px}
+    .example{background:#f0e6d6;border-radius:18px;padding:13px;color:#304034;font-size:14px}
+    .integration-wrap{background:linear-gradient(180deg,rgba(255,250,241,.86),rgba(240,230,214,.74));border:1px solid var(--line);border-radius:38px;padding:34px;box-shadow:0 16px 42px rgba(20,35,24,.06)}
+    .integration-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+    .integration-card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:0;overflow:hidden;box-shadow:0 12px 30px rgba(20,35,24,.045)}
+    .integration-card .muted{font-size:16px}
+    .integration-apps{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+    .app-chip{display:inline-flex;border:1px solid rgba(22,63,43,.14);background:#f0e6d6;border-radius:999px;padding:7px 10px;color:var(--green);font-size:13px;font-weight:800}
+    .integration-note{margin-top:22px;background:#10291f;color:#fff;border-radius:24px;padding:22px;line-height:1.55}
+    .integration-note .muted{color:#dce7dc}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .product{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:28px;display:flex;flex-direction:column;gap:18px;min-height:390px}
+    .product.featured{background:#10291f;color:white;transform:none}
+    .product.featured .muted{color:#d6e5d9}.product.featured .tag{background:rgba(215,242,104,.15);color:var(--lime);border-color:rgba(215,242,104,.3)}
+    .tag{align-self:flex-start;border:1px solid var(--line);border-radius:999px;padding:8px 10px;font-weight:800;font-size:12px;color:var(--green);text-transform:uppercase;letter-spacing:.08em}
+    ul{padding-left:19px;margin:0;line-height:1.75;color:inherit}.price{font-size:34px;font-weight:800;letter-spacing:-.04em;margin-top:auto}.price.package-price-inline{margin-top:0}.price.package-price-offset{margin-top:84px}.price span{font-size:14px;color:inherit;font-weight:600;opacity:.75}.price span.macmini-price-note{font-size:1em;font-weight:800;opacity:1;letter-spacing:-.04em}
+    .deploy-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+    .deploy-panel{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:0 12px 35px rgba(20,35,24,.05)}
+    .deploy-steps{counter-reset:step;display:grid;gap:14px;margin-top:18px}
+    .deploy-step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start;background:#f0e6d6;border-radius:20px;padding:14px}
+    .deploy-step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;font-weight:850}
+    .channel-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.channel{border:1px solid var(--line);background:#fff;border-radius:16px;padding:12px 14px;font-weight:800;color:var(--green)}
+    .provider-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .provider-card{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:26px;display:flex;flex-direction:column;gap:16px;min-height:310px}
+    .provider-card strong{font-size:21px;letter-spacing:-.035em}.provider-card code{background:#f0e6d6;border-radius:10px;padding:3px 7px;font-size:13px}
+    details.provider-card{min-height:auto}
+    .provider-summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:16px}
+    .provider-summary::-webkit-details-marker{display:none}
+    .provider-summary::marker{display:none}
+    .provider-toggle{display:inline-flex;align-items:center;gap:8px;margin-top:auto;font-weight:800;color:var(--green)}
+    .provider-toggle:after{content:"+";display:inline-grid;place-items:center;width:24px;height:24px;border-radius:999px;background:#f0e6d6;border:1px solid var(--line)}
+    details[open] .provider-toggle:after{content:"−"}
+    .provider-summary-list{display:grid;gap:8px;padding-left:19px;margin:0;color:var(--muted)}
+    .provider-summary-list li{line-height:1.6}
+    .provider-detail{display:grid;gap:20px;padding-top:8px}
+    .provider-detail .provider-grid{margin-top:0}
+    .provider-detail .provider-card{min-height:0}
+    .macmini-inline .provider-grid{grid-template-columns:1fr;gap:12px}
+    .macmini-inline .provider-card{padding:18px;border-radius:22px}
+    .price-mini-table{display:grid;gap:10px;margin-top:4px}
+    .price-mini-row{display:grid;grid-template-columns:1.15fr .9fr;gap:12px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .price-mini-row strong{font-size:15px;letter-spacing:-.01em}
+    .price-mini-row span{display:block;color:var(--muted);font-size:14px;line-height:1.45}
+    .price-mini-cost{font-weight:850;color:var(--green);text-align:right}
+    .flow-note{margin-top:22px;background:#f0e6d6;border:1px solid var(--line);border-radius:24px;padding:20px;color:#304034;line-height:1.55}
+    .legal-grid{display:grid;grid-template-columns:1.15fr 1.05fr .8fr;gap:18px;margin-top:32px;align-items:start}
+    .legal-card{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:26px;display:grid;gap:14px}
+    .legal-card h3{margin-bottom:0}.legal-card p,.legal-card li{color:var(--muted);line-height:1.62;font-size:16px}.legal-card ul{padding-left:20px}
+    #voorwaarden{grid-column:1;grid-row:1 / span 2}
+    .acceptance-box{grid-column:2;grid-row:1 / span 2;background:#10291f;color:#fff;border-radius:26px;padding:24px;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
+    #privacy{grid-column:3;grid-row:1}
+    .legal-card.agents-usage{grid-column:3;grid-row:2}
+    .legal-card.compact{padding:20px;gap:12px}
+    .legal-card.compact h3{font-size:20px}
+    .legal-card.compact p,.legal-card.compact li{font-size:15px;line-height:1.55}
+    .acceptance-box .tag{margin-bottom:10px}
+    .acceptance-box h3{color:#fff;margin-bottom:10px}
+    .acceptance-box p,.acceptance-box li{color:#dce7dc}.checkline{display:flex;gap:12px;align-items:flex-start;margin-top:14px;font-weight:700;color:#fff}.checkline:before{content:"✓";display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--lime);color:#10291f;flex:0 0 26px;font-weight:900}
+    .trust-stack{background:linear-gradient(180deg,#163f2b 0%, #10291f 100%);color:#eef2e8;border-radius:38px;padding:38px 36px;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);margin-top:48px}
+    .trust-stack .eyebrow{background:transparent;border:0;padding:0;color:var(--lime);letter-spacing:.14em}
+    .trust-stack h2{color:#fffaf1;font-size:clamp(30px,3.8vw,46px);font-weight:700;line-height:1.05;letter-spacing:-.03em;max-width:520px;margin:10px 0 14px}
+    .trust-stack .lead{color:#dce7dc;max-width:520px;margin-top:0;font-size:17px;line-height:1.55;letter-spacing:-.003em}
+    .trust-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:24px;margin-top:24px;align-items:start}
+    .trust-list{display:grid;gap:14px}
+    .trust-item{display:grid;grid-template-columns:56px 1fr 34px;gap:14px;align-items:start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:16px 18px;color:#e4ede3}
+    .trust-item.active{border-color:rgba(215,242,104,.42);box-shadow:0 0 0 1px rgba(215,242,104,.22) inset;background:rgba(215,242,104,.06)}
+    .trust-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(215,242,104,.14);color:var(--lime);font-size:22px;line-height:1}
+    .trust-icon.muted{background:rgba(255,255,255,.08);color:#dce7dc}
+    .trust-copy h3{margin:0 0 4px;color:#fffaf1;font-size:18px}
+    .trust-copy p{margin:0;color:#d0dbd0;line-height:1.45;font-size:14px}
+    .trust-no{font-weight:800;color:#c4d1c3;font-size:14px;align-self:start;margin-top:2px}
+    .trust-visual{position:relative;overflow:hidden;background:linear-gradient(180deg, rgba(19,46,33,.96), rgba(13,31,22,.98));border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:24px}
+    .trust-visual.align-lower{margin-top:72px}
+    .trust-visual:after{content:"";position:absolute;right:-90px;top:-70px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle, rgba(215,242,104,.14) 0%, rgba(215,242,104,0) 68%)}
+    .trust-visual > *{position:relative;z-index:1}
+    .diagram-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+    .diagram-title h3{margin:0;color:#fffaf1;font-size:22px}
+    .diagram-title span{color:#d7e2d7;font-size:13px}
+    .diagram-frame{background:rgba(6,18,12,.36);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:14px}
+    .diagram-frame svg{display:block;width:100%;height:auto}
+    .device-showcase{margin-top:-54px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:rgba(3,12,8,.34);box-shadow:0 24px 60px rgba(0,0,0,.28)}
+    .device-showcase img{display:block;width:100%;height:auto}
+    .diagram-legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .diagram-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);border-radius:999px;padding:7px 10px;color:#e5eee5;font-size:12px;font-weight:700}
+    .diagram-dot{width:9px;height:9px;border-radius:50%}
+    .diagram-dot.lime{background:var(--lime)}
+    .diagram-dot.green{background:#78c28c}
+    .diagram-dot.sand{background:#e7cfa0}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+    .compare-card{background:rgba(255,250,241,.82);border:1px solid var(--line);border-radius:28px;padding:26px;box-shadow:0 12px 35px rgba(20,35,24,.05);display:grid;gap:14px}
+    .compare-card h3{margin:0;font-size:30px}
+    .compare-card .muted{font-size:16px}
+    .compare-card.proprietary{background:rgba(255,248,242,.82)}
+    .compare-card.opensource{background:linear-gradient(180deg, rgba(22,63,43,.96), rgba(16,41,31,.98));color:#fff;border-color:rgba(255,255,255,.08)}
+    .compare-card.opensource .muted,.compare-card.opensource li{color:#dce7dc}
+    .compare-card.opensource .tag{background:rgba(215,242,104,.16);color:var(--lime);border-color:rgba(215,242,104,.3)}
+    .compare-note{margin-top:18px;background:#f0e6d6;border:1px solid var(--line);border-radius:24px;padding:18px 20px;color:#304034;line-height:1.6}
+    .compare-aside{margin-top:16px;max-width:860px;padding:14px 16px;border:1px solid rgba(20,63,43,.12);border-radius:18px;background:rgba(255,250,241,.72);color:#546259;font-size:13px;line-height:1.55;box-shadow:0 8px 24px rgba(20,35,24,.04)}
+    .why-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:28px;align-items:start}
+    .why-grid .compare-aside{max-width:none}
+    .why-video-card{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:16px;box-shadow:0 12px 35px rgba(20,35,24,.06);align-self:start;margin-top:52px}
+    .why-video-card .tag{margin-bottom:12px}
+    .evolution-preview{display:block;margin:0 0 14px 0;text-decoration:none;color:inherit}
+    .evolution-preview img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(20,35,24,.06)}
+    .evolution-preview .caption{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:8px 1px 0;color:#546259;font-size:12px;font-weight:750;line-height:1.35}
+    .evolution-preview .caption span:last-child{color:var(--green);white-space:nowrap}
+    .why-video-card video{display:block;width:100%;max-height:300px;object-fit:cover;border-radius:18px;border:1px solid var(--line);background:#10291f;box-shadow:0 10px 24px rgba(20,35,24,.06)}
+    .proof{background:#13291f;color:#fff;border-radius:42px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+    .proof h2{color:#fff}.proof .muted{color:#dce7dc}.quote{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:22px;border-radius:26px;font-size:22px;line-height:1.35;letter-spacing:-.03em}
+    .footer-cta{background:linear-gradient(135deg, #143f2b, #0c1d16);color:#fff;border-radius:48px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;overflow:hidden;position:relative}
+    .footer-cta:after{content:"ZZPAgent";position:absolute;right:-18px;bottom:-22px;font-size:92px;font-weight:900;letter-spacing:-.09em;color:rgba(255,255,255,.05)}
+    .footer-cta > *{position:relative;z-index:2}
+    .footer-cta .muted{color:#d9e3dc}
+    .footer-cta-actions{display:grid;gap:14px;justify-items:start;z-index:2}
+    .footer-cta-actions .button{width:100%;justify-content:center;min-height:54px;padding-inline:26px;border-width:1.5px;box-shadow:0 10px 26px rgba(0,0,0,.16)}
+    .footer-cta-actions .button.light{background:#d7f268;color:#14211a;border-color:#d7f268}
+    .footer-cta-actions .button.secondary{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.55)}
+    .footer-cta-actions .button.secondary:hover{background:rgba(255,255,255,.22)}
+    .order-layout{display:grid;grid-template-columns:.42fr .58fr;gap:26px;margin-top:32px;align-items:start}
+    .order-steps{display:grid;gap:14px}
+    .order-step{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;color:#223127}
+    .order-step .badge{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:rgba(255,250,241,.88);font-weight:850;color:var(--green)}
+    .order-step strong{display:block;font-size:26px;letter-spacing:-.03em;margin-bottom:4px}
+    .order-price{margin-top:16px;background:#10291f;color:#fff;border-radius:30px;padding:28px;box-shadow:var(--shadow)}
+    .order-price .muted{color:#d9e3dc}
+    .order-card{background:rgba(255,250,241,.95);border:1px solid var(--line);border-radius:34px;padding:36px;box-shadow:0 14px 40px rgba(20,35,24,.06)}
+    .order-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:grid;gap:8px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:15px;font-weight:800;color:#243228}
+    .label-help{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .label-help details{display:inline-block}
+    .label-help summary{list-style:none;width:20px;height:20px;border-radius:999px;display:inline-grid;place-items:center;background:#d7f268;color:#17240f;border:1px solid rgba(22,63,43,.18);font-size:13px;font-weight:900;cursor:pointer}
+    .label-help summary::-webkit-details-marker{display:none}
+    .label-help details[open] summary{background:#17240f;color:#d7f268}
+    .help-pop{margin-top:8px;background:#17240f;color:#f7f2e7;border-radius:16px;padding:12px 14px;line-height:1.45;font-size:13px;font-weight:550;max-width:560px;box-shadow:0 12px 26px rgba(16,21,18,.18)}
+    .setup-note{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;color:#304034;line-height:1.55}
+    .field input{width:100%;border:1px solid var(--line);border-radius:18px;padding:16px 18px;background:#fff;font:inherit;color:var(--ink)}
+    .field input:focus{outline:2px solid rgba(35,86,60,.18);border-color:var(--green2)}
+    .agent-choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .agent-option{border:2px solid var(--line);background:#fff;border-radius:24px;padding:18px;display:grid;gap:8px;cursor:pointer;text-align:left;font:inherit;color:var(--ink)}
+    .agent-option strong{font-size:18px;letter-spacing:-.025em}
+    .agent-option.active{border-color:#1db9d5;background:#eef9fc;box-shadow:0 8px 24px rgba(29,185,213,.12)}
+    .segment-switch{display:inline-flex;gap:6px;padding:6px;border:1px solid var(--line);background:#f3ebdd;border-radius:999px;flex-wrap:wrap}
+    .segment-switch button{border:0;background:transparent;padding:11px 16px;border-radius:999px;font:inherit;font-weight:800;color:#607067;cursor:pointer}
+    .segment-switch button.active{background:#fff;color:var(--ink);box-shadow:0 4px 12px rgba(16,21,18,.08)}
+    .segment-switch button.disabled{color:#8ea19a;cursor:not-allowed}
+    .check{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:15px;line-height:1.55}
+    .check input{margin-top:4px}
+    .notice{margin-top:18px;background:#f0e6d6;border:1px solid var(--line);border-radius:22px;padding:18px;color:#304034;line-height:1.6}
+    .notice strong{display:block;margin-bottom:8px;color:#17240f}
+    footer{padding:34px 24px;color:#626961;border-top:1px solid var(--line)}
+    .foot-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    @media(max-width:1100px){.nav-links{display:none}}
+    @media(max-width:900px){
+      .section{padding:64px 20px}
+      .hero,.two-col,.proof,.footer-cta,.trust-layout,.compare-grid,.why-grid{grid-template-columns:1fr}
+      .why-video-card{margin-top:18px}
+      .why-video-card video{max-height:none}
+      .products,.grid,.usecases,.deploy-grid,.provider-grid,.legal-grid,.integration-grid{grid-template-columns:1fr}
+      .hero{min-height:auto;padding-top:48px}
+      h1{font-size:clamp(38px, 12vw, 54px);margin:18px 0}
+      h2{font-size:clamp(30px, 9vw, 40px)}
+      .lead,.muted{font-size:16px}
+      .hero-actions,.footer-cta .button{width:100%}
+      .hero-actions .button,.footer-cta .button{justify-content:center}
+      .agent-card,.trust-stack,.proof,.footer-cta,.compare-card,.deploy-panel,.provider-card,.product,.tile,.case,.legal-card,.acceptance-box,.integration-wrap,.integration-card{padding:22px;border-radius:28px}
+      .hero .agent-card{margin-top:0}
+      .trust-stack{margin-top:32px}
+      .trust-item{grid-template-columns:42px 1fr 24px;padding:14px}
+      .trust-icon{width:36px;height:36px;font-size:18px}
+      .trust-copy h3{font-size:17px}
+      .diagram-title{flex-direction:column;align-items:flex-start}
+      .trust-visual.align-lower{margin-top:0}
+      .proof,.footer-cta,.order-layout{grid-template-columns:1fr}
+      .provider-grid,.compare-grid,.products,.grid,.legal-grid{grid-template-columns:1fr}
+      .order-grid,.agent-choice-grid{grid-template-columns:1fr}
+      .compare-card h3{font-size:24px}
+      .quote{font-size:18px}
+      .footer-cta:after{display:none}
+      .footer-cta-actions{justify-items:stretch}
+      .product.featured{transform:none}
+      .order-card{padding:26px}
+      #voorwaarden,.acceptance-box,#privacy,.legal-card.agents-usage{grid-column:auto;grid-row:auto}
+    }
+    @media(max-width:560px){
+      .case-summary,.integration-summary{grid-template-columns:1fr;gap:12px;padding:18px}
+      .expand-label{justify-content:space-between;width:100%}
+      .case-body,.integration-body{padding:16px 18px 18px}
+      .integration-wrap{padding:22px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a class="brand" href="#"><span class="brand-dot"></span>ZZPAgent<span style="color:var(--green)">.</span></a>
+        <div class="language-toggle" aria-label="Language selector">
+          <button type="button" class="active" data-lang-button="nl">NL</button>
+          <button type="button" data-lang-button="en">EN</button>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#oplossingen">Oplossingen</a>
+        <a href="#koppelingen">Koppelingen</a>
+        <a href="#providers">Modelkeuze</a>
+        <a class="button secondary" href="https://www.bernarddonners-ai.nl">Bernard Donners</a>
+        <a class="button secondary" href="#contact">Vraag advies</a>
+        <a class="button" href="#contact">Plan pilot</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section hero">
+      <div>
+        <div class="eyebrow">OpenSource Hermes-agent voor ZZP</div>
+        <h1 style="font-size:clamp(46px,6vw,74px);font-weight:700;letter-spacing:-.04em">Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech</h1>
+        <p class="lead">Claude en ChatGPT zijn sterke modellen, maar blijven proprietary routes met terugkerende tokenkosten en afhankelijkheid van één leverancier. Hermes is een gratis, open-source AI-assistent die op je eigen machine draait, waarmee je workflows, tools en providerkeuze in eigen hand houdt en goedkoper kunt opschalen of wisselen wanneer dat nodig is.</p>
+        <div class="hero-disclosures" style="margin:16px 0 10px 0">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:0">
+            <button onclick="toggleDisclosure('security')" data-key="security" class="disclosure-btn" style="display:inline-block;padding:8px 20px;font-size:14px;font-weight:600;color:#17240f;cursor:pointer;border-radius:100px;background:rgba(255,250,241,.72);border:1px solid rgba(22,63,43,.15);font-family:inherit">Security</button>
+            <button onclick="toggleDisclosure('voorwaarden')" data-key="voorwaarden" class="disclosure-btn" style="display:inline-block;padding:8px 20px;font-size:14px;font-weight:600;color:#17240f;cursor:pointer;border-radius:100px;background:rgba(255,250,241,.72);border:1px solid rgba(22,63,43,.15);font-family:inherit">Voorwaarden</button>
+            <button onclick="toggleDisclosure('privacy')" data-key="privacy" class="disclosure-btn" style="display:inline-block;padding:8px 20px;font-size:14px;font-weight:600;color:#17240f;cursor:pointer;border-radius:100px;background:rgba(255,250,241,.72);border:1px solid rgba(22,63,43,.15);font-family:inherit">Privacy</button>
+            <button onclick="toggleDisclosure('controle')" data-key="controle" class="disclosure-btn" style="display:inline-block;padding:8px 20px;font-size:14px;font-weight:600;color:#17240f;cursor:pointer;border-radius:100px;background:rgba(255,250,241,.72);border:1px solid rgba(22,63,43,.15);font-family:inherit">Menselijke controle</button>
+          </div>
+          <div id="disclosure-panel" style="display:none;margin-top:12px;padding:20px 22px;background:rgba(255,250,241,.96);border:1px solid rgba(22,63,43,.18);border-radius:16px;font-size:14px;line-height:1.58;color:#17240f;box-shadow:0 14px 34px rgba(18,43,32,.08)"></div>
+          <template id="disc-security"><p class="muted" style="margin-bottom:12px;color:#17240f">Controle, governance en privacy zijn geen details. Ze zijn de basis. AI-agents kunnen doelbewust of onbedoeld worden misbruikt via schadelijke instructies, promptmanipulatie of aanvallen. Daarom richten we inrichting, rechten en context zo in dat de agent begrensd blijft.</p><ul style="margin:0 0 12px 0;padding-left:18px;display:flex;flex-direction:column;gap:4px"><li>Prompt-instructies, tools en toegangsrechten worden gescheiden waar mogelijk.</li><li>Context wordt alleen meegegeven als dat nodig is voor de taak.</li><li>Logging en afspraken maken achteraf uitlegbaar wat de agent deed.</li><li>Security by design, safety by design en responsible by design zijn uitgangspunten bij inrichting en beheer.</li><li>Regelmatige interne en externe audits helpen fouten, prestatieverlies en nieuwe risico’s vroeg te ontdekken.</li></ul></template>
+          <template id="disc-voorwaarden"><p style="margin-bottom:10px">ZZPAgent levert advies, configuratie, automatisering en beheer van AI-agents voor zakelijke gebruikers. De dienstverlening is gericht op ondersteuning van werkprocessen, niet op het overnemen van professionele verantwoordelijkheid van de klant.</p><ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px"><li>De klant blijft verantwoordelijk voor AI-output die wordt gebruikt, verstuurd of omgezet in een besluit.</li><li>AI-output kan hallucineren, onjuist, onvolledig of ongeschikt zijn voor de specifieke situatie.</li><li>Risicovolle acties vereisen menselijke controle en expliciet akkoord.</li><li>ZZPAgent neemt geen aansprakelijkheid over voor gebruik van AI-output; de klant blijft verantwoordelijk voor controle, besluiten en gevolgen.</li></ul></template>
+          <template id="disc-privacy"><p style="margin-bottom:10px">ZZPAgent verwerkt persoonsgegevens en bedrijfsgegevens alleen voor zover nodig om de agent te configureren, beveiligen, uitvoeren en beheren. Gevoelige informatie mag niet onnodig in prompts, geheugen of logs terechtkomen.</p><ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px"><li>Gegevens worden niet verkocht aan derden.</li><li>Toegang wordt beperkt tot wat noodzakelijk is voor inrichting, beheer, beveiliging en support.</li><li>Datagovernance, AVG-afspraken en veilige contextbehandeling horen bij de inrichting.</li><li>Bij ontwerp en beheer houden we rekening met relevante kaders zoals EU AI Act, GDPR/AVG, Data Act, Cyber Resilience Act en auteursrecht.</li><li>Waar mogelijk worden gegevens geminimaliseerd en binnen een afgesproken hostingomgeving verwerkt.</li><li>Verzoeken over inzage, correctie of verwijdering kunnen via het contactadres van ZZPAgent.</li></ul></template>
+          <template id="disc-controle"><p style="margin-bottom:10px">Een MKBAgent mag voorbereiden, samenvatten, signaleren, ordenen en concepten klaarzetten. Juist omdat agentic AI taken kan onthouden, herhalen, uitvoeren en opschalen over systemen heen, blijft menselijke controle nodig bij gevoelige of externe acties. Automatisering mag accountability niet verminderen en processen moeten te stoppen of bij te sturen blijven nadat ze gestart zijn.</p><ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px"><li>Geen automatische verzending zonder akkoord waar reputatie, geld, rechten of privacy geraakt kunnen worden.</li><li>Geen zelfstandige uitvoering van real-world actions zonder expliciete begrenzing.</li><li>Geen gebruik voor onrechtmatige, misleidende of schadelijke doeleinden.</li><li>Geen invoer van bijzondere persoonsgegevens zonder passende grondslag.</li><li>Bij twijfel: eerst menselijke beoordeling, daarna pas actie.</li></ul><div class="quote" style="margin-top:12px;border-color:rgba(22,63,43,.18);background:rgba(22,63,43,.04);color:#17240f">"Niet alles wat technologisch kan is ook maatschappelijk gewenst."<br><span style="font-size:13px;color:#516156">— bernarddonners-ai.nl</span></div></template>
+          <script>function toggleDisclosure(key){var p=document.getElementById('disclosure-panel');var t=document.getElementById('disc-'+key);var btn=document.querySelector('[data-key="'+key+'"]');var cur=p.getAttribute('data-open');if(cur===key){p.style.display='none';p.removeAttribute('data-open');p.innerHTML='';btn.style.background='rgba(255,250,241,.72)';return}p.setAttribute('data-open',key);p.innerHTML=t.innerHTML;p.style.display='block';document.querySelectorAll('.disclosure-btn').forEach(function(b){b.style.background='rgba(255,250,241,.72)'});btn.style.background='rgba(215,242,104,.22)'}</script>
+        </div>
+      </div>
+      <aside class="agent-card" aria-label="AI agent demo kaart">
+        <div class="card-top">
+          <strong>Ease of use met <em>Whatsapp, Telegram of Slack</em></strong>
+        </div>
+        <div class="hero-phone" role="img" aria-label="Fotorealistische iPhone met bewegende ZZPAgent briefing">
+          <div class="hero-phone-screen">
+            <div class="tg-header">
+              <span class="tg-back">←</span>
+              <span style="font-size:9px;color:rgba(255,255,255,.72);padding-left:4px">MKBAgent · online</span>
+            </div>
+            <div class="agent-motion" aria-label="Geanimeerde agent verwerkt ruis naar ochtendbriefing">
+              <div class="motion-stage">
+                <div class="motion-status"><span>ruis verwerken</span><span class="motion-dot"></span></div>
+                <div class="signal-stack">
+                  <div class="signal-chip"><span>12 mails</span><small>triage</small></div>
+                  <div class="signal-chip"><span>3 leads</span><small>match</small></div>
+                  <div class="signal-chip"><span>agenda</span><small>check</small></div>
+                  <div class="signal-chip"><span>contract</span><small>klaar</small></div>
+                </div>
+                <div class="sort-line" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="briefing-card">
+                  <strong>Ochtendbriefing klaar</strong>
+                  <p>10:00 Jansen BV. De Vries wacht op offerte. Conceptmail staat klaar voor akkoord.</p>
+                  <div class="typing-dots" aria-hidden="true"><b></b><b></b><b></b></div>
+                </div>
+              </div>
+            </div>
+            <div class="tg-input-bar">
+              <span style="font-size:11px;color:#98a8a0">Bericht…</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" style="padding-top:10px;padding-bottom:18px">
+      <div class="why-grid">
+        <div class="why-copy">
+          <div class="eyebrow" style="background:rgba(255,255,255,.08);border:1px solid rgba(22,63,43,.15);color:#17240f">Waarom Hermes?</div>
+          <h2>Van AI-tool naar digitale medewerker voor ZZP’ers</h2>
+          <p class="lead">Veel ZZP’ers gebruiken ChatGPT, Claude of Perplexity voor content, e-mails, samenvattingen of offertes. Nuttig maar met een toenemend risico van vendor lock-in door de afhankelijkheid van een leverancier.</p>
+          <div class="compare-aside">Met Hermes zet je de volgende stap: van losse AI-hulp naar een autonome agent die context onthoudt, tools gebruikt en proactief werk kan voorbereiden. Niet voor een grote corporate IT-afdeling, maar voor zelfstandigen en kleine teams die overzicht, opvolging en uitvoeringskracht nodig hebben.</div>
+        </div>
+        <aside class="why-video-card" aria-label="Hermes-video">
+          <a class="evolution-preview" href="assets/evolutie-nederlands.png" target="_blank" rel="noopener" aria-label="Open de evolutie van AI als grotere afbeelding">
+            <img src="assets/evolutie-nederlands.png" alt="De evolutie van AI: van chat naar autonome agenten">
+            <span class="caption"><span>De evolutie van AI</span><span>Klik om te vergroten</span></span>
+          </a>
+          <video controls preload="metadata" playsinline aria-label="ZZPAgent Hermes video over open-source agentlaag">
+            <source src="assets/hermes-agent-overview.mp4" type="video/mp4">
+          </video>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="agents">
+      <div class="eyebrow">Hermes</div>
+      <div class="trust-stack" style="margin-top:18px">
+      <div class="trust-layout">
+        <div>
+          <div class="eyebrow">Hoe werkt het</div>
+          <h2>De zelflerende agent die het werk doet</h2>
+          <p class="lead">Geen chatbot die vragen beantwoordt, maar een zelflerende agent die leert hoe je bedrijf werkt, eigen skills schrijft en de operationele last van je team haalt.</p>
+          <p class="muted">Van concept naar autonomie, jij houdt de regie. Eerst laat de agent zien wat hij wil doen. Pas na feedback en vertrouwen krijgt hij meer ruimte.</p>
+          <details style="margin:14px 0 18px 0"><summary style="display:inline-block;padding:8px 16px;font-size:13px;font-weight:800;color:#17240f;cursor:pointer;list-style:none;border-radius:100px;background:rgba(255,250,241,.72);border:1px solid rgba(22,63,43,.15)">Waarom human-AI teams?</summary><div style="margin-top:12px;padding:18px 20px;background:rgba(255,250,241,.08);border:1px solid rgba(255,250,241,.14);border-radius:18px;color:#dce7dc;line-height:1.62"><p>Succesvolle AI is niet alleen technische vooruitgang, maar een combinatie van sterke technologie, ethiek, transparantie, menselijke controle, veiligheid, wetgeving en voortdurende evaluatie.</p><p style="margin-top:12px">Daarom bouwt ZZPAgent liever met kleinere, gespecialiseerde agents die taakgericht samenwerken in human-AI teams. Waar zinvol combineren ze tekst, beeld, audio en andere gegevens, maar altijd rond een concrete workflow en met mensen in de beslissende rol.</p></div></details>
+          <div class="trust-list">
+            <article class="trust-item active">
+              <div class="trust-icon">◉</div>
+              <div class="trust-copy">
+                <h3>Blijvend geheugen</h3>
+                <p>Onthoudt elk gesprek en doorzoekt ze.</p>
+              </div>
+              <div class="trust-no">01</div>
+            </article>
+            <article class="trust-item">
+              <div class="trust-icon muted">✦</div>
+              <div class="trust-copy">
+                <h3>Zelflerend</h3>
+                <p>Schrijft zijn eigen skills. Wordt slimmer naarmate je het gebruikt.</p>
+              </div>
+              <div class="trust-no">02</div>
+            </article>
+            <article class="trust-item">
+              <div class="trust-icon muted">↯</div>
+              <div class="trust-copy">
+                <h3>Autonoom & gepland</h3>
+                <p>Handelt proactief en draait taken op schema.</p>
+              </div>
+              <div class="trust-no">03</div>
+            </article>
+            <article class="trust-item">
+              <div class="trust-icon muted">▢</div>
+              <div class="trust-copy">
+                <h3>Waar je al werkt</h3>
+                <p>Werkt waar je al werkt: Telegram, WhatsApp en Slack. Ook via de browser op je iPhone in Safari of op de Hermes app.</p>
+              </div>
+              <div class="trust-no">04</div>
+            </article>
+          </div>
+        </div>
+        <article class="trust-visual align-lower">
+          <div class="diagram-title">
+            <h3>Hermes-platform</h3>
+            <span>Eén betrouwbare agentlaag voor je dagelijkse werk</span>
+          </div>
+          <div class="diagram-frame">
+            <svg viewBox="0 0 760 470" role="img" aria-label="Hermes als betrouwbare agentlaag voor ZZPAgent">
+              <rect x="8" y="8" width="744" height="454" rx="26" fill="rgba(3,12,8,.26)" stroke="rgba(255,255,255,.08)"/>
+              <text x="44" y="54" fill="#fffaf1" font-size="25" font-weight="700">Hermes verbindt je kanalen, tools en modellen</text>
+              <rect x="44" y="86" width="672" height="302" rx="30" fill="rgba(255,250,241,.05)" stroke="rgba(255,255,255,.1)"/>
+              <text x="84" y="136" fill="#fffaf1" font-size="42" font-weight="800">Hermes</text>
+              <text x="84" y="166" fill="#dce7dc" font-size="19">geheugen · skills · tools · modelroutes</text>
+              <rect x="84" y="204" width="132" height="52" rx="16" fill="rgba(215,242,104,.12)" stroke="rgba(215,242,104,.30)"/>
+              <text x="150" y="236" text-anchor="middle" fill="#fffaf1" font-size="18" font-weight="700">Telegram</text>
+              <rect x="232" y="204" width="132" height="52" rx="16" fill="rgba(215,242,104,.12)" stroke="rgba(215,242,104,.30)"/>
+              <text x="298" y="236" text-anchor="middle" fill="#fffaf1" font-size="18" font-weight="700">WhatsApp</text>
+              <rect x="380" y="204" width="132" height="52" rx="16" fill="rgba(120,194,140,.14)" stroke="rgba(120,194,140,.30)"/>
+              <text x="446" y="236" text-anchor="middle" fill="#fffaf1" font-size="18" font-weight="700">Slack</text>
+              <rect x="528" y="204" width="132" height="52" rx="16" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+              <text x="594" y="236" text-anchor="middle" fill="#fffaf1" font-size="18" font-weight="700">Browser</text>
+              <rect x="84" y="286" width="178" height="58" rx="18" fill="rgba(231,207,160,.10)" stroke="rgba(231,207,160,.28)"/>
+              <text x="173" y="321" text-anchor="middle" fill="#fffaf1" font-size="18" font-weight="700">Hermes app</text>
+              <rect x="292" y="286" width="178" height="58" rx="18" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+              <text x="381" y="321" text-anchor="middle" fill="#fffaf1" font-size="18" font-weight="700">n8n workflows</text>
+              <rect x="500" y="286" width="160" height="58" rx="18" fill="rgba(215,242,104,.10)" stroke="rgba(215,242,104,.24)"/>
+              <text x="580" y="321" text-anchor="middle" fill="#fffaf1" font-size="18" font-weight="700">AI-modellen</text>
+              <text x="380" y="426" text-anchor="middle" fill="#d7e2d7" font-size="16">Hermes houdt kanalen, geheugen, tools en modelroutes overzichtelijk bij elkaar.</text>
+            </svg>
+          </div>
+          <div class="device-showcase">
+            <img src="assets/mkbagents-open-source-devices.jpg" alt="Hermes op Apple Watch, iPhone en MacBook Air" />
+          </div>
+        </article>
+      </div>
+      </div>
+    </section>
+
+    <section class="section" id="oplossingen">
+      <div class="eyebrow">Oplossingen</div>
+      <h2>Zes soorten werk om mee te starten</h2>
+      <p class="lead">De eerste versie richt zich op concrete, terugkerende workflows voor ZZP’ers. Klein beginnen, bewijzen dat het werkt, daarna uitbreiden, met focus op tijdswinst, overzicht en beheersbare AI.</p>
+      <p class="lead" style="max-width:980px">Uiteindelijk is het doel dat kenniswerkers meer grip krijgen op het werk tussen oude systemen, data en nieuwe processen. Daar zit de echte waarde: AI moet mensen helpen de kloof te overbruggen tussen verouderde systemen en moderne, datagedreven bedrijfsvoering.</p>
+      <div class="usecases">
+        <details class="case"><summary class="case-summary"><span><small>Inbox, agenda & monitoring</small><h3>Continu zicht op wat ertoe doet</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Laat mail samenvatten, urgente berichten markeren en afspraken of signalen bewaken. Hermes kan je agenda bijhouden vanuit diverse mails en kanalen, zodat losse signalen samenkomen in één rustig overzicht.</p><div class="example">“Elke ochtend: vat mijn inbox en agenda samen en laat zien wat relevant is voor mijn dag.”</div></div></details>
+        <details class="case"><summary class="case-summary"><span><small>Website & landingpage</small><h3>Van idee naar verkoopbare pagina</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Zet je propositie om in een compacte website of landingpage met heldere tekst, passende visuals, CTA’s en een intake- of contactroute die direct bruikbaar is voor ZZP’ers.</p><div class="example">“Maak van deze dienst een landingpage met doelgroep, aanbod, bewijs, prijsroute en WhatsApp-contact.”</div></div></details>
+        <details class="case"><summary class="case-summary"><span><small>Workflowautomatisering</small><h3>Het herhaalbare dagelijks geregeld</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Documenten ordenen, lijstjes bijhouden, intake vastleggen en ontbrekende informatie signaleren zonder onnodige frictie.</p><div class="example">“Nieuwe notitie binnen → op de juiste plek zetten → markeren wat nog ontbreekt.”</div><details style="margin-top:4px"><summary style="display:inline-block;padding:8px 16px;font-size:13px;font-weight:800;color:#17240f;cursor:pointer;list-style:none;border-radius:100px;background:rgba(255,250,241,.72);border:1px solid rgba(22,63,43,.15)">Van losse AI-tool naar werkende workflow</summary><div style="margin-top:12px;padding:18px 20px;background:rgba(215,242,104,.10);border:1px solid rgba(215,242,104,.22);border-radius:18px;color:#304034;line-height:1.62"><p>De vraag is niet of een organisatie ergens AI gebruikt. De vraag is of AI onderdeel wordt van een terugkerende workflow. In klantcontact, softwareontwikkeling, juridische analyse, marketing, interne kennisbanken en financiële processen ontstaat pas waarde wanneer AI meeloopt in het werk zelf, met duidelijke grenzen en menselijke verantwoordelijkheid.</p><p style="margin-top:12px">Met een AI-workflow bedoel ik: een terugkerend bedrijfsproces waarin AI informatie leest, samenvat, routeert of controleert, gekoppeld aan bestaande systemen. Dus niet alleen een losse prompt in ChatGPT, maar een medewerker die tijdens het werk relevante klantinformatie, productsuggesties en conceptantwoorden krijgt. De mens beslist wat er naar buiten gaat.</p></div></details></div></details>
+        <details class="case"><summary class="case-summary"><span><small>Content & kennis</small><h3>Van briefing naar consistente output</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Artikelen, posts, klantupdates en interne notities in een herkenbare toon en vaste structuur.</p><div class="example">“Maak van deze briefing een LinkedIn-post, klantmail en interne notitie.”</div></div></details>
+        <details class="case"><summary class="case-summary"><span><small>Business development</small><h3>Kansen vinden zonder ruis</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Zoek leads, beoordeel relevantie en bereid persoonlijke outreach of opvolging voor zonder handmatig speurwerk.</p><div class="example">“Vind 10 bedrijven die passen bij deze propositie en zet conceptmails klaar.”</div></div></details>
+        <details class="case"><summary class="case-summary"><span><small>Vergaderingen & gesprekken</small><h3>Opnames transcriberen, rubriceren en samenvatten</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Werk vergader- en gespreksopnames uit, vat ze samen en verdeel inzichten, acties of thema’s per persoon, onderwerp of opvolging.</p><div class="example">“Werk deze opname uit, vat haar samen en verdeel acties per persoon en onderwerp.”</div></div></details>
+      </div>
+    </section>
+
+    <section class="section" id="koppelingen">
+      <div class="integration-wrap">
+        <div class="eyebrow">Koppelingen met n8n</div>
+        <h2>Koppelt met de software die je al gebruikt</h2>
+        <p class="lead">Hermes is sterk in context, redeneren en samenwerking met mensen. Hermes kan zelf tools en koppelingen aansturen. Voor processen die strak, herhaalbaar of goed controleerbaar moeten zijn, koppelen we Hermes bijvoorbeeld aan n8n als workflowlaag. Zo kan je agent samenwerken met mail, agenda, spreadsheets, formulieren, CRM, betalingen en interne tools, terwijl n8n de vaste stappen voorspelbaar uitvoert. Bestaat er een standaardkoppeling, dan gebruiken we die. Anders kiezen we voor API, webhook of een veilige handmatige route.</p>
+        <div class="integration-grid">
+          <details class="integration-card">
+            <summary class="integration-summary"><span><span class="tag">Mail & agenda</span><h3>Inbox, afspraken en opvolging</h3></span><span class="expand-label">Bekijk details</span></summary>
+            <div class="integration-body"><p class="muted">Laat mail samenvatten, urgente berichten markeren, reminders klaarzetten en Teams- of agenda-updates doorgeven zonder dat de agent zomaar namens jou verstuurt.</p><div class="integration-apps"><span class="app-chip">Outlook</span><span class="app-chip">Gmail</span><span class="app-chip">Teams</span><span class="app-chip">Google Calendar</span></div></div>
+          </details>
+          <details class="integration-card">
+            <summary class="integration-summary"><span><span class="tag">Spreadsheets & bestanden</span><h3>Lijsten, rapportages en documenten</h3></span><span class="expand-label">Bekijk details</span></summary>
+            <div class="integration-body"><p class="muted">Gebruik Sheets, Excel, Drive of OneDrive als praktische bron voor overzichten, rapportages, intakebestanden en documentverwerking.</p><div class="integration-apps"><span class="app-chip">Google Sheets</span><span class="app-chip">Excel</span><span class="app-chip">Drive</span><span class="app-chip">OneDrive</span></div></div>
+          </details>
+          <details class="integration-card">
+            <summary class="integration-summary"><span><span class="tag">CRM & klantvragen</span><h3>Leads en dossiers komen op de juiste plek</h3></span><span class="expand-label">Bekijk details</span></summary>
+            <div class="integration-body"><p class="muted">Nieuwe aanvragen kunnen automatisch naar je CRM, spreadsheet of mailbox, met een korte samenvatting en voorgestelde opvolging.</p><div class="integration-apps"><span class="app-chip">HubSpot</span><span class="app-chip">Pipedrive</span><span class="app-chip">Airtable</span><span class="app-chip">Notion</span></div></div>
+          </details>
+          <details class="integration-card">
+            <summary class="integration-summary"><span><span class="tag">Betaling & intake</span><h3>Van aanvraag naar activatie</h3></span><span class="expand-label">Bekijk details</span></summary>
+            <div class="integration-body"><p class="muted">Formulieren, webhooks en Mollie kunnen intake, betaalstatus en activatie gescheiden houden.</p><div class="integration-apps"><span class="app-chip">Mollie</span><span class="app-chip">Webhooks</span><span class="app-chip">Formulieren</span><span class="app-chip">WooCommerce</span></div></div>
+          </details>
+          <details class="integration-card">
+            <summary class="integration-summary"><span><span class="tag">AI & agenttaken</span><h3>n8n stuurt de flow, Hermes doet het denkwerk</h3></span><span class="expand-label">Bekijk details</span></summary>
+            <div class="integration-body"><p class="muted">Voor AI-flows koppelen we n8n aan modellen, documenten, vector databases en tools. De agent maakt samenvattingen, concepten of acties klaar.</p><div class="integration-apps"><span class="app-chip">OpenAI</span><span class="app-chip">Anthropic</span><span class="app-chip">Gemini</span><span class="app-chip">AI Agent</span></div></div>
+          </details>
+          <details class="integration-card">
+            <summary class="integration-summary"><span><span class="tag">Eigen systemen</span><h3>Ook zonder standaardknop vaak koppelbaar</h3></span><span class="expand-label">Bekijk details</span></summary>
+            <div class="integration-body"><p class="muted">Heeft je software een API, database of webhook? Dan kunnen we vaak koppelen zonder dat je hoeft te migreren naar een ander platform.</p><div class="integration-apps"><span class="app-chip">HTTP/API</span><span class="app-chip">Postgres</span><span class="app-chip">MySQL</span><span class="app-chip">Supabase</span></div></div>
+          </details>
+        </div>
+        <div class="integration-note"><strong>Inzet van Deterministische Agenten</strong><p class="muted">Hermes werkt samen met deterministische workflow-tools zoals n8n: de agent denkt, de workflow voert uit. Dat maakt routinetaken betrouwbaarder, voorspelbaarder en goedkoper — terwijl Hermes zich richt op waar echt inzicht nodig is.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="prijzen">
+      <div class="eyebrow">Pakketten</div>
+      <h2>Drie manieren om Hermes te draaien</h2>
+      <div class="products">
+        <article class="product featured">
+          <span class="tag">1 · Starter</span>
+          <h3>Managed Agent</h3>
+          <p class="muted">Voor zelfstandigen en kleine ondernemers die snel willen starten: jouw agent draait op door ZZPAgent beheerde Europese infrastructuur, met eigen botkoppeling, gescheiden configuratie en duidelijke beheerafspraken.</p>
+          <ul><li>Kies Telegram of WhatsApp om te communiceren met de agent</li><li>Opgezet met ChatGPT of OpenRouter, afhankelijk van de gekozen route</li><li>Snelle activatie met beheer, updates en monitoring inbegrepen</li><li>Menselijke goedkeuring voor gevoelige acties</li></ul>
+          <div class="price">€29 <span>/ maand per bot</span></div>
+        </article>
+        <article class="product">
+          <span class="tag">2 · Dedicated</span>
+          <h3>Private Agent Server</h3>
+          <p class="muted">Voor klanten die extra isolatie willen: een eigen beheerde Hetzner VPS of Europese cloudomgeving, automatisch ingericht en door ZZPAgent beheerd met aparte monitoring en onderhoud.</p>
+          <ul><li>Eigen VPS per klant, vanaf €79 / maand</li><li>Cloud-init/Terraform-ready installatie</li><li>Meer controle over data en toegang</li><li>Geschikt voor privacygevoelige workflows</li></ul>
+          <div class="price package-price-inline package-price-offset">Vanaf €79 <span>/ maand</span></div>
+        </article>
+        <article class="product">
+          <span class="tag">3 · Bring your own</span>
+          <h3>Eigen cloud of Mac</h3>
+          <p class="muted">Voor ZZP’ers-bedrijven die zelf eigenaar willen blijven van de infrastructuurrelatie: eigen Mac mini, VPS of bestaande cloud. ZZPAgent verzorgt setup, koppeling, updates of support volgens afspraak.</p>
+          <ul><li>Eigen Mac mini, VPS of bestaande cloud</li><li>Eenmalige setup, verder geen beheerskosten</li><li>Maandelijkse support of beheerabonnement mogelijk</li><li>Jij houdt eigenaarschap over infrastructuur en toegang</li></ul>
+          <div class="price package-price-inline">Set up: €399 <span class="macmini-price-note">(incl. Mac mini €1299)</span></div>
+          <details class="macmini-inline" id="macmini" style="margin-top:18px">
+            <summary class="provider-summary" style="cursor:pointer">
+              <span class="provider-toggle">Bekijk Mac mini AI-workstation</span>
+            </summary>
+            <div class="provider-detail" style="padding-top:18px">
+              <div class="eyebrow">Mac mini AI-workstation</div>
+              <h3>Zet een Mac mini M4 in als eigen AI-werkstation</h3>
+              <p class="muted">Voor bedrijven die hun agent liever op eigen hardware of in een eigen kantooropstelling laten draaien, richt ZZPAgent een Mac mini M4 of bestaande Mac in als private AI-basis. Afhankelijk van de workflow kiezen we de best passende Hermes-route per kanaal, team en automatisering.</p>
+              <div class="provider-grid">
+                <article class="provider-card">
+                  <span class="tag">Setup</span>
+                  <strong>Wat we opleveren</strong>
+                  <p class="muted">Een werkende zakelijke basisconfiguratie voor ZZP’ers, support, sales of interne workflowautomatisering, niet alleen een promptscherm.</p>
+                  <ul><li>Installatie en configuratie van Hermes</li><li>Koppeling met Slack, Telegram, WhatsApp of browser</li><li>Modelroutes via jullie eigen accounts en budgetkeuzes</li><li>Eerste automatisering, overdracht en beheerafspraken</li></ul>
+                </article>
+                <article class="provider-card">
+                  <span class="tag">Waarom dit werkt</span>
+                  <strong>Meer eigenaarschap, minder lock-in</strong>
+                  <p class="muted">De hardware staat bij jullie. Jullie houden grip op toegang, sleutels, kosten en uitbreidingen, met de optie om later door te groeien naar cloud of hybride beheer.</p>
+                  <ul><li>Chats, documenten en logs op eigen infrastructuur</li><li>Remote toegang na oplevering intrekbaar</li><li>Lokale modellen mogelijk voor privacygevoelige taken</li><li>Past bij bedrijven die AI willen integreren zonder volledig platformslot</li></ul>
+                </article>
+                <article class="provider-card">
+                  <span class="tag">Praktisch</span>
+                  <strong>Samen testen op jullie eigen proces</strong>
+                  <p class="muted">Tijdens de installatie testen we meteen jullie eigen vragen, documenten en workflows. Hebben jullie al een Mac? Dan kan alleen installatie en configuratie ook.</p>
+                  <ul><li>Intake vooraf op use-case, team en maandbudget</li><li>Directe live test tijdens de setup</li><li>Nazorg, updates en doorontwikkeling mogelijk</li><li>Geschikt voor ZZP’ers, kleine teams en eigen kantooromgeving</li></ul>
+                </article>
+              </div>
+              <div class="flow-note"><strong>Belangrijk over kosten:</strong> hardware, AI-API's, domeinen, telefonie, cloudopslag en andere externe diensten vallen buiten de setupprijs. Tijdens intake bepalen we of eigen Mac mini, managed cloud of een hybride route de beste zakelijke keuze is.</div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="providers">
+      <div class="eyebrow">Modelkeuze & toegang</div>
+      <h2>Wijs per taak het juiste model toe</h2>
+      <p class="lead">Gebruik ChatGPT/Codex via OAuth, gebaseerd op je maandelijkse abonnement én commodity modellen via OpenRouter. Als een route zijn limiet bereikt, schakelt de agent over naar een vooraf gekozen alternatief. Hermes beschikt over MOA (Mix of Agents) waar je de modellen per taak kunt alloceren.</p>
+      <details class="provider-card">
+        <summary class="provider-summary">
+          <span class="tag">OAuth + OpenRouter</span>
+          <strong>Twee toegangswegen, één agentlaag</strong>
+          <p class="muted">Je logt in met ChatGPT/Codex of gebruikt OpenRouter als modelhub. Daarna kiest de agent per taak de ingestelde route en fallback.</p>
+          <ul class="provider-summary-list"><li>ChatGPT/Codex via OAuth</li><li>Claude via OAuth (beperkte capaciteit)</li><li>OpenRouter voor meerdere modellen</li><li>Automatische fallback bij limieten of storingen</li></ul>
+          <span class="provider-toggle">Modelprijzen (per 1M tokens)</span>
+        </summary>
+        <div class="provider-detail">
+          <div class="provider-grid">
+            <article class="provider-card">
+              <span class="tag">OAuth</span>
+              <strong>ChatGPT / Codex OAuth</strong>
+              <p class="muted">Voor klanten die via ChatGPT of Codex willen werken zonder losse API-key. Je logt eenmalig in; daarna gebruikt de agent een beveiligde OAuth-koppeling als primaire route.</p>
+              <div class="price-mini-table" aria-label="ChatGPT Plus prijs">
+                <div class="price-mini-row"><div><strong>ChatGPT Plus · GPT-5</strong><span>Richtprijs in Nederland, inclusief btw. Gebruikslimieten kunnen wisselen.</span></div><div class="price-mini-cost">€23 / maand</div></div>
+              </div>
+              <ul><li>Geen API-key kopiëren</li><li>Handig voor ChatGPT- en Codex-workflows</li><li>Plus werkt met gebruikslimieten, niet met een publieke vaste tokenpot</li></ul>
+            </article>
+            <article class="provider-card">
+              <span class="tag">OAuth</span>
+              <strong>Claude OAuth</strong>
+              <p class="muted">Voor klanten die via Claude willen werken zonder losse API-key. Anthropic staat OAuth toe, maar de beschikbare capaciteit is beperkt — de yield is laag en limieten kunnen snel bereikt zijn.</p>
+              <ul><li>Geen API-key kopiëren</li><li>Anthropic OAuth-koppeling</li><li>Beperkte capaciteit — geschikt als lichte route, niet voor hoog volume</li></ul>
+            </article>
+            <article class="provider-card">
+              <span class="tag">Open Router</span>
+              <strong>Meerdere modellen onder één sleutel</strong>
+              <p class="muted">OpenRouter geeft via één sleutel toegang tot modellen zoals Claude, GPT, DeepSeek en GLM. Handig voor fallback, prijsbewuste routering en het kiezen van een ander model zodra dat beter past.</p>
+              <p class="muted">Bij deze modelprijzen tonen we twee bedragen per 1M tokens: input voor je prompt naar het model en output voor het antwoord terug. Bij deze modellen is output meestal duurder dan input.</p>
+              <div class="price-mini-table" aria-label="OpenRouter modelprijzen">
+                <div class="price-mini-row"><div><strong>Claude Sonnet 4</strong><span>Veelgekozen premium model voor schrijven, analyse en code.</span></div><div class="price-mini-cost">$3 / $15 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>GPT-5</strong><span>Sterke allround route voor redeneren en tooling.</span></div><div class="price-mini-cost">$1.25 / $10 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>GLM 5.2</strong><span>Open-weight model met sterke agentische coding- en tool-use, 1M context.</span></div><div class="price-mini-cost">$0.95 / $3 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>DeepSeek V4 Pro</strong><span>Zwaardere DeepSeek-route voor complexere analyse, code en lange context.</span></div><div class="price-mini-cost">$0.435 / $0.87 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>DeepSeek V4 Flash</strong><span>Snelle en goedkope DeepSeek-route voor veel volume en responsieve workflows.</span></div><div class="price-mini-cost">$0.09 / $0.18 per 1M</div></div>
+              </div>
+              <ul><li>Pay-as-you-go met officiële modelprijzen + circa 5,5% platform fee</li><li>Geschikt voor fallback, vergelijking en budgetcontrole</li><li>Hermes kiest daarna per taak de ingestelde route</li></ul>
+            </article>
+          </div>
+          <div class="flow-note"><strong>Hoe het werkt:</strong> tijdens deployment bepalen we of een OAuth-route (ChatGPT of Claude) of OpenRouter de primaire route wordt, plus minimaal één fallback. Als een OAuth-route zijn limiet bereikt of niet beschikbaar is, schakelt de agent door naar het OpenRouter-model dat we vooraf hebben gekozen. Sleutels en OAuth-tokens horen in de private agent-workspace, niet in de website.</div>
+        </div>
+      </section>
+    <section class="section" id="contact">
+      <div class="footer-cta">
+        <div>
+          <h2>Klaar om je eerste ZZP-agent te starten?</h2>
+          <p class="muted">Begin met intake en betaal daarna veilig de eerste maand via Mollie. Na betaling zetten we de installatie klaar en koppelen we ChatGPT samen via de officiële login.</p>
+        </div>
+        <div class="footer-cta-actions">
+          <a class="button light" href="#bestel-agent" data-onboarding-agent="hermes">Start Hermes</a>
+          <a class="button secondary" href="https://wa.me/31618569839?text=Hallo%20ZZPAgent%2C%20ik%20wil%20graag%20contact%20over%20een%20AI-agent%20of%20landingpage." target="_blank" rel="noopener">Contacteer ZZPAgent</a>
+          <a class="button secondary" href="https://www.bernarddonners-ai.nl">Lees Bernards AI-visie</a>
+          <p class="muted" style="font-size:14px">Altijd met menselijke goedkeuring, duidelijke datagrenzen en verantwoord gebruik. Start met één agent, één workflow en één team; daarna pas uitbreiden.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="bestel-agent" hidden>
+      <div class="order-layout">
+        <div>
+          <div class="order-steps">
+            <div class="order-step"><span class="badge">1</span><div><strong>Vul je gegevens in</strong><p class="muted">Naam, e-mailadres en bedrijfsnaam voor de eerste intake.</p></div></div>
+            <div class="order-step"><span class="badge">2</span><div><strong>Start met Hermes</strong><p class="muted">We bereiden je Hermes-agent voor op de eerste workflow.</p></div></div>
+            <div class="order-step"><span class="badge">3</span><div><strong>Voeg je Telegram-token toe</strong><p class="muted">Maak je bot aan via BotFather en plak de token in het formulier. <a href="https://imsocial.nl/telegram/wat-is-een-telegram-bot-wat-kun-je-ermee-en-hoe-maak-je-er-een" target="_blank" rel="noopener">Nederlandse uitleg</a>.</p></div></div>
+            <div class="order-step"><span class="badge">4</span><div><strong>Koppel ChatGPT tijdens installatie</strong><p class="muted">Geen code nodig: we loggen samen in via de officiële ChatGPT-login.</p></div></div>
+            <div class="order-step"><span class="badge">5</span><div><strong>Start intake en betaal eerste maand</strong><p class="muted">Na je intake ga je veilig naar Mollie. Na betaling zetten we je installatie klaar.</p></div></div>
+          </div>
+          <div class="order-price">
+            <div class="eyebrow" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:var(--lime)">€29 / maand per bot</div>
+            <div class="price" style="margin-top:18px">€29 <span>/ maand per agent</span></div>
+            <p class="muted" style="margin-top:14px">Geen grote startkosten en direct opzegbaar.</p>
+          </div>
+        </div>
+        <article class="order-card">
+          <div class="eyebrow" id="order-eyebrow">Hermes intake</div>
+          <h2 id="order-title">Start je Hermes intake</h2>
+          <p class="lead" id="order-lead">Vul de gegevens in die nodig zijn om Hermes voor jouw eerste workflow voor te bereiden. Daarna ga je veilig naar Mollie; installatie volgt na betaling.</p>
+          <form id="order-form" style="display:grid;gap:18px;margin-top:28px">
+            <div class="field full">
+              <label for="order-email">E-mailadres</label>
+              <input id="order-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="order-name">Naam</label>
+              <input id="order-name" name="customer_name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="order-company">Bedrijf</label>
+              <input id="order-company" name="company_name" autocomplete="organization" required>
+            </div>
+            <div class="field full">
+              <label>Gekozen AI-agent</label>
+              <input type="hidden" name="agent" id="order-agent" value="hermes">
+              <div class="agent-choice-grid">
+                <button type="button" class="agent-option active" data-agent-option="hermes">
+                  <strong style="display:flex;align-items:center;gap:10px">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="3" width="26" height="22" rx="5" fill="#D7F268" stroke="#10291f" stroke-width="1.2"/><rect x="6" y="8" width="7" height="5" rx="1.5" fill="#10291f" opacity=".4"/><rect x="15" y="8" width="7" height="5" rx="1.5" fill="#10291f" opacity=".4"/><rect x="6" y="16" width="16" height="4" rx="2" fill="#10291f" opacity=".25"/></svg>
+                    Hermes Agent
+                  </strong>
+                </button>
+              </div>
+            </div>
+            <div class="field full">
+              <label>Kanaal</label>
+              <input type="hidden" name="channel" id="order-channel" value="telegram">
+              <div class="segment-switch" aria-label="Kanaalkeuze">
+                <button type="button" class="active" data-channel-option="telegram">Telegram</button>
+                <button type="button" data-channel-option="whatsapp">WhatsApp</button>
+              </div>
+            </div>
+            <div class="field full">
+              <label for="order-channel-token" class="label-help"><span id="order-channel-token-label">Telegram Bot Token</span> <details><summary aria-label="Uitleg kanaal-token">?</summary><div class="help-pop" id="order-channel-token-help">Dit is de sleutel waarmee jouw agent via jouw eigen Telegram-bot berichten kan ontvangen en beantwoorden. Maak de bot gratis aan via <a href="https://telegram.me/BotFather" target="_blank" rel="noopener">BotFather</a>. Hulp nodig? Lees deze <a href="https://imsocial.nl/telegram/wat-is-een-telegram-bot-wat-kun-je-ermee-en-hoe-maak-je-er-een" target="_blank" rel="noopener">Nederlandse uitleg</a>.</div></details></label>
+              <input id="order-channel-token" name="channel_token" required>
+            </div>
+            <div class="field full">
+              <label class="label-help">ChatGPT OAuth <details><summary aria-label="Uitleg ChatGPT OAuth">?</summary><div class="help-pop">ChatGPT OAuth betekent dat je inlogt met je eigen ChatGPT/Codex-account in plaats van een losse API-sleutel te kopiëren. Je hoeft hier niets in te vullen: tijdens de installatie openen we de officiële login, jij bevestigt de toegang en de beveiligde koppeling wordt alleen in je private agent-workspace opgeslagen.</div></details></label>
+              <div class="setup-note">Geen code nodig in dit formulier. We koppelen ChatGPT OAuth samen tijdens de installatie via de officiële login.</div>
+              <input type="hidden" id="order-model-key" name="model_api_key" value="Koppelen tijdens installatie via officiële login">
+            </div>
+            <div class="field full">
+              <label for="order-voucher">Vouchercode</label>
+              <input id="order-voucher" name="voucher_code">
+            </div>
+            <label class="check"><input type="checkbox" name="accepted_terms" required> <span>Ik heb de voorwaarden en het privacybeleid gelezen.</span></label>
+            <label class="check"><input type="checkbox" name="accepted_responsibility" required> <span>Ik begrijp dat ik verantwoordelijk blijf voor de configuratie en antwoorden van mijn bot en gevoelige acties eerst moet goedkeuren.</span></label>
+            <div class="hero-actions" style="margin:0">
+              <button type="submit" class="button light">Start intake en betaal eerste maand</button>
+            </div>
+            <div id="order-result" class="notice" hidden></div>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:10px;padding-bottom:8px">
+      <div class="logos">Voor ZZP’ers waar details, vertrouwen en privacy tellen
+        <div class="sector-row">
+          <span>Directie & MT</span><span>Inbox & agenda</span><span>Microsoft 365</span><span>Google Workspace</span><span>CRM & opvolging</span><span>Workflowautomatisering</span><span>Dossiers & intake</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-inner">
+      <div>© 2026 ZZPAgent</div>
+      <div><a href="#voorwaarden">Voorwaarden</a> · <a href="#privacy">Privacybeleid</a> · Gebouwd voor ZZP met Bernard's AI visie.</div>
+    </div>
+  </footer>
+  <script>
+    const translations = {
+      en: {
+        "ZZPAgent, AI-agent voor ZZP’ers die snel willen automatiseren": "ZZPAgent, AI agent for freelancers that want to automate quickly",
+        "ZZPAgent levert beheerde AI-agent voor ZZP’ers die snel willen automatiseren: veilig, controleerbaar en AVG-bewust.": "ZZPAgent delivers managed AI agent for freelancers that want to automate quickly: secure, controllable and GDPR-aware.",
+        "AI-agents": "AI agents",
+        "Oplossingen": "Solutions",
+        "Security-aanpak": "Security approach",
+        "Voorwaarden & Privacy": "Terms & Privacy",
+        "Menselijke Controle": "Human Control",
+        "Start Hermes": "Start Hermes",
+        "Start Hermes": "Start Hermes",
+        "Contacteer ZZPAgent": "Contact ZZPAgent",
+        "Modelkeuze": "Model choice",
+        "Waarom Hermes?": "Why Hermes?",
+        "De evolutie van AI": "The evolution of AI",
+        "Klik om te vergroten": "Click to enlarge",
+        "Van AI-tool naar digitale medewerker voor ZZP’ers": "From AI tool to digital coworker for solo entrepreneurs",
+        "Veel ZZP’ers gebruiken ChatGPT, Claude of Perplexity voor content, e-mails, samenvattingen of offertes. Nuttig maar met een toenemend risico van vendor lock-in door de afhankelijkheid van een leverancier.": "Many solo entrepreneurs use ChatGPT, Claude or Perplexity for content, emails, summaries or proposals. Useful, but with a growing risk of vendor lock-in through dependency on one provider.",
+        "Met Hermes zet je de volgende stap: van losse AI-hulp naar een autonome agent die context onthoudt, tools gebruikt en proactief werk kan voorbereiden. Niet voor een grote corporate IT-afdeling, maar voor zelfstandigen en kleine teams die overzicht, opvolging en uitvoeringskracht nodig hebben.": "With Hermes you take the next step: from loose AI help to an autonomous agent that remembers context, uses tools and can proactively prepare work. Not for a large corporate IT department, but for solo entrepreneurs and small teams that need overview, follow-up and execution power.",
+        
+
+        "Voorwaarden": "Terms",
+        "Plan pilot": "Book pilot",
+        "Vraag advies": "Ask for advice",
+        "OpenSource Hermes-agent voor ZZP": "Open-source Hermes agent for SMEs and freelancers",
+        "Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech": "Let AI work for you, but don’t give your business away to Big Tech",
+        "Claude en ChatGPT zijn sterke modellen, maar blijven proprietary routes met terugkerende tokenkosten en afhankelijkheid van één leverancier. Hermes is een gratis, open-source AI-assistent die op je eigen machine draait, waarmee je workflows, tools en providerkeuze in eigen hand houdt en goedkoper kunt opschalen of wisselen wanneer dat nodig is.": "Claude and ChatGPT are strong models, but remain proprietary routes with recurring token costs and dependence on a single supplier. Hermes is a free, open-source AI assistant that runs on your own machine, letting you keep workflows, tools and provider choice in your own hands and scale or switch more cheaply when needed.",
+        "Controle, governance en privacy zijn geen details. Ze zijn de basis. AI-agents kunnen doelbewust of onbedoeld worden misbruikt via schadelijke instructies, promptmanipulatie of aanvallen. Daarom richten we inrichting, rechten en context zo in dat de agent begrensd blijft.": "Control, governance and privacy are not details. They are the basis. AI agents can be misused intentionally or unintentionally through harmful instructions, prompt manipulation or attacks. That is why setup, permissions and context are designed so the agent stays bounded.",
+        "Prompt-instructies, tools en toegangsrechten worden gescheiden waar mogelijk.": "Prompt instructions, tools and access rights are separated where possible.",
+        "Context wordt alleen meegegeven als dat nodig is voor de taak.": "Context is only provided when it is needed for the task.",
+        "Logging en afspraken maken achteraf uitlegbaar wat de agent deed.": "Logging and agreements make it explainable afterwards what the agent did.",
+        "AI-output kan hallucineren, onjuist, onvolledig of ongeschikt zijn voor de specifieke situatie.": "AI output can hallucinate, be incorrect, incomplete or unsuitable for the specific situation.",
+        "ZZPAgent verwerkt persoonsgegevens en bedrijfsgegevens alleen voor zover nodig om de agent te configureren, beveiligen, uitvoeren en beheren. Gevoelige informatie mag niet onnodig in prompts, geheugen of logs terechtkomen.": "ZZPAgent processes personal data and business data only as far as needed to configure, secure, run and manage the agent. Sensitive information should not unnecessarily end up in prompts, memory or logs.",
+        "Toegang wordt beperkt tot wat noodzakelijk is voor inrichting, beheer, beveiliging en support.": "Access is limited to what is necessary for setup, management, security and support.",
+        "Datagovernance, AVG-afspraken en veilige contextbehandeling horen bij de inrichting.": "Data governance, GDPR agreements and secure context handling are part of the setup.",
+        "Een MKBAgent mag voorbereiden, samenvatten, signaleren, ordenen en concepten klaarzetten. Juist omdat agentic AI taken kan onthouden, herhalen, uitvoeren en opschalen over systemen heen, blijft menselijke controle nodig bij gevoelige of externe acties. Automatisering mag accountability niet verminderen en processen moeten te stoppen of bij te sturen blijven nadat ze gestart zijn.": "An MKBAgent may prepare, summarize, signal, organize and draft concepts. Precisely because agentic AI can remember, repeat, execute and scale tasks across systems, human control remains necessary for sensitive or external actions. Automation must not reduce accountability and processes must remain stoppable or adjustable after they have started.",
+        "Geen zelfstandige uitvoering van real-world actions zonder expliciete begrenzing.": "No independent execution of real-world actions without explicit boundaries.",
+        "Security by design, safety by design en responsible by design zijn uitgangspunten bij inrichting en beheer.": "Security by design, safety by design and responsible by design are guiding principles in setup and management.",
+        "Regelmatige interne en externe audits helpen fouten, prestatieverlies en nieuwe risico’s vroeg te ontdekken.": "Regular internal and external audits help detect errors, performance degradation and new risks early.",
+        "Bij ontwerp en beheer houden we rekening met relevante kaders zoals EU AI Act, GDPR/AVG, Data Act, Cyber Resilience Act en auteursrecht.": "In design and management we take relevant frameworks into account, such as the EU AI Act, GDPR, Data Act, Cyber Resilience Act and copyright.",
+        
+        "Private EU-server": "Private EU server",
+        "Ease of use met Whatsapp, Telegram of Slack": "Ease of use with WhatsApp, Telegram or Slack",
+
+        "Welke leads en dossiers vragen vandaag directe opvolging?": "Which leads and files need direct follow-up today?",
+        "Ik zie drie dossiers en twee warme leads. Twee acties kunnen direct worden voorbereid; één voorstel wacht op akkoord. Ik zet de conceptmail klaar, maar verstuur niets zonder jouw bevestiging.": "I see three files and two warm leads. Two actions can be prepared immediately; one proposal is waiting for approval. I will draft the email, but send nothing without your confirmation.",
+        "Actie vereist menselijke goedkeuring · gegevens blijven binnen EU-workspace.": "Action requires human approval · data remains inside the EU workspace.",
+        "Voor ZZP’ers waar details, vertrouwen en privacy tellen": "For freelancers and SMEs where detail, trust and privacy matter",
+        "Dossiers & intake": "Files & intake",
+        "Business development": "Business development",
+        "Directie & MT": "Leadership & management",
+        "Sales & opvolging": "Sales & follow-up",
+        "Workflowautomatisering": "Workflow automation",
+        "Hermes": "Hermes",
+        "Hoe werkt het": "How it works",
+        "De zelflerende agent die het werk doet": "The self-learning agent that gets the work done",
+        "Geen chatbot die vragen beantwoordt, maar een zelflerende agent die leert hoe je bedrijf werkt, eigen skills schrijft en de operationele last van je team haalt.": "Not a chatbot that answers questions, but a self-learning agent that learns how your company works, writes its own skills and takes operational load off your team.",
+        "Van concept naar autonomie, jij houdt de regie. Eerst laat de agent zien wat hij wil doen. Pas na feedback en vertrouwen krijgt hij meer ruimte.": "From draft to autonomy, you keep control. First the agent shows what it wants to do. Only after feedback and trust does it get more room.",
+        "Waarom human-AI teams?": "Why human-AI teams?",
+        "Succesvolle AI is niet alleen technische vooruitgang, maar een combinatie van sterke technologie, ethiek, transparantie, menselijke controle, veiligheid, wetgeving en voortdurende evaluatie.": "Successful AI is not just technical progress, but a combination of strong technology, ethics, transparency, human control, safety, regulation and continuous evaluation.",
+        "Daarom bouwt ZZPAgent liever met kleinere, gespecialiseerde agents die taakgericht samenwerken in human-AI teams. Waar zinvol combineren ze tekst, beeld, audio en andere gegevens, maar altijd rond een concrete workflow en met mensen in de beslissende rol.": "That is why ZZPAgent prefers working with smaller, specialized agents that collaborate task by task in human-AI teams. Where useful they combine text, image, audio and other data, but always around a concrete workflow and with humans in the deciding role.",
+        "Niet alleen slim. Ook beheersbaar.": "Not just smart. Also controllable.",
+        "Blijvend geheugen": "Persistent memory",
+        "Onthoudt elk gesprek en doorzoekt ze.": "Remembers every conversation and searches across them.",
+        "Zelflerend": "Self-learning",
+        "Schrijft zijn eigen skills. Wordt slimmer naarmate je het gebruikt.": "Writes its own skills. Gets smarter the more you use it.",
+        "De agent onthoudt afspraken, voorkeuren en eerdere sessies, zodat context niet telkens opnieuw hoeft.": "The agent remembers agreements, preferences and previous sessions, so context does not need to be repeated every time.",
+        "Menselijke controle": "Human control",
+        "Mail, publicaties en gevoelige acties worden klaargezet voor akkoord. Jij blijft eigenaar van de beslissing.": "Email, publications and sensitive actions are prepared for approval. You remain the owner of the decision.",
+        "Private EU-infrastructuur": "Private EU infrastructure",
+        "Een beheerde omgeving met duidelijke afspraken over toegang, logging, back-ups en data-opslag.": "A managed environment with clear agreements about access, logging, backups and data storage.",
+        "Autonoom & gepland": "Autonomous & scheduled",
+        "Handelt proactief en draait taken op schema.": "Acts proactively and runs tasks on schedule.",
+        "Dagelijkse briefings, controles, monitoring en opvolging draaien op schema , zonder dat iemand eraan hoeft te denken.": "Daily briefings, checks, monitoring and follow-up run on schedule , without anyone having to remember.",
+        "Waar je al werkt": "Where you already work",
+        "Werkt waar je al werkt: Telegram, WhatsApp en Slack. Ook via de browser op je iPhone in Safari of op de Hermes app.": "Works where you already work: Telegram, WhatsApp and Slack. Also via the browser on your iPhone in Safari or on the Hermes app.",
+        "Hermes-platform": "Hermes platform",
+        "Eén betrouwbare agentlaag voor je dagelijkse werk": "One reliable agent layer for your daily work",
+        "Hermes verbindt je kanalen, tools en modellen": "Hermes connects your channels, tools and models",
+        "Hermes": "Hermes",
+        "kanalen · workflows · modellen": "channels · workflows · models",
+        "Slack": "Slack",
+        "Hermes app": "Hermes app",
+        "Hermes app": "Hermes app",
+        "Hermes": "Hermes",
+        "Hermes houdt kanalen, geheugen, tools en modelroutes overzichtelijk bij elkaar.": "Hermes keeps channels, memory, tools and model routes clearly connected.",
+        
+        "Hermes-architectuur": "Hermes architecture",
+        "Kanalen · geheugen · tools · modellen": "Channels · memory · tools · models",
+        "WhatsApp": "WhatsApp",
+        "Telegram": "Telegram",
+        "E-mail": "Email",
+        "Browser": "Browser",
+        "communicatie & routing": "communication & routing",
+        "berichten → acties → feedback": "messages → actions → feedback",
+        "agent-engine": "agent engine",
+        "geheugen": "memory",
+        "modelroutes": "model routes",
+        "De dagelijkse kanalen lopen via Hermes naar Hermes. Hermes gebruikt geheugen, skills, tools en modelroutes om werkflows veilig en herhaalbaar uit te voeren.": "Daily channels flow through Hermes into Hermes. Hermes uses memory, skills, tools and model routes to execute workflows safely and repeatably.",
+        
+        "Agent & tools": "Agent & tools",
+        "Modelkeuze": "Model choice",
+        "Een geheugen dat zich opbouwt": "A memory that compounds",
+        "Hermes onthoudt je klanten, je voorkeuren en hoe je bedrijf écht werkt , met full-text zoeken door elke eerdere sessie. Niemand legt ooit nog context uit. Hoe langer het draait, hoe meer het je oplevert.": "Hermes remembers your clients, your preferences and how your company really works , with full-text search across every previous session. No one has to explain context ever again. The longer it runs, the more it delivers.",
+        "Opgehaald: klantdossier #M-2231, laatste contact 9 dagen geleden": "Retrieved: client file #M-2231, last contact 9 days ago",
+        "Automatisch je huisstijl toegepast": "Automatically applied your house style",
+        "Langetermijngeheugen": "Long-term memory",
+        "Context herhalen": "Repeat context",
+        "Gebruik via mail, Telegram, WhatsApp of browser. Geen extra portaal als dat niet nodig is.": "Use it through email, Telegram, WhatsApp or browser. No extra portal when it is not needed.",
+        "AI-geletterdheid": "AI literacy",
+        "Bernards rol als Lector AI helpt teams begrijpen wat AI wel en niet moet doen.": "Bernard's role as Professor of Applied AI helps teams understand what AI should and should not do.",
+        "Zes soorten werk om mee te starten": "Six types of work to get started",
+        "De eerste versie richt zich op concrete, terugkerende workflows voor ZZP’ers. Klein beginnen, bewijzen dat het werkt, daarna uitbreiden, met focus op tijdswinst, overzicht en beheersbare AI.": "The first version focuses on concrete, recurring workflows for freelancers and SMEs. Start small, prove that it works, then expand, with a focus on time savings, overview and controllable AI.",
+        "Uiteindelijk is het doel dat kenniswerkers meer grip krijgen op het werk tussen oude systemen, data en nieuwe processen. Daar zit de echte waarde: AI moet mensen helpen de kloof te overbruggen tussen verouderde systemen en moderne, datagedreven bedrijfsvoering.": "Ultimately, the goal is for knowledge workers to gain more control over the work between old systems, data and new processes. That is where the real value sits: AI should help people bridge the gap between outdated systems and modern, data-driven operations.",
+        "Inbox, agenda & monitoring": "Inbox, calendar & monitoring",
+        "Continu zicht op wat ertoe doet": "Continuous visibility on what matters",
+        "Laat mail samenvatten, urgente berichten markeren en afspraken of signalen bewaken. Hermes kan je agenda bijhouden vanuit diverse mails en kanalen, zodat losse signalen samenkomen in één rustig overzicht.": "Have email summarized, urgent messages marked and appointments or signals monitored. Hermes can keep your calendar up to date from different emails and channels, so loose signals come together in one calm overview.",
+        "“Elke ochtend: vat mijn inbox en agenda samen en laat zien wat relevant is voor mijn dag.”": "“Every morning: summarize my inbox and calendar and show what is relevant for my day.”",
+        "Website & landingpage": "Website & landing page",
+        "Van idee naar verkoopbare pagina": "From idea to sellable page",
+        "Zet je propositie om in een compacte website of landingpage met heldere tekst, passende visuals, CTA’s en een intake- of contactroute die direct bruikbaar is voor ZZP’ers.": "Turn your proposition into a compact website or landing page with clear copy, fitting visuals, CTAs and an intake or contact route that is immediately useful for freelancers and SMEs.",
+        "“Maak van deze dienst een landingpage met doelgroep, aanbod, bewijs, prijsroute en WhatsApp-contact.”": "“Turn this service into a landing page with audience, offer, proof, pricing route and WhatsApp contact.”",
+        "Workflowautomatisering": "Workflow automation",
+        "Het herhaalbare dagelijks geregeld": "Recurring daily work handled",
+        "Documenten ordenen, lijstjes bijhouden, intake vastleggen en ontbrekende informatie signaleren zonder onnodige frictie.": "Organize documents, maintain lists, record intake and flag missing information without unnecessary friction.",
+        "“Nieuwe notitie binnen → op de juiste plek zetten → markeren wat nog ontbreekt.”": "“New note received → place it correctly → mark what is still missing.”",
+        "Van losse AI-tool naar werkende workflow": "From a loose AI tool to a working workflow",
+        "De vraag is niet of een organisatie ergens AI gebruikt. De vraag is of AI onderdeel wordt van een terugkerende workflow. In klantcontact, softwareontwikkeling, juridische analyse, marketing, interne kennisbanken en financiële processen ontstaat pas waarde wanneer AI meeloopt in het werk zelf, met duidelijke grenzen en menselijke verantwoordelijkheid.": "The question is not whether an organization uses AI somewhere. The question is whether AI becomes part of a recurring workflow. In customer contact, software development, legal analysis, marketing, internal knowledge bases and financial processes, value appears when AI moves with the work itself, with clear boundaries and human responsibility.",
+        "Met een AI-workflow bedoel ik: een terugkerend bedrijfsproces waarin AI informatie leest, samenvat, routeert of controleert, gekoppeld aan bestaande systemen. Dus niet alleen een losse prompt in ChatGPT, maar een medewerker die tijdens het werk relevante klantinformatie, productsuggesties en conceptantwoorden krijgt. De mens beslist wat er naar buiten gaat.": "By an AI workflow I mean a recurring business process in which AI reads, summarizes, routes or checks information, connected to existing systems. So not just a loose prompt in ChatGPT, but an employee who receives relevant customer information, product suggestions and draft replies while working. The human decides what goes out.",
+        "Content & kennis": "Content & knowledge",
+        "Van briefing naar consistente output": "From briefing to consistent output",
+        "Artikelen, posts, klantupdates en interne notities in een herkenbare toon en vaste structuur.": "Articles, posts, client updates and internal notes in a recognizable tone and fixed structure.",
+        "“Maak van deze briefing een LinkedIn-post, klantmail en interne notitie.”": "“Turn this briefing into a LinkedIn post, client email and internal note.”",
+        "Business development": "Business development",
+        "Kansen vinden zonder ruis": "Find opportunities without noise",
+        "Zoek leads, beoordeel relevantie en bereid persoonlijke outreach of opvolging voor zonder handmatig speurwerk.": "Find leads, assess relevance and prepare personal outreach or follow-up without manual prospecting.",
+        "“Vind 10 bedrijven die passen bij deze propositie en zet conceptmails klaar.”": "“Find 10 companies that fit this proposition and prepare draft emails.”",
+        "Vergaderingen & gesprekken": "Meetings and conversations",
+        "Opnames transcriberen, rubriceren en samenvatten": "Transcribe, classify and summarize recordings",
+        "Werk vergader- en gespreksopnames uit, vat ze samen en verdeel inzichten, acties of thema’s per persoon, onderwerp of opvolging.": "Process meeting and conversation recordings, summarize them, and distribute insights, actions or themes by person, topic or follow-up.",
+        "“Werk deze opname uit, vat haar samen en verdeel acties per persoon en onderwerp.”": "“Process this recording, summarize it, and split the actions by person and topic.”",
+        "Koppelingen": "Integrations",
+        "Koppelingen met n8n": "Integrations with n8n",
+        "Bekijk details": "View details",
+        "Koppelt met de software die je al gebruikt": "Connects with the software you already use",
+        "Hermes is sterk in context, redeneren en samenwerking met mensen. Hermes kan zelf tools en koppelingen aansturen. Voor processen die strak, herhaalbaar of goed controleerbaar moeten zijn, koppelen we Hermes bijvoorbeeld aan n8n als workflowlaag. Zo kan je agent samenwerken met mail, agenda, spreadsheets, formulieren, CRM, betalingen en interne tools, terwijl n8n de vaste stappen voorspelbaar uitvoert. Bestaat er een standaardkoppeling, dan gebruiken we die. Anders kiezen we voor API, webhook of een veilige handmatige route.": "Hermes is strong in context, reasoning and human collaboration. Hermes can control tools and integrations itself. For processes that need to be tight, repeatable or easy to audit, we can connect Hermes to n8n as a workflow layer, for example. This lets your agent work with email, calendar, spreadsheets, forms, CRM, payments and internal tools, while n8n executes the fixed steps predictably. If a standard integration exists, we use it. Otherwise, we choose an API, webhook or a safe manual route.",
+        "Mail & agenda": "Email & calendar",
+        "Inbox, afspraken en opvolging": "Inbox, appointments and follow-up",
+        "Laat mail samenvatten, urgente berichten markeren, reminders klaarzetten en Teams- of agenda-updates doorgeven zonder dat de agent zomaar namens jou verstuurt.": "Have email summarized, urgent messages marked, reminders prepared and Teams or calendar updates passed on without the agent sending on your behalf by default.",
+        "Spreadsheets & bestanden": "Spreadsheets & files",
+        "Lijsten, rapportages en documenten": "Lists, reports and documents",
+        "Gebruik Sheets, Excel, Drive of OneDrive als praktische bron voor overzichten, rapportages, intakebestanden en documentverwerking.": "Use Sheets, Excel, Drive or OneDrive as a practical source for overviews, reports, intake files and document processing.",
+        "CRM & klantvragen": "CRM & customer questions",
+        "Leads en dossiers komen op de juiste plek": "Leads and files land in the right place",
+        "Nieuwe aanvragen kunnen automatisch naar je CRM, spreadsheet of mailbox, met een korte samenvatting en voorgestelde opvolging.": "New requests can automatically go to your CRM, spreadsheet or mailbox, with a short summary and suggested follow-up.",
+        "Betaling & intake": "Payment & intake",
+        "Van aanvraag naar activatie": "From request to activation",
+        "Formulieren, webhooks en Mollie kunnen intake, betaalstatus en activatie gescheiden houden.": "Forms, webhooks and Mollie can keep intake, payment status and activation separate.",
+        "AI & agenttaken": "AI & agent tasks",
+        "n8n stuurt de flow, Hermes doet het denkwerk": "n8n routes the flow, Hermes does the thinking",
+        "Voor AI-flows koppelen we n8n aan modellen, documenten, vector databases en tools. De agent maakt samenvattingen, concepten of acties klaar.": "For AI flows we connect n8n to models, documents, vector databases and tools. The agent prepares summaries, drafts or actions.",
+        "Eigen systemen": "Own systems",
+        "Ook zonder standaardknop vaak koppelbaar": "Often connectable even without a standard button",
+        "Heeft je software een API, database of webhook? Dan kunnen we vaak koppelen zonder dat je hoeft te migreren naar een ander platform.": "Does your software have an API, database or webhook? Then we can often connect without requiring a migration to another platform.",
+        "Inzet van Deterministische Agenten": "Using deterministic agents",
+        "Hermes werkt samen met deterministische workflow-tools zoals n8n: de agent denkt, de workflow voert uit. Dat maakt routinetaken betrouwbaarder, voorspelbaarder en goedkoper — terwijl Hermes zich richt op waar echt inzicht nodig is.": "Hermes works together with deterministic workflow tools such as n8n: the agent thinks, the workflow executes. This makes routine tasks more reliable, predictable and cost-effective — while Hermes focuses on where real insight is needed.",
+        "Waarom n8n noemen?": "Why mention n8n?",
+        "ZZPAgent is geen n8n-bureau, maar gebruikt n8n waar een proces zichtbaar, controleerbaar en uitbreidbaar moet zijn. Zo blijft de agentlaag open en blijft je bestaande software leidend.": "ZZPAgent is not an n8n agency, but uses n8n where a process needs to be visible, controllable and extensible. That keeps the agent layer open and your existing software leading.",
+        "Microsoft 365": "Microsoft 365",
+        "Google Workspace": "Google Workspace",
+        "CRM & opvolging": "CRM & follow-up",
+        "Prijzen": "Pricing",
+        "Pakketten": "Packages",
+        "Drie manieren om Hermes te draaien": "Three ways to run Hermes",
+        "1 · Starter": "1 · Starter",
+        "Managed Agent": "Managed Agent",
+        "Voor zelfstandigen en kleine ondernemers die snel willen starten: jouw agent draait op door ZZPAgent beheerde Europese infrastructuur, met eigen botkoppeling, gescheiden configuratie en duidelijke beheerafspraken.": "For SME companies and freelancers who want to start quickly: your agent runs on European infrastructure managed by ZZPAgent, with its own bot connection, separated configuration and clear management agreements.",
+        "Kies Telegram of WhatsApp om te communiceren met de agent": "Choose Telegram or WhatsApp to communicate with the agent",
+        "Opgezet met ChatGPT of OpenRouter, afhankelijk van de gekozen route": "Set up with ChatGPT or OpenRouter, depending on the chosen route",
+        "Snelle activatie met beheer, updates en monitoring inbegrepen": "Quick activation with management, updates and monitoring included",
+        "Menselijke goedkeuring voor gevoelige acties": "Human approval for sensitive actions",
+        "/ maand per bot": "/ month per bot",
+        "Private Agent Server": "Private Agent Server",
+        "Voor klanten die extra isolatie willen: een eigen beheerde Hetzner VPS of Europese cloudomgeving, automatisch ingericht en door ZZPAgent beheerd met aparte monitoring en onderhoud.": "For customers who want extra isolation: their own managed Hetzner VPS or European cloud environment, automatically set up and managed by ZZPAgent with separate monitoring and maintenance.",
+        "Eigen VPS per klant, vanaf €79 / maand": "Own VPS per customer, from €79 / month",
+        "Cloud-init/Terraform-ready installatie": "Cloud-init/Terraform-ready installation",
+        "Meer controle over data en toegang": "More control over data and access",
+        "Vanaf €79": "From €79",
+        "/ maand": "/ month",
+        "Eigen cloud of Mac": "Own cloud or Mac",
+        "Voor ZZP’ers-bedrijven die zelf eigenaar willen blijven van de infrastructuurrelatie: eigen Mac mini, VPS of bestaande cloud. ZZPAgent verzorgt setup, koppeling, updates of support volgens afspraak.": "For freelancers and SMBs that want to remain owners of the infrastructure relationship: their own Mac mini, VPS or existing cloud. ZZPAgent provides setup, integration, updates or support as agreed.",
+        "Eigen Mac mini, VPS of bestaande cloud": "Own Mac mini, VPS or existing cloud",
+        "Eenmalige setup, verder geen beheerskosten": "One-time setup, no further management costs",
+        "Maandelijkse support of beheerabonnement mogelijk": "Monthly support or management subscription possible",
+        "Jij houdt eigenaarschap over infrastructuur en toegang": "You keep ownership of infrastructure and access",
+        "Set up: €399": "Set up: €399",
+        "(incl. Mac mini €1299)": "(incl. Mac mini €1299)",
+        "Bekijk Mac mini AI-workstation": "View Mac mini AI workstation",
+        "Mac mini AI-workstation": "Mac mini AI workstation",
+        "Zet een Mac mini M4 in als eigen AI-werkstation": "Turn a Mac mini M4 into your own AI workstation",
+        "Voor bedrijven die hun agent liever op eigen hardware of in een eigen kantooropstelling laten draaien, richt ZZPAgent een Mac mini M4 of bestaande Mac in als private AI-basis. Afhankelijk van de workflow kiezen we de best passende Hermes-route per kanaal, team en automatisering.": "For companies that prefer to run their agent on their own hardware or in their own office setup, ZZPAgent can set up a Mac mini M4 or existing Mac as a private AI base. Depending on the workflow, we choose the best-fitting Hermes route per channel, team and automation.",
+        "Setup": "Setup",
+        "Wat we opleveren": "What we deliver",
+        "Een werkende zakelijke basisconfiguratie voor ZZP’ers, support, sales of interne workflowautomatisering, niet alleen een promptscherm.": "A working business base configuration for freelancers, support, sales or internal workflow automation, not just a prompt screen.",
+        "Installatie en configuratie van Hermes": "Installation and configuration of Hermes",
+        "Koppeling met Slack, Telegram, WhatsApp of browser": "Connection to Slack, Telegram, WhatsApp or browser",
+        "Modelroutes via jullie eigen accounts en budgetkeuzes": "Model routes through your own accounts and budget choices",
+        "Eerste automatisering, overdracht en beheerafspraken": "Initial automation, handover and management agreements",
+        "Waarom dit werkt": "Why this works",
+        "Meer eigenaarschap, minder lock-in": "More ownership, less lock-in",
+        "De hardware staat bij jullie. Jullie houden grip op toegang, sleutels, kosten en uitbreidingen, met de optie om later door te groeien naar cloud of hybride beheer.": "The hardware sits with you. You keep control over access, keys, costs and expansions, with the option to grow later into cloud or hybrid management.",
+        "Chats, documenten en logs op eigen infrastructuur": "Chats, documents and logs on your own infrastructure",
+        "Remote toegang na oplevering intrekbaar": "Remote access revocable after delivery",
+        "Lokale modellen mogelijk voor privacygevoelige taken": "Local models possible for privacy-sensitive tasks",
+        "Past bij bedrijven die AI willen integreren zonder volledig platformslot": "Fits companies that want to integrate AI without full platform lock-in",
+        "Praktisch": "Practical",
+        "Samen testen op jullie eigen proces": "Test together on your own process",
+        "Tijdens de installatie testen we meteen jullie eigen vragen, documenten en workflows. Hebben jullie al een Mac? Dan kan alleen installatie en configuratie ook.": "During installation we immediately test your own questions, documents and workflows. Already have a Mac? Then installation and configuration alone is also possible.",
+        "Intake vooraf op use-case, team en maandbudget": "Intake first around use case, team and monthly budget",
+        "Directe live test tijdens de setup": "Direct live testing during setup",
+        "Nazorg, updates en doorontwikkeling mogelijk": "Aftercare, updates and further development possible",
+        "Geschikt voor ZZP’ers, kleine teams en eigen kantooromgeving": "Suitable for freelancers, small teams and your own office environment",
+        "Belangrijk over kosten:": "Important about costs:",
+        "hardware, AI-API's, domeinen, telefonie, cloudopslag en andere externe diensten vallen buiten de setupprijs. Tijdens intake bepalen we of eigen Mac mini, managed cloud of een hybride route de beste zakelijke keuze is.": "hardware, AI APIs, domains, telephony, cloud storage and other external services fall outside the setup price. During intake we determine whether your own Mac mini, managed cloud or a hybrid route is the best business choice.",
+        "2 · Dedicated": "2 · Dedicated",
+        "Geschikt voor privacygevoelige workflows": "Suitable for privacy-sensitive workflows",
+        "3 · Bring your own": "3 · Bring your own",
+        "Modelkeuze & toegang": "Model choice & access",
+        "Wijs per taak het juiste model toe": "Assign the right model to each task",
+        "Gebruik ChatGPT/Codex via OAuth, gebaseerd op je maandelijkse abonnement én commodity modellen via OpenRouter. Als een route zijn limiet bereikt, schakelt de agent over naar een vooraf gekozen alternatief. Hermes beschikt over MOA (Mix of Agents) waar je de modellen per taak kunt alloceren.": "Use ChatGPT/Codex through OAuth, based on your monthly subscription, and commodity models through OpenRouter. If a route reaches its limit, the agent switches to a preselected alternative. Hermes supports MOA (Mix of Agents), letting you allocate models per task.",
+        "OAuth + OpenRouter": "OAuth + OpenRouter",
+        "Twee toegangswegen, één agentlaag": "Two access routes, one agent layer",
+        "Je logt in met ChatGPT/Codex of gebruikt OpenRouter als modelhub. Daarna kiest de agent per taak de ingestelde route en fallback.": "You sign in with ChatGPT/Codex or use OpenRouter as a model hub. After that, the agent chooses the configured route and fallback per task.",
+        "ChatGPT/Codex via OAuth": "ChatGPT/Codex through OAuth",
+        "Claude via OAuth (beperkte capaciteit)": "Claude through OAuth (limited capacity)",
+        "OpenRouter voor meerdere modellen": "OpenRouter for multiple models",
+        "Automatische fallback bij limieten of storingen": "Automatic fallback when limits are hit or outages occur",
+        "Modelprijzen (per 1M tokens)": "Model prices (per 1M tokens)",
+        "ChatGPT / Codex OAuth": "ChatGPT / Codex OAuth",
+        "Voor klanten die via ChatGPT of Codex willen werken zonder losse API-key. Je logt eenmalig in; daarna gebruikt de agent een beveiligde OAuth-koppeling als primaire route.": "For customers who want to work through ChatGPT or Codex without a separate API key. You log in once; after that the agent uses a secure OAuth connection as the primary route.",
+        "Geen API-key kopiëren": "No API key copying",
+        "Handig voor ChatGPT- en Codex-workflows": "Useful for ChatGPT and Codex workflows",
+        "Plus werkt met gebruikslimieten, niet met een publieke vaste tokenpot": "Plus works with usage limits, not with a public fixed token bucket",
+        "Claude OAuth": "Claude OAuth",
+        "Voor klanten die via Claude willen werken zonder losse API-key. Anthropic staat OAuth toe, maar de beschikbare capaciteit is beperkt — de yield is laag en limieten kunnen snel bereikt zijn.": "For customers who want to work through Claude without a separate API key. Anthropic allows OAuth, but available capacity is limited — yield is low and limits can be reached quickly.",
+        "Anthropic OAuth-koppeling": "Anthropic OAuth connection",
+        "Beperkte capaciteit — geschikt als lichte route, niet voor hoog volume": "Limited capacity — suitable as a light route, not for high volume",
+        "Open Router": "Open Router",
+        "Meerdere modellen onder één sleutel": "Multiple models under one key",
+        "OpenRouter geeft via één sleutel toegang tot modellen zoals Claude, GPT, DeepSeek en GLM. Handig voor fallback, prijsbewuste routering en het kiezen van een ander model zodra dat beter past.": "OpenRouter gives access through one key to models such as Claude, GPT, DeepSeek and GLM. Useful for fallback, cost-aware routing, and switching to another model as soon as that fits better.",
+        "Bij deze modelprijzen tonen we twee bedragen per 1M tokens: input voor je prompt naar het model en output voor het antwoord terug. Bij deze modellen is output meestal duurder dan input.": "These model prices show two amounts per 1M tokens: input for your prompt to the model and output for the answer that comes back. For these models, output is usually more expensive than input.",
+        "ChatGPT Plus prijs": "ChatGPT Plus price",
+        "ChatGPT Plus · GPT-5": "ChatGPT Plus · GPT-5",
+        "Richtprijs in Nederland, inclusief btw. Gebruikslimieten kunnen wisselen.": "Indicative Netherlands price, including VAT. Usage limits can vary.",
+        "€23 / maand": "€23 / month",
+        "OpenRouter modelprijzen": "OpenRouter model prices",
+        "Claude Sonnet 4": "Claude Sonnet 4",
+        "Veelgekozen premium model voor schrijven, analyse en code.": "Often-chosen premium model for writing, analysis and code.",
+        "$3 / $15 per 1M": "$3 / $15 per 1M",
+        "GPT-5": "GPT-5",
+        "Sterke allround route voor redeneren en tooling.": "Strong all-round route for reasoning and tooling.",
+        "$1.25 / $10 per 1M": "$1.25 / $10 per 1M",
+        "GLM 5.2": "GLM 5.2",
+        "Open-weight model met sterke agentische coding- en tool-use, 1M context.": "Open-weight model with strong agentic coding and tool use, 1M context.",
+        "$0.95 / $3 per 1M": "$0.95 / $3 per 1M",
+        "DeepSeek V4 Pro": "DeepSeek V4 Pro",
+        "Zwaardere DeepSeek-route voor complexere analyse, code en lange context.": "Heavier DeepSeek route for more complex analysis, code, and long context.",
+        "$0.435 / $0.87 per 1M": "$0.435 / $0.87 per 1M",
+        "DeepSeek V4 Flash": "DeepSeek V4 Flash",
+        "Snelle en goedkope DeepSeek-route voor veel volume en responsieve workflows.": "Fast and lower-cost DeepSeek route for high volume and responsive workflows.",
+        "$0.09 / $0.18 per 1M": "$0.09 / $0.18 per 1M",
+        "Pay-as-you-go met officiële modelprijzen + circa 5,5% platform fee": "Pay-as-you-go with official model prices + about 5.5% platform fee",
+        "Geschikt voor fallback, vergelijking en budgetcontrole": "Suitable for fallback, comparison and budget control",
+        "Hermes kiest daarna per taak de ingestelde route": "Hermes then chooses the configured route for each task",
+        "Hoe het werkt:": "How it works:",
+        "tijdens deployment bepalen we of een OAuth-route (ChatGPT of Claude) of OpenRouter de primaire route wordt, plus minimaal één fallback. Als een OAuth-route zijn limiet bereikt of niet beschikbaar is, schakelt de agent door naar het OpenRouter-model dat we vooraf hebben gekozen. Sleutels en OAuth-tokens horen in de private agent-workspace, niet in de website.": "during deployment we decide whether an OAuth route (ChatGPT or Claude) or OpenRouter becomes the primary route, plus at least one fallback. If an OAuth route hits its limit or is unavailable, the agent switches to the OpenRouter model we selected in advance. Keys and OAuth tokens belong in the private agent workspace, not in the website.",
+        "Security & data": "Security & data",
+        "Controle, governance en privacy zijn geen details. Ze zijn de basis.": "Control, governance and privacy are not details. They are the basis.",
+        "Wanneer AI met klantgegevens, bedrijfsinformatie of gevoelige context werkt, moet het niet alleen handig zijn. Het moet uitlegbaar, beheersbaar en begrensd zijn.": "When AI works with client data, business information or sensitive context, it must not only be useful. It must be explainable, controllable and bounded.",
+        "“Niet alles wat technologisch kan is ook maatschappelijk gewenst.”": "“Not everything that is technologically possible is socially desirable.”",
+        ", lijn vanuit bernarddonners-ai.nl, vertaald naar veilige zakelijke toepassing": ", line from bernarddonners-ai.nl, translated into safe business application",
+        "Klaar om je eerste ZZP-agent te starten?": "Ready to start your first SME agent?",
+        "Begin met intake en betaal daarna veilig de eerste maand via Mollie. Na betaling zetten we de installatie klaar en koppelen we ChatGPT samen via de officiële login.": "Start with intake and then safely pay the first month through Mollie. After payment we prepare installation and connect ChatGPT together through the official login.",
+        "Lees Bernards AI-visie": "Read Bernard's AI vision",
+        "Altijd met menselijke goedkeuring, duidelijke datagrenzen en verantwoord gebruik. Start met één agent, één workflow en één team; daarna pas uitbreiden.": "Always with human approval, clear data boundaries and responsible use. Start with one agent, one workflow and one team; only then expand.",
+        "Vul je gegevens in": "Enter your details",
+        "Naam, e-mailadres en bedrijfsnaam voor de eerste intake.": "Name, email address and company name for the first intake.",
+        "Start met Hermes": "Start with Hermes",
+        "We bereiden je Hermes-agent voor op de eerste workflow.": "We prepare your Hermes agent for the first workflow.",
+        "Voeg je Telegram-token toe": "Add your Telegram token",
+        "Maak je bot aan via BotFather en plak de token in het formulier.": "Create your bot through BotFather and paste the token into the form.",
+        "Nederlandse uitleg": "Dutch guide",
+        "Koppel ChatGPT tijdens installatie": "Connect ChatGPT during installation",
+        "Geen code nodig: we loggen samen in via de officiële ChatGPT-login.": "No code needed: we log in together through the official ChatGPT login.",
+        "Start intake en betaal eerste maand": "Start intake and pay the first month",
+        "Na je intake ga je veilig naar Mollie. Na betaling zetten we je installatie klaar.": "After your intake you go safely to Mollie. After payment we prepare your installation.",
+        "€29 / maand per bot": "€29 / month per bot",
+        "Geen grote startkosten en direct opzegbaar.": "No large start-up costs and cancel any time.",
+        "Hermes intake": "Hermes intake",
+        "Start je Hermes intake": "Start your Hermes intake",
+        "Vul de gegevens in die nodig zijn om Hermes voor jouw eerste workflow voor te bereiden. Daarna ga je veilig naar Mollie; installatie volgt na betaling.": "Fill in the details needed to prepare Hermes for your first workflow. Then you go safely to Mollie; installation follows after payment.",
+        "E-mailadres": "Email address",
+        "Naam": "Name",
+        "Bedrijf": "Company",
+        "Gekozen AI-agent": "Selected AI agent",
+        "Hermes Agent": "Hermes Agent",
+        "Hermes Agent": "Hermes Agent",
+        "Kanaal": "Channel",
+        "Telegram": "Telegram",
+        "WhatsApp": "WhatsApp",
+        "Telegram Bot Token": "Telegram Bot Token",
+        "WhatsApp Token": "WhatsApp Token",
+        "Dit is de sleutel waarmee jouw agent via jouw eigen Telegram-bot berichten kan ontvangen en beantwoorden. Maak de bot gratis aan via": "This is the key that lets your agent receive and answer messages through your own Telegram bot. Create the bot for free through",
+        "Plak hier de WhatsApp-token of toegangssleutel die we gebruiken om jouw agent aan WhatsApp te koppelen. We controleren de juiste route tijdens de installatie.": "Paste the WhatsApp token or access key we use to connect your agent to WhatsApp. We check the right route during installation.",
+        "Hulp nodig? Lees deze": "Need help? Read this",
+        "ChatGPT OAuth": "ChatGPT OAuth",
+        "ChatGPT OAuth betekent dat je inlogt met je eigen ChatGPT/Codex-account in plaats van een losse API-sleutel te kopiëren. Je hoeft hier niets in te vullen: tijdens de installatie openen we de officiële login, jij bevestigt de toegang en de beveiligde koppeling wordt alleen in je private agent-workspace opgeslagen.": "ChatGPT OAuth means you sign in with your own ChatGPT/Codex account instead of copying a separate API key. You do not need to fill anything in here: during installation we open the official login, you confirm access and the secure connection is stored only in your private agent workspace.",
+        "Geen code nodig in dit formulier. We koppelen ChatGPT OAuth samen tijdens de installatie via de officiële login.": "No code needed in this form. We connect ChatGPT OAuth together during installation through the official login.",
+        "Vouchercode": "Voucher code",
+        "Ik heb de voorwaarden en het privacybeleid gelezen.": "I have read the terms and the privacy policy.",
+        "Ik begrijp dat ik verantwoordelijk blijf voor de configuratie en antwoorden van mijn bot en gevoelige acties eerst moet goedkeuren.": "I understand that I remain responsible for my bot's configuration and answers and must approve sensitive actions first.",
+        "Start intake en betaal eerste maand": "Start intake and pay the first month",
+        "We zetten je veilige Mollie-checkout klaar...": "Preparing your secure Mollie checkout...",
+        "Je wordt doorgestuurd naar Mollie om de eerste maand te betalen. Na betaling zetten we je installatie klaar.": "You will be redirected to Mollie to pay the first month. After payment we prepare your installation.",
+        "Gekozen agent:": "Selected agent:",
+        "Kanaal:": "Channel:",
+        "Modelroute:": "Model route:",
+        "Ga naar Mollie checkout": "Go to Mollie checkout",
+        "Lukt doorsturen niet? Gebruik de knop hierboven.": "Redirect not working? Use the button above.",
+        "Checkout kon niet worden gestart. Probeer opnieuw of mail info@zzpagent.nl.": "Checkout could not be started. Try again or email info@zzpagent.nl.",
+        "Voorwaarden & privacy": "Terms & privacy",
+        "Duidelijke afspraken voor verantwoord gebruik": "Clear agreements for responsible use",
+        "ZZPAgent werkt met heldere grenzen: AI ondersteunt, de gebruiker houdt controle en gevoelige acties vragen expliciete menselijke goedkeuring.": "ZZPAgent works with clear boundaries: AI supports, the user remains in control and sensitive actions require explicit human approval.",
+        "Algemene voorwaarden": "General terms",
+        "ZZPAgent levert advies, configuratie, automatisering en beheer van AI-agents voor zakelijke gebruikers. De dienstverlening is gericht op ondersteuning van werkprocessen, niet op het overnemen van professionele verantwoordelijkheid van de klant.": "ZZPAgent provides advice, configuration, automation and management of AI agents for business users. The service supports work processes and does not take over the customer's professional responsibility.",
+        "De klant blijft verantwoordelijk voor de keuze om AI-output te gebruiken, te versturen, te publiceren of om te zetten in een besluit.": "The customer remains responsible for the choice to use, send, publish or turn AI output into a decision.",
+        "AI-output kan onjuist, onvolledig, verouderd of ongeschikt zijn voor de specifieke situatie.": "AI output can be incorrect, incomplete, outdated or unsuitable for the specific situation.",
+        "De agent vervangt geen juridisch, medisch, financieel, fiscaal of ander professioneel advies.": "The agent does not replace legal, medical, financial, tax or other professional advice.",
+        "Risicovolle acties, externe communicatie, publicaties, betalingen en besluiten vereisen menselijke controle en expliciet akkoord.": "Risky actions, external communication, publications, payments and decisions require human control and explicit approval.",
+        "De klant staat ervoor in dat aangeleverde gegevens rechtmatig mogen worden verwerkt en geen rechten van derden schenden.": "The customer warrants that submitted data may be lawfully processed and does not infringe third-party rights.",
+        "ZZPAgent mag werkzaamheden opschorten wanneer gebruik onveilig, onrechtmatig of strijdig met afspraken lijkt.": "ZZPAgent may suspend work when use appears unsafe, unlawful or contrary to agreements.",
+        "ZZPAgent neemt geen aansprakelijkheid over voor gebruik van AI-output; de klant blijft verantwoordelijk voor controle, besluiten en gevolgen, voor zover wettelijk toegestaan.": "ZZPAgent does not assume liability for the use of AI output; the customer remains responsible for review, decisions and consequences, to the extent permitted by law.",
+        "Verantwoord gebruik": "Responsible use",
+        "Bevestiging bij activatie": "Confirmation at activation",
+        "Deze bevestiging hoort bij intake, offerte en activatie van iedere agent.": "This confirmation belongs to the intake, quotation and activation of every agent.",
+        "Ik begrijp dat ik verantwoordelijk ben voor het controleren van AI-output voordat ik die gebruik, verstuur, publiceer of omzet in een besluit.": "I understand that I am responsible for checking AI output before I use, send, publish or turn it into a decision.",
+        "Ik begrijp dat een AI-agent fouten kan maken en dat ZZPAgent geen aansprakelijkheid aanvaardt voor beslissingen die zonder menselijke controle worden genomen.": "I understand that an AI agent can make mistakes and that ZZPAgent accepts no liability for decisions made without human control.",
+        "Ik begrijp dat ik geen gegevens mag aanleveren waarvoor ik geen rechtmatige grondslag of toestemming heb.": "I understand that I may not submit data for which I have no lawful basis or consent.",
+        "Ik begrijp dat gevoelige acties pas mogen plaatsvinden na mijn expliciete akkoord.": "I understand that sensitive actions may only take place after my explicit approval.",
+        "Privacybeleid": "Privacy policy",
+        "ZZPAgent verwerkt persoonsgegevens en bedrijfsgegevens alleen voor zover dat nodig is om de agent te configureren, te beveiligen, uit te voeren, te beheren en de afgesproken ondersteuning te leveren.": "ZZPAgent processes personal data and business data only to the extent necessary to configure, secure, operate and manage the agent and provide the agreed support.",
+        "Verwerkte gegevens kunnen bestaan uit contactgegevens, bedrijfsinformatie, agent-instellingen, prompts, taakgeschiedenis, documenten, berichten en technische logs.": "Processed data may include contact details, business information, agent settings, prompts, task history, documents, messages and technical logs.",
+        "Gegevens worden niet verkocht aan derden.": "Data is not sold to third parties.",
+        "Toegang wordt beperkt tot wat noodzakelijk is voor inrichting, beheer, beveiliging en support.": "Access is limited to what is necessary for setup, management, security and support.",
+        "Waar mogelijk worden gegevens geminimaliseerd, afgeschermd en binnen een afgesproken hostingomgeving verwerkt.": "Where possible, data is minimized, shielded and processed within an agreed hosting environment.",
+        "De klant blijft verantwoordelijk voor de rechtmatigheid van gegevens die hij aanlevert of laat koppelen.": "The customer remains responsible for the lawfulness of data they provide or connect.",
+        "Bij klantprojecten kunnen aanvullende afspraken worden vastgelegd over rollen, bewaartermijnen, hostinglocatie, subverwerkers en beveiligingsmaatregelen.": "Customer projects may include additional agreements about roles, retention periods, hosting location, subprocessors and security measures.",
+        "Verzoeken over inzage, correctie, verwijdering of beperking kunnen worden gedaan via het contactadres van ZZPAgent.": "Requests for access, correction, deletion or restriction can be made through ZZPAgent' contact address.",
+        "Gebruik van agents": "Use of agents",
+        "Menselijke controle blijft leidend": "Human control remains leading",
+        "Een MKBAgent mag voorbereiden, samenvatten, signaleren, ordenen en concepten klaarzetten. De agent handelt niet zelfstandig namens de klant bij gevoelige of externe acties, tenzij dat uitdrukkelijk is afgesproken en technisch is begrensd.": "An MKBAgent may prepare, summarize, flag, organize and draft. The agent does not act independently on the customer's behalf for sensitive or external actions unless explicitly agreed and technically bounded.",
+        "Geen automatische verzending zonder akkoord waar reputatie, geld, rechten of privacy geraakt kunnen worden.": "No automatic sending without approval where reputation, money, rights or privacy may be affected.",
+        "Geen gebruik voor onrechtmatige, misleidende, discriminerende of schadelijke doeleinden.": "No use for unlawful, misleading, discriminatory or harmful purposes.",
+        "Geen invoer van bijzondere persoonsgegevens of vertrouwelijke gegevens zonder passende grondslag en afspraken.": "No input of special-category personal data or confidential data without an appropriate basis and agreements.",
+        "Bij twijfel geldt: eerst menselijke beoordeling, daarna pas actie.": "When in doubt: human review first, action later.",
+        "Privacybeleid": "Privacy policy",
+        "· Gebouwd voor ZZP met Bernard's AI visie.": "· Built for SMEs with Bernard's AI vision.",
+        "Gebouwd voor ZZP met Bernard's AI visie.": "Built for SMEs with Bernard's AI vision."
+,
+        "Hermes-video": "Hermes video"      }
+    };
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node){
+        if(!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        if(node.parentElement.closest('script, style')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const translatableNodes = [];
+    while(walker.nextNode()){
+      const node = walker.currentNode;
+      node.datasetKey = node.nodeValue.trim().replace(/\s+/g, ' ');
+      translatableNodes.push(node);
+    }
+
+    function setLanguage(lang){
+      const dict = translations[lang] || {};
+      document.documentElement.lang = lang;
+      document.body.dataset.lang = lang;
+      document.title = lang === 'en' ? dict['ZZPAgent, AI-agent voor ZZP’ers die snel willen automatiseren'] : 'ZZPAgent, AI-agent voor ZZP’ers die snel willen automatiseren';
+      const meta = document.querySelector('meta[name="description"]');
+      if(meta){
+        meta.setAttribute('content', lang === 'en' ? dict['ZZPAgent levert beheerde AI-agent voor ZZP’ers die snel willen automatiseren: veilig, controleerbaar en AVG-bewust.'] : 'ZZPAgent levert beheerde AI-agent voor ZZP’ers die snel willen automatiseren: veilig, controleerbaar en AVG-bewust.');
+      }
+      translatableNodes.forEach(node => {
+        const original = node.datasetKey;
+        node.nodeValue = lang === 'en' && dict[original] ? node.nodeValue.replace(node.nodeValue.trim(), dict[original]) : node.nodeValue.replace(node.nodeValue.trim(), original);
+      });
+      document.querySelectorAll('[data-lang-button]').forEach(button => {
+        button.classList.toggle('active', button.dataset.langButton === lang);
+      });
+      if(orderAgentInput){
+        setSelectedAgent(orderAgentInput.value || 'hermes');
+      }
+      if(orderChannelInput){
+        setSelectedChannel(orderChannelInput.value || 'telegram');
+      }
+      localStorage.setItem('trustedAgentsLang', lang);
+    }
+
+    document.querySelectorAll('[data-lang-button]').forEach(button => {
+      button.addEventListener('click', () => setLanguage(button.dataset.langButton));
+    });
+
+    const orderForm = document.querySelector('#order-form');
+    const orderResult = document.querySelector('#order-result');
+    const orderSection = document.querySelector('#bestel-agent');
+    const orderEyebrow = document.querySelector('#order-eyebrow');
+    const orderTitle = document.querySelector('#order-title');
+    const orderLead = document.querySelector('#order-lead');
+    const orderAgentInput = document.querySelector('#order-agent');
+    const orderChannelInput = document.querySelector('#order-channel');
+    const orderChannelToken = document.querySelector('#order-channel-token');
+    const orderChannelTokenLabel = document.querySelector('#order-channel-token-label');
+    const orderChannelTokenHelp = document.querySelector('#order-channel-token-help');
+    const orderCopy = {
+      nl: {
+        hermes: {
+          eyebrow: 'Hermes intake',
+          title: 'Start je Hermes intake',
+          lead: 'Vul de gegevens in die nodig zijn om Hermes voor jouw eerste workflow voor te bereiden. Daarna ga je veilig naar Mollie; installatie volgt na betaling.'
+        },
+        hermes: {
+          eyebrow: 'Hermes intake',
+          title: 'Start je Hermes intake',
+          lead: 'Vul de gegevens in die nodig zijn om Hermes Agent voor jouw eerste workflow voor te bereiden. Daarna ga je veilig naar Mollie; installatie volgt na betaling.'
+        }
+      },
+      en: {
+        hermes: {
+          eyebrow: 'Hermes intake',
+          title: 'Start your Hermes intake',
+          lead: 'Fill in the details needed to prepare Hermes for your first workflow. Then you go safely to Mollie; installation follows after payment.'
+        },
+        hermes: {
+          eyebrow: 'Hermes intake',
+          title: 'Start your Hermes intake',
+          lead: 'Fill in the details needed to prepare Hermes Agent for your first workflow. Then you go safely to Mollie; installation follows after payment.'
+        }
+      }
+    };
+
+    function setSelectedAgent(agent){
+      if(!orderAgentInput) return;
+      const selectedAgent = 'hermes';
+      orderAgentInput.value = selectedAgent;
+      document.querySelectorAll('[data-agent-option]').forEach(button => {
+        button.classList.toggle('active', button.dataset.agentOption === selectedAgent);
+      });
+      const lang = document.body.dataset.lang === 'en' ? 'en' : 'nl';
+      const copy = orderCopy[lang][selectedAgent];
+      if(copy){
+        if(orderEyebrow) orderEyebrow.textContent = copy.eyebrow;
+        if(orderTitle) orderTitle.textContent = copy.title;
+        if(orderLead) orderLead.textContent = copy.lead;
+      }
+    }
+
+    function setSelectedChannel(channel){
+      if(!orderChannelInput) return;
+      const selectedChannel = channel === 'whatsapp' ? 'whatsapp' : 'telegram';
+      orderChannelInput.value = selectedChannel;
+      document.querySelectorAll('[data-channel-option]').forEach(button => {
+        button.classList.toggle('active', button.dataset.channelOption === selectedChannel);
+      });
+      const lang = document.body.dataset.lang === 'en' ? 'en' : 'nl';
+      const channelCopy = {
+        nl: {
+          telegram: {
+            label: 'Telegram Bot Token',
+            help: 'Dit is de sleutel waarmee jouw agent via jouw eigen Telegram-bot berichten kan ontvangen en beantwoorden. Maak de bot gratis aan via <a href="https://telegram.me/BotFather" target="_blank" rel="noopener">BotFather</a>. Hulp nodig? Lees deze <a href="https://imsocial.nl/telegram/wat-is-een-telegram-bot-wat-kun-je-ermee-en-hoe-maak-je-er-een" target="_blank" rel="noopener">Nederlandse uitleg</a>.'
+          },
+          whatsapp: {
+            label: 'WhatsApp Token',
+            help: 'Plak hier de WhatsApp-token of toegangssleutel die we gebruiken om jouw agent aan WhatsApp te koppelen. We controleren de juiste route tijdens de installatie.'
+          }
+        },
+        en: {
+          telegram: {
+            label: 'Telegram Bot Token',
+            help: 'This is the key that lets your agent receive and answer messages through your own Telegram bot. Create the bot for free through <a href="https://telegram.me/BotFather" target="_blank" rel="noopener">BotFather</a>.'
+          },
+          whatsapp: {
+            label: 'WhatsApp Token',
+            help: 'Paste the WhatsApp token or access key we use to connect your agent to WhatsApp. We check the right route during installation.'
+          }
+        }
+      };
+      const copy = channelCopy[lang][selectedChannel];
+      if(orderChannelTokenLabel) orderChannelTokenLabel.textContent = copy.label;
+      if(orderChannelTokenHelp) orderChannelTokenHelp.innerHTML = copy.help;
+      if(orderChannelToken) orderChannelToken.placeholder = copy.label;
+    }
+
+    function revealOrderSection(agent){
+      setSelectedAgent(agent || 'hermes');
+      if(orderSection){
+        orderSection.hidden = false;
+        requestAnimationFrame(() => orderSection.scrollIntoView({behavior:'smooth', block:'start'}));
+      }
+    }
+
+    document.querySelectorAll('[data-onboarding-agent]').forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        revealOrderSection(link.dataset.onboardingAgent || 'hermes');
+        history.replaceState(null, '', '#bestel-agent');
+      });
+    });
+
+    document.querySelectorAll('[data-agent-option]').forEach(button => {
+      button.addEventListener('click', () => setSelectedAgent(button.dataset.agentOption || 'hermes'));
+    });
+
+    document.querySelectorAll('[data-channel-option]').forEach(button => {
+      button.addEventListener('click', () => setSelectedChannel(button.dataset.channelOption || 'telegram'));
+    });
+
+    const checkoutEndpoint = 'https://hermes2eva.app.n8n.cloud/webhook/mkbagents-intake-checkout';
+
+    if(orderForm){
+      orderForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const submitButton = orderForm.querySelector('button[type="submit"]');
+        const data = Object.fromEntries(new FormData(orderForm).entries());
+        const agentLabel = data.agent === 'hermes' ? 'Hermes Agent' : 'Hermes Agent';
+        const payload = {
+          agent: 'hermes',
+          customer_name: data.customer_name || '',
+          company_name: data.company_name || '',
+          email: data.email || '',
+          channel: data.channel || 'telegram',
+          channel_token: data.channel_token || '',
+          telegram_bot_token: data.channel === 'telegram' ? (data.channel_token || '') : '',
+          whatsapp_token: data.channel === 'whatsapp' ? (data.channel_token || '') : '',
+          voucher_code: data.voucher_code || ''
+        };
+
+        if(submitButton){
+          submitButton.disabled = true;
+          submitButton.textContent = 'We zetten je veilige Mollie-checkout klaar...';
+        }
+        orderResult.hidden = false;
+        orderResult.innerHTML = `
+          <strong>We zetten je veilige Mollie-checkout klaar...</strong><br>
+          Je wordt doorgestuurd naar Mollie om de eerste maand te betalen. Na betaling zetten we je installatie klaar.<br><br>
+          <span><strong>Gekozen agent:</strong> ${agentLabel}</span><br>
+          <span><strong>Kanaal:</strong> ${payload.channel}</span><br>
+          <span><strong>Modelroute:</strong> ChatGPT OAuth</span>
+        `;
+
+        try{
+          const response = await fetch(checkoutEndpoint, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+          });
+          const result = await response.json().catch(() => ({}));
+          if(!response.ok || !result.ok || !result.checkoutUrl){
+            throw new Error(result.message || result.error || 'checkout_failed');
+          }
+          orderResult.innerHTML = `
+            <strong>Je Mollie-checkout staat klaar.</strong><br>
+            Je wordt doorgestuurd om de eerste maand te betalen. Na betaling zetten we je installatie klaar.<br><br>
+            <a class="button secondary" href="${result.checkoutUrl}">Ga naar Mollie checkout</a>
+            <div style="margin-top:12px">Lukt doorsturen niet? Gebruik de knop hierboven.</div>
+          `;
+          window.location.href = result.checkoutUrl;
+        }catch(error){
+          orderResult.innerHTML = `
+            <strong>Checkout kon niet worden gestart.</strong><br>
+            Probeer opnieuw of mail info@zzpagent.nl. Foutmelding: ${String(error.message || error)}
+          `;
+          if(submitButton){
+            submitButton.disabled = false;
+            submitButton.textContent = 'Start intake en betaal eerste maand';
+          }
+        }
+      });
+    }
+
+    setLanguage(localStorage.getItem('trustedAgentsLang') || 'nl');
+  </script>
+</body>
+</html>
