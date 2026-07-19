@@ -20,6 +20,12 @@ Ja. ZZPAgent kan agents voorbereiden voor WhatsApp Business, Telegram, Slack of 
 
 n8n is nuttig voor vaste, herhaalbare stappen zoals formulieren, betalingen, CRM-updates, webhooks en bestandsroutes. Hermes denkt, vat samen en werkt met context. Samen maken ze workflows betrouwbaarder: de agent denkt, de workflow voert uit.
 
+## Geef je Hermes toegang tot al je mailaccounts?
+
+In principe kan Hermes met mailaccounts werken, maar standaard is dat niet verstandig. Een AI-agent kan via e-mail nuttige context krijgen, maar e-mail is ook een kanaal waar schadelijke of misleidende instructies kunnen binnenkomen. Nieuwe beveiligingsupdates maken dat risico kleiner, maar niet nul.
+
+De praktische regel is dezelfde als bij een nieuwe medewerker: je geeft niet meteen toegang tot alles, maar alleen tot wat nodig is voor het werk. Voor een eerste ZZPAgent betekent dat meestal: één mailbox, één label/map of alleen leesrechten voor een duidelijk afgebakende workflow. Gevoelige acties zoals antwoorden versturen, bestanden delen, betalingen doen of afspraken wijzigen blijven achter menselijke goedkeuring.
+
 ## Wie is verantwoordelijk voor AI-output?
 
 De klant blijft verantwoordelijk voor output die wordt gebruikt, verstuurd, gepubliceerd of omgezet in een besluit. ZZPAgent richt agents zo in dat gevoelige acties eerst zichtbaar worden gemaakt en menselijke goedkeuring vragen.

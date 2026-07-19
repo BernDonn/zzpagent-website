@@ -26,6 +26,7 @@ Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech. ChatGPT, Cla
 - ZZPAgent belooft geen absolute onafhankelijkheid of gegarandeerde kostenbesparing.
 - De klant blijft verantwoordelijk voor AI-output die wordt gebruikt, verstuurd, gepubliceerd of omgezet in een besluit.
 - Gevoelige acties rond geld, reputatie, rechten, privacy of externe communicatie vragen menselijke goedkeuring.
+- Mailtoegang wordt bij voorkeur beperkt ingericht: alleen de mailboxen, labels of leesrechten die nodig zijn voor de afgesproken workflow.
 
 ## Externe signalen
 
