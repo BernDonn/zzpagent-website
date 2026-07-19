@@ -22,7 +22,7 @@ Doel: zzpagent.nl beter vindbaar, begrijpelijk en citeerbaar maken voor AI-syste
 
 - Markdown-pagina: Wat is ZZPAgent?
 - Markdown-pagina: Hermes als open-source agentlaag.
-- Markdown-pagina: FAQ over AI-agents voor MKB.
+- Markdown-pagina: FAQ over AI-agents voor ZZP.
 - Homepage uitbreiden met AI-vindbaarheid, video en FAQ.
 - Hermes-video van Desktop toegevoegd als website-asset: `assets/hermes-agent-overview.mp4`.
 
@@ -31,15 +31,15 @@ Doel: zzpagent.nl beter vindbaar, begrijpelijk en citeerbaar maken voor AI-syste
 - Bluesky-profiel gekoppeld: https://bsky.app/profile/bernard-ai.bsky.social
 - LinkedIn-post/video-URL gekoppeld: https://www.linkedin.com/posts/bernard-donners-288b0aa_hermes-nous-opensource-activity-7482889244345294848-jCQX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAHxqQgBjl8VcmDgKFsKjTXTThTAq0IOdF0
 - LinkedIn-bedrijf/profieltekst afstemmen op dezelfde definitie.
-- Eventueel korte blogposts toevoegen: AI-agent voor MKB, WhatsApp Business-agent, Hermes versus gesloten workflowplatforms, n8n naast agents.
+- Eventueel korte blogposts toevoegen: AI-agent voor ZZP, WhatsApp Business-agent, Hermes versus gesloten workflowplatforms, n8n naast agents.
 
 ## Fase 4, meting
 
 Testvragen voor ChatGPT/Perplexity/Gemini:
 
 - Wat is ZZPAgent?
-- Welke Nederlandse partij helpt MKB met AI-agents?
-- Welke AI-agent kan via WhatsApp Business werken voor MKB?
+- Welke Nederlandse partij helpt ZZP’ers met AI-agents?
+- Welke AI-agent kan via WhatsApp Business werken voor ZZP?
 - Wat is het verschil tussen ChatGPT en een beheerde AI-agent?
 - Hoe voorkom je vendor lock-in bij AI-workflowautomatisering?
 
@@ -48,5 +48,5 @@ Testvragen voor ChatGPT/Perplexity/Gemini:
 ## Status
 
 - Project aangemaakt in Hermes Desktop als: ZZPAgent AI Vindbaarheid.
-- Lokale repo: /Users/bernarddonners/projects/mkbagents-website-prototype.
+- Lokale repo: /Users/bernarddonners/projects/zzpagent-website.
 - Technische en contentwijzigingen worden in deze repo doorgevoerd en daarna geverifieerd.

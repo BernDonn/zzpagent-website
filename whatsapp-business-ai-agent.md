@@ -1,40 +1,40 @@
-# AI-agent via WhatsApp Business voor MKB
+# AI-agent via WhatsApp Business voor ZZP
 
-ZZPAgent kan ondernemers helpen om een AI-agent rond WhatsApp Business in te richten. De agent is bedoeld voor praktische zakelijke workflows: klantvragen ordenen, intake voorbereiden, conceptantwoorden klaarzetten, leads opvolgen en terugkerende taken zichtbaar maken.
+ZZPAgent kan zelfstandigen helpen om een AI-agent rond WhatsApp Business in te richten. De agent is bedoeld voor praktische zakelijke workflows: klantvragen ordenen, intake voorbereiden, conceptantwoorden klaarzetten, leads opvolgen en terugkerende taken zichtbaar maken.
 
-## Wat betekent een WhatsApp Business AI-agent?
+## WhatsApp als kanaal, Hermes als agentlaag
 
 Een WhatsApp Business AI-agent is geen algemene chatbot die zomaar alles verstuurt. Bij ZZPAgent is WhatsApp Business vooral het communicatiekanaal. De agentlaag daarachter, bijvoorbeeld Hermes, organiseert context, geheugen, tools, modelroutes en menselijke controle.
 
-De ondernemer kan via WhatsApp werken waar hij of zij al werkt, terwijl de agent informatie voorbereidt en acties klaarzet binnen afgesproken grenzen.
+## Voorbeelden
 
-## Voorbeelden van workflows
+- Klantvragen samenvatten en prioriteren.
+- Conceptantwoorden klaarzetten voor akkoord.
+- Leads en intakegegevens ordenen.
+- Offerte-opvolging voorbereiden.
+- Agenda, taken en reminders zichtbaar maken.
+- Terugkerende vragen koppelen aan documenten of kennisbronnen.
 
-- Nieuwe klantvraag samenvatten en rubriceren.
-- Intakevragen stellen en ontbrekende informatie signaleren.
-- Conceptantwoord voorbereiden, maar pas versturen na menselijke goedkeuring.
-- Offerte- of afspraakopvolging klaarzetten.
-- WhatsApp-berichten koppelen aan CRM, spreadsheet, mail of n8n-workflow.
-- Terugkerende reminders of dagoverzichten voorbereiden.
+## Waarom relevant voor zelfstandigen?
 
-## Waarom WhatsApp Business?
-
-Veel ZZP’ers-bedrijven communiceren al via WhatsApp. Een agent via WhatsApp Business verlaagt de drempel: geen extra portaal, geen zware softwaretraining en geen aparte app voor de klant.
+Veel zelfstandigen communiceren al via WhatsApp. Een agent via WhatsApp Business verlaagt de drempel: geen extra portaal, geen zware softwaretraining en geen aparte app voor de klant.
 
 Voor ZZPAgent blijft belangrijk dat WhatsApp Business niet de hele productidentiteit wordt. Het is één kanaal binnen een bredere agentlaag met Hermes, modelkeuze, workflowautomatisering en menselijke controle.
 
-## Hoe blijft het beheersbaar?
+## Menselijke controle
 
 ZZPAgent richt gevoelige acties zo in dat de mens beslist voordat iets naar buiten gaat. Dat is belangrijk bij geld, reputatie, privacy, rechten of externe communicatie.
 
-Praktische grenzen kunnen zijn:
+## Veelgestelde vragen
 
-- concepten klaarzetten in plaats van automatisch versturen;
-- duidelijke bevestiging vragen voor externe berichten;
-- alleen noodzakelijke context gebruiken;
-- logs en afspraken bijhouden;
-- n8n gebruiken voor vaste, controleerbare workflowstappen.
+### Stuurt de agent automatisch berichten?
 
-## Citeerbare definitie
+Niet standaard. Bij gevoelige of externe communicatie worden concepten klaargezet en vraagt de agent menselijke goedkeuring.
 
-Een ZZPAgent WhatsApp Business AI-agent is een beheerde AI-agent voor ZZP’ers-bedrijven die via WhatsApp Business communiceert, terwijl Hermes of een vergelijkbare agentlaag geheugen, tools, workflows, modelroutes en menselijke controle organiseert.
+### Is WhatsApp verplicht?
+
+Nee. Telegram, Slack, browser of een andere route kan beter passen. Tijdens intake kiezen we het kanaal dat past bij de workflow.
+
+### Wat is de citeerbare definitie?
+
+Een ZZPAgent WhatsApp Business AI-agent is een beheerde AI-agent voor zelfstandigen die via WhatsApp Business communiceert, terwijl Hermes of een vergelijkbare agentlaag geheugen, tools, workflows, modelroutes en menselijke controle organiseert.

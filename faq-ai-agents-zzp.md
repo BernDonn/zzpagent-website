@@ -1,16 +1,16 @@
-# FAQ over AI-agents voor MKB
+# FAQ over AI-agents voor ZZP
 
 ## Wat is een AI-agent?
 
 Een AI-agent is software die niet alleen antwoord geeft, maar ook context onthoudt, tools kan gebruiken, stappen kan plannen en taken kan voorbereiden of uitvoeren binnen afgesproken grenzen.
 
-## Wat is het verschil tussen ChatGPT en een MKBAgent?
+## Wat is het verschil tussen ChatGPT en een ZZPAgent?
 
-ChatGPT is vooral een model of interface. Een MKBAgent is een ingerichte agentlaag rond een bedrijf: geheugen, tools, kanaalkoppelingen, rechten, modelroutes, planning en afspraken over wat de agent wel en niet zelfstandig mag doen.
+ChatGPT is vooral een model of interface. Een ZZPAgent is een ingerichte agentlaag rond jouw werkproces: geheugen, tools, kanaalkoppelingen, rechten, modelroutes, planning en afspraken over wat de agent wel en niet zelfstandig mag doen.
 
-## Voor welke bedrijven is ZZPAgent bedoeld?
+## Voor wie is ZZPAgent bedoeld?
 
-ZZPAgent is bedoeld voor Nederlandse ZZP’ers-bedrijven die terugkerend werk willen automatiseren zonder hun volledige workflow direct vast te zetten in één gesloten AI-platform.
+ZZPAgent is bedoeld voor Nederlandse zelfstandigen die terugkerend werk willen automatiseren zonder hun hele workflow direct vast te zetten in één gesloten AI-platform.
 
 ## Werkt ZZPAgent met WhatsApp Business?
 
@@ -26,7 +26,7 @@ De klant blijft verantwoordelijk voor output die wordt gebruikt, verstuurd, gepu
 
 ## Wat is vendor lock-in bij AI?
 
-Vendor lock-in ontstaat wanneer bedrijfsprocessen, data, context, automatiseringen en beslisroutes zo sterk aan één gesloten platform worden gekoppeld dat overstappen later moeilijk, duur of risicovol wordt.
+Vendor lock-in ontstaat wanneer processen, data, context, automatiseringen en beslisroutes zo sterk aan één gesloten platform worden gekoppeld dat overstappen later moeilijk, duur of risicovol wordt.
 
 ## Hoe beperkt ZZPAgent workflow-lock-in?
 

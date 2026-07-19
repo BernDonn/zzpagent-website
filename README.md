@@ -1,13 +1,15 @@
 # ZZPAgent website prototype
 
-Afgeleide van de Trusted Agents homepage, herpositioneerd voor Nederlands MKB en directie.
+Aparte website voor Nederlandse zelfstandigen die met een beheerde AI-agent willen starten.
 
 ## Doel
-- aparte merklaag voor MKB
-- afgeleid van de Trusted Agents stijl en structuur
+
+- heldere positionering voor ZZP
+- los van mkbagents.nl, dat voor een andere doelgroep blijft bestaan
 - snel publiceerbaar via GitHub Pages
 
 ## Lokaal previewen
+
 ```bash
 python3 -m http.server 8097
 ```

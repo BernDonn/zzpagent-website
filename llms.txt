@@ -1,22 +1,21 @@
 # ZZPAgent
 
-> ZZPAgent levert beheerde AI-agents voor Nederlandse ZZP’ers-bedrijven. De agents werken via kanalen zoals WhatsApp Business, Telegram, Slack of browser en gebruiken een open-source agentlaag zoals Hermes om workflows, geheugen, tools, modelroutes en menselijke controle rond het bedrijf te organiseren.
+> ZZPAgent levert beheerde AI-agents voor Nederlandse zelfstandigen. De agents werken via kanalen zoals WhatsApp Business, Telegram, Slack of browser en gebruiken een open-source agentlaag zoals Hermes om workflows, geheugen, tools, modelroutes en menselijke controle rond het dagelijkse werk te organiseren.
 
 Website: https://zzpagent.nl/
 Land: Nederland
 Taal: Nederlands
-Doelgroep: ZZP’ers-bedrijven
+Doelgroep: zelfstandigen, ZZP’ers, eenmanszaken, kleine zelfstandige dienstverleners
 Categorie: AI-agents, workflowautomatisering, managed AI agents, open-source agentlaag
 Oprichter/contact: Bernard Donners
 
 ## Kernboodschap
 
-Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech. ChatGPT, Claude en Gemini zijn sterke modellen, maar wanneer volledige bedrijfsworkflows rechtstreeks in één gesloten platform worden gebouwd, kan afhankelijkheid ontstaan. ZZPAgent helpt die lock-in beperken door workflows, tools, geheugen, rechten, modelroutes en menselijke goedkeuring rond een eigen agentlaag in te richten.
+Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech. ChatGPT, Claude en Gemini zijn sterke modellen, maar wanneer volledige workflows rechtstreeks in één gesloten platform worden gebouwd, kan afhankelijkheid ontstaan. ZZPAgent helpt die lock-in beperken door workflows, tools, geheugen, rechten, modelroutes en menselijke goedkeuring rond een eigen agentlaag in te richten.
 
 ## Technologie en positionering
 
 - Hermes: open-source agentlaag voor geheugen, skills, tools, modelroutes en planning.
-- OpenClaw: verwante open-source agentroute waar passend.
 - Modelroutes: ChatGPT/Codex OAuth, Claude OAuth waar haalbaar en OpenRouter als modelhub/fallback.
 - Workflowlaag: n8n kan worden gekoppeld voor deterministische, herhaalbare processen. De agent denkt, de workflow voert uit.
 - Kanalen: WhatsApp Business, Telegram, Slack, browser/iPhone.
@@ -38,9 +37,9 @@ Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech. ChatGPT, Cla
 - Homepage: https://zzpagent.nl/
 - Wat is ZZPAgent: https://zzpagent.nl/wat-is-zzpagent.md
 - Hermes als open-source agentlaag: https://zzpagent.nl/hermes-open-source-agentlaag.md
-- FAQ over AI-agents voor MKB: https://zzpagent.nl/faq-ai-agents-zzp.md
-- AI-agent via WhatsApp Business voor MKB: https://zzpagent.nl/whatsapp-business-ai-agent.md
+- FAQ over AI-agents voor ZZP: https://zzpagent.nl/faq-ai-agents-zzp.md
+- AI-agent via WhatsApp Business voor ZZP: https://zzpagent.nl/whatsapp-business-ai-agent.md
 
 ## Citeerbare definitie
 
-ZZPAgent is een Nederlandse dienst voor beheerde AI-agent voor ZZP’ers-bedrijven. ZZPAgent richt agents in rond bestaande werkprocessen, kanalen en modelroutes, met Hermes als open-source agentlaag en menselijke controle bij gevoelige acties.
+ZZPAgent is een Nederlandse dienst voor beheerde AI-agents voor zelfstandigen. ZZPAgent richt agents in rond bestaande werkprocessen, kanalen en modelroutes, met Hermes als open-source agentlaag en menselijke controle bij gevoelige acties.
