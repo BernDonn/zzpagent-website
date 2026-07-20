@@ -111,6 +111,14 @@
     .hero-faq p{padding:0 16px 15px;color:var(--muted);font-size:15px;line-height:1.58}
     .faq-section{padding-top:32px;padding-bottom:28px}
     .compare-section{padding-top:24px;padding-bottom:34px}
+    .top-panels{padding-top:28px;padding-bottom:28px;display:grid;gap:14px}
+    .top-panels .faq-section,.top-panels .compare-section{padding:0}
+    .top-panel{border:1px solid var(--line);background:rgba(255,250,241,.90);border-radius:26px;box-shadow:0 14px 38px rgba(20,35,24,.05);overflow:hidden;scroll-margin-top:96px}
+    .top-panel-summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:18px 20px}
+    .top-panel-summary::-webkit-details-marker{display:none}
+    .top-panel-summary strong{display:block;margin-top:8px;font-size:clamp(24px,3vw,34px);line-height:1.05;letter-spacing:-.03em;color:#172019}
+    .top-panel-body{padding:0 18px 18px}
+    .top-panel-body .hero-faq,.top-panel-body .comparison-wrap{max-width:none;box-shadow:none}
     .comparison-wrap{background:linear-gradient(180deg,rgba(255,250,241,.92),rgba(240,230,214,.76));border:1px solid var(--line);border-radius:34px;padding:28px;box-shadow:0 16px 42px rgba(20,35,24,.06);overflow:hidden}
     .comparison-wrap .lead{max-width:860px;font-size:17px;margin-bottom:22px}
     .comparison-scroll{overflow-x:auto;padding-bottom:4px}
@@ -410,6 +418,7 @@
       <div class="nav-links">
         <a href="#oplossingen">Oplossingen</a>
         <a href="#koppelingen">Koppelingen</a>
+        <a href="#faq">Q&A</a>
         <a href="#vergelijking">Agent Platform</a>
         <a href="#providers">Modelkeuze</a>
         <a class="button secondary" href="https://www.bernarddonners-ai.nl">Bernard Donners</a>
@@ -581,9 +590,14 @@
       </div>
     </section>
 
-    <section class="section faq-section" id="faq">
-      <div class="hero-faq" aria-label="Veelgestelde vragen over Hermes en ZZPagent">
-        <span class="tag">Q&A</span>
+    <section class="section top-panels" id="agent-panelen" aria-label="Q&A en Agent Platform">
+      <details class="top-panel faq-section" id="faq">
+        <summary class="top-panel-summary">
+          <span><span class="tag">Q&A</span><strong>Veelgestelde vragen</strong></span>
+          <span class="expand-label">Klap uit</span>
+        </summary>
+        <div class="top-panel-body">
+          <div class="hero-faq" aria-label="Veelgestelde vragen over Hermes en ZZPagent">
         <h2>Veelgestelde vragen</h2>
         <p class="lead">Kort antwoord op de vragen die vaak opkomen bij een eerste Hermes-route. De tekst hieronder volgt het ZZPagent-verhaal: open-source waar het kan, menselijke controle en geen standaard hostingpakket.</p>
         <div class="hero-faq-list">
@@ -620,11 +634,17 @@
             <p>Hermes kan werken met kanalen en systemen zoals mail, agenda, WhatsApp, Telegram, Slack, browsertoegang, bestanden, spreadsheets, formulieren, CRM, betaalstatussen en API’s. Waar een proces strak en herhaalbaar moet zijn, kan n8n helpen als workflowlaag. We beginnen bij voorkeur met één duidelijke koppeling of leesroute in plaats van meteen toegang tot alles.</p>
           </details>
         </div>
-      </div>
-    </section>
+          </div>
+        </div>
+      </details>
 
-    <section class="section compare-section" id="vergelijking">
-      <div class="comparison-wrap">
+      <details class="top-panel compare-section" id="vergelijking">
+        <summary class="top-panel-summary">
+          <span><span class="tag">Agent Platform</span><strong>Hermes, OpenClaw, ChatGPT en n8n/Zapier</strong></span>
+          <span class="expand-label">Klap uit</span>
+        </summary>
+        <div class="top-panel-body">
+          <div class="comparison-wrap">
         <div class="eyebrow">Agent Platform</div>
         <h2>Hermes, OpenClaw, ChatGPT en n8n/Zapier</h2>
         <p class="lead">Een praktisch overzicht voor ZZP’ers: Hermes als open-source assistentlaag met geheugen en skills, OpenClaw als self-hosted alternatief, ChatGPT Enterprise als gesloten bedrijfsroute en n8n/Zapier als workflowlaag.</p>
@@ -716,8 +736,10 @@
             </tbody>
           </table>
         </div>
-        <div class="comparison-note"><strong>ZZPagent-conclusie:</strong><p class="muted">Hermes is de beste oplossing als je open source, controle, geheugen, skills en modelkeuze wilt combineren. OpenClaw blijft interessant voor wie vooral zelf wil hosten en experimenteren. n8n/Zapier zijn sterk voor vaste workflows, maar vervangen geen agent met context en geheugen. ChatGPT Enterprise kan passen bij grotere organisaties, maar vergroot de afhankelijkheid van één gesloten platform.</p></div>
-      </div>
+            <div class="comparison-note"><strong>ZZPagent-conclusie:</strong><p class="muted">Hermes is de beste oplossing als je open source, controle, geheugen, skills en modelkeuze wilt combineren. OpenClaw blijft interessant voor wie vooral zelf wil hosten en experimenteren. n8n/Zapier zijn sterk voor vaste workflows, maar vervangen geen agent met context en geheugen. ChatGPT Enterprise kan passen bij grotere organisaties, maar vergroot de afhankelijkheid van één gesloten platform.</p></div>
+          </div>
+        </div>
+      </details>
     </section>
 
     <section class="section" id="oplossingen">
@@ -999,6 +1021,7 @@
         "08. Welke systemen kan Hermes Agent koppelen?": "08. Which systems can Hermes Agent connect to?",
         "Hermes kan werken met kanalen en systemen zoals mail, agenda, WhatsApp, Telegram, Slack, browsertoegang, bestanden, spreadsheets, formulieren, CRM, betaalstatussen en API’s. Waar een proces strak en herhaalbaar moet zijn, kan n8n helpen als workflowlaag. We beginnen bij voorkeur met één duidelijke koppeling of leesroute in plaats van meteen toegang tot alles.": "Hermes can work with channels and systems such as email, calendar, WhatsApp, Telegram, Slack, browser access, files, spreadsheets, forms, CRM, payment statuses and APIs. Where a process must be tight and repeatable, n8n can help as a workflow layer. We prefer to start with one clear integration or read route instead of giving access to everything immediately.",
         "Agent Platform": "Agent Platform",
+        "Klap uit": "Expand",
         "Hermes, OpenClaw, ChatGPT en n8n/Zapier": "Hermes, OpenClaw, ChatGPT and n8n/Zapier",
         "Een praktisch overzicht voor ZZP’ers: Hermes als open-source assistentlaag met geheugen en skills, OpenClaw als self-hosted alternatief, ChatGPT Enterprise als gesloten bedrijfsroute en n8n/Zapier als workflowlaag.": "A practical overview for freelancers: Hermes as an open-source assistant layer with memory and skills, OpenClaw as a self-hosted alternative, ChatGPT Enterprise as a closed enterprise route and n8n/Zapier as a workflow layer.",
         "Vergelijking tussen Hermes Agent, OpenClaw, ChatGPT Enterprise, n8n/Zapier en eigen ontwikkeling": "Comparison between Hermes Agent, OpenClaw, ChatGPT Enterprise, n8n/Zapier and custom development",
@@ -1428,6 +1451,19 @@
     document.querySelectorAll('[data-lang-button]').forEach(button => {
       button.addEventListener('click', () => setLanguage(button.dataset.langButton));
     });
+
+    function openTopPanelFromHash(){
+      const id = window.location.hash ? window.location.hash.slice(1) : '';
+      if(!id) return;
+      const target = document.getElementById(id);
+      if(target && target.matches('details.top-panel')){
+        target.open = true;
+        requestAnimationFrame(() => target.scrollIntoView({behavior:'smooth', block:'start'}));
+      }
+    }
+
+    window.addEventListener('hashchange', openTopPanelFromHash);
+    openTopPanelFromHash();
 
     const orderForm = document.querySelector('#order-form');
     const orderResult = document.querySelector('#order-result');
