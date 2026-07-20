@@ -665,151 +665,6 @@
       <div class="flow-note"><strong>Geen standaard hostingpakket:</strong> ZZPagent helpt je begrijpen welke inrichting past bij jouw werk, risico’s en budget. Daarna kun je zelf kiezen of je de installatie zelf doet, samen voorbereidt of later apart laat beheren.</div>
     </section>
 
-    <section class="section" id="providers">
-      <div class="eyebrow">Modelkeuze & toegang</div>
-      <h2>Wijs per taak het juiste model toe</h2>
-      <p class="lead">We starten Hermes op met gebruik van ChatGPT/Codex via OAuth, gebaseerd op je maandelijkse abonnement én commodity modellen via OpenRouter. Als een route zijn limiet bereikt, schakelt de agent over naar een vooraf gekozen alternatief. Hermes beschikt over MOA (Mix of Agents) waar je de modellen per taak kunt alloceren.</p>
-      <details class="provider-card">
-        <summary class="provider-summary">
-          <span class="tag">OAuth + OpenRouter</span>
-          <strong>Twee toegangswegen, één agentlaag</strong>
-          <p class="muted">Je logt in met ChatGPT/Codex of gebruikt OpenRouter als modelhub. Daarna kiest de agent per taak de ingestelde route en fallback.</p>
-          <ul class="provider-summary-list"><li>ChatGPT/Codex via OAuth</li><li>Claude via OAuth (beperkte capaciteit)</li><li>OpenRouter voor meerdere modellen</li><li>Automatische fallback bij limieten of storingen</li></ul>
-          <span class="provider-toggle">Modelprijzen (per 1M tokens)</span>
-        </summary>
-        <div class="provider-detail">
-          <div class="provider-grid">
-            <article class="provider-card">
-              <span class="tag">OAuth</span>
-              <strong>ChatGPT / Codex OAuth</strong>
-              <p class="muted">Voor klanten die via ChatGPT of Codex willen werken zonder losse API-key. Je logt eenmalig in; daarna gebruikt de agent een beveiligde OAuth-koppeling als primaire route.</p>
-              <div class="price-mini-table" aria-label="ChatGPT Plus prijs">
-                <div class="price-mini-row"><div><strong>ChatGPT Plus · GPT-5</strong><span>Richtprijs in Nederland, inclusief btw. Gebruikslimieten kunnen wisselen.</span></div><div class="price-mini-cost">€23 / maand</div></div>
-              </div>
-              <ul><li>Geen API-key kopiëren</li><li>Handig voor ChatGPT- en Codex-workflows</li><li>Plus werkt met gebruikslimieten, niet met een publieke vaste tokenpot</li></ul>
-            </article>
-            <article class="provider-card">
-              <span class="tag">OAuth</span>
-              <strong>Claude OAuth</strong>
-              <p class="muted">Voor klanten die via Claude willen werken zonder losse API-key. Anthropic staat OAuth toe, maar de beschikbare capaciteit is beperkt — de yield is laag en limieten kunnen snel bereikt zijn.</p>
-              <ul><li>Geen API-key kopiëren</li><li>Anthropic OAuth-koppeling</li><li>Beperkte capaciteit — geschikt als lichte route, niet voor hoog volume</li></ul>
-            </article>
-            <article class="provider-card">
-              <span class="tag">Open Router</span>
-              <strong>Meerdere modellen onder één sleutel</strong>
-              <p class="muted">OpenRouter geeft via één sleutel toegang tot modellen zoals Claude, GPT, DeepSeek en GLM. Handig voor fallback, prijsbewuste routering en het kiezen van een ander model zodra dat beter past.</p>
-              <p class="muted">Bij deze modelprijzen tonen we twee bedragen per 1M tokens: input voor je prompt naar het model en output voor het antwoord terug. Bij deze modellen is output meestal duurder dan input.</p>
-              <div class="price-mini-table" aria-label="OpenRouter modelprijzen">
-                <div class="price-mini-row"><div><strong>Claude Sonnet 4</strong><span>Veelgekozen premium model voor schrijven, analyse en code.</span></div><div class="price-mini-cost">$3 / $15 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>GPT-5</strong><span>Sterke allround route voor redeneren en tooling.</span></div><div class="price-mini-cost">$1.25 / $10 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>GLM 5.2</strong><span>Open-weight model met sterke agentische coding- en tool-use, 1M context.</span></div><div class="price-mini-cost">$0.95 / $3 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>DeepSeek V4 Pro</strong><span>Zwaardere DeepSeek-route voor complexere analyse, code en lange context.</span></div><div class="price-mini-cost">$0.435 / $0.87 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>DeepSeek V4 Flash</strong><span>Snelle en goedkope DeepSeek-route voor veel volume en responsieve workflows.</span></div><div class="price-mini-cost">$0.09 / $0.18 per 1M</div></div>
-              </div>
-              <ul><li>Pay-as-you-go met officiële modelprijzen + circa 5,5% platform fee</li><li>Geschikt voor fallback, vergelijking en budgetcontrole</li><li>Hermes kiest daarna per taak de ingestelde route</li></ul>
-            </article>
-          </div>
-          <div class="flow-note"><strong>Hoe het werkt:</strong> tijdens deployment bepalen we of een OAuth-route (ChatGPT of Claude) of OpenRouter de primaire route wordt, plus minimaal één fallback. Als een OAuth-route zijn limiet bereikt of niet beschikbaar is, schakelt de agent door naar het OpenRouter-model dat we vooraf hebben gekozen. Sleutels en OAuth-tokens horen in de private agent-workspace, niet in de website.</div>
-        </div>
-      </section>
-    <section class="section" id="contact">
-      <div class="footer-cta">
-        <div>
-          <h2>Klaar om je Hermes-route te verkennen?</h2>
-          <p class="muted">Begin met een korte verkenning van je workflow, bereikbaarheid, privacywensen en budget. Daarna weet je of een VPS, eigen Mac mini of hybride route logisch is.</p>
-        </div>
-        <div class="footer-cta-actions">
-          <a class="button light" href="https://wa.me/31618569839?text=Hallo%20ZZPagent%2C%20ik%20wil%20graag%20mijn%20Hermes-route%20verkennen." target="_blank" rel="noopener">Bespreek mijn Hermes-route</a>
-          <a class="button secondary" href="https://wa.me/31618569839?text=Hallo%20ZZPagent%2C%20ik%20wil%20graag%20contact%20over%20een%20AI-agent%20of%20landingpage." target="_blank" rel="noopener">Contacteer ZZPagent</a>
-          <a class="button secondary" href="https://www.bernarddonners-ai.nl">Lees Bernards AI-visie</a>
-          <p class="muted" style="font-size:14px">Altijd met menselijke goedkeuring, duidelijke datagrenzen en verantwoord gebruik. Start met één agent en één workflow; daarna pas uitbreiden.</p>
-        </div>
-      </div>
-    </section>
-    <section class="section" id="bestel-agent" hidden>
-      <div class="order-layout">
-        <div>
-          <div class="order-steps">
-            <div class="order-step"><span class="badge">1</span><div><strong>Vul je gegevens in</strong><p class="muted">Naam, e-mailadres en bedrijfsnaam voor de eerste intake.</p></div></div>
-            <div class="order-step"><span class="badge">2</span><div><strong>Start met Hermes</strong><p class="muted">We bereiden je Hermes-agent voor op de eerste workflow.</p></div></div>
-            <div class="order-step"><span class="badge">3</span><div><strong>Voeg je Telegram-token toe</strong><p class="muted">Maak je bot aan via BotFather en plak de token in het formulier. <a href="https://imsocial.nl/telegram/wat-is-een-telegram-bot-wat-kun-je-ermee-en-hoe-maak-je-er-een" target="_blank" rel="noopener">Nederlandse uitleg</a>.</p></div></div>
-            <div class="order-step"><span class="badge">4</span><div><strong>Koppel ChatGPT tijdens installatie</strong><p class="muted">Geen code nodig: we loggen samen in via de officiële ChatGPT-login.</p></div></div>
-            <div class="order-step"><span class="badge">5</span><div><strong>Start intake en betaal eerste maand</strong><p class="muted">Na je intake ga je veilig naar Mollie. Na betaling zetten we je installatie klaar.</p></div></div>
-          </div>
-          <div class="order-price">
-            <div class="eyebrow" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:var(--lime)">€29 / maand per bot</div>
-            <div class="price" style="margin-top:18px">€29 <span>/ maand per agent</span></div>
-            <p class="muted" style="margin-top:14px">Geen grote startkosten en direct opzegbaar.</p>
-          </div>
-        </div>
-        <article class="order-card">
-          <div class="eyebrow" id="order-eyebrow">Hermes intake</div>
-          <h2 id="order-title">Start je Hermes intake</h2>
-          <p class="lead" id="order-lead">Vul de gegevens in die nodig zijn om Hermes voor jouw eerste workflow voor te bereiden. Daarna ga je veilig naar Mollie; installatie volgt na betaling.</p>
-          <form id="order-form" style="display:grid;gap:18px;margin-top:28px">
-            <div class="field full">
-              <label for="order-email">E-mailadres</label>
-              <input id="order-email" name="email" type="email" autocomplete="email" required>
-            </div>
-            <div class="field">
-              <label for="order-name">Naam</label>
-              <input id="order-name" name="customer_name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="order-company">Bedrijf</label>
-              <input id="order-company" name="company_name" autocomplete="organization" required>
-            </div>
-            <div class="field full">
-              <label>Gekozen AI-agent</label>
-              <input type="hidden" name="agent" id="order-agent" value="hermes">
-              <div class="agent-choice-grid">
-                <button type="button" class="agent-option active" data-agent-option="hermes">
-                  <strong style="display:flex;align-items:center;gap:10px">
-                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="3" width="26" height="22" rx="5" fill="#D7F268" stroke="#10291f" stroke-width="1.2"/><rect x="6" y="8" width="7" height="5" rx="1.5" fill="#10291f" opacity=".4"/><rect x="15" y="8" width="7" height="5" rx="1.5" fill="#10291f" opacity=".4"/><rect x="6" y="16" width="16" height="4" rx="2" fill="#10291f" opacity=".25"/></svg>
-                    Hermes Agent
-                  </strong>
-                </button>
-              </div>
-            </div>
-            <div class="field full">
-              <label>Kanaal</label>
-              <input type="hidden" name="channel" id="order-channel" value="telegram">
-              <div class="segment-switch" aria-label="Kanaalkeuze">
-                <button type="button" class="active" data-channel-option="telegram">Telegram</button>
-                <button type="button" data-channel-option="whatsapp">WhatsApp</button>
-              </div>
-            </div>
-            <div class="field full">
-              <label for="order-channel-token" class="label-help"><span id="order-channel-token-label">Telegram Bot Token</span> <details><summary aria-label="Uitleg kanaal-token">?</summary><div class="help-pop" id="order-channel-token-help">Dit is de sleutel waarmee jouw agent via jouw eigen Telegram-bot berichten kan ontvangen en beantwoorden. Maak de bot gratis aan via <a href="https://telegram.me/BotFather" target="_blank" rel="noopener">BotFather</a>. Hulp nodig? Lees deze <a href="https://imsocial.nl/telegram/wat-is-een-telegram-bot-wat-kun-je-ermee-en-hoe-maak-je-er-een" target="_blank" rel="noopener">Nederlandse uitleg</a>.</div></details></label>
-              <input id="order-channel-token" name="channel_token" required>
-            </div>
-            <div class="field full">
-              <label class="label-help">ChatGPT OAuth <details><summary aria-label="Uitleg ChatGPT OAuth">?</summary><div class="help-pop">ChatGPT OAuth betekent dat je inlogt met je eigen ChatGPT/Codex-account in plaats van een losse API-sleutel te kopiëren. Je hoeft hier niets in te vullen: tijdens de installatie openen we de officiële login, jij bevestigt de toegang en de beveiligde koppeling wordt alleen in je private agent-workspace opgeslagen.</div></details></label>
-              <div class="setup-note">Geen code nodig in dit formulier. We koppelen ChatGPT OAuth samen tijdens de installatie via de officiële login.</div>
-              <input type="hidden" id="order-model-key" name="model_api_key" value="Koppelen tijdens installatie via officiële login">
-            </div>
-            <div class="field full">
-              <label for="order-voucher">Vouchercode</label>
-              <input id="order-voucher" name="voucher_code">
-            </div>
-            <label class="check"><input type="checkbox" name="accepted_terms" required> <span>Ik heb de voorwaarden en het privacybeleid gelezen.</span></label>
-            <label class="check"><input type="checkbox" name="accepted_responsibility" required> <span>Ik begrijp dat ik verantwoordelijk blijf voor de configuratie en antwoorden van mijn bot en gevoelige acties eerst moet goedkeuren.</span></label>
-            <div class="hero-actions" style="margin:0">
-              <button type="submit" class="button light">Start intake en betaal eerste maand</button>
-            </div>
-            <div id="order-result" class="notice" hidden></div>
-          </form>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" style="padding-top:10px;padding-bottom:8px">
-      <div class="logos">Voor zelfstandigen waar transparantie, vertrouwen en privacy tellen
-        <div class="sector-row">
-          <span>Inbox & agenda</span><span>Offertes & opvolging</span><span>CRM & klantcontact</span><span>Workflowautomatisering</span><span>Telefoon assistent</span><span>WhatsApp automatiseren</span>
-        </div>
-      </div>
-    </section>
     <section class="section top-panels" id="agent-panelen" aria-label="Q&A en Agent Platform">
       <details class="top-panel faq-section" id="faq">
         <summary class="top-panel-summary">
@@ -962,6 +817,151 @@
       </details>
     </section>
 
+    <section class="section" id="providers">
+      <div class="eyebrow">Modelkeuze & toegang</div>
+      <h2>Wijs per taak het juiste model toe</h2>
+      <p class="lead">We starten Hermes op met gebruik van ChatGPT/Codex via OAuth, gebaseerd op je maandelijkse abonnement én commodity modellen via OpenRouter. Als een route zijn limiet bereikt, schakelt de agent over naar een vooraf gekozen alternatief. Hermes beschikt over MOA (Mix of Agents) waar je de modellen per taak kunt alloceren.</p>
+      <details class="provider-card">
+        <summary class="provider-summary">
+          <span class="tag">OAuth + OpenRouter</span>
+          <strong>Twee toegangswegen, één agentlaag</strong>
+          <p class="muted">Je logt in met ChatGPT/Codex of gebruikt OpenRouter als modelhub. Daarna kiest de agent per taak de ingestelde route en fallback.</p>
+          <ul class="provider-summary-list"><li>ChatGPT/Codex via OAuth</li><li>Claude via OAuth (beperkte capaciteit)</li><li>OpenRouter voor meerdere modellen</li><li>Automatische fallback bij limieten of storingen</li></ul>
+          <span class="provider-toggle">Modelprijzen (per 1M tokens)</span>
+        </summary>
+        <div class="provider-detail">
+          <div class="provider-grid">
+            <article class="provider-card">
+              <span class="tag">OAuth</span>
+              <strong>ChatGPT / Codex OAuth</strong>
+              <p class="muted">Voor klanten die via ChatGPT of Codex willen werken zonder losse API-key. Je logt eenmalig in; daarna gebruikt de agent een beveiligde OAuth-koppeling als primaire route.</p>
+              <div class="price-mini-table" aria-label="ChatGPT Plus prijs">
+                <div class="price-mini-row"><div><strong>ChatGPT Plus · GPT-5</strong><span>Richtprijs in Nederland, inclusief btw. Gebruikslimieten kunnen wisselen.</span></div><div class="price-mini-cost">€23 / maand</div></div>
+              </div>
+              <ul><li>Geen API-key kopiëren</li><li>Handig voor ChatGPT- en Codex-workflows</li><li>Plus werkt met gebruikslimieten, niet met een publieke vaste tokenpot</li></ul>
+            </article>
+            <article class="provider-card">
+              <span class="tag">OAuth</span>
+              <strong>Claude OAuth</strong>
+              <p class="muted">Voor klanten die via Claude willen werken zonder losse API-key. Anthropic staat OAuth toe, maar de beschikbare capaciteit is beperkt — de yield is laag en limieten kunnen snel bereikt zijn.</p>
+              <ul><li>Geen API-key kopiëren</li><li>Anthropic OAuth-koppeling</li><li>Beperkte capaciteit — geschikt als lichte route, niet voor hoog volume</li></ul>
+            </article>
+            <article class="provider-card">
+              <span class="tag">Open Router</span>
+              <strong>Meerdere modellen onder één sleutel</strong>
+              <p class="muted">OpenRouter geeft via één sleutel toegang tot modellen zoals Claude, GPT, DeepSeek en GLM. Handig voor fallback, prijsbewuste routering en het kiezen van een ander model zodra dat beter past.</p>
+              <p class="muted">Bij deze modelprijzen tonen we twee bedragen per 1M tokens: input voor je prompt naar het model en output voor het antwoord terug. Bij deze modellen is output meestal duurder dan input.</p>
+              <div class="price-mini-table" aria-label="OpenRouter modelprijzen">
+                <div class="price-mini-row"><div><strong>Claude Sonnet 4</strong><span>Veelgekozen premium model voor schrijven, analyse en code.</span></div><div class="price-mini-cost">$3 / $15 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>GPT-5</strong><span>Sterke allround route voor redeneren en tooling.</span></div><div class="price-mini-cost">$1.25 / $10 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>GLM 5.2</strong><span>Open-weight model met sterke agentische coding- en tool-use, 1M context.</span></div><div class="price-mini-cost">$0.95 / $3 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>DeepSeek V4 Pro</strong><span>Zwaardere DeepSeek-route voor complexere analyse, code en lange context.</span></div><div class="price-mini-cost">$0.435 / $0.87 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>DeepSeek V4 Flash</strong><span>Snelle en goedkope DeepSeek-route voor veel volume en responsieve workflows.</span></div><div class="price-mini-cost">$0.09 / $0.18 per 1M</div></div>
+              </div>
+              <ul><li>Pay-as-you-go met officiële modelprijzen + circa 5,5% platform fee</li><li>Geschikt voor fallback, vergelijking en budgetcontrole</li><li>Hermes kiest daarna per taak de ingestelde route</li></ul>
+            </article>
+          </div>
+          <div class="flow-note"><strong>Hoe het werkt:</strong> tijdens deployment bepalen we of een OAuth-route (ChatGPT of Claude) of OpenRouter de primaire route wordt, plus minimaal één fallback. Als een OAuth-route zijn limiet bereikt of niet beschikbaar is, schakelt de agent door naar het OpenRouter-model dat we vooraf hebben gekozen. Sleutels en OAuth-tokens horen in de private agent-workspace, niet in de website.</div>
+        </div>
+      </section>
+    <section class="section" id="contact">
+      <div class="footer-cta">
+        <div>
+          <h2>Klaar om je Hermes-route te verkennen?</h2>
+          <p class="muted">Begin met een korte verkenning van je workflow, bereikbaarheid, privacywensen en budget. Daarna weet je of een VPS, eigen Mac mini of hybride route logisch is.</p>
+        </div>
+        <div class="footer-cta-actions">
+          <a class="button light" href="https://wa.me/31618569839?text=Hallo%20ZZPagent%2C%20ik%20wil%20graag%20mijn%20Hermes-route%20verkennen." target="_blank" rel="noopener">Bespreek mijn Hermes-route</a>
+          <a class="button secondary" href="https://wa.me/31618569839?text=Hallo%20ZZPagent%2C%20ik%20wil%20graag%20contact%20over%20een%20AI-agent%20of%20landingpage." target="_blank" rel="noopener">Contacteer ZZPagent</a>
+          <a class="button secondary" href="https://www.bernarddonners-ai.nl">Lees Bernards AI-visie</a>
+          <p class="muted" style="font-size:14px">Altijd met menselijke goedkeuring, duidelijke datagrenzen en verantwoord gebruik. Start met één agent en één workflow; daarna pas uitbreiden.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="bestel-agent" hidden>
+      <div class="order-layout">
+        <div>
+          <div class="order-steps">
+            <div class="order-step"><span class="badge">1</span><div><strong>Vul je gegevens in</strong><p class="muted">Naam, e-mailadres en bedrijfsnaam voor de eerste intake.</p></div></div>
+            <div class="order-step"><span class="badge">2</span><div><strong>Start met Hermes</strong><p class="muted">We bereiden je Hermes-agent voor op de eerste workflow.</p></div></div>
+            <div class="order-step"><span class="badge">3</span><div><strong>Voeg je Telegram-token toe</strong><p class="muted">Maak je bot aan via BotFather en plak de token in het formulier. <a href="https://imsocial.nl/telegram/wat-is-een-telegram-bot-wat-kun-je-ermee-en-hoe-maak-je-er-een" target="_blank" rel="noopener">Nederlandse uitleg</a>.</p></div></div>
+            <div class="order-step"><span class="badge">4</span><div><strong>Koppel ChatGPT tijdens installatie</strong><p class="muted">Geen code nodig: we loggen samen in via de officiële ChatGPT-login.</p></div></div>
+            <div class="order-step"><span class="badge">5</span><div><strong>Start intake en betaal eerste maand</strong><p class="muted">Na je intake ga je veilig naar Mollie. Na betaling zetten we je installatie klaar.</p></div></div>
+          </div>
+          <div class="order-price">
+            <div class="eyebrow" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:var(--lime)">€29 / maand per bot</div>
+            <div class="price" style="margin-top:18px">€29 <span>/ maand per agent</span></div>
+            <p class="muted" style="margin-top:14px">Geen grote startkosten en direct opzegbaar.</p>
+          </div>
+        </div>
+        <article class="order-card">
+          <div class="eyebrow" id="order-eyebrow">Hermes intake</div>
+          <h2 id="order-title">Start je Hermes intake</h2>
+          <p class="lead" id="order-lead">Vul de gegevens in die nodig zijn om Hermes voor jouw eerste workflow voor te bereiden. Daarna ga je veilig naar Mollie; installatie volgt na betaling.</p>
+          <form id="order-form" style="display:grid;gap:18px;margin-top:28px">
+            <div class="field full">
+              <label for="order-email">E-mailadres</label>
+              <input id="order-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="order-name">Naam</label>
+              <input id="order-name" name="customer_name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="order-company">Bedrijf</label>
+              <input id="order-company" name="company_name" autocomplete="organization" required>
+            </div>
+            <div class="field full">
+              <label>Gekozen AI-agent</label>
+              <input type="hidden" name="agent" id="order-agent" value="hermes">
+              <div class="agent-choice-grid">
+                <button type="button" class="agent-option active" data-agent-option="hermes">
+                  <strong style="display:flex;align-items:center;gap:10px">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="3" width="26" height="22" rx="5" fill="#D7F268" stroke="#10291f" stroke-width="1.2"/><rect x="6" y="8" width="7" height="5" rx="1.5" fill="#10291f" opacity=".4"/><rect x="15" y="8" width="7" height="5" rx="1.5" fill="#10291f" opacity=".4"/><rect x="6" y="16" width="16" height="4" rx="2" fill="#10291f" opacity=".25"/></svg>
+                    Hermes Agent
+                  </strong>
+                </button>
+              </div>
+            </div>
+            <div class="field full">
+              <label>Kanaal</label>
+              <input type="hidden" name="channel" id="order-channel" value="telegram">
+              <div class="segment-switch" aria-label="Kanaalkeuze">
+                <button type="button" class="active" data-channel-option="telegram">Telegram</button>
+                <button type="button" data-channel-option="whatsapp">WhatsApp</button>
+              </div>
+            </div>
+            <div class="field full">
+              <label for="order-channel-token" class="label-help"><span id="order-channel-token-label">Telegram Bot Token</span> <details><summary aria-label="Uitleg kanaal-token">?</summary><div class="help-pop" id="order-channel-token-help">Dit is de sleutel waarmee jouw agent via jouw eigen Telegram-bot berichten kan ontvangen en beantwoorden. Maak de bot gratis aan via <a href="https://telegram.me/BotFather" target="_blank" rel="noopener">BotFather</a>. Hulp nodig? Lees deze <a href="https://imsocial.nl/telegram/wat-is-een-telegram-bot-wat-kun-je-ermee-en-hoe-maak-je-er-een" target="_blank" rel="noopener">Nederlandse uitleg</a>.</div></details></label>
+              <input id="order-channel-token" name="channel_token" required>
+            </div>
+            <div class="field full">
+              <label class="label-help">ChatGPT OAuth <details><summary aria-label="Uitleg ChatGPT OAuth">?</summary><div class="help-pop">ChatGPT OAuth betekent dat je inlogt met je eigen ChatGPT/Codex-account in plaats van een losse API-sleutel te kopiëren. Je hoeft hier niets in te vullen: tijdens de installatie openen we de officiële login, jij bevestigt de toegang en de beveiligde koppeling wordt alleen in je private agent-workspace opgeslagen.</div></details></label>
+              <div class="setup-note">Geen code nodig in dit formulier. We koppelen ChatGPT OAuth samen tijdens de installatie via de officiële login.</div>
+              <input type="hidden" id="order-model-key" name="model_api_key" value="Koppelen tijdens installatie via officiële login">
+            </div>
+            <div class="field full">
+              <label for="order-voucher">Vouchercode</label>
+              <input id="order-voucher" name="voucher_code">
+            </div>
+            <label class="check"><input type="checkbox" name="accepted_terms" required> <span>Ik heb de voorwaarden en het privacybeleid gelezen.</span></label>
+            <label class="check"><input type="checkbox" name="accepted_responsibility" required> <span>Ik begrijp dat ik verantwoordelijk blijf voor de configuratie en antwoorden van mijn bot en gevoelige acties eerst moet goedkeuren.</span></label>
+            <div class="hero-actions" style="margin:0">
+              <button type="submit" class="button light">Start intake en betaal eerste maand</button>
+            </div>
+            <div id="order-result" class="notice" hidden></div>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:10px;padding-bottom:8px">
+      <div class="logos">Voor zelfstandigen waar transparantie, vertrouwen en privacy tellen
+        <div class="sector-row">
+          <span>Inbox & agenda</span><span>Offertes & opvolging</span><span>CRM & klantcontact</span><span>Workflowautomatisering</span><span>Telefoon assistent</span><span>WhatsApp automatiseren</span>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
