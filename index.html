@@ -112,8 +112,14 @@
     .faq-section{padding-top:32px;padding-bottom:28px}
     .compare-section{padding-top:24px;padding-bottom:34px}
     .top-panels{padding-top:28px;padding-bottom:28px;display:grid;gap:14px}
+    .top-panels.nav-panel-overlay[hidden]{display:none}
+    .top-panels.nav-panel-overlay{position:fixed;inset:0;z-index:1000;display:block;overflow:auto;padding:86px 22px 34px;background:rgba(16,41,31,.72);backdrop-filter:blur(14px)}
+    .nav-panel-shell{max-width:1120px;margin:0 auto;display:grid;gap:14px}
+    .panel-close{justify-self:end;border:1px solid rgba(255,255,255,.3);background:#fffaf1;color:#10291f;border-radius:999px;padding:10px 16px;font-weight:900;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,.16)}
     .top-panels .faq-section,.top-panels .compare-section{padding:0}
-    .top-panel{border:1px solid var(--line);background:rgba(255,250,241,.90);border-radius:26px;box-shadow:0 14px 38px rgba(20,35,24,.05);overflow:hidden;scroll-margin-top:96px}
+    .nav-panel-overlay .top-panel{display:none}
+    .nav-panel-overlay .top-panel.active{display:block}
+    .top-panel{border:1px solid var(--line);background:rgba(255,250,241,.96);border-radius:26px;box-shadow:0 14px 38px rgba(20,35,24,.05);overflow:hidden;scroll-margin-top:96px}
     .top-panel-summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:18px 20px}
     .top-panel-summary::-webkit-details-marker{display:none}
     .top-panel-summary strong{display:block;margin-top:8px;font-size:clamp(24px,3vw,34px);line-height:1.05;letter-spacing:-.03em;color:#172019}
@@ -418,6 +424,8 @@
       <div class="nav-links">
         <a href="#oplossingen">Oplossingen</a>
         <a href="#koppelingen">Koppelingen</a>
+        <a href="#faq" data-open-panel="faq">Q&A</a>
+        <a href="#vergelijking" data-open-panel="vergelijking">Agent Platform</a>
         <a href="#providers">Modelkeuze</a>
         <a class="button secondary" href="https://www.bernarddonners-ai.nl">Bernard Donners</a>
         <a class="button" href="https://wa.me/31618569839?text=Hallo%20ZZPagent%2C%20ik%20wil%20graag%20advies%20over%20een%20AI-agent%20of%20workflowautomatisering." target="_blank" rel="noopener">Vraag advies</a>
@@ -665,7 +673,9 @@
       <div class="flow-note"><strong>Geen standaard hostingpakket:</strong> ZZPagent helpt je begrijpen welke inrichting past bij jouw werk, risico’s en budget. Daarna kun je zelf kiezen of je de installatie zelf doet, samen voorbereidt of later apart laat beheren.</div>
     </section>
 
-    <section class="section top-panels" id="agent-panelen" aria-label="Q&A en Agent Platform">
+    <section class="section top-panels nav-panel-overlay" id="agent-panelen" aria-label="Q&A en Agent Platform" hidden>
+      <div class="nav-panel-shell">
+        <button type="button" class="panel-close" data-close-panels>Sluit</button>
       <details class="top-panel faq-section" id="faq">
         <summary class="top-panel-summary">
           <span><span class="tag">Q&A</span><strong>Veelgestelde vragen</strong></span>
@@ -815,6 +825,7 @@
           </div>
         </div>
       </details>
+      </div>
     </section>
 
     <section class="section" id="providers">
@@ -1020,6 +1031,7 @@
         "Hermes kan werken met kanalen en systemen zoals mail, agenda, WhatsApp, Telegram, Slack, browsertoegang, bestanden, spreadsheets, formulieren, CRM, betaalstatussen en API’s. Waar een proces strak en herhaalbaar moet zijn, kan n8n helpen als workflowlaag. We beginnen bij voorkeur met één duidelijke koppeling of leesroute in plaats van meteen toegang tot alles.": "Hermes can work with channels and systems such as email, calendar, WhatsApp, Telegram, Slack, browser access, files, spreadsheets, forms, CRM, payment statuses and APIs. Where a process must be tight and repeatable, n8n can help as a workflow layer. We prefer to start with one clear integration or read route instead of giving access to everything immediately.",
         "Agent Platform": "Agent Platform",
         "Klap uit": "Expand",
+        "Sluit": "Close",
         "Hermes, OpenClaw, ChatGPT en n8n/Zapier": "Hermes, OpenClaw, ChatGPT and n8n/Zapier",
         "Een praktisch overzicht voor ZZP’ers: Hermes als open-source assistentlaag met geheugen en skills, OpenClaw als self-hosted alternatief, ChatGPT Enterprise als gesloten bedrijfsroute en n8n/Zapier als workflowlaag.": "A practical overview for freelancers: Hermes as an open-source assistant layer with memory and skills, OpenClaw as a self-hosted alternative, ChatGPT Enterprise as a closed enterprise route and n8n/Zapier as a workflow layer.",
         "Vergelijking tussen Hermes Agent, OpenClaw, ChatGPT Enterprise, n8n/Zapier en eigen ontwikkeling": "Comparison between Hermes Agent, OpenClaw, ChatGPT Enterprise, n8n/Zapier and custom development",
@@ -1450,14 +1462,49 @@
       button.addEventListener('click', () => setLanguage(button.dataset.langButton));
     });
 
+    const panelOverlay = document.querySelector('#agent-panelen');
+    const panelLinks = document.querySelectorAll('[data-open-panel]');
+    const panelClose = document.querySelector('[data-close-panels]');
+
+    function openNavPanel(id){
+      if(!panelOverlay) return;
+      const panels = panelOverlay.querySelectorAll('details.top-panel');
+      panels.forEach(panel => {
+        const active = panel.id === id;
+        panel.classList.toggle('active', active);
+        panel.open = active;
+      });
+      panelOverlay.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeNavPanels(){
+      if(!panelOverlay) return;
+      panelOverlay.hidden = true;
+      panelOverlay.querySelectorAll('details.top-panel').forEach(panel => {
+        panel.classList.remove('active');
+        panel.open = false;
+      });
+      document.body.style.overflow = '';
+    }
+
+    panelLinks.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openNavPanel(link.dataset.openPanel);
+      });
+    });
+    panelClose?.addEventListener('click', closeNavPanels);
+    panelOverlay?.addEventListener('click', event => {
+      if(event.target === panelOverlay) closeNavPanels();
+    });
+    document.addEventListener('keydown', event => {
+      if(event.key === 'Escape') closeNavPanels();
+    });
+
     function openTopPanelFromHash(){
       const id = window.location.hash ? window.location.hash.slice(1) : '';
-      if(!id) return;
-      const target = document.getElementById(id);
-      if(target && target.matches('details.top-panel')){
-        target.open = true;
-        requestAnimationFrame(() => target.scrollIntoView({behavior:'smooth', block:'start'}));
-      }
+      if(id === 'faq' || id === 'vergelijking') openNavPanel(id);
     }
 
     window.addEventListener('hashchange', openTopPanelFromHash);
