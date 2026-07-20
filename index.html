@@ -110,6 +110,21 @@
     .hero-faq details[open] summary:after{content:"−"}
     .hero-faq p{padding:0 16px 15px;color:var(--muted);font-size:15px;line-height:1.58}
     .faq-section{padding-top:32px;padding-bottom:28px}
+    .compare-section{padding-top:24px;padding-bottom:34px}
+    .comparison-wrap{background:linear-gradient(180deg,rgba(255,250,241,.92),rgba(240,230,214,.76));border:1px solid var(--line);border-radius:34px;padding:28px;box-shadow:0 16px 42px rgba(20,35,24,.06);overflow:hidden}
+    .comparison-wrap .lead{max-width:860px;font-size:17px;margin-bottom:22px}
+    .comparison-scroll{overflow-x:auto;padding-bottom:4px}
+    .comparison-table{width:100%;min-width:980px;border-collapse:separate;border-spacing:0;font-size:14px;line-height:1.38}
+    .comparison-table th,.comparison-table td{padding:14px 13px;border-bottom:1px solid rgba(222,213,196,.82);border-right:1px solid rgba(222,213,196,.58);vertical-align:top;background:rgba(255,250,241,.66)}
+    .comparison-table th{position:sticky;top:0;background:#fffaf1;color:#172019;font-size:13px;text-align:left;font-weight:850;letter-spacing:-.01em;z-index:1}
+    .comparison-table th:first-child,.comparison-table td:first-child{font-weight:850;color:#172019;background:#f0e6d6;min-width:170px}
+    .comparison-table th:last-child,.comparison-table td:last-child{border-right:0}
+    .comparison-table tr:last-child td{border-bottom:0}
+    .comparison-table .positive{color:#163f2b;font-weight:850}
+    .comparison-table .mixed{color:#705a19;font-weight:850}
+    .comparison-table .negative{color:#8a2d1d;font-weight:850}
+    .comparison-note{margin-top:18px;background:#10291f;color:#fff;border-radius:22px;padding:18px 20px;line-height:1.55}
+    .comparison-note .muted{color:#dce7dc;font-size:15px}
     .phone-frame{width:168px;margin:14px auto 0 auto;background:#1a1a1a;border-radius:20px;padding:8px 3px 6px 3px;border:2px solid #333;position:relative;max-height:340px}
     .phone-notch{width:42px;height:4px;background:#333;margin:0 auto 6px auto;border-radius:8px}
     .phone-screen{background:linear-gradient(135deg,#0e1621 0%,#1a2a3a 50%,#0e1621 100%);border-radius:10px;overflow:hidden;min-height:180px;position:relative}
@@ -395,6 +410,7 @@
       <div class="nav-links">
         <a href="#oplossingen">Oplossingen</a>
         <a href="#koppelingen">Koppelingen</a>
+        <a href="#vergelijking">Vergelijking</a>
         <a href="#providers">Modelkeuze</a>
         <a class="button secondary" href="https://www.bernarddonners-ai.nl">Bernard Donners</a>
         <a class="button" href="https://wa.me/31618569839?text=Hallo%20ZZPagent%2C%20ik%20wil%20graag%20advies%20over%20een%20AI-agent%20of%20workflowautomatisering." target="_blank" rel="noopener">Vraag advies</a>
@@ -604,6 +620,103 @@
             <p>Hermes kan werken met kanalen en systemen zoals mail, agenda, WhatsApp, Telegram, Slack, browsertoegang, bestanden, spreadsheets, formulieren, CRM, betaalstatussen en API’s. Waar een proces strak en herhaalbaar moet zijn, kan n8n helpen als workflowlaag. We beginnen bij voorkeur met één duidelijke koppeling of leesroute in plaats van meteen toegang tot alles.</p>
           </details>
         </div>
+      </div>
+    </section>
+
+    <section class="section compare-section" id="vergelijking">
+      <div class="comparison-wrap">
+        <div class="eyebrow">Vergelijking</div>
+        <h2>Hermes, OpenClaw en andere routes naast elkaar</h2>
+        <p class="lead">Een praktisch overzicht voor ZZP’ers en kleine bedrijven. De Duitse vergelijking is als basis gebruikt, maar aangepast aan het ZZPagent-verhaal: Hermes als open-source assistentlaag met geheugen en skills, OpenClaw als self-hosted alternatief, ChatGPT Enterprise als gesloten bedrijfsroute en n8n/Zapier als workflowlaag.</p>
+        <div class="comparison-scroll" role="region" aria-label="Vergelijking tussen Hermes Agent, OpenClaw, ChatGPT Enterprise, n8n/Zapier en eigen ontwikkeling">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Kriterium</th>
+                <th>Hermes Agent<br><span class="muted">via ZZPagent-route</span></th>
+                <th>OpenClaw<br><span class="muted">self-hosted</span></th>
+                <th>ChatGPT Enterprise</th>
+                <th>n8n / Zapier</th>
+                <th>Eigen ontwikkeling</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Autonome agents</td>
+                <td><span class="positive">✓ Volledig autonoom mogelijk</span></td>
+                <td><span class="positive">✓ Volledig autonoom mogelijk</span></td>
+                <td><span class="mixed">~ Beperkt binnen platformgrenzen</span></td>
+                <td><span class="negative">✗ Vooral workflows</span></td>
+                <td><span class="mixed">~ Afhankelijk van bouwkwaliteit</span></td>
+              </tr>
+              <tr>
+                <td>Zelflerend / learning loop</td>
+                <td><span class="positive">✓ Skills en geheugen groeien mee</span></td>
+                <td><span class="mixed">~ Mogelijk, maar meer DIY</span></td>
+                <td><span class="mixed">~ Geheugen beperkt door platform</span></td>
+                <td><span class="negative">✗ Geen echte agent-learning loop</span></td>
+                <td><span class="mixed">~ Alleen met extra ontwikkeling</span></td>
+              </tr>
+              <tr>
+                <td>Datasoevereiniteit / AVG</td>
+                <td><span class="positive">✓ VPS, eigen Mac of hybride route</span></td>
+                <td><span class="positive">✓ Self-hosting mogelijk</span></td>
+                <td><span class="mixed">~ Enterprise-afspraken, gesloten cloud</span></td>
+                <td><span class="mixed">~ Afhankelijk van hosting en koppelingen</span></td>
+                <td><span class="positive">✓ Volledige controle mogelijk</span></td>
+              </tr>
+              <tr>
+                <td>Open source</td>
+                <td><span class="positive">✓ Open-source agentlaag</span></td>
+                <td><span class="positive">✓ Open source</span></td>
+                <td><span class="negative">✗ Gesloten platform</span></td>
+                <td><span class="mixed">~ n8n deels, Zapier gesloten</span></td>
+                <td><span class="positive">✓ Eigen code</span></td>
+              </tr>
+              <tr>
+                <td>Business-integraties</td>
+                <td><span class="positive">✓ Mail, agenda, WhatsApp, Slack, n8n, API’s</span></td>
+                <td><span class="mixed">~ Via community-skills en eigen werk</span></td>
+                <td><span class="mixed">~ Via API’s en connectoren</span></td>
+                <td><span class="positive">✓ Veel kant-en-klare connectoren</span></td>
+                <td><span class="mixed">~ Handmatig bouwen</span></td>
+              </tr>
+              <tr>
+                <td>Implementatietijd</td>
+                <td><span class="positive">✓ Snel starten met één workflow</span></td>
+                <td><span class="mixed">~ DIY / eigen beheer</span></td>
+                <td><span class="mixed">~ Vaak 1–2 weken plus governance</span></td>
+                <td><span class="positive">✓ Dagen voor eenvoudige flows</span></td>
+                <td><span class="negative">✗ Vaak maanden</span></td>
+              </tr>
+              <tr>
+                <td>Custom skills / AI-diepte</td>
+                <td><span class="positive">✓ Sterk: skills, tools, geheugen, MoA</span></td>
+                <td><span class="positive">✓ Sterk, mits goed beheerd</span></td>
+                <td><span class="mixed">~ Binnen GPT- en platformgrenzen</span></td>
+                <td><span class="negative">✗ Geen volwaardige agentlaag</span></td>
+                <td><span class="positive">✓ Onbegrensd, maar duur</span></td>
+              </tr>
+              <tr>
+                <td>Kosten / TCO</td>
+                <td><span class="positive">€–€€ afhankelijk van route en modelkeuze</span></td>
+                <td><span class="mixed">€ lage licentiekosten, wel eigen tijd</span></td>
+                <td><span class="negative">€€€ enterprise- en platformkosten</span></td>
+                <td><span class="mixed">€ goedkoop begin, kosten groeien per flow</span></td>
+                <td><span class="negative">€€€€ ontwikkel- en onderhoudskosten</span></td>
+              </tr>
+              <tr>
+                <td>Vendor lock-in</td>
+                <td><span class="positive">✓ Laag: modellen en hosting wisselbaar</span></td>
+                <td><span class="positive">✓ Laag bij eigen beheer</span></td>
+                <td><span class="negative">✗ Sterk platformafhankelijk</span></td>
+                <td><span class="mixed">~ Afhankelijk van workflowplatform</span></td>
+                <td><span class="positive">✓ Laag, maar kennis zit intern</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="comparison-note"><strong>ZZPagent-conclusie:</strong><p class="muted">Hermes is meestal de rustigste route wanneer je open-source controle, geheugen, skills en modelkeuze wilt combineren. OpenClaw blijft interessant voor wie vooral zelf wil hosten en experimenteren. n8n/Zapier zijn sterk voor vaste workflows, maar vervangen geen agent met context en geheugen. ChatGPT Enterprise kan passen bij grotere organisaties, maar vergroot de afhankelijkheid van één gesloten platform.</p></div>
       </div>
     </section>
 
@@ -885,6 +998,69 @@
         "Autonome agents vragen begrenzing. ZZPagent kiest daarom voor menselijke controle, beperkte toegang, duidelijke taakafbakening, logging/controleerbaarheid en geen automatische verzending of gevoelige actie zonder akkoord waar reputatie, geld, rechten of privacy geraakt kunnen worden. Veiligheid zit niet in “de agent mag alles”, maar in professioneel beperken wat hij mag doen.": "Autonomous agents need boundaries. ZZPagent therefore chooses human control, limited access, clear task boundaries, logging/auditability and no automatic sending or sensitive action without approval where reputation, money, rights or privacy may be affected. Safety is not in ‘the agent may do everything’, but in professionally limiting what it may do.",
         "08. Welke systemen kan Hermes Agent koppelen?": "08. Which systems can Hermes Agent connect to?",
         "Hermes kan werken met kanalen en systemen zoals mail, agenda, WhatsApp, Telegram, Slack, browsertoegang, bestanden, spreadsheets, formulieren, CRM, betaalstatussen en API’s. Waar een proces strak en herhaalbaar moet zijn, kan n8n helpen als workflowlaag. We beginnen bij voorkeur met één duidelijke koppeling of leesroute in plaats van meteen toegang tot alles.": "Hermes can work with channels and systems such as email, calendar, WhatsApp, Telegram, Slack, browser access, files, spreadsheets, forms, CRM, payment statuses and APIs. Where a process must be tight and repeatable, n8n can help as a workflow layer. We prefer to start with one clear integration or read route instead of giving access to everything immediately.",
+        "Vergelijking": "Comparison",
+        "Hermes, OpenClaw en andere routes naast elkaar": "Hermes, OpenClaw and other routes side by side",
+        "Een praktisch overzicht voor ZZP’ers en kleine bedrijven. De Duitse vergelijking is als basis gebruikt, maar aangepast aan het ZZPagent-verhaal: Hermes als open-source assistentlaag met geheugen en skills, OpenClaw als self-hosted alternatief, ChatGPT Enterprise als gesloten bedrijfsroute en n8n/Zapier als workflowlaag.": "A practical overview for freelancers and small businesses. The German comparison was used as a basis, but adapted to the ZZPagent story: Hermes as an open-source assistant layer with memory and skills, OpenClaw as a self-hosted alternative, ChatGPT Enterprise as a closed enterprise route and n8n/Zapier as a workflow layer.",
+        "Vergelijking tussen Hermes Agent, OpenClaw, ChatGPT Enterprise, n8n/Zapier en eigen ontwikkeling": "Comparison between Hermes Agent, OpenClaw, ChatGPT Enterprise, n8n/Zapier and custom development",
+        "Kriterium": "Criterion",
+        "via ZZPagent-route": "via ZZPagent route",
+        "self-hosted": "self-hosted",
+        "Eigen ontwikkeling": "Custom development",
+        "Autonome agents": "Autonomous agents",
+        "✓ Volledig autonoom mogelijk": "✓ Fully autonomous possible",
+        "~ Beperkt binnen platformgrenzen": "~ Limited within platform boundaries",
+        "✗ Vooral workflows": "✗ Mainly workflows",
+        "~ Afhankelijk van bouwkwaliteit": "~ Depends on build quality",
+        "Zelflerend / learning loop": "Self-learning / learning loop",
+        "✓ Skills en geheugen groeien mee": "✓ Skills and memory grow with use",
+        "~ Mogelijk, maar meer DIY": "~ Possible, but more DIY",
+        "~ Geheugen beperkt door platform": "~ Memory limited by platform",
+        "✗ Geen echte agent-learning loop": "✗ No real agent learning loop",
+        "~ Alleen met extra ontwikkeling": "~ Only with extra development",
+        "Datasoevereiniteit / AVG": "Data sovereignty / GDPR",
+        "✓ VPS, eigen Mac of hybride route": "✓ VPS, own Mac or hybrid route",
+        "✓ Self-hosting mogelijk": "✓ Self-hosting possible",
+        "~ Enterprise-afspraken, gesloten cloud": "~ Enterprise agreements, closed cloud",
+        "~ Afhankelijk van hosting en koppelingen": "~ Depends on hosting and integrations",
+        "✓ Volledige controle mogelijk": "✓ Full control possible",
+        "Open source": "Open source",
+        "✓ Open-source agentlaag": "✓ Open-source agent layer",
+        "✓ Open source": "✓ Open source",
+        "✗ Gesloten platform": "✗ Closed platform",
+        "~ n8n deels, Zapier gesloten": "~ n8n partly, Zapier closed",
+        "✓ Eigen code": "✓ Own code",
+        "Business-integraties": "Business integrations",
+        "✓ Mail, agenda, WhatsApp, Slack, n8n, API’s": "✓ Email, calendar, WhatsApp, Slack, n8n, APIs",
+        "~ Via community-skills en eigen werk": "~ Through community skills and own work",
+        "~ Via API’s en connectoren": "~ Through APIs and connectors",
+        "✓ Veel kant-en-klare connectoren": "✓ Many ready-made connectors",
+        "~ Handmatig bouwen": "~ Build manually",
+        "Implementatietijd": "Implementation time",
+        "✓ Snel starten met één workflow": "✓ Quick start with one workflow",
+        "~ DIY / eigen beheer": "~ DIY / own management",
+        "~ Vaak 1–2 weken plus governance": "~ Often 1–2 weeks plus governance",
+        "✓ Dagen voor eenvoudige flows": "✓ Days for simple flows",
+        "✗ Vaak maanden": "✗ Often months",
+        "Custom skills / AI-diepte": "Custom skills / AI depth",
+        "✓ Sterk: skills, tools, geheugen, MoA": "✓ Strong: skills, tools, memory, MoA",
+        "✓ Sterk, mits goed beheerd": "✓ Strong, if well managed",
+        "~ Binnen GPT- en platformgrenzen": "~ Within GPT and platform limits",
+        "✗ Geen volwaardige agentlaag": "✗ No full agent layer",
+        "✓ Onbegrensd, maar duur": "✓ Unlimited, but expensive",
+        "Kosten / TCO": "Costs / TCO",
+        "€–€€ afhankelijk van route en modelkeuze": "€–€€ depending on route and model choice",
+        "€ lage licentiekosten, wel eigen tijd": "€ low license costs, but own time",
+        "€€€ enterprise- en platformkosten": "€€€ enterprise and platform costs",
+        "€ goedkoop begin, kosten groeien per flow": "€ cheap start, costs grow per flow",
+        "€€€€ ontwikkel- en onderhoudskosten": "€€€€ development and maintenance costs",
+        "Vendor lock-in": "Vendor lock-in",
+        "✓ Laag: modellen en hosting wisselbaar": "✓ Low: models and hosting can be changed",
+        "✓ Laag bij eigen beheer": "✓ Low with own management",
+        "✗ Sterk platformafhankelijk": "✗ Strong platform dependency",
+        "~ Afhankelijk van workflowplatform": "~ Depends on workflow platform",
+        "✓ Laag, maar kennis zit intern": "✓ Low, but knowledge stays internal",
+        "ZZPagent-conclusie:": "ZZPagent conclusion:",
+        "Hermes is meestal de rustigste route wanneer je open-source controle, geheugen, skills en modelkeuze wilt combineren. OpenClaw blijft interessant voor wie vooral zelf wil hosten en experimenteren. n8n/Zapier zijn sterk voor vaste workflows, maar vervangen geen agent met context en geheugen. ChatGPT Enterprise kan passen bij grotere organisaties, maar vergroot de afhankelijkheid van één gesloten platform.": "Hermes is usually the calmest route when you want to combine open-source control, memory, skills and model choice. OpenClaw remains interesting for those who mainly want to self-host and experiment. n8n/Zapier are strong for fixed workflows, but do not replace an agent with context and memory. ChatGPT Enterprise can fit larger organizations, but increases dependency on one closed platform.",
         "Je agent bereikbaar via": "Your agent available via",
         "Fotorealistische iPhone met bewegende ZZPagent briefing": "Photorealistic iPhone with moving ZZPagent briefing",
         "ZZPagent Hermes video over open-source agentlaag": "ZZPagent Hermes video about the open-source agent layer",
