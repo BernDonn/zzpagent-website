@@ -98,16 +98,18 @@
     .trust-row{display:flex;gap:10px;flex-wrap:wrap;color:#2b362e;font-size:14px}
     .pill{border:1px solid var(--line);background:rgba(255,250,241,.82);padding:9px 12px;border-radius:999px;font-weight:650}
     .agent-card{background:#122b20;color:#f7f2e7;border-radius:38px;padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
-    .hero-faq{margin-top:22px;background:rgba(255,250,241,.96);color:#172019;border:1px solid rgba(255,255,255,.16);border-radius:28px;padding:20px;box-shadow:0 18px 44px rgba(0,0,0,.16)}
+    .hero-faq{margin-top:0;background:rgba(255,250,241,.96);color:#172019;border:1px solid var(--line);border-radius:30px;padding:24px;box-shadow:0 16px 42px rgba(20,35,24,.06);max-width:820px}
     .hero-faq .tag{margin-bottom:10px}
-    .hero-faq h2{font-size:25px;line-height:1.08;margin:0 0 14px;letter-spacing:-.035em;color:#172019}
+    .hero-faq h2{font-size:clamp(30px,3.5vw,44px);line-height:1.04;margin:0 0 10px;letter-spacing:-.035em;color:#172019}
+    .hero-faq .lead{font-size:17px;margin-bottom:18px}
     .hero-faq-list{display:grid;gap:8px}
     .hero-faq details{border:1px solid var(--line);background:#fffaf1;border-radius:17px;overflow:hidden}
-    .hero-faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 14px;font-weight:800;line-height:1.22;font-size:14px;color:#172019}
+    .hero-faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:14px 16px;font-weight:800;line-height:1.22;font-size:16px;color:#172019}
     .hero-faq summary::-webkit-details-marker{display:none}
     .hero-faq summary:after{content:"+";display:grid;place-items:center;width:24px;height:24px;border-radius:999px;background:#f0e6d6;border:1px solid var(--line);color:var(--green);font-weight:900}
     .hero-faq details[open] summary:after{content:"−"}
-    .hero-faq p{padding:0 14px 13px;color:var(--muted);font-size:14px;line-height:1.5}
+    .hero-faq p{padding:0 16px 15px;color:var(--muted);font-size:15px;line-height:1.58}
+    .faq-section{padding-top:32px;padding-bottom:28px}
     .phone-frame{width:168px;margin:14px auto 0 auto;background:#1a1a1a;border-radius:20px;padding:8px 3px 6px 3px;border:2px solid #333;position:relative;max-height:340px}
     .phone-notch{width:42px;height:4px;background:#333;margin:0 auto 6px auto;border-radius:8px}
     .phone-screen{background:linear-gradient(135deg,#0e1621 0%,#1a2a3a 50%,#0e1621 100%);border-radius:10px;overflow:hidden;min-height:180px;position:relative}
@@ -453,44 +455,6 @@
             </div>
           </div>
         </div>
-        <div class="hero-faq" id="faq" aria-label="Veelgestelde vragen over Hermes en ZZPagent">
-          <span class="tag">Q&A</span>
-          <h2>Veelgestelde vragen</h2>
-          <div class="hero-faq-list">
-            <details>
-              <summary>01. Wat is Hermes Agent en wie zit erachter?</summary>
-              <p>Antwoord volgt.</p>
-            </details>
-            <details>
-              <summary>02. Waarom Hermes Agent in plaats van ChatGPT Enterprise of n8n?</summary>
-              <p>Antwoord volgt.</p>
-            </details>
-            <details>
-              <summary>03. Is Hermes Agent AVG-proof in te zetten?</summary>
-              <p>Antwoord volgt.</p>
-            </details>
-            <details>
-              <summary>04. Wat kost een Hermes-implementatie via ZZPagent?</summary>
-              <p>Antwoord volgt.</p>
-            </details>
-            <details>
-              <summary>05. Hoe snel kan een eerste Hermes-agent live zijn?</summary>
-              <p>Antwoord volgt.</p>
-            </details>
-            <details>
-              <summary>06. Heb ik eigen ontwikkelaars nodig voor Hermes Agent?</summary>
-              <p>Antwoord volgt.</p>
-            </details>
-            <details>
-              <summary>07. Zijn autonome agents zoals Hermes veilig genoeg voor zakelijk gebruik?</summary>
-              <p>Antwoord volgt.</p>
-            </details>
-            <details>
-              <summary>08. Welke systemen kan Hermes Agent koppelen?</summary>
-              <p>Antwoord volgt.</p>
-            </details>
-          </div>
-        </div>
       </aside>
     </section>
 
@@ -598,6 +562,48 @@
           </div>
         </article>
       </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="hero-faq" aria-label="Veelgestelde vragen over Hermes en ZZPagent">
+        <span class="tag">Q&A</span>
+        <h2>Veelgestelde vragen</h2>
+        <p class="lead">Kort antwoord op de vragen die vaak opkomen bij een eerste Hermes-route. De tekst hieronder volgt het ZZPagent-verhaal: open-source waar het kan, menselijke controle en geen standaard hostingpakket.</p>
+        <div class="hero-faq-list">
+          <details>
+            <summary>01. Wat is Hermes Agent en wie zit erachter?</summary>
+            <p>Hermes Agent is een open-source framework van Nous Research voor autonome AI-agents: digitale assistenten die niet alleen chatten, maar taken kunnen voorbereiden, tools kunnen gebruiken, context onthouden en terugkerend werk op schema kunnen uitvoeren. ZZPagent helpt zelfstandigen om Hermes praktisch in te richten rond hun eigen werk, kanalen en datagrenzen.</p>
+          </details>
+          <details>
+            <summary>02. Waarom Hermes Agent in plaats van ChatGPT Enterprise of n8n?</summary>
+            <p>ChatGPT, Claude en Perplexity zijn sterke AI-tools, maar je werkt al snel binnen de route en voorwaarden van één leverancier. Hermes is open source en kan verschillende modellen, tools en kanalen combineren. n8n is geen tegenstander: voor vaste, controleerbare workflows kan n8n juist de uitvoerende workflowlaag zijn, terwijl Hermes context, redenering en samenwerking met de gebruiker doet.</p>
+          </details>
+          <details>
+            <summary>03. Is Hermes Agent AVG-proof in te zetten?</summary>
+            <p>Ja, mits de inrichting klopt. Bij ZZPagent begint dat met dataminimalisatie, duidelijke toegang, menselijke goedkeuring bij gevoelige acties en een route die past bij je risico’s: VPS in Europa, eigen Mac mini/Mac of hybride. AVG-proof is dus geen losse claim, maar een ontwerpkeuze per workflow, kanaal en databron.</p>
+          </details>
+          <details>
+            <summary>04. Wat kost een Hermes-implementatie via ZZPagent?</summary>
+            <p>ZZPagent presenteert geen standaard hostingpakket. De route hangt af van je workflow, bereikbaarheid, privacywensen en budget. Een eenvoudige start kan via een maandelijkse botroute, terwijl VPS, eigen hardware, inrichting, beheer en externe modelkosten apart worden gekozen en besproken. Zo voorkom je dat je betaalt voor een pakket dat niet bij je werk past.</p>
+          </details>
+          <details>
+            <summary>05. Hoe snel kan een eerste Hermes-agent live zijn?</summary>
+            <p>Een eerste, afgebakende workflow kan vaak snel worden voorbereid zodra doel, kanaal, toegangsroute en datagrenzen duidelijk zijn. Denk eerder aan klein beginnen en betrouwbaar testen dan aan meteen alles automatiseren. Eerst één agent en één workflow; daarna pas uitbreiden.</p>
+          </details>
+          <details>
+            <summary>06. Heb ik eigen ontwikkelaars nodig voor Hermes Agent?</summary>
+            <p>Voor een eerste ZZPagent-route heb je meestal geen eigen ontwikkelaars nodig. Wel zijn jouw keuzes en toegang nodig: welk kanaal, welke mailbox of databron, welke modelroute en welke acties nooit zonder akkoord mogen plaatsvinden. Technische inrichting, koppelingen en beheer kunnen stap voor stap worden voorbereid.</p>
+          </details>
+          <details>
+            <summary>07. Zijn autonome agents zoals Hermes veilig genoeg voor zakelijk gebruik?</summary>
+            <p>Autonome agents vragen begrenzing. ZZPagent kiest daarom voor menselijke controle, beperkte toegang, duidelijke taakafbakening, logging/controleerbaarheid en geen automatische verzending of gevoelige actie zonder akkoord waar reputatie, geld, rechten of privacy geraakt kunnen worden. Veiligheid zit niet in “de agent mag alles”, maar in professioneel beperken wat hij mag doen.</p>
+          </details>
+          <details>
+            <summary>08. Welke systemen kan Hermes Agent koppelen?</summary>
+            <p>Hermes kan werken met kanalen en systemen zoals mail, agenda, WhatsApp, Telegram, Slack, browsertoegang, bestanden, spreadsheets, formulieren, CRM, betaalstatussen en API’s. Waar een proces strak en herhaalbaar moet zijn, kan n8n helpen als workflowlaag. We beginnen bij voorkeur met één duidelijke koppeling of leesroute in plaats van meteen toegang tot alles.</p>
+          </details>
+        </div>
       </div>
     </section>
 
@@ -862,23 +868,23 @@
         "Vraag advies": "Ask for advice",
         "Q&A": "Q&A",
         "Veelgestelde vragen": "Frequently asked questions",
+        "Kort antwoord op de vragen die vaak opkomen bij een eerste Hermes-route. De tekst hieronder volgt het ZZPagent-verhaal: open-source waar het kan, menselijke controle en geen standaard hostingpakket.": "Short answers to questions that often come up when exploring a first Hermes route. The text below follows the ZZPagent story: open source where possible, human control and no standard hosting package.",
         "01. Wat is Hermes Agent en wie zit erachter?": "01. What is Hermes Agent and who is behind it?",
+        "Hermes Agent is een open-source framework van Nous Research voor autonome AI-agents: digitale assistenten die niet alleen chatten, maar taken kunnen voorbereiden, tools kunnen gebruiken, context onthouden en terugkerend werk op schema kunnen uitvoeren. ZZPagent helpt zelfstandigen om Hermes praktisch in te richten rond hun eigen werk, kanalen en datagrenzen.": "Hermes Agent is an open-source framework by Nous Research for autonomous AI agents: digital assistants that do not just chat, but can prepare tasks, use tools, remember context and run recurring work on a schedule. ZZPagent helps freelancers set up Hermes practically around their own work, channels and data boundaries.",
         "02. Waarom Hermes Agent in plaats van ChatGPT Enterprise of n8n?": "02. Why Hermes Agent instead of ChatGPT Enterprise or n8n?",
+        "ChatGPT, Claude en Perplexity zijn sterke AI-tools, maar je werkt al snel binnen de route en voorwaarden van één leverancier. Hermes is open source en kan verschillende modellen, tools en kanalen combineren. n8n is geen tegenstander: voor vaste, controleerbare workflows kan n8n juist de uitvoerende workflowlaag zijn, terwijl Hermes context, redenering en samenwerking met de gebruiker doet.": "ChatGPT, Claude and Perplexity are strong AI tools, but you quickly work within the route and terms of one provider. Hermes is open source and can combine different models, tools and channels. n8n is not an opponent: for fixed, controllable workflows, n8n can be the execution workflow layer while Hermes handles context, reasoning and collaboration with the user.",
         "03. Is Hermes Agent AVG-proof in te zetten?": "03. Can Hermes Agent be used in a GDPR-proof way?",
+        "Ja, mits de inrichting klopt. Bij ZZPagent begint dat met dataminimalisatie, duidelijke toegang, menselijke goedkeuring bij gevoelige acties en een route die past bij je risico’s: VPS in Europa, eigen Mac mini/Mac of hybride. AVG-proof is dus geen losse claim, maar een ontwerpkeuze per workflow, kanaal en databron.": "Yes, provided the setup is right. At ZZPagent that starts with data minimization, clear access, human approval for sensitive actions and a route that fits your risks: VPS in Europe, your own Mac mini/Mac or hybrid. GDPR-proof is therefore not a loose claim, but a design choice per workflow, channel and data source.",
         "04. Wat kost een Hermes-implementatie via ZZPagent?": "04. What does a Hermes implementation through ZZPagent cost?",
+        "ZZPagent presenteert geen standaard hostingpakket. De route hangt af van je workflow, bereikbaarheid, privacywensen en budget. Een eenvoudige start kan via een maandelijkse botroute, terwijl VPS, eigen hardware, inrichting, beheer en externe modelkosten apart worden gekozen en besproken. Zo voorkom je dat je betaalt voor een pakket dat niet bij je werk past.": "ZZPagent does not present a standard hosting package. The route depends on your workflow, availability needs, privacy requirements and budget. A simple start can use a monthly bot route, while VPS, own hardware, setup, management and external model costs are chosen and discussed separately. That prevents paying for a package that does not fit your work.",
         "05. Hoe snel kan een eerste Hermes-agent live zijn?": "05. How quickly can a first Hermes agent go live?",
+        "Een eerste, afgebakende workflow kan vaak snel worden voorbereid zodra doel, kanaal, toegangsroute en datagrenzen duidelijk zijn. Denk eerder aan klein beginnen en betrouwbaar testen dan aan meteen alles automatiseren. Eerst één agent en één workflow; daarna pas uitbreiden.": "A first, bounded workflow can often be prepared quickly once the goal, channel, access route and data boundaries are clear. Think of starting small and testing reliably rather than automating everything at once. First one agent and one workflow; only then expand.",
         "06. Heb ik eigen ontwikkelaars nodig voor Hermes Agent?": "06. Do I need my own developers for Hermes Agent?",
+        "Voor een eerste ZZPagent-route heb je meestal geen eigen ontwikkelaars nodig. Wel zijn jouw keuzes en toegang nodig: welk kanaal, welke mailbox of databron, welke modelroute en welke acties nooit zonder akkoord mogen plaatsvinden. Technische inrichting, koppelingen en beheer kunnen stap voor stap worden voorbereid.": "For a first ZZPagent route you usually do not need your own developers. Your choices and access are needed though: which channel, which mailbox or data source, which model route and which actions must never happen without approval. Technical setup, integrations and management can be prepared step by step.",
         "07. Zijn autonome agents zoals Hermes veilig genoeg voor zakelijk gebruik?": "07. Are autonomous agents like Hermes safe enough for business use?",
+        "Autonome agents vragen begrenzing. ZZPagent kiest daarom voor menselijke controle, beperkte toegang, duidelijke taakafbakening, logging/controleerbaarheid en geen automatische verzending of gevoelige actie zonder akkoord waar reputatie, geld, rechten of privacy geraakt kunnen worden. Veiligheid zit niet in “de agent mag alles”, maar in professioneel beperken wat hij mag doen.": "Autonomous agents need boundaries. ZZPagent therefore chooses human control, limited access, clear task boundaries, logging/auditability and no automatic sending or sensitive action without approval where reputation, money, rights or privacy may be affected. Safety is not in ‘the agent may do everything’, but in professionally limiting what it may do.",
         "08. Welke systemen kan Hermes Agent koppelen?": "08. Which systems can Hermes Agent connect to?",
-        "Wat is Hermes Agent en wie zit erachter?": "What is Hermes Agent and who is behind it?",
-        "Waarom Hermes Agent in plaats van ChatGPT Enterprise of n8n?": "Why Hermes Agent instead of ChatGPT Enterprise or n8n?",
-        "Is Hermes Agent AVG-proof in te zetten?": "Can Hermes Agent be used in a GDPR-proof way?",
-        "Wat kost een Hermes-implementatie via ZZPagent?": "What does a Hermes implementation through ZZPagent cost?",
-        "Hoe snel kan een eerste Hermes-agent live zijn?": "How quickly can a first Hermes agent go live?",
-        "Heb ik eigen ontwikkelaars nodig voor Hermes Agent?": "Do I need my own developers for Hermes Agent?",
-        "Zijn autonome agents zoals Hermes veilig genoeg voor zakelijk gebruik?": "Are autonomous agents like Hermes safe enough for business use?",
-        "Welke systemen kan Hermes Agent koppelen?": "Which systems can Hermes Agent connect to?",
-        "Antwoord volgt.": "Answer to follow.",
+        "Hermes kan werken met kanalen en systemen zoals mail, agenda, WhatsApp, Telegram, Slack, browsertoegang, bestanden, spreadsheets, formulieren, CRM, betaalstatussen en API’s. Waar een proces strak en herhaalbaar moet zijn, kan n8n helpen als workflowlaag. We beginnen bij voorkeur met één duidelijke koppeling of leesroute in plaats van meteen toegang tot alles.": "Hermes can work with channels and systems such as email, calendar, WhatsApp, Telegram, Slack, browser access, files, spreadsheets, forms, CRM, payment statuses and APIs. Where a process must be tight and repeatable, n8n can help as a workflow layer. We prefer to start with one clear integration or read route instead of giving access to everything immediately.",
         "Je agent bereikbaar via": "Your agent available via",
         "Fotorealistische iPhone met bewegende ZZPagent briefing": "Photorealistic iPhone with moving ZZPagent briefing",
         "ZZPagent Hermes video over open-source agentlaag": "ZZPagent Hermes video about the open-source agent layer",
