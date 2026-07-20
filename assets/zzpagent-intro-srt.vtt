@@ -1,0 +1,262 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.000
+Welkom. vandaag duiken we direct in iets
+
+2
+00:00:03.000 --> 00:00:06.000
+wat je als ZZP'er echt tijd bespaart.
+
+3
+00:00:06.000 --> 00:00:09.875
+Een nuchtere stapsgewijze gids voor je digitale assistent.
+
+4
+00:00:09.875 --> 00:00:12.000
+Ik ben Bernard Donners. docent AI.
+
+5
+00:00:12.000 --> 00:00:15.000
+aan de Tio Hogeschool in Groningen en Amsterdam
+
+6
+00:00:15.000 --> 00:00:20.416
+In mijn werk kies ik  altijd voor veilige en ethische AI bruikbaarheid.
+
+7
+00:00:20.416 --> 00:00:24.000
+We gaan het hebben over systemen die braaf en betrouwbaar hun werk doen.
+
+8
+00:00:24.916 --> 00:00:27.916
+Het einddoel is eigenlijk verrassend simpel
+
+9
+00:00:27.916 --> 00:00:30.916
+Een goede digitale assistent moet voor jou werken
+
+10
+00:00:30.916 --> 00:00:34.416
+Gewoon op de apparaten die je toch al de hele dag gebruikt.
+
+11
+00:00:35.416 --> 00:00:38.416
+Zoals je telefoon via Telegram of WhatsApp.
+
+12
+00:00:39.416 --> 00:00:42.416
+Geef je bedrijf niet weg aan Big Tech.
+
+13
+00:00:42.666 --> 00:00:45.666
+Houd je workflows volledig in eigen hand.
+
+14
+00:00:45.666 --> 00:00:49.083
+en vooral je eigen beslissingen 
+ in eigen hand houden 
+
+15
+00:00:49.083 --> 00:00:53.000
+Om te snappen hoe we daar komen kijken we naar de evolutie van dit soort tools
+
+16
+00:00:53.083 --> 00:00:56.083
+we begonnen jaren geleden met de reactieve chatbots
+
+17
+00:00:56.541 --> 00:00:58.208
+Je typt een vraag en krijgt antwoord.
+
+18
+00:00:58.375 --> 00:00:59.500
+Vrij passief
+
+19
+00:00:59.625 --> 00:01:02.625
+Daarna kregen we systemen die echt dingen konden maken
+
+20
+00:01:02.916 --> 00:01:05.916
+Zoals assistenten die code of testen schrijven op commando
+
+21
+00:01:06.041 --> 00:01:12.750
+Maar de stap waar we het vandaag over hebben. de 3e fase. dat zijn de proactieve digitale assistenten.
+
+22
+00:01:12.833 --> 00:01:18.041
+Het open source systeem Hermes is daar een goed voorbeeld van
+
+23
+00:01:18.583 --> 00:01:23.000
+Deze systemen  werken zelfstandig op de achtergrond door.
+
+24
+00:01:24.166 --> 00:01:28.291
+en de keuze die je in de 3e fase hebt is belangrijk
+
+25
+00:01:29.041 --> 00:01:33.250
+Pas op voor vendor lock-in bij Big Tech.
+
+26
+00:01:33.250 --> 00:01:38.250
+Nadeel: Je wordt dan afhankelijk van één leverancier.
+
+27
+00:01:39.041 --> 00:01:44.291
+Kosten stijgen en je verliest de controle.
+
+28
+00:01:44.875 --> 00:01:51.166
+Wij kiezen resoluut voor de open-source route met HERMES
+
+29
+00:01:51.291 --> 00:01:54.625
+Het is transparant en data blijft veilig.
+
+30
+00:01:54.750 --> 00:01:58.166
+Je hebt de flexibiliteit..
+
+31
+00:01:59.291 --> 00:02:04.208
+Niet alles wat kan. is ook gewenst.
+
+32
+00:02:05.666 --> 00:02:08.666
+Duizenden e-mails versturen zonder enig toezicht?
+
+33
+00:02:20.833 --> 00:02:23.833
+Jij blijft altijd de regisseur van beslissingen.
+
+34
+00:02:25.375 --> 00:02:28.375
+Wat doet een assistent op een werkdag?
+
+35
+00:02:30.125 --> 00:02:34.166
+Hij maakt briefings en filtert je inbox.
+
+36
+00:02:35.416 --> 00:02:38.416
+Hij beheert je agenda en sorteert documenten.
+
+37
+00:02:38.875 --> 00:02:44.208
+Hij leest. sorteert en  vat rapporten samen en bereidt mails voor.
+
+38
+00:02:50.250 --> 00:02:53.250
+Zo schuift hij alle operationele ruis weg.
+
+39
+00:03:05.041 --> 00:03:10.958
+Je stuurt dit aan via gewone mensentaal via telegram of whatsapp
+
+40
+00:03:11.750 --> 00:03:14.750
+Je geeft instructies...
+
+41
+00:03:15.166 --> 00:03:18.333
+ook een spraakbericht inspreken als je in de auto zit.
+
+42
+00:03:18.708 --> 00:03:21.708
+De assistent leert jouw persoonlijke voorkeuren kennen.
+
+43
+00:03:22.750 --> 00:03:23.958
+Onder de motorkap werkt dit heel logisch.
+
+44
+00:03:24.291 --> 00:03:28.208
+Het systeem heeft een ijzersterk geheugen voor gesprekken.
+
+45
+00:03:30.250 --> 00:03:33.250
+Hij maakt zelf recepten voor herhalende taken.
+
+46
+00:03:34.083 --> 00:03:37.083
+zodat hij de volgende keer sneller en efficienter is
+
+47
+00:03:38.666 --> 00:03:44.083
+een strakke planning om je nieuwe mails te checken
+
+48
+00:03:45.125 --> 00:03:48.125
+En koppelt direct met je huidige software.
+
+49
+00:03:48.666 --> 00:03:52.458
+Moet het systeem ergens 'wonen'
+
+50
+00:03:52.458 --> 00:03:56.541
+Bij ZZPagent bevelen we 3 routes aan
+
+51
+00:03:57.166 --> 00:04:00.375
+Kies je route: Extern met een VPS. Mac of hybride.
+
+52
+00:04:00.375 --> 00:04:05.875
+Een externe server staat altijd voor je aan. Ook als je laptop uit staat
+
+53
+00:04:06.000 --> 00:04:10.083
+Lokaal draaien biedt maximale controle over data.
+
+54
+00:04:23.125 --> 00:04:28.208
+Naast de veilige thuisbasis  is een brein nodig.
+
+55
+00:04:33.750 --> 00:04:36.750
+Koppel je bestaande ChatGPT of Claude abonnement.
+
+56
+00:04:37.375 --> 00:04:39.833
+Wij doen dit veilig via een OAuth inlog.
+
+57
+00:04:40.041 --> 00:04:43.041
+Zo voorkom je onnodig dubbele abonnementskosten.
+
+58
+00:05:01.458 --> 00:05:04.458
+De assistent is streng begrensd voor veiligheid.
+
+59
+00:05:07.583 --> 00:05:16.208
+Voor risicovolle acties is jouw goedkeuring nodig.
+
+60
+00:05:17.208 --> 00:05:20.166
+Jij blijft altijd de eindverantwoordelijke baas.
+
+61
+00:05:32.625 --> 00:05:36.375
+Mijn tip: begin klein en pak één taak.
+
+62
+00:05:37.958 --> 00:05:40.958
+Probeer niet direct je hele administratie te doen.
+
+63
+00:05:46.125 --> 00:05:54.125
+Check ZZPagent.nl voor alle achtergrondinformatie en hulp.
+
+64
+00:05:57.375 --> 00:06:00.375
+Win vandaag nog tijd. energie en focus terug.
+
+65
+00:06:02.041 --> 00:06:05.041
+Bedankt voor het kijken en veel succes.

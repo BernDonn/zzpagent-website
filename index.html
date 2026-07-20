@@ -107,6 +107,8 @@
     .trust-row{display:flex;gap:10px;flex-wrap:wrap;color:#2b362e;font-size:14px}
     .pill{border:1px solid var(--line);background:rgba(255,250,241,.82);padding:9px 12px;border-radius:999px;font-weight:650}
     .agent-card{background:#122b20;color:#f7f2e7;border-radius:38px;padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+    .hero-mini-video{position:relative;z-index:1;margin:0 auto 20px;max-width:320px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 18px 40px rgba(0,0,0,.20);background:#06100c}
+    .hero-mini-video video{display:block;width:100%;height:114px;object-fit:cover;background:#06100c}
     .hero-faq{margin-top:0;background:rgba(255,250,241,.96);color:#172019;border:1px solid var(--line);border-radius:30px;padding:24px;box-shadow:0 16px 42px rgba(20,35,24,.06);max-width:820px}
     .hero-faq .tag{margin-bottom:10px}
     .hero-faq h2{font-size:clamp(30px,3.5vw,44px);line-height:1.04;margin:0 0 10px;letter-spacing:-.035em;color:#172019}
@@ -464,6 +466,12 @@
         </div>
       </div>
       <aside class="agent-card" aria-label="AI agent demo kaart">
+        <div class="hero-mini-video">
+          <video controls preload="metadata" playsinline aria-label="ZZPagent video voor zelfstandigen">
+            <source src="assets/zzpagent-intro-srt.mp4" type="video/mp4">
+            <track src="assets/zzpagent-intro-srt.vtt" kind="subtitles" srclang="nl" label="Nederlands" default>
+          </video>
+        </div>
         <div class="card-top">
           <strong>Je agent bereikbaar via <em>WhatsApp, Telegram of Slack</em></strong>
         </div>
