@@ -98,6 +98,16 @@
     .trust-row{display:flex;gap:10px;flex-wrap:wrap;color:#2b362e;font-size:14px}
     .pill{border:1px solid var(--line);background:rgba(255,250,241,.82);padding:9px 12px;border-radius:999px;font-weight:650}
     .agent-card{background:#122b20;color:#f7f2e7;border-radius:38px;padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+    .hero-faq{margin-top:22px;background:rgba(255,250,241,.96);color:#172019;border:1px solid rgba(255,255,255,.16);border-radius:28px;padding:20px;box-shadow:0 18px 44px rgba(0,0,0,.16)}
+    .hero-faq .tag{margin-bottom:10px}
+    .hero-faq h2{font-size:25px;line-height:1.08;margin:0 0 14px;letter-spacing:-.035em;color:#172019}
+    .hero-faq-list{display:grid;gap:8px}
+    .hero-faq details{border:1px solid var(--line);background:#fffaf1;border-radius:17px;overflow:hidden}
+    .hero-faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 14px;font-weight:800;line-height:1.22;font-size:14px;color:#172019}
+    .hero-faq summary::-webkit-details-marker{display:none}
+    .hero-faq summary:after{content:"+";display:grid;place-items:center;width:24px;height:24px;border-radius:999px;background:#f0e6d6;border:1px solid var(--line);color:var(--green);font-weight:900}
+    .hero-faq details[open] summary:after{content:"−"}
+    .hero-faq p{padding:0 14px 13px;color:var(--muted);font-size:14px;line-height:1.5}
     .phone-frame{width:168px;margin:14px auto 0 auto;background:#1a1a1a;border-radius:20px;padding:8px 3px 6px 3px;border:2px solid #333;position:relative;max-height:340px}
     .phone-notch{width:42px;height:4px;background:#333;margin:0 auto 6px auto;border-radius:8px}
     .phone-screen{background:linear-gradient(135deg,#0e1621 0%,#1a2a3a 50%,#0e1621 100%);border-radius:10px;overflow:hidden;min-height:180px;position:relative}
@@ -145,7 +155,7 @@
     @keyframes briefingReveal{0%,50%{opacity:0;transform:translateY(12px) scale(.97)}62%,92%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-4px) scale(.99)}}
     @keyframes typeDot{0%,100%{opacity:.35;transform:translateY(0)}50%{opacity:1;transform:translateY(-2px)}}
     @media (prefers-reduced-motion: reduce){.agent-motion:before,.agent-motion:after,.motion-dot,.signal-chip,.sort-line i,.briefing-card,.typing-dots b{animation:none!important}.signal-chip,.briefing-card{opacity:1;transform:none}.sort-line i{opacity:.65}}
-    .hero .agent-card{margin-top:76px;max-height:480px}
+    .hero .agent-card{margin-top:76px}
     .agent-card:before{content:none}
     .card-top{display:flex;justify-content:center;align-items:center;text-align:center;position:relative;z-index:1}
     .status{color:#bde9c5;font-size:13px}
@@ -441,6 +451,44 @@
             <div class="tg-input-bar">
               <span style="font-size:11px;color:#98a8a0">Bericht…</span>
             </div>
+          </div>
+        </div>
+        <div class="hero-faq" id="faq" aria-label="Veelgestelde vragen over Hermes en ZZPagent">
+          <span class="tag">Q&A</span>
+          <h2>Veelgestelde vragen</h2>
+          <div class="hero-faq-list">
+            <details>
+              <summary>01. Wat is Hermes Agent en wie zit erachter?</summary>
+              <p>Antwoord volgt.</p>
+            </details>
+            <details>
+              <summary>02. Waarom Hermes Agent in plaats van ChatGPT Enterprise of n8n?</summary>
+              <p>Antwoord volgt.</p>
+            </details>
+            <details>
+              <summary>03. Is Hermes Agent AVG-proof in te zetten?</summary>
+              <p>Antwoord volgt.</p>
+            </details>
+            <details>
+              <summary>04. Wat kost een Hermes-implementatie via ZZPagent?</summary>
+              <p>Antwoord volgt.</p>
+            </details>
+            <details>
+              <summary>05. Hoe snel kan een eerste Hermes-agent live zijn?</summary>
+              <p>Antwoord volgt.</p>
+            </details>
+            <details>
+              <summary>06. Heb ik eigen ontwikkelaars nodig voor Hermes Agent?</summary>
+              <p>Antwoord volgt.</p>
+            </details>
+            <details>
+              <summary>07. Zijn autonome agents zoals Hermes veilig genoeg voor zakelijk gebruik?</summary>
+              <p>Antwoord volgt.</p>
+            </details>
+            <details>
+              <summary>08. Welke systemen kan Hermes Agent koppelen?</summary>
+              <p>Antwoord volgt.</p>
+            </details>
           </div>
         </div>
       </aside>
@@ -812,6 +860,25 @@
         "Telefoon assistent": "Phone assistant",
         "WhatsApp automatiseren": "Automate WhatsApp",
         "Vraag advies": "Ask for advice",
+        "Q&A": "Q&A",
+        "Veelgestelde vragen": "Frequently asked questions",
+        "01. Wat is Hermes Agent en wie zit erachter?": "01. What is Hermes Agent and who is behind it?",
+        "02. Waarom Hermes Agent in plaats van ChatGPT Enterprise of n8n?": "02. Why Hermes Agent instead of ChatGPT Enterprise or n8n?",
+        "03. Is Hermes Agent AVG-proof in te zetten?": "03. Can Hermes Agent be used in a GDPR-proof way?",
+        "04. Wat kost een Hermes-implementatie via ZZPagent?": "04. What does a Hermes implementation through ZZPagent cost?",
+        "05. Hoe snel kan een eerste Hermes-agent live zijn?": "05. How quickly can a first Hermes agent go live?",
+        "06. Heb ik eigen ontwikkelaars nodig voor Hermes Agent?": "06. Do I need my own developers for Hermes Agent?",
+        "07. Zijn autonome agents zoals Hermes veilig genoeg voor zakelijk gebruik?": "07. Are autonomous agents like Hermes safe enough for business use?",
+        "08. Welke systemen kan Hermes Agent koppelen?": "08. Which systems can Hermes Agent connect to?",
+        "Wat is Hermes Agent en wie zit erachter?": "What is Hermes Agent and who is behind it?",
+        "Waarom Hermes Agent in plaats van ChatGPT Enterprise of n8n?": "Why Hermes Agent instead of ChatGPT Enterprise or n8n?",
+        "Is Hermes Agent AVG-proof in te zetten?": "Can Hermes Agent be used in a GDPR-proof way?",
+        "Wat kost een Hermes-implementatie via ZZPagent?": "What does a Hermes implementation through ZZPagent cost?",
+        "Hoe snel kan een eerste Hermes-agent live zijn?": "How quickly can a first Hermes agent go live?",
+        "Heb ik eigen ontwikkelaars nodig voor Hermes Agent?": "Do I need my own developers for Hermes Agent?",
+        "Zijn autonome agents zoals Hermes veilig genoeg voor zakelijk gebruik?": "Are autonomous agents like Hermes safe enough for business use?",
+        "Welke systemen kan Hermes Agent koppelen?": "Which systems can Hermes Agent connect to?",
+        "Antwoord volgt.": "Answer to follow.",
         "Je agent bereikbaar via": "Your agent available via",
         "Fotorealistische iPhone met bewegende ZZPagent briefing": "Photorealistic iPhone with moving ZZPagent briefing",
         "ZZPagent Hermes video over open-source agentlaag": "ZZPagent Hermes video about the open-source agent layer",
