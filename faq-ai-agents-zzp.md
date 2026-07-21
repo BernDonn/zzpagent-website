@@ -53,3 +53,7 @@ Begin met één duidelijke workflow. Voor zelfstandigen kan dat bijvoorbeeld inb
 ## Kan ZZPagent helpen met een AI-agent via WhatsApp Business?
 
 Ja. WhatsApp Business kan het laagdrempelige kanaal zijn waarmee klanten of de zelfstandige de agent bereiken. ZZPagent richt dit voorzichtig in: eerst profiel, intake, labels en conceptantwoorden; daarna pas verdergaande automatisering via officiële routes, opt-in, logging en menselijke goedkeuring.
+
+## Kan Hermes mij helpen met het bouwen van een website?
+
+Ja. Hermes kan helpen bij het bouwen, verbeteren en publiceren van een website. In feite zijn zzpagent.nl en mkbagents.nl grotendeels met Hermes gebouwd: van positionering, copy en vormgeving tot technische inrichting zoals een Mollie-betaalmodel, Google Analytics, Search Console en publicatie via GitHub Pages. Werk dat in een klassiek traject maanden kan duren, kan met een goed ingerichte agent vaak in een aantal weken worden voorbereid, getest en live gezet. De mens blijft wel nodig voor keuzes, controle, merkgevoel en akkoord op wat gepubliceerd wordt.
