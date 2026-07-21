@@ -17,8 +17,7 @@ ZZPagent helpt zelfstandigen met een persoonlijke Hermes-agent die met hun werk 
 
 ## Bronnen
 
-- Originele SRT, korte versie: [assets/hermes-agent-korte-tutorial.srt](assets/hermes-agent-korte-tutorial.srt)
-- Originele SRT, uitgebreide ZZPagent-versie: [assets/zzpagent-hermes-tutorial.srt](assets/zzpagent-hermes-tutorial.srt)
+- Originele SRT, gekozen bronbestand: [assets/zzpagent-hermes-tutorial.srt](assets/zzpagent-hermes-tutorial.srt)
 - Homepage: [https://zzpagent.nl/](https://zzpagent.nl/)
 
 ## Transcript, uitgebreide ZZPagent-versie
@@ -44,32 +43,6 @@ Je geeft instructies... ook een spraakbericht inspreken als je in de auto zit. D
 Hij maakt zelf recepten voor herhalende taken. zodat hij de volgende keer sneller en efficienter is een strakke planning om je nieuwe mails te checken En koppelt direct met je huidige software. Moet het systeem ergens 'wonen'
 
 Bij ZZPagent bevelen we 3 routes aan Kies je route: Extern met een VPS, Mac of hybride. Een externe server staat altijd voor je aan. Ook als je laptop uit staat Lokaal draaien biedt maximale controle over data. Naast de veilige thuisbasis is een brein nodig.
-
-Koppel je bestaande ChatGPT of Claude abonnement. Wij doen dit veilig via een OAuth inlog. Zo voorkom je onnodig dubbele abonnementskosten. De assistent is streng begrensd voor veiligheid. Voor risicovolle acties is jouw goedkeuring nodig.
-
-Jij blijft altijd de eindverantwoordelijke baas. Mijn tip: begin klein en pak één taak. Probeer niet direct je hele administratie te doen. Check ZZPagent.nl voor alle achtergrondinformatie en hulp. Win vandaag nog tijd, energie en focus terug.
-
-Bedankt voor het kijken en veel succes.
-
-## Transcript, korte Hermes-versie
-
-Welkom, vandaag duiken we direct in iets wat je als ZZP'er echt tijd bespaart. Een nuchtere gids voor je digitale assistent. Ik ben Bernard Donners, docent AI. Werkzaam bij de Tio Hogeschool in Groningen.
-
-Ik kies altijd voor veilige AI bruikbaarheid. Systemen die braaf en betrouwbaar werk doen. Een digitale assistent moet voor jou werken. Gewoon op de apparaten die je gebruikt. Zoals je telefoon via Telegram of WhatsApp.
-
-Geef je bedrijf niet weg aan Big Tech. Houd je workflows volledig in eigen hand. Beslis zelf over je documenten en data. AI evolueerde van simpele reactieve chatbots. Je typt een vraag en krijgt antwoord.
-
-Fase twee waren assistenten die codes schrijven. Fase drie zijn de proactieve digitale assistenten. Hermes is een goed open-source voorbeeld hiervan. Deze werken zelfstandig op de achtergrond door. Pas op voor vendor lock-in bij Big Tech.
-
-Je wordt dan afhankelijk van één leverancier. Kosten stijgen en je verliest de controle. Wij kiezen resoluut voor de open-source route. Het is transparant en data blijft veilig. Niet alles wat kan, is ook gewenst.
-
-Duizenden e-mails versturen zonder enig toezicht? Controle en privacy zijn echt het fundament. Jij blijft altijd de regisseur van beslissingen. Wat doet een assistent op een werkdag? Hij maakt briefings en filtert je inbox.
-
-Hij beheert je agenda en sorteert documenten. Hij vat rapporten samen en bereidt mails voor. Zo schuift hij alle operationele ruis weg. Je stuurt dit aan via gewone mensentaal. Zonder dat je hoeft te leren programmeren.
-
-Gebruik simpelweg Telegram of een spraakbericht. De assistent leert jouw persoonlijke voorkeuren kennen. Onder de motorkap werkt dit heel logisch. Het systeem heeft een ijzersterk geheugen voor gesprekken. Hij maakt zelf recepten voor herhalende taken.
-
-En koppelt direct met je huidige software. Kies je route: VPS, Mac of hybride. Een externe server staat altijd voor je aan. Lokaal draaien biedt maximale controle over data. Naast de route is een brein nodig.
 
 Koppel je bestaande ChatGPT of Claude abonnement. Wij doen dit veilig via een OAuth inlog. Zo voorkom je onnodig dubbele abonnementskosten. De assistent is streng begrensd voor veiligheid. Voor risicovolle acties is jouw goedkeuring nodig.
 

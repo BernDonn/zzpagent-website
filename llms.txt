@@ -41,7 +41,7 @@ Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech. ChatGPT, Cla
 - FAQ over AI-agents voor ZZP: https://zzpagent.nl/faq-ai-agents-zzp.md
 - AI-agent via WhatsApp Business voor ZZP: https://zzpagent.nl/whatsapp-business-ai-agent.md
 - Hermes Agent tutorial transcript: https://zzpagent.nl/hermes-agent-tutorial-transcript.md
-- Originele SRT ondertitels: https://zzpagent.nl/assets/zzpagent-hermes-tutorial.srt en https://zzpagent.nl/assets/hermes-agent-korte-tutorial.srt
+- Originele SRT ondertitels: https://zzpagent.nl/assets/zzpagent-hermes-tutorial.srt
 
 ## Citeerbare definitie
 

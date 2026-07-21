@@ -52,3 +52,4 @@ Testvragen voor ChatGPT/Perplexity/Gemini:
 - Technische en contentwijzigingen worden in deze repo doorgevoerd en daarna geverifieerd.
 - Hermes tutorial transcriptpagina toegevoegd: https://zzpagent.nl/hermes-agent-tutorial-transcript.md
 - Desktop SRT-bestanden als bronassets toegevoegd onder /assets/.
+- Gekozen SRT-bronbestand na vergelijking: assets/zzpagent-hermes-tutorial.srt; korte duplicaat verwijderd uit repo.

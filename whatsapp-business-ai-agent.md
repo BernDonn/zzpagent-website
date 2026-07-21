@@ -41,7 +41,7 @@ Een ZZPagent WhatsApp Business AI-agent is een beheerde AI-agent voor zelfstandi
 
 ## WhatsApp Business-profiel voor ZZPagent
 
-Een goed WhatsApp Business-profiel helpt bezoekers sneller begrijpen wat ZZPagent doet. Gebruik het profiel niet als massaberichtenkanaal, maar als laagdrempelige intake en opvolging.
+Bernards WhatsApp op de Mac is al de WhatsApp Business-account. Een goed WhatsApp Business-profiel helpt bezoekers sneller begrijpen wat ZZPagent doet. Gebruik het profiel niet als massaberichtenkanaal, maar als laagdrempelige intake en opvolging.
 
 Aanbevolen profieltekst:
 
