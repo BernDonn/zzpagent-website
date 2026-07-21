@@ -1,0 +1,223 @@
+1
+00:00:00,000 --> 00:00:03,000
+Welkom, vandaag duiken we direct in iets
+
+2
+00:00:03,000 --> 00:00:06,000
+wat je als ZZP'er echt tijd bespaart.
+
+3
+00:00:06,000 --> 00:00:09,000
+Een nuchtere gids voor je digitale assistent.
+
+4
+00:00:09,000 --> 00:00:12,000
+Ik ben Bernard Donners, docent AI.
+
+5
+00:00:12,000 --> 00:00:15,000
+Werkzaam bij de Tio Hogeschool in Groningen.
+
+6
+00:00:15,000 --> 00:00:18,000
+Ik kies altijd voor veilige AI bruikbaarheid.
+
+7
+00:00:18,000 --> 00:00:21,000
+Systemen die braaf en betrouwbaar werk doen.
+
+8
+00:00:21,000 --> 00:00:24,000
+Een digitale assistent moet voor jou werken.
+
+9
+00:00:24,000 --> 00:00:27,000
+Gewoon op de apparaten die je gebruikt.
+
+10
+00:00:27,000 --> 00:00:30,000
+Zoals je telefoon via Telegram of WhatsApp.
+
+11
+00:00:30,000 --> 00:00:33,000
+Geef je bedrijf niet weg aan Big Tech.
+
+12
+00:00:33,000 --> 00:00:36,000
+Houd je workflows volledig in eigen hand.
+
+13
+00:00:36,000 --> 00:00:39,000
+Beslis zelf over je documenten en data.
+
+14
+00:00:39,000 --> 00:00:42,000
+AI evolueerde van simpele reactieve chatbots.
+
+15
+00:00:42,000 --> 00:00:45,000
+Je typt een vraag en krijgt antwoord.
+
+16
+00:00:45,000 --> 00:00:48,000
+Fase twee waren assistenten die codes schrijven.
+
+17
+00:00:48,000 --> 00:00:51,000
+Fase drie zijn de proactieve digitale assistenten.
+
+18
+00:00:51,000 --> 00:00:54,000
+Hermes is een goed open-source voorbeeld hiervan.
+
+19
+00:00:54,000 --> 00:00:57,000
+Deze werken zelfstandig op de achtergrond door.
+
+20
+00:00:57,000 --> 00:01:00,000
+Pas op voor vendor lock-in bij Big Tech.
+
+21
+00:01:00,000 --> 00:01:03,000
+Je wordt dan afhankelijk van één leverancier.
+
+22
+00:01:03,000 --> 00:01:06,000
+Kosten stijgen en je verliest de controle.
+
+23
+00:01:06,000 --> 00:01:09,000
+Wij kiezen resoluut voor de open-source route.
+
+24
+00:01:09,000 --> 00:01:12,000
+Het is transparant en data blijft veilig.
+
+25
+00:01:12,000 --> 00:01:15,000
+Niet alles wat kan, is ook gewenst.
+
+26
+00:01:15,000 --> 00:01:18,000
+Duizenden e-mails versturen zonder enig toezicht?
+
+27
+00:01:18,000 --> 00:01:21,000
+Controle en privacy zijn echt het fundament.
+
+28
+00:01:21,000 --> 00:01:24,000
+Jij blijft altijd de regisseur van beslissingen.
+
+29
+00:01:24,000 --> 00:01:27,000
+Wat doet een assistent op een werkdag?
+
+30
+00:01:27,000 --> 00:01:30,000
+Hij maakt briefings en filtert je inbox.
+
+31
+00:01:30,000 --> 00:01:33,000
+Hij beheert je agenda en sorteert documenten.
+
+32
+00:01:33,000 --> 00:01:36,000
+Hij vat rapporten samen en bereidt mails voor.
+
+33
+00:01:36,000 --> 00:01:39,000
+Zo schuift hij alle operationele ruis weg.
+
+34
+00:01:39,000 --> 00:01:42,000
+Je stuurt dit aan via gewone mensentaal.
+
+35
+00:01:42,000 --> 00:01:45,000
+Zonder dat je hoeft te leren programmeren.
+
+36
+00:01:45,000 --> 00:01:48,000
+Gebruik simpelweg Telegram of een spraakbericht.
+
+37
+00:01:48,000 --> 00:01:51,000
+De assistent leert jouw persoonlijke voorkeuren kennen.
+
+38
+00:01:51,000 --> 00:01:54,000
+Onder de motorkap werkt dit heel logisch.
+
+39
+00:01:54,000 --> 00:01:57,000
+Het systeem heeft een ijzersterk geheugen voor gesprekken.
+
+40
+00:01:57,000 --> 00:02:00,000
+Hij maakt zelf recepten voor herhalende taken.
+
+41
+00:02:00,000 --> 00:02:03,000
+En koppelt direct met je huidige software.
+
+42
+00:02:03,000 --> 00:02:06,000
+Kies je route: VPS, Mac of hybride.
+
+43
+00:02:06,000 --> 00:02:09,000
+Een externe server staat altijd voor je aan.
+
+44
+00:02:09,000 --> 00:02:12,000
+Lokaal draaien biedt maximale controle over data.
+
+45
+00:02:12,000 --> 00:02:15,000
+Naast de route is een brein nodig.
+
+46
+00:02:15,000 --> 00:02:18,000
+Koppel je bestaande ChatGPT of Claude abonnement.
+
+47
+00:02:18,000 --> 00:02:21,000
+Wij doen dit veilig via een OAuth inlog.
+
+48
+00:02:21,000 --> 00:02:24,000
+Zo voorkom je onnodig dubbele abonnementskosten.
+
+49
+00:02:24,000 --> 00:02:27,000
+De assistent is streng begrensd voor veiligheid.
+
+50
+00:02:27,000 --> 00:02:30,000
+Voor risicovolle acties is jouw goedkeuring nodig.
+
+51
+00:02:30,000 --> 00:02:33,000
+Jij blijft altijd de eindverantwoordelijke baas.
+
+52
+00:02:33,000 --> 00:02:36,000
+Mijn tip: begin klein en pak één taak.
+
+53
+00:02:36,000 --> 00:02:39,000
+Probeer niet direct je hele administratie te doen.
+
+54
+00:02:39,000 --> 00:02:42,000
+Check ZZPagent.nl voor alle achtergrondinformatie en hulp.
+
+55
+00:02:42,000 --> 00:02:45,000
+Win vandaag nog tijd, energie en focus terug.
+
+56
+00:02:45,000 --> 00:02:48,000
+Bedankt voor het kijken en veel succes.

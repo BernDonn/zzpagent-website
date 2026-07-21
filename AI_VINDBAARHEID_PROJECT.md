@@ -50,3 +50,5 @@ Testvragen voor ChatGPT/Perplexity/Gemini:
 - Project aangemaakt in Hermes Desktop als: ZZPagent AI Vindbaarheid.
 - Lokale repo: /Users/bernarddonners/projects/zzpagent-website.
 - Technische en contentwijzigingen worden in deze repo doorgevoerd en daarna geverifieerd.
+- Hermes tutorial transcriptpagina toegevoegd: https://zzpagent.nl/hermes-agent-tutorial-transcript.md
+- Desktop SRT-bestanden als bronassets toegevoegd onder /assets/.

@@ -44,6 +44,52 @@
         "provider": {"@id": "https://zzpagent.nl/#organization"},
         "areaServed": "NL",
         "serviceType": "Managed AI agents and workflow automation"
+      },
+      {
+              "@type": "FAQPage",
+              "@id": "https://zzpagent.nl/#faq",
+              "mainEntity": [
+                      {
+                              "@type": "Question",
+                              "name": "Wat is een Hermes Agent en wie maakt het?",
+                              "acceptedAnswer": {
+                                      "@type": "Answer",
+                                      "text": "Hermes Agent is een open-source framework van Nous Research voor autonome AI-agents, beschikbaar onder de MIT-licentie. ZZPagent helpt zelfstandigen om Hermes praktisch in te richten rond hun werk, kanalen en datagrenzen."
+                              }
+                      },
+                      {
+                              "@type": "Question",
+                              "name": "Waarom Hermes Agent in plaats van ChatGPT of n8n?",
+                              "acceptedAnswer": {
+                                      "@type": "Answer",
+                                      "text": "ChatGPT is een sterk model of interface. Hermes voegt een agentlaag toe met geheugen, skills, tools, modelroutes en kanalen. n8n kan daarnaast vaste workflowstappen uitvoeren."
+                              }
+                      },
+                      {
+                              "@type": "Question",
+                              "name": "Wat betekent een agent die met je meegroeit?",
+                              "acceptedAnswer": {
+                                      "@type": "Answer",
+                                      "text": "Een agent die met je meegroeit, onthoudt voorkeuren, werkwijzen en terugkerende taken binnen afgesproken grenzen, zodat briefings, conceptmails, documenten en planning steeds beter voorbereid worden."
+                              }
+                      },
+                      {
+                              "@type": "Question",
+                              "name": "Kan ik ZZPagent via WhatsApp Business gebruiken?",
+                              "acceptedAnswer": {
+                                      "@type": "Answer",
+                                      "text": "Ja. WhatsApp Business kan als laagdrempelig kanaal dienen. ZZPagent begint met profiel, intake, labels en conceptantwoorden en automatiseert verder alleen met opt-in, logging en menselijke goedkeuring."
+                              }
+                      },
+                      {
+                              "@type": "Question",
+                              "name": "Hoe begin ik klein met een AI-agent?",
+                              "acceptedAnswer": {
+                                      "@type": "Answer",
+                                      "text": "Begin met één duidelijke taak, zoals inboxfiltering, agenda-briefings, klantvragen samenvatten, documenten ordenen of conceptmails voorbereiden."
+                              }
+                      }
+              ]
       }
     ]
   }
@@ -701,6 +747,7 @@
           <div class="hero-faq" aria-label="Veelgestelde vragen over Hermes en ZZPagent">
         <h2>Veelgestelde vragen</h2>
         <p class="lead">Kort antwoord op de vragen die vaak opkomen bij een eerste Hermes-route. De tekst hieronder volgt het ZZPagent-verhaal: open-source waar het kan, menselijke controle en geen standaard hostingpakket.</p>
+        <p class="muted" style="margin:0 0 18px"><a href="/hermes-agent-tutorial-transcript.md">Lees ook het Hermes tutorial-transcript</a>, gebaseerd op de SRT-ondertitels van de video.</p>
         <div class="hero-faq-list">
           <details>
             <summary>01. Wat is een Hermes Agent en wie maakt het?</summary>
@@ -733,6 +780,22 @@
           <details>
             <summary>08. Welke systemen kan Hermes Agent koppelen?</summary>
             <p>Hermes kan werken met kanalen en systemen zoals mail, agenda, WhatsApp, Telegram, Slack, browsertoegang, bestanden, spreadsheets, formulieren, CRM, betaalstatussen en API’s. Waar een proces strak en herhaalbaar moet zijn, kan n8n helpen als workflowlaag. We beginnen bij voorkeur met één duidelijke koppeling of leesroute in plaats van meteen toegang tot alles.</p>
+          </details>
+          <details>
+            <summary>09. Wat betekent een agent die met je meegroeit?</summary>
+            <p>Een agent die met je meegroeit, onthoudt voorkeuren, werkwijzen en terugkerende taken binnen afgesproken grenzen. Daardoor hoef je niet steeds opnieuw uit te leggen hoe je werkt. Hermes kan zo briefings, conceptmails, documentordening, planning en opvolging steeds beter voorbereiden, terwijl jij de eindcontrole houdt.</p>
+          </details>
+          <details>
+            <summary>10. Kan ik ZZPagent via WhatsApp Business gebruiken?</summary>
+            <p>Ja. WhatsApp Business kan het laagdrempelige kanaal zijn waarmee jij of je klanten de agent bereiken. ZZPagent begint veilig: profiel, intake, labels en conceptantwoorden eerst; verdergaande automatisering pas met duidelijke opt-in, logging, officiële routes en menselijke goedkeuring.</p>
+          </details>
+          <details>
+            <summary>11. Waarom staat het video-transcript op de site?</summary>
+            <p>Een transcript maakt de video leesbaar voor Google en AI-systemen. De tekst legt in gewone taal uit wat Hermes, ZZPagent, open-source agents, WhatsApp, vendor lock-in en menselijke controle betekenen. Daardoor is de inhoud beter vindbaar, citeerbaar en bruikbaar voor AI-antwoorden.</p>
+          </details>
+          <details>
+            <summary>12. Hoe begin ik klein met een AI-agent?</summary>
+            <p>Kies één concrete taak: inboxfiltering, agenda-briefings, klantvragen samenvatten, documenten ordenen of conceptmails voorbereiden. Eerst één agent en één workflow betrouwbaar maken; daarna pas uitbreiden naar extra kanalen, tools of automatiseringen.</p>
           </details>
         </div>
           </div>
@@ -1047,6 +1110,16 @@
         "Autonome agents vragen begrenzing. ZZPagent kiest daarom voor menselijke controle, beperkte toegang, duidelijke taakafbakening, logging/controleerbaarheid en geen automatische verzending of gevoelige actie zonder akkoord waar reputatie, geld, rechten of privacy geraakt kunnen worden. Veiligheid zit niet in “de agent mag alles”, maar in professioneel beperken wat hij mag doen.": "Autonomous agents need boundaries. ZZPagent therefore chooses human control, limited access, clear task boundaries, logging/auditability and no automatic sending or sensitive action without approval where reputation, money, rights or privacy may be affected. Safety is not in ‘the agent may do everything’, but in professionally limiting what it may do.",
         "08. Welke systemen kan Hermes Agent koppelen?": "08. Which systems can Hermes Agent connect to?",
         "Hermes kan werken met kanalen en systemen zoals mail, agenda, WhatsApp, Telegram, Slack, browsertoegang, bestanden, spreadsheets, formulieren, CRM, betaalstatussen en API’s. Waar een proces strak en herhaalbaar moet zijn, kan n8n helpen als workflowlaag. We beginnen bij voorkeur met één duidelijke koppeling of leesroute in plaats van meteen toegang tot alles.": "Hermes can work with channels and systems such as email, calendar, WhatsApp, Telegram, Slack, browser access, files, spreadsheets, forms, CRM, payment statuses and APIs. Where a process must be tight and repeatable, n8n can help as a workflow layer. We prefer to start with one clear integration or read route instead of giving access to everything immediately.",
+        "Lees ook het Hermes tutorial-transcript": "Also read the Hermes tutorial transcript",
+        "gebaseerd op de SRT-ondertitels van de video.": "based on the SRT subtitles of the video.",
+        "09. Wat betekent een agent die met je meegroeit?": "09. What does an agent that grows with you mean?",
+        "Een agent die met je meegroeit, onthoudt voorkeuren, werkwijzen en terugkerende taken binnen afgesproken grenzen. Daardoor hoef je niet steeds opnieuw uit te leggen hoe je werkt. Hermes kan zo briefings, conceptmails, documentordening, planning en opvolging steeds beter voorbereiden, terwijl jij de eindcontrole houdt.": "An agent that grows with you remembers preferences, ways of working and recurring tasks within agreed boundaries. That means you do not have to explain how you work again and again. Hermes can increasingly prepare briefings, draft emails, document organization, planning and follow-up while you keep final control.",
+        "10. Kan ik ZZPagent via WhatsApp Business gebruiken?": "10. Can I use ZZPagent through WhatsApp Business?",
+        "Ja. WhatsApp Business kan het laagdrempelige kanaal zijn waarmee jij of je klanten de agent bereiken. ZZPagent begint veilig: profiel, intake, labels en conceptantwoorden eerst; verdergaande automatisering pas met duidelijke opt-in, logging, officiële routes en menselijke goedkeuring.": "Yes. WhatsApp Business can be the low-threshold channel through which you or your customers reach the agent. ZZPagent starts safely: profile, intake, labels and draft replies first; deeper automation only with clear opt-in, logging, official routes and human approval.",
+        "11. Waarom staat het video-transcript op de site?": "11. Why is the video transcript on the site?",
+        "Een transcript maakt de video leesbaar voor Google en AI-systemen. De tekst legt in gewone taal uit wat Hermes, ZZPagent, open-source agents, WhatsApp, vendor lock-in en menselijke controle betekenen. Daardoor is de inhoud beter vindbaar, citeerbaar en bruikbaar voor AI-antwoorden.": "A transcript makes the video readable for Google and AI systems. The text explains in plain language what Hermes, ZZPagent, open-source agents, WhatsApp, vendor lock-in and human control mean. That makes the content easier to find, cite and use in AI answers.",
+        "12. Hoe begin ik klein met een AI-agent?": "12. How do I start small with an AI agent?",
+        "Kies één concrete taak: inboxfiltering, agenda-briefings, klantvragen samenvatten, documenten ordenen of conceptmails voorbereiden. Eerst één agent en één workflow betrouwbaar maken; daarna pas uitbreiden naar extra kanalen, tools of automatiseringen.": "Choose one concrete task: inbox filtering, agenda briefings, summarizing customer questions, organizing documents or preparing draft emails. First make one agent and one workflow reliable; only then expand to extra channels, tools or automations.",
         "Agent Platform": "Agent Platform",
         "Klap uit": "Expand",
         "Sluit": "Close",

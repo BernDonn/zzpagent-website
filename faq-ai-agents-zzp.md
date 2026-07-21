@@ -37,3 +37,19 @@ Vendor lock-in ontstaat wanneer processen, data, context, automatiseringen en be
 ## Hoe beperkt ZZPagent workflow-lock-in?
 
 ZZPagent gebruikt een open-source agentlaag zoals Hermes, kiest modelroutes bewust, koppelt tools modulair en houdt menselijke controle en eigenaarschap centraal. Het doel is minder afhankelijkheid, niet volledige onafhankelijkheid van elke leverancier.
+
+## Wat betekent “een agent die met je meegroeit”?
+
+Een agent die met je meegroeit, onthoudt voorkeuren, werkwijzen en terugkerende taken binnen afgesproken grenzen. Daardoor hoef je niet elke keer opnieuw uit te leggen hoe je werkt. De agent kan steeds beter briefings, conceptmails, documentordening, planning en opvolging voorbereiden, terwijl de zelfstandige de eindcontrole houdt.
+
+## Hoe helpt een SRT-transcript bij AI-vindbaarheid?
+
+Een SRT-transcript maakt video-inhoud leesbaar voor zoekmachines en AI-systemen. Waar een video vooral visueel is, geeft een transcript citeerbare tekst over Hermes, ZZPagent, open-source AI-agents, WhatsApp Business, vendor lock-in en menselijke controle. Daardoor kunnen Google, Perplexity en andere AI-systemen de inhoud beter begrijpen en samenvatten.
+
+## Hoe begin je klein met een AI-agent?
+
+Begin met één duidelijke workflow. Voor zelfstandigen kan dat bijvoorbeeld inboxfiltering, agenda-briefings, klantvragen samenvatten, documenten ordenen of conceptantwoorden voorbereiden zijn. Pas als die eerste taak betrouwbaar werkt, breid je uit naar extra kanalen, tools of automatiseringen.
+
+## Kan ZZPagent helpen met een AI-agent via WhatsApp Business?
+
+Ja. WhatsApp Business kan het laagdrempelige kanaal zijn waarmee klanten of de zelfstandige de agent bereiken. ZZPagent richt dit voorzichtig in: eerst profiel, intake, labels en conceptantwoorden; daarna pas verdergaande automatisering via officiële routes, opt-in, logging en menselijke goedkeuring.

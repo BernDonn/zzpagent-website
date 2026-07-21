@@ -1,0 +1,260 @@
+1
+00:00:00,000 --> 00:00:03,000
+<font color="#ffffff">Welkom, vandaag duiken we direct in iets</font>
+
+2
+00:00:03,000 --> 00:00:06,000
+<font color="#ffffff">wat je als ZZP'er echt tijd bespaart.</font>
+
+3
+00:00:06,000 --> 00:00:09,875
+<font color="#ffffff">Een nuchtere stapsgewijze gids voor je digitale assistent.</font>
+
+4
+00:00:09,875 --> 00:00:12,000
+<font color="#ffffff">Ik ben Bernard Donners, docent AI.</font>
+
+5
+00:00:12,000 --> 00:00:15,000
+<font color="#ffffff">aan de Tio Hogeschool in Groningen en Amsterdam</font>
+
+6
+00:00:15,000 --> 00:00:20,416
+<font color="#ffffff">In mijn werk kies ik  altijd voor veilige en ethische AI bruikbaarheid.</font>
+
+7
+00:00:20,416 --> 00:00:24,000
+<font color="#ffffff">We gaan het hebben over systemen die braaf en betrouwbaar hun werk doen.</font>
+
+8
+00:00:24,916 --> 00:00:27,916
+<font color="#ffffff">Het einddoel is eigenlijk verrassend simpel</font>
+
+9
+00:00:27,916 --> 00:00:30,916
+<font color="#ffffff">Een goede digitale assistent moet voor jou werken</font>
+
+10
+00:00:30,916 --> 00:00:34,416
+<font color="#ffffff">Gewoon op de apparaten die je toch al de hele dag gebruikt.</font>
+
+11
+00:00:35,416 --> 00:00:38,416
+<font color="#ffffff">Zoals je telefoon via Telegram of WhatsApp.</font>
+
+12
+00:00:39,416 --> 00:00:42,416
+<font color="#ffffff">Geef je bedrijf niet weg aan Big Tech.</font>
+
+13
+00:00:42,666 --> 00:00:45,666
+<font color="#ffffff">Houd je workflows volledig in eigen hand.</font>
+
+14
+00:00:45,666 --> 00:00:49,083
+<font color="#ffffff">en vooral je eigen beslissingen 
+ in eigen hand houden </font>
+
+15
+00:00:49,083 --> 00:00:53,000
+<font color="#ffffff">Om te snappen hoe we daar komen kijken we naar de evolutie van dit soort tools</font>
+
+16
+00:00:53,083 --> 00:00:56,083
+<font color="#ffffff">we begonnen jaren geleden met de reactieve chatbots</font>
+
+17
+00:00:56,541 --> 00:00:58,208
+<font color="#ffffff">Je typt een vraag en krijgt antwoord.</font>
+
+18
+00:00:58,375 --> 00:00:59,500
+<font color="#ffffff">Vrij passief</font>
+
+19
+00:00:59,625 --> 00:01:02,625
+<font color="#ffffff">Daarna kregen we systemen die echt dingen konden maken</font>
+
+20
+00:01:02,916 --> 00:01:05,916
+<font color="#ffffff">Zoals assistenten die code of testen schrijven op commando</font>
+
+21
+00:01:06,041 --> 00:01:12,750
+<font color="#ffffff">Maar de stap waar we het vandaag over hebben, de 3e fase, dat zijn de proactieve digitale assistenten.</font>
+
+22
+00:01:12,833 --> 00:01:18,041
+<font color="#ffffff">Het open source systeem Hermes is daar een goed voorbeeld van</font>
+
+23
+00:01:18,583 --> 00:01:23,000
+<font color="#ffffff">Deze systemen  werken zelfstandig op de achtergrond door.</font>
+
+24
+00:01:24,166 --> 00:01:28,291
+<font color="#ffffff">en de keuze die je in de 3e fase hebt is belangrijk</font>
+
+25
+00:01:29,041 --> 00:01:33,250
+<font color="#ffffff">Pas op voor vendor lock-in bij Big Tech.</font>
+
+26
+00:01:33,250 --> 00:01:38,250
+<font color="#ffffff">Nadeel: Je wordt dan afhankelijk van één leverancier.</font>
+
+27
+00:01:39,041 --> 00:01:44,291
+<font color="#ffffff">Kosten stijgen en je verliest de controle.</font>
+
+28
+00:01:44,875 --> 00:01:51,166
+<font color="#ffffff">Wij kiezen resoluut voor de open-source route met HERMES</font>
+
+29
+00:01:51,291 --> 00:01:54,625
+<font color="#ffffff">Het is transparant en data blijft veilig.</font>
+
+30
+00:01:54,750 --> 00:01:58,166
+<font color="#ffffff">Je hebt de flexibiliteit..</font>
+
+31
+00:01:59,291 --> 00:02:04,208
+<font color="#ffffff">Niet alles wat kan, is ook gewenst.</font>
+
+32
+00:02:05,666 --> 00:02:08,666
+<font color="#ffffff">Duizenden e-mails versturen zonder enig toezicht?</font>
+
+33
+00:02:20,833 --> 00:02:23,833
+<font color="#ffffff">Jij blijft altijd de regisseur van beslissingen.</font>
+
+34
+00:02:25,375 --> 00:02:28,375
+<font color="#ffffff">Wat doet een assistent op een werkdag?</font>
+
+35
+00:02:30,125 --> 00:02:34,166
+<font color="#ffffff">Hij maakt briefings en filtert je inbox.</font>
+
+36
+00:02:35,416 --> 00:02:38,416
+<font color="#ffffff">Hij beheert je agenda en sorteert documenten.</font>
+
+37
+00:02:38,875 --> 00:02:44,208
+<font color="#ffffff">Hij leest, sorteert en  vat rapporten samen en bereidt mails voor.</font>
+
+38
+00:02:50,250 --> 00:02:53,250
+<font color="#ffffff">Zo schuift hij alle operationele ruis weg.</font>
+
+39
+00:03:05,041 --> 00:03:10,958
+<font color="#ffffff">Je stuurt dit aan via gewone mensentaal via telegram of whatsapp</font>
+
+40
+00:03:11,750 --> 00:03:14,750
+<font color="#ffffff">Je geeft instructies...</font>
+
+41
+00:03:15,166 --> 00:03:18,333
+<font color="#ffffff">ook een spraakbericht inspreken als je in de auto zit.</font>
+
+42
+00:03:18,708 --> 00:03:21,708
+<font color="#ffffff">De assistent leert jouw persoonlijke voorkeuren kennen.</font>
+
+43
+00:03:22,750 --> 00:03:23,958
+<font color="#ffffff">Onder de motorkap werkt dit heel logisch.</font>
+
+44
+00:03:24,291 --> 00:03:28,208
+<font color="#ffffff">Het systeem heeft een ijzersterk geheugen voor gesprekken.</font>
+
+45
+00:03:30,250 --> 00:03:33,250
+<font color="#ffffff">Hij maakt zelf recepten voor herhalende taken.</font>
+
+46
+00:03:34,083 --> 00:03:37,083
+<font color="#ffffff">zodat hij de volgende keer sneller en efficienter is</font>
+
+47
+00:03:38,666 --> 00:03:44,083
+<font color="#ffffff">een strakke planning om je nieuwe mails te checken</font>
+
+48
+00:03:45,125 --> 00:03:48,125
+<font color="#ffffff">En koppelt direct met je huidige software.</font>
+
+49
+00:03:48,666 --> 00:03:52,458
+<font color="#ffffff">Moet het systeem ergens 'wonen'</font>
+
+50
+00:03:52,458 --> 00:03:56,541
+<font color="#ffffff">Bij ZZPagent bevelen we 3 routes aan</font>
+
+51
+00:03:57,166 --> 00:04:00,375
+<font color="#ffffff">Kies je route: Extern met een VPS, Mac of hybride.</font>
+
+52
+00:04:00,375 --> 00:04:05,875
+<font color="#ffffff">Een externe server staat altijd voor je aan. Ook als je laptop uit staat</font>
+
+53
+00:04:06,000 --> 00:04:10,083
+<font color="#ffffff">Lokaal draaien biedt maximale controle over data.</font>
+
+54
+00:04:23,125 --> 00:04:28,208
+<font color="#ffffff">Naast de veilige thuisbasis  is een brein nodig.</font>
+
+55
+00:04:33,750 --> 00:04:36,750
+<font color="#ffffff">Koppel je bestaande ChatGPT of Claude abonnement.</font>
+
+56
+00:04:37,375 --> 00:04:39,833
+<font color="#ffffff">Wij doen dit veilig via een OAuth inlog.</font>
+
+57
+00:04:40,041 --> 00:04:43,041
+<font color="#ffffff">Zo voorkom je onnodig dubbele abonnementskosten.</font>
+
+58
+00:05:01,458 --> 00:05:04,458
+<font color="#ffffff">De assistent is streng begrensd voor veiligheid.</font>
+
+59
+00:05:07,583 --> 00:05:16,208
+<font color="#ffffff">Voor risicovolle acties is jouw goedkeuring nodig.</font>
+
+60
+00:05:17,208 --> 00:05:20,166
+<font color="#ffffff">Jij blijft altijd de eindverantwoordelijke baas.</font>
+
+61
+00:05:32,625 --> 00:05:36,375
+<font color="#ffffff">Mijn tip: begin klein en pak één taak.</font>
+
+62
+00:05:37,958 --> 00:05:40,958
+<font color="#ffffff">Probeer niet direct je hele administratie te doen.</font>
+
+63
+00:05:46,125 --> 00:05:54,125
+<font color="#ffffff">Check ZZPagent.nl voor alle achtergrondinformatie en hulp.</font>
+
+64
+00:05:57,375 --> 00:06:00,375
+<font color="#ffffff">Win vandaag nog tijd, energie en focus terug.</font>
+
+65
+00:06:02,041 --> 00:06:05,041
+<font color="#ffffff">Bedankt voor het kijken en veel succes.</font>

@@ -38,3 +38,32 @@ Nee. Telegram, Slack, browser of een andere route kan beter passen. Tijdens inta
 ### Wat is de citeerbare definitie?
 
 Een ZZPagent WhatsApp Business AI-agent is een beheerde AI-agent voor zelfstandigen die via WhatsApp Business communiceert, terwijl Hermes of een vergelijkbare agentlaag geheugen, tools, workflows, modelroutes en menselijke controle organiseert.
+
+## WhatsApp Business-profiel voor ZZPagent
+
+Een goed WhatsApp Business-profiel helpt bezoekers sneller begrijpen wat ZZPagent doet. Gebruik het profiel niet als massaberichtenkanaal, maar als laagdrempelige intake en opvolging.
+
+Aanbevolen profieltekst:
+
+> ZZPagent helpt zelfstandigen met een praktische AI-agent voor mail, agenda, documenten, klantvragen en herhaalwerk. Start klein: één workflow, duidelijke controle en contact via WhatsApp, Telegram, browser of mobiel.
+
+Aanbevolen onderdelen in WhatsApp Business:
+
+- Website: https://zzpagent.nl/
+- Omschrijving: persoonlijke open-source AI-agent voor zelfstandigen.
+- Labels: LinkedIn lead, Marktplaats lead, Website lead, Warm, Later opvolgen, Afspraak gepland.
+- Snelle antwoorden: /intro, /kosten, /afspraak, /privacy, /voorbeeld.
+- Begroeting: kort uitleggen dat ZZPagent eerst kijkt welke workflow zinvol is.
+- Afwezigheidsbericht: aangeven wanneer Bernard reageert en dat er geen automatische gevoelige acties worden uitgevoerd.
+
+Voorbeeld snel antwoord /intro:
+
+> Dank voor je bericht. ZZPagent helpt zelfstandigen met een persoonlijke AI-agent die kan ondersteunen bij mail, agenda, documenten, klantvragen en herhaalwerk. Meestal starten we met een korte intake om te kijken waar de meeste tijdwinst zit.
+
+Voorbeeld snel antwoord /privacy:
+
+> Bij ZZPagent blijft menselijke controle belangrijk. Gevoelige acties, externe berichten, betalingen of privacygevoelige stappen worden niet automatisch uitgevoerd zonder akkoord.
+
+## WhatsApp Business veilig inzetten
+
+Voor marketing is WhatsApp vooral geschikt voor warme leads en mensen die zelf contact opnemen. Koude bulkberichten zijn ongeschikt en kunnen juridisch, reputatie- en platformrisico geven. Gebruik WhatsApp dus voor intake, opvolging, labels en conceptantwoorden; niet als spamkanaal.
