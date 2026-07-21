@@ -1177,8 +1177,7 @@
         <address class="footer-contact" aria-label="Contactgegevens ZZPagent">
           <strong>ZZPagent</strong><br>
           <span>Adres:</span> Laan der Hesperiden 128, 1076 DX Amsterdam<br>
-          <span>KvK:</span> 84357053<br>
-          <span>E-mail:</span> <a href="mailto:info@zzpagent.nl">info@zzpagent.nl</a>
+          <span>KvK:</span> 84357053
         </address>
       </div>
       <div><a href="#voorwaarden">Voorwaarden</a> · <a href="#privacy">Privacybeleid</a> · Gebouwd voor ZZP met Bernard's AI visie.</div>
@@ -1215,7 +1214,6 @@
         "Voorwaarden": "Terms",
         "Adres:": "Address:",
         "KvK:": "Chamber of Commerce:",
-        "E-mail:": "Email:",
         "Telefoon assistent": "Phone assistant",
         "WhatsApp automatiseren": "Automate WhatsApp",
         "Vraag advies": "Ask for advice",
@@ -1592,7 +1590,7 @@
         "Modelroute:": "Model route:",
         "Ga naar Mollie checkout": "Go to Mollie checkout",
         "Lukt doorsturen niet? Gebruik de knop hierboven.": "Redirect not working? Use the button above.",
-        "Checkout kon niet worden gestart. Probeer opnieuw of mail info@zzpagent.nl.": "Checkout could not be started. Try again or email info@zzpagent.nl.",
+        "Checkout kon niet worden gestart. Probeer opnieuw of gebruik de contactknop.": "Checkout could not be started. Try again or use the contact button.",
         "Voorwaarden & privacy": "Terms & privacy",
         "Duidelijke afspraken voor verantwoord gebruik": "Clear agreements for responsible use",
         "ZZPagent werkt met heldere grenzen: AI ondersteunt, de gebruiker houdt controle en gevoelige acties vragen expliciete menselijke goedkeuring.": "ZZPagent works with clear boundaries: AI supports, the user remains in control and sensitive actions require explicit human approval.",
@@ -1895,7 +1893,7 @@
         }catch(error){
           orderResult.innerHTML = `
             <strong>Checkout kon niet worden gestart.</strong><br>
-            Probeer opnieuw of mail info@zzpagent.nl. Foutmelding: ${String(error.message || error)}
+            Probeer opnieuw of gebruik de contactknop. Foutmelding: ${String(error.message || error)}
           `;
           if(submitButton){
             submitButton.disabled = false;
