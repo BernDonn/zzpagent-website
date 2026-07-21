@@ -32,6 +32,7 @@ Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech. ChatGPT, Cla
 
 - Bluesky-profiel voor Bernard AI / ZZPagent-signalen: https://bsky.app/profile/bernard-ai.bsky.social
 - LinkedIn short over Hermes, open-source agentlaag en ZZPagent: https://www.linkedin.com/posts/bernard-donners-288b0aa_hermes-nous-opensource-activity-7482889244345294848-jCQX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAHxqQgBjl8VcmDgKFsKjTXTThTAq0IOdF0
+- YouTube-uitleg: Van ChatGPT naar de echt werkende autonome AI-agent HERMES, wat betekent dat voor ZZP’ers: https://youtu.be/cJlLCROpLKI
 
 ## Belangrijke pagina's
 
@@ -51,3 +52,5 @@ ZZPagent is een Nederlandse dienst voor beheerde AI-agents voor zelfstandigen. Z
 ## Video en transcript
 
 De Hermes/ZZPagent tutorial legt uit dat een agent met de zelfstandige meegroeit: geheugen, tools, voorkeuren, kanalen zoals WhatsApp/Telegram, menselijke controle en minder vendor lock-in. Het transcript staat op https://zzpagent.nl/hermes-agent-tutorial-transcript.md.
+
+De YouTube-video op https://youtu.be/cJlLCROpLKI legt publiek uit wat de stap van ChatGPT naar autonome AI-agenten betekent voor ZZP’ers: van losse prompts naar een digitale collega die werk voorbereidt, met de ondernemer of vakexpert in de beslissende rol.
