@@ -495,6 +495,75 @@
       .integration-wrap{padding:22px}
     }
   </style>
+  <script>
+    (function(){
+      var pingEndpoint = 'https://brave-lady-warned-dancing.trycloudflare.com/visit';
+      var siteName = 'zzpagent.nl';
+      var visitorKey = 'bernardVisitorSessionId';
+      function visitorId(){
+        try{
+          var id = sessionStorage.getItem(visitorKey);
+          if(!id){
+            id = siteName + '-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,10);
+            sessionStorage.setItem(visitorKey, id);
+          }
+          return id;
+        }catch(e){
+          return siteName + '-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,10);
+        }
+      }
+      function send(eventName, extra){
+        var payload = Object.assign({
+          site: siteName,
+          event: eventName || 'page_view',
+          visitorId: visitorId(),
+          url: location.href,
+          path: location.pathname + location.search + location.hash,
+          title: document.title,
+          referrer: document.referrer || '',
+          lang: navigator.language || document.documentElement.lang || '',
+          screen: (window.screen ? window.screen.width + 'x' + window.screen.height : ''),
+          userAgent: navigator.userAgent || ''
+        }, extra || {});
+        var body = JSON.stringify(payload);
+        try{
+          if(navigator.sendBeacon){
+            var ok = navigator.sendBeacon(pingEndpoint, new Blob([body], {type:'application/json'}));
+            if(ok) return;
+          }
+        }catch(e){}
+        try{
+          fetch(pingEndpoint, {method:'POST', mode:'cors', keepalive:true, headers:{'Content-Type':'application/json'}, body:body}).catch(function(){});
+        }catch(e){}
+      }
+      if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', function(){ send('page_view'); attachEvents(); });
+      }else{
+        send('page_view'); attachEvents();
+      }
+      var lastPath = location.href;
+      setInterval(function(){
+        if(location.href !== lastPath){
+          lastPath = location.href;
+          send('page_change');
+        }
+      }, 1200);
+      function attachEvents(){
+        document.addEventListener('click', function(ev){
+          var link = ev.target && ev.target.closest ? ev.target.closest('a,button,summary') : null;
+          if(!link) return;
+          var label = (link.innerText || link.getAttribute('aria-label') || link.href || '').trim().slice(0,140);
+          var href = link.href || '';
+          if(href.indexOf('mailto:') === 0 || href.indexOf('wa.me/') !== -1 || href.indexOf('api.whatsapp.com') !== -1 || href.indexOf('t.me/') !== -1 || link.className.toString().indexOf('button') !== -1 || link.tagName === 'SUMMARY'){
+            send('interaction', {target: label, href: href});
+          }
+        }, true);
+        document.querySelectorAll('video').forEach(function(video){
+          video.addEventListener('play', function(){ send('video_play', {target: video.currentSrc || video.src || ''}); }, {once:true});
+        });
+      }
+    })();
+  </script>
 </head>
 <body>
   <nav class="nav">
