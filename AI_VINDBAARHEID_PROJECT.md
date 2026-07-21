@@ -53,3 +53,4 @@ Testvragen voor ChatGPT/Perplexity/Gemini:
 - Hermes tutorial transcriptpagina toegevoegd: https://zzpagent.nl/hermes-agent-tutorial-transcript.md
 - Desktop SRT-bestanden als bronassets toegevoegd onder /assets/.
 - Gekozen SRT-bronbestand na vergelijking: assets/zzpagent-hermes-tutorial.srt; korte duplicaat verwijderd uit repo.
+- Vraag 11 video-transcript uit zichtbare Q&A verwijderd; transcript blijft wel als AI-leesbare bron via llms.txt/sitemap beschikbaar.
