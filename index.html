@@ -456,6 +456,14 @@
     .notice strong{display:block;margin-bottom:8px;color:#17240f}
     footer{padding:34px 24px;color:#626961;border-top:1px solid var(--line)}
     .foot-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .live-contact-widget{position:fixed;right:22px;bottom:22px;z-index:1200;display:grid;gap:10px;max-width:min(282px,calc(100vw - 32px));text-decoration:none;color:#17240f}
+    .live-contact-bubble{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;background:#d7f268;border:1px solid rgba(22,63,43,.2);border-radius:22px;padding:12px 14px;box-shadow:0 18px 42px rgba(16,21,18,.22);transition:transform .18s ease,box-shadow .18s ease}
+    .live-contact-widget:hover .live-contact-bubble{transform:translateY(-2px);box-shadow:0 22px 52px rgba(16,21,18,.28)}
+    .live-contact-icon{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#17240f;color:#d7f268;font-size:19px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+    .live-contact-copy{display:grid;gap:2px;min-width:0}
+    .live-contact-copy strong{font-size:15px;line-height:1.1;letter-spacing:-.01em}
+    .live-contact-copy span{font-size:12px;line-height:1.25;color:#304034;font-weight:650}
+    .live-contact-note{display:none}
     @media(max-width:1100px){.nav-links{display:none}}
     @media(max-width:900px){
       .section{padding:64px 20px}
@@ -493,6 +501,11 @@
       .expand-label{justify-content:space-between;width:100%}
       .case-body,.integration-body{padding:16px 18px 18px}
       .integration-wrap{padding:22px}
+      .live-contact-widget{right:14px;bottom:14px;max-width:calc(100vw - 28px)}
+      .live-contact-bubble{padding:12px 13px;border-radius:22px}
+      .live-contact-note{display:none}
+      .live-contact-copy strong{font-size:15px}
+      .live-contact-copy span{font-size:12px}
     }
   </style>
   <script>
@@ -1154,6 +1167,16 @@
     </section>
   </main>
 
+  <a class="live-contact-widget" href="https://wa.me/31618569839?text=Hallo%20ZZPagent%2C%20ik%20heb%20een%20vraag%20over%20een%20AI-agent%20voor%20mijn%20werk." target="_blank" rel="noopener">
+    <span class="live-contact-bubble">
+      <span class="live-contact-icon" aria-hidden="true">💬</span>
+      <span class="live-contact-copy">
+        <strong>Stel je vraag live</strong>
+        <span>App direct met Bernard op je telefoon</span>
+      </span>
+    </span>
+  </a>
+
   <footer>
     <div class="foot-inner">
       <div>© 2026 ZZPagent</div>
@@ -1192,6 +1215,8 @@
         "Telefoon assistent": "Phone assistant",
         "WhatsApp automatiseren": "Automate WhatsApp",
         "Vraag advies": "Ask for advice",
+        "Stel je vraag live": "Ask your question live",
+        "App direct met Bernard op je telefoon": "Message Bernard directly on your phone",
         "Q&A": "Q&A",
         "Veelgestelde vragen": "Frequently asked questions",
         "Kort antwoord op de vragen die vaak opkomen bij een eerste Hermes-route. De tekst hieronder volgt het ZZPagent-verhaal: open-source waar het kan, menselijke controle, vaste projectprijzen en een implementatiemodel dat past bij jouw werk.": "Short answers to questions that often come up when exploring a first Hermes route. The text below follows the ZZPagent story: open source where possible, human control, fixed project prices and an implementation model that fits your work.",
