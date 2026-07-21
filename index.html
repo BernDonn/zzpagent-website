@@ -456,14 +456,25 @@
     .notice strong{display:block;margin-bottom:8px;color:#17240f}
     footer{padding:34px 24px;color:#626961;border-top:1px solid var(--line)}
     .foot-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .live-contact-widget{position:fixed;right:22px;bottom:22px;z-index:1200;display:grid;gap:10px;max-width:min(282px,calc(100vw - 32px));text-decoration:none;color:#17240f}
-    .live-contact-bubble{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;background:#d7f268;border:1px solid rgba(22,63,43,.2);border-radius:22px;padding:12px 14px;box-shadow:0 18px 42px rgba(16,21,18,.22);transition:transform .18s ease,box-shadow .18s ease}
-    .live-contact-widget:hover .live-contact-bubble{transform:translateY(-2px);box-shadow:0 22px 52px rgba(16,21,18,.28)}
-    .live-contact-icon{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#17240f;color:#d7f268;font-size:19px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
-    .live-contact-copy{display:grid;gap:2px;min-width:0}
-    .live-contact-copy strong{font-size:15px;line-height:1.1;letter-spacing:-.01em}
-    .live-contact-copy span{font-size:12px;line-height:1.25;color:#304034;font-weight:650}
-    .live-contact-note{display:none}
+    .site-chat{position:fixed;right:22px;bottom:22px;z-index:1200;display:grid;gap:10px;justify-items:end;color:#17240f;font-family:inherit}
+    .site-chat-panel{width:min(360px,calc(100vw - 32px));background:#fffaf1;border:1px solid rgba(22,63,43,.16);border-radius:24px;box-shadow:0 24px 70px rgba(16,21,18,.24);overflow:hidden}
+    .site-chat-panel[hidden]{display:none}
+    .site-chat-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;background:#10291f;color:#fffaf1;padding:16px 18px}
+    .site-chat-head strong{display:block;font-size:17px;letter-spacing:-.015em;margin-bottom:3px}
+    .site-chat-head span{font-size:13px;color:#d9e3dc;line-height:1.35}
+    .site-chat-close{border:0;background:rgba(255,255,255,.1);color:#fff;border-radius:999px;width:30px;height:30px;font-size:18px;cursor:pointer}
+    .site-chat-body{padding:16px;display:grid;gap:10px}
+    .site-chat-body textarea,.site-chat-body input{width:100%;border:1px solid var(--line);border-radius:16px;padding:12px 13px;background:#fff;font:inherit;color:var(--ink)}
+    .site-chat-body textarea{min-height:92px;resize:vertical}
+    .site-chat-body textarea:focus,.site-chat-body input:focus{outline:2px solid rgba(35,86,60,.18);border-color:var(--green2)}
+    .site-chat-actions{display:flex;gap:10px;align-items:center;justify-content:space-between}
+    .site-chat-actions button{border:1px solid var(--green);background:var(--green);color:#fff;border-radius:999px;padding:11px 16px;font:inherit;font-weight:850;cursor:pointer}
+    .site-chat-status{font-size:12px;color:#516156;line-height:1.35}
+    .site-chat-toggle{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;border:1px solid rgba(22,63,43,.2);background:#d7f268;color:#17240f;border-radius:999px;padding:12px 16px;box-shadow:0 18px 42px rgba(16,21,18,.22);font:inherit;font-weight:850;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+    .site-chat-toggle:hover{transform:translateY(-2px);box-shadow:0 22px 52px rgba(16,21,18,.28)}
+    .site-chat-icon{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#17240f;color:#d7f268;font-size:18px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+    .site-chat-toggle span:last-child{display:grid;text-align:left;line-height:1.1}
+    .site-chat-toggle small{font-size:12px;font-weight:700;color:#304034}
     @media(max-width:1100px){.nav-links{display:none}}
     @media(max-width:900px){
       .section{padding:64px 20px}
@@ -501,11 +512,10 @@
       .expand-label{justify-content:space-between;width:100%}
       .case-body,.integration-body{padding:16px 18px 18px}
       .integration-wrap{padding:22px}
-      .live-contact-widget{right:14px;bottom:14px;max-width:calc(100vw - 28px)}
-      .live-contact-bubble{padding:12px 13px;border-radius:22px}
-      .live-contact-note{display:none}
-      .live-contact-copy strong{font-size:15px}
-      .live-contact-copy span{font-size:12px}
+      .site-chat{right:14px;bottom:14px;max-width:calc(100vw - 28px)}
+      .site-chat-panel{width:calc(100vw - 28px);border-radius:22px}
+      .site-chat-toggle{padding:11px 13px}
+      .site-chat-icon{width:34px;height:34px}
     }
   </style>
   <script>
@@ -1167,15 +1177,29 @@
     </section>
   </main>
 
-  <a class="live-contact-widget" href="https://wa.me/31618569839?text=Hallo%20ZZPagent%2C%20ik%20heb%20een%20vraag%20over%20een%20AI-agent%20voor%20mijn%20werk." target="_blank" rel="noopener">
-    <span class="live-contact-bubble">
-      <span class="live-contact-icon" aria-hidden="true">💬</span>
-      <span class="live-contact-copy">
-        <strong>Stel je vraag live</strong>
-        <span>App direct met Bernard op je telefoon</span>
-      </span>
-    </span>
-  </a>
+  <div class="site-chat" data-site-chat>
+    <section class="site-chat-panel" data-site-chat-panel hidden aria-label="ZZPagent chatvenster">
+      <div class="site-chat-head">
+        <div>
+          <strong>ZZPagent chat</strong>
+          <span>Stel anoniem je vraag. Je hoeft nog geen gegevens achter te laten.</span>
+        </div>
+        <button class="site-chat-close" type="button" data-site-chat-close aria-label="Sluit chat">×</button>
+      </div>
+      <form class="site-chat-body" data-site-chat-form>
+        <textarea name="message" required maxlength="1200" placeholder="Typ je vraag over AI-agents, ChatGPT, Hermes of automatisering..."></textarea>
+        <input name="contact" maxlength="200" placeholder="E-mail of telefoon, optioneel">
+        <div class="site-chat-actions">
+          <span class="site-chat-status" data-site-chat-status>Anoniem bericht, geen WhatsApp.</span>
+          <button type="submit">Verstuur</button>
+        </div>
+      </form>
+    </section>
+    <button class="site-chat-toggle" type="button" data-site-chat-toggle aria-expanded="false">
+      <span class="site-chat-icon" aria-hidden="true">💬</span>
+      <span>Chat met ZZPagent<small>Anoniem je vraag stellen</small></span>
+    </button>
+  </div>
 
   <footer>
     <div class="foot-inner">
@@ -1215,8 +1239,12 @@
         "Telefoon assistent": "Phone assistant",
         "WhatsApp automatiseren": "Automate WhatsApp",
         "Vraag advies": "Ask for advice",
-        "Stel je vraag live": "Ask your question live",
-        "App direct met Bernard op je telefoon": "Message Bernard directly on your phone",
+        "ZZPagent chat": "ZZPagent chat",
+        "Stel anoniem je vraag. Je hoeft nog geen gegevens achter te laten.": "Ask your question anonymously. You do not have to leave details yet.",
+        "Anoniem bericht, geen WhatsApp.": "Anonymous message, no WhatsApp.",
+        "Verstuur": "Send",
+        "Chat met ZZPagent": "Chat with ZZPagent",
+        "Anoniem je vraag stellen": "Ask anonymously",
         "Q&A": "Q&A",
         "Veelgestelde vragen": "Frequently asked questions",
         "Kort antwoord op de vragen die vaak opkomen bij een eerste Hermes-route. De tekst hieronder volgt het ZZPagent-verhaal: open-source waar het kan, menselijke controle, vaste projectprijzen en een implementatiemodel dat past bij jouw werk.": "Short answers to questions that often come up when exploring a first Hermes route. The text below follows the ZZPagent story: open source where possible, human control, fixed project prices and an implementation model that fits your work.",
@@ -1668,6 +1696,12 @@
       if(orderChannelInput){
         setSelectedChannel(orderChannelInput.value || 'telegram');
       }
+      document.querySelectorAll('[data-site-chat-form] textarea[name="message"]').forEach(field => {
+        field.placeholder = lang === 'en' ? 'Type your question about AI agents, ChatGPT, Hermes or automation...' : 'Typ je vraag over AI-agents, ChatGPT, Hermes of automatisering...';
+      });
+      document.querySelectorAll('[data-site-chat-form] input[name="contact"]').forEach(field => {
+        field.placeholder = lang === 'en' ? 'Email or phone, optional' : 'E-mail of telefoon, optioneel';
+      });
       localStorage.setItem('zzpAgentLang', lang);
     }
 
@@ -1898,6 +1932,92 @@
             submitButton.disabled = false;
             submitButton.textContent = 'Start intake en betaal eerste maand';
           }
+        }
+      });
+    }
+
+    const siteChatPanel = document.querySelector('[data-site-chat-panel]');
+    const siteChatToggle = document.querySelector('[data-site-chat-toggle]');
+    const siteChatClose = document.querySelector('[data-site-chat-close]');
+    const siteChatForm = document.querySelector('[data-site-chat-form]');
+    const siteChatStatus = document.querySelector('[data-site-chat-status]');
+    const siteChatEndpoint = 'https://brave-lady-warned-dancing.trycloudflare.com/visit';
+
+    function getSiteChatVisitorId(){
+      try{
+        const key = 'bernardVisitorSessionId';
+        let id = sessionStorage.getItem(key);
+        if(!id){
+          id = 'zzpagent.nl-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,10);
+          sessionStorage.setItem(key, id);
+        }
+        return id;
+      }catch(error){
+        return 'zzpagent.nl-' + Date.now().toString(36);
+      }
+    }
+
+    function setSiteChatOpen(open){
+      if(!siteChatPanel || !siteChatToggle) return;
+      siteChatPanel.hidden = !open;
+      siteChatToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if(open){
+        const messageField = siteChatForm && siteChatForm.querySelector('textarea[name="message"]');
+        if(messageField) setTimeout(() => messageField.focus(), 40);
+      }
+    }
+
+    if(siteChatToggle){
+      siteChatToggle.addEventListener('click', () => setSiteChatOpen(siteChatPanel ? siteChatPanel.hidden : true));
+    }
+    if(siteChatClose){
+      siteChatClose.addEventListener('click', () => setSiteChatOpen(false));
+    }
+    if(siteChatForm){
+      siteChatForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const submitButton = siteChatForm.querySelector('button[type="submit"]');
+        const formData = new FormData(siteChatForm);
+        const message = String(formData.get('message') || '').trim();
+        const contact = String(formData.get('contact') || '').trim();
+        const lang = document.body.dataset.lang === 'en' ? 'en' : 'nl';
+        if(!message){
+          if(siteChatStatus) siteChatStatus.textContent = lang === 'en' ? 'Type a question first.' : 'Typ eerst een vraag.';
+          return;
+        }
+        if(submitButton) submitButton.disabled = true;
+        if(siteChatStatus) siteChatStatus.textContent = lang === 'en' ? 'Sending...' : 'Versturen...';
+        const payload = {
+          site: 'zzpagent.nl',
+          event: 'chat_message',
+          visitorId: getSiteChatVisitorId(),
+          url: location.href,
+          path: location.pathname + location.search + location.hash,
+          title: document.title,
+          referrer: document.referrer || '',
+          lang: navigator.language || document.documentElement.lang || '',
+          screen: (window.screen ? window.screen.width + 'x' + window.screen.height : ''),
+          userAgent: navigator.userAgent || '',
+          message,
+          contact
+        };
+        try{
+          const response = await fetch(siteChatEndpoint, {
+            method:'POST',
+            mode:'cors',
+            keepalive:true,
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify(payload)
+          });
+          if(!response.ok && response.status !== 204){
+            throw new Error('chat_send_failed');
+          }
+          siteChatForm.reset();
+          if(siteChatStatus) siteChatStatus.textContent = lang === 'en' ? 'Sent. Thank you, ZZPagent has received it.' : 'Verstuurd. Dank je, ZZPagent heeft je vraag ontvangen.';
+        }catch(error){
+          if(siteChatStatus) siteChatStatus.textContent = lang === 'en' ? 'Sending failed. Please try again later.' : 'Versturen lukte niet. Probeer het later opnieuw.';
+        }finally{
+          if(submitButton) submitButton.disabled = false;
         }
       });
     }
