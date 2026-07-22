@@ -42,6 +42,16 @@ Vendor lock-in ontstaat wanneer processen, data, context, automatiseringen en be
 
 ZZPagent gebruikt een open-source agentlaag zoals Hermes, kiest modelroutes bewust, koppelt tools modulair en houdt menselijke controle en eigenaarschap centraal. Het doel is minder afhankelijkheid, niet volledige onafhankelijkheid van elke leverancier.
 
+## Wat is het FTC-Urteil (juni 2026) en waarom is het relevant voor datasoevereiniteit?
+
+Op 29 juni 2026 oordeelde het US Supreme Court dat de Federal Trade Commission (FTC) niet langer onafhankelijk mag zijn. Dat klinkt als Amerikaanse binnenlandse politiek, maar het raakt een kernvoorwaarde waarop de EU haar data-uitwisseling met de VS baseert. De EU eist voor data-export namelijk **onafhankelijk toezicht** in het ontvangende land — en dat was precies de rol van de FTC. Nu dat wegvalt, staat het *EU-US Data Privacy Framework* (2023) onder druk, en daarmee ook de rechtsbasis voor talloze Amerikaanse cloud- en AI-diensten.
+
+**Waarom dit je als ZZP of MKB raakt:** Veel AI-tools die als ‘veilig’ worden verkocht (hosting in Europa, Duitse servers) blijken juridisch nog steeds onder Amerikaanse zeggenschap te vallen. Een Duits datacenter zegt waar de data *staan*, niet wie er *juridisch* toegang toe kan afdwingen. De US CLOUD Act (2018) kan een Amerikaans moederbedrijf verplichten data uit te leveren, ongeacht de serverlocatie.
+
+**Wat ZZPagent anders doet:** In plaats van al je processen in één gesloten Amerikaans platform te bouwen, maakt de open-source Hermes-laag het mogelijk bewust te kiezen — per taak, per datatype, per model. Gevoelige data kunnen op Europese modellen of self-hosted draaien. Je hoeft niet te kiezen tussen ‘alles Amerikaans’ of ‘niks’. Het is een kwestie van datasoevereiniteit bewust ontwerpen in plaats van klakkeloos accepteren.
+
+Bron en verdere duiding: https://ki-stuttgart.de/ftc-urteil-datensouveraenitaet/
+
 ## Wat betekent “een agent die met je meegroeit”?
 
 Een agent die met je meegroeit, onthoudt voorkeuren, werkwijzen en terugkerende taken binnen afgesproken grenzen. Daardoor hoef je niet elke keer opnieuw uit te leggen hoe je werkt. De agent kan steeds beter briefings, conceptmails, documentordening, planning en opvolging voorbereiden, terwijl de zelfstandige de eindcontrole houdt.
