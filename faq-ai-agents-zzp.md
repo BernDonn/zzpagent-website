@@ -20,6 +20,12 @@ Ja. ZZPagent kan agents voorbereiden voor WhatsApp Business, Telegram, Slack of 
 
 Een eerste Hermes-agentproject via ZZPagent start meestal rond €1.000–€3.000 excl. btw voor de implementatie. Daarvoor richten we een afgebakende agent in rond jouw werk: bijvoorbeeld mail, agenda, documenten, WhatsApp, Telegram, browsertoegang of een vaste workflow met n8n. Vooraf spreken we een vaste projectprijs af. Je betaalt dus niet onverwacht per uur door. Na de implementatie kun je kiezen voor maandelijkse ondersteuning voor beheer, monitoring, updates en optimalisatie. Hermes kan draaien in de cloud, bijvoorbeeld op een VPS bij Hostinger of Hetzner, of lokaal/on-premise, bijvoorbeeld op je eigen Mac mini. De VPS-kosten, vaak ongeveer €10–€20 per maand afhankelijk van capaciteit, of de aanschaf van lokale hardware, komen daar apart bij. Voor de AI-modellen gebruiken we waar mogelijk je bestaande ChatGPT- of Claude-route, bijvoorbeeld via OAuth. Daarnaast zetten we OpenRouter klaar als back-up, met sterke modellen die voor veel taken aanzienlijk goedkoper zijn dan premium modellen van OpenAI en Anthropic, soms een factor 10 tot 20.
 
+## Wanneer verdient een AI-agent zich terug?
+
+Niet ieder bedrijf heeft meteen een autonome AI-agent nodig. Een praktische vuistregel: een AI-agent wordt meestal interessant vanaf ongeveer **1.000–2.000 terugkerende handelingen per maand** of vanaf **20–40 uur handmatig routinewerk per week** in een team.
+
+Daarom begint ZZPagent/MKBAgents niet met technologie, maar met procesanalyse: waar zit het hoogste ROI-potentieel, welke taak komt vaak terug, welke data is gezond genoeg en waar blijft menselijke controle nodig? Een goede pilot loopt meestal in **4–8 weken**: van concreet bedrijfsprobleem naar een werkende agent met meetbare resultaten. De route — self-hosted, Europese cloud of hybride — stemmen we af op je datastrategie.
+
 ## Wanneer gebruik je n8n naast Hermes?
 
 n8n is nuttig voor vaste, herhaalbare stappen zoals formulieren, betalingen, CRM-updates, webhooks en bestandsroutes. Hermes denkt, vat samen en werkt met context. Samen maken ze workflows betrouwbaarder: de agent denkt, de workflow voert uit.
