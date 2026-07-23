@@ -123,6 +123,14 @@
               "@type": "Answer",
               "text": "Ja. Hermes kan helpen bij het bouwen, verbeteren en publiceren van een website. In feite zijn zzpagent.nl en mkbagents.nl grotendeels met Hermes gebouwd: van positionering, copy en vormgeving tot technische inrichting zoals een Mollie-betaalmodel, Google Analytics, Search Console en publicatie via GitHub Pages. Werk dat in een klassiek traject maanden kan duren, kan met een goed ingerichte agent vaak in een aantal weken worden voorbereid, getest en live gezet. De mens blijft wel nodig voor keuzes, controle, merkgevoel en akkoord op wat gepubliceerd wordt."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Stuurt Hermes mijn bedrijfsdata naar een LLM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hermes stuurt niet standaard de volledige bedrijfsomgeving naar een LLM. Alleen taakcontext zoals prompt, relevante gespreksinformatie, geselecteerde tool- of bestandsresultaten en eventueel memory kan naar de gekozen modelroute gaan. Open source geeft controle en keuze, maar privacy blijft een ontwerpkeuze per workflow, hostingroute, rechtenmodel en modelroute."
+            }
           }
         ]
       }
@@ -207,8 +215,8 @@
     .compare-section{padding-top:24px;padding-bottom:34px}
     .top-panels{padding-top:28px;padding-bottom:28px;display:grid;gap:14px}
     .top-panels.nav-panel-overlay[hidden]{display:none}
-    .top-panels.nav-panel-overlay{position:fixed;inset:0;z-index:1000;display:block;overflow:auto;padding:86px 22px 34px;background:rgba(16,41,31,.72);backdrop-filter:blur(14px)}
-    .nav-panel-shell{max-width:1120px;margin:0 auto;display:grid;gap:14px}
+    .top-panels.nav-panel-overlay{position:fixed;inset:0;z-index:1000;display:block;overflow:auto;padding:86px 22px 34px;background:rgba(16,41,31,.72);backdrop-filter:blur(14px);max-width:none;width:100%;box-sizing:border-box}
+    .nav-panel-shell{width:100%;max-width:1120px;margin:0 auto;display:grid;gap:14px;min-width:0}
     .panel-close{justify-self:end;border:1px solid rgba(255,255,255,.3);background:#fffaf1;color:#10291f;border-radius:999px;padding:10px 16px;font-weight:900;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,.16)}
     .top-panels .faq-section,.top-panels .compare-section{padding:0}
     .nav-panel-overlay .top-panel{display:none}
@@ -908,6 +916,10 @@
           <details>
             <summary>12. Kan Hermes mij helpen met het bouwen van een website?</summary>
             <p>Ja. Hermes kan helpen bij het bouwen, verbeteren en publiceren van een website. In feite zijn zzpagent.nl en mkbagents.nl grotendeels met Hermes gebouwd: van positionering, copy en vormgeving tot technische inrichting zoals een Mollie-betaalmodel, Google Analytics, Search Console en publicatie via GitHub Pages. Werk dat in een klassiek traject maanden kan duren, kan met een goed ingerichte agent vaak in een aantal weken worden voorbereid, getest en live gezet. De mens blijft wel nodig voor keuzes, controle, merkgevoel en akkoord op wat gepubliceerd wordt.</p>
+          </details>
+          <details>
+            <summary>13. Stuurt Hermes mijn bedrijfsdata naar een LLM?</summary>
+            <p>Niet standaard je volledige bedrijfsomgeving. Een extern model ontvangt alleen wat voor een taak in de context wordt geplaatst: je prompt, relevante gespreksinformatie, geselecteerde tool- of bestandsresultaten en eventueel memory. Memory wordt lokaal opgeslagen, maar kan bij gebruik wel in de modelcontext terechtkomen. Gebruik je /moa met externe modellen, dan laat je bewust meerdere referentiemodellen naar dezelfde tekst kijken. Open source geeft dus controle en keuze, maar is niet automatisch privé. Privacy ontwerp je per workflow: context minimaliseren, rechten scheiden en per taak kiezen tussen lokaal, eigen VPS, Europese cloud of externe modellen.</p>
           </details>
         </div>
           </div>
@@ -1626,6 +1638,8 @@
         "Gebouwd voor ZZP met Bernard's AI visie.": "Built for freelancers with Bernard's AI vision.",
         "Hermes-video": "Hermes video",
         "Live intake": "Live intake",
+        "13. Stuurt Hermes mijn bedrijfsdata naar een LLM?": "13. Does Hermes send my business data to an LLM?",
+        "Niet standaard je volledige bedrijfsomgeving. Een extern model ontvangt alleen wat voor een taak in de context wordt geplaatst: je prompt, relevante gespreksinformatie, geselecteerde tool- of bestandsresultaten en eventueel memory. Memory wordt lokaal opgeslagen, maar kan bij gebruik wel in de modelcontext terechtkomen. Gebruik je /moa met externe modellen, dan laat je bewust meerdere referentiemodellen naar dezelfde tekst kijken. Open source geeft dus controle en keuze, maar is niet automatisch privé. Privacy ontwerp je per workflow: context minimaliseren, rechten scheiden en per taak kiezen tussen lokaal, eigen VPS, Europese cloud of externe modellen.": "Not your full business environment by default. An external model only receives what is placed in context for a task: your prompt, relevant conversation context, selected tool or file results and possibly memory. Memory is stored locally, but when used it can enter the model context. If you use /moa with external models, you deliberately let multiple reference models review the same text. Open source gives control and choice, but is not automatically private. Privacy is designed per workflow: minimize context, separate permissions and choose per task between local, your own VPS, European cloud or external models.",
         "Praat live met Sophie": "Talk live with Sophie",
         "Stel je vraag hardop en ontdek in een paar minuten welke workflow als eerste geschikt is.": "Ask your question out loud and discover in a few minutes which workflow is the best first step.",
         "Start gesprek": "Start conversation",
@@ -1913,7 +1927,7 @@
 
     function openVoiceEntry(){
       const localVoiceUrl = 'http://127.0.0.1:8789?v=site';
-      const configuredVoiceUrl = window.ZZPAGENT_VOICE_URL || '';
+      const configuredVoiceUrl = window.ZZPAGENT_VOICE_URL || 'https://bench-defendant-stewart-groove.trycloudflare.com?v=site';
       const isLocalPreview = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
       if(configuredVoiceUrl){
         window.open(configuredVoiceUrl, '_blank', 'noopener');
