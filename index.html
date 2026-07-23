@@ -299,6 +299,10 @@
     .voice-entry h3{font-size:21px;margin:0 0 5px;letter-spacing:-.03em;color:#172019}
     .voice-entry p{margin:0;color:#546259;font-size:14px;line-height:1.45}
     .voice-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.voice-actions .button{padding:9px 12px;font-size:13px;box-shadow:none}.voice-actions .button.secondary{background:#f0e6d6;color:var(--green);border-color:rgba(22,63,43,.16)}
+    .floating-voice{position:fixed;left:22px;bottom:22px;z-index:999;display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;max-width:min(350px,calc(100vw - 44px));border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,#10291f,#163f2b);color:#fffaf1;border-radius:999px;padding:10px 18px 10px 10px;box-shadow:0 18px 50px rgba(16,41,31,.28);cursor:pointer;font:inherit;text-align:left}
+    .floating-voice .voice-orb{width:54px;height:54px;box-shadow:0 0 24px rgba(0,229,255,.28),inset 0 0 20px rgba(0,229,255,.16)}
+    .floating-voice small{display:block;color:var(--lime);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;line-height:1.1}
+    .floating-voice strong{display:block;font-size:16px;line-height:1.15;letter-spacing:-.02em}
     .status{color:#bde9c5;font-size:13px}
     .metric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:12px;border-radius:18px;color:#fff}
     .chat{margin-top:22px;display:grid;gap:12px;position:relative;z-index:1}
@@ -511,6 +515,9 @@
       .voice-entry{grid-template-columns:74px 1fr;padding:15px;border-radius:22px}
       .voice-orb{width:74px;height:74px}
       .voice-actions .button{width:100%;justify-content:center}
+      .floating-voice{left:14px;bottom:14px;grid-template-columns:48px 1fr;max-width:calc(100vw - 28px);padding:8px 14px 8px 8px}
+      .floating-voice .voice-orb{width:48px;height:48px}
+      .floating-voice strong{font-size:15px}
       .hero .agent-card{margin-top:0}
       .trust-stack{margin-top:32px}
       .trust-item{grid-template-columns:42px 1fr 24px;padding:14px}
@@ -1190,6 +1197,10 @@
       <div><a href="#voorwaarden">Voorwaarden</a> · <a href="#privacy">Privacybeleid</a> · Gebouwd voor ZZP met Bernard's AI visie.</div>
     </div>
   </footer>
+  <button class="floating-voice" type="button" data-voice-action aria-label="Praat live met Sophie">
+    <span class="voice-orb" aria-hidden="true"><canvas class="voice-reactor"></canvas><span>Voice</span></span>
+    <span><small>Live voice</small><strong>Praat met Sophie</strong></span>
+  </button>
   <script>
     const translations = {
       en: {
@@ -1641,6 +1652,8 @@
         "13. Stuurt Hermes mijn bedrijfsdata naar een LLM?": "13. Does Hermes send my business data to an LLM?",
         "Niet standaard je volledige bedrijfsomgeving. Een extern model ontvangt alleen wat voor een taak in de context wordt geplaatst: je prompt, relevante gespreksinformatie, geselecteerde tool- of bestandsresultaten en eventueel memory. Memory wordt lokaal opgeslagen, maar kan bij gebruik wel in de modelcontext terechtkomen. Gebruik je /moa met externe modellen, dan laat je bewust meerdere referentiemodellen naar dezelfde tekst kijken. Open source geeft dus controle en keuze, maar is niet automatisch privé. Privacy ontwerp je per workflow: context minimaliseren, rechten scheiden en per taak kiezen tussen lokaal, eigen VPS, Europese cloud of externe modellen.": "Not your full business environment by default. An external model only receives what is placed in context for a task: your prompt, relevant conversation context, selected tool or file results and possibly memory. Memory is stored locally, but when used it can enter the model context. If you use /moa with external models, you deliberately let multiple reference models review the same text. Open source gives control and choice, but is not automatically private. Privacy is designed per workflow: minimize context, separate permissions and choose per task between local, your own VPS, European cloud or external models.",
         "Praat live met Sophie": "Talk live with Sophie",
+        "Praat met Sophie": "Talk to Sophie",
+        "Live voice": "Live voice",
         "Stel je vraag hardop en ontdek in een paar minuten welke workflow als eerste geschikt is.": "Ask your question out loud and discover in a few minutes which workflow is the best first step.",
         "Start gesprek": "Start conversation",
         "Liever typen": "Prefer typing",
