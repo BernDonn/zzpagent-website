@@ -512,6 +512,33 @@
       s.async=1;
       d.getElementsByTagName("head")[0].appendChild(s);
     })();
+
+    // Local visitor ping for Bernard's MacBook Air. Crisp visitor updates do not
+    // always create audible macOS notifications, so we publish one lightweight
+    // event per browser session to a private ntfy topic monitored on the Mac.
+    (function(){
+      var key="zzpagent_visitor_ping_sent_v1";
+      if (window.sessionStorage && sessionStorage.getItem(key)) return;
+      if (window.sessionStorage) sessionStorage.setItem(key,"1");
+      var topic="zzpagent-visitor-c7e5b071-e641-411e-8da1-5b8f1d4c6408";
+      var payload=JSON.stringify({
+        site:"zzpagent.nl",
+        path:location.pathname,
+        referrer:document.referrer || "",
+        language:navigator.language || "",
+        width:window.innerWidth,
+        time:new Date().toISOString()
+      });
+      setTimeout(function(){
+        try {
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon("https://ntfy.sh/" + topic, new Blob([payload], {type:"text/plain"}));
+          } else {
+            fetch("https://ntfy.sh/" + topic, {method:"POST", mode:"no-cors", body:payload, keepalive:true});
+          }
+        } catch(e) {}
+      }, 900);
+    })();
   </script>
 </head>
 <body>
