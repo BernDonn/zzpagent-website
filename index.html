@@ -150,6 +150,7 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
+      overflow-x:hidden;
       font-family: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color:var(--ink);
       background:
@@ -178,6 +179,7 @@
     .button.light{background:var(--lime);color:#17240f;border-color:var(--lime)}
     .section{max-width:var(--max);margin:0 auto;padding:86px 24px}
     .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start;min-height:auto;padding-top:74px;padding-bottom:40px}
+    .hero > *{min-width:0}
     .eyebrow{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--line);background:rgba(255,250,241,.72);padding:8px 12px;border-radius:999px;color:var(--green);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em}
     h1,h2,h3,p{margin:0}
     h1{font-size:clamp(50px, 6.6vw, 86px);font-weight:800;line-height:.98;letter-spacing:-.04em;margin:24px 0 24px;max-width:900px}
@@ -281,6 +283,14 @@
     .hero .agent-card{margin-top:95px}
     .agent-card:before{content:none}
     .card-top{display:flex;justify-content:center;align-items:center;text-align:center;position:relative;z-index:1}
+    .voice-entry{position:relative;z-index:1;margin-top:22px;background:rgba(255,250,241,.96);color:#172019;border:1px solid rgba(255,255,255,.16);border-radius:26px;padding:18px;text-align:left;display:grid;grid-template-columns:86px 1fr;gap:16px;align-items:center;box-shadow:0 18px 42px rgba(0,0,0,.16)}
+    .voice-orb{width:86px;height:86px;border:0;border-radius:50%;padding:0;background:radial-gradient(circle at 50% 50%,rgba(0,229,255,.15),rgba(0,0,0,.05) 38%,rgba(0,0,0,.38) 70%,rgba(0,229,255,.14));box-shadow:0 0 28px rgba(0,229,255,.22),inset 0 0 28px rgba(0,229,255,.12);position:relative;display:grid;place-items:center;cursor:pointer;overflow:hidden}
+    .voice-orb canvas{position:absolute;inset:0;width:100%;height:100%;border-radius:50%}
+    .voice-orb span{position:relative;z-index:1;font-size:10px;font-weight:900;letter-spacing:.16em;color:#e8fbff;text-transform:uppercase;text-shadow:0 0 14px rgba(0,229,255,.9)}
+    .voice-entry small{display:inline-flex;color:var(--green);font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+    .voice-entry h3{font-size:21px;margin:0 0 5px;letter-spacing:-.03em;color:#172019}
+    .voice-entry p{margin:0;color:#546259;font-size:14px;line-height:1.45}
+    .voice-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.voice-actions .button{padding:9px 12px;font-size:13px;box-shadow:none}.voice-actions .button.secondary{background:#f0e6d6;color:var(--green);border-color:rgba(22,63,43,.16)}
     .status{color:#bde9c5;font-size:13px}
     .metric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:12px;border-radius:18px;color:#fff}
     .chat{margin-top:22px;display:grid;gap:12px;position:relative;z-index:1}
@@ -479,12 +489,20 @@
       .why-video-card video{max-height:none}
       .products,.grid,.usecases,.deploy-grid,.provider-grid,.legal-grid,.integration-grid{grid-template-columns:1fr}
       .hero{min-height:auto;padding-top:48px}
+      .hero > div:first-child,.hero .agent-card{max-width:min(330px,calc(100vw - 48px));width:100%;margin-left:0;margin-right:0}
+      .hero h1,.hero .lead{max-width:100%;overflow-wrap:break-word}
       h1{font-size:clamp(38px, 12vw, 54px);margin:18px 0}
+      .hero h1{font-size:clamp(28px,8vw,36px)!important;line-height:1.06}
       h2{font-size:clamp(30px, 9vw, 40px)}
       .lead,.muted{font-size:16px}
       .hero-actions,.footer-cta .button{width:100%}
       .hero-actions .button,.footer-cta .button{justify-content:center}
       .agent-card,.trust-stack,.proof,.footer-cta,.compare-card,.deploy-panel,.provider-card,.product,.tile,.case,.legal-card,.acceptance-box,.integration-wrap,.integration-card{padding:22px;border-radius:28px}
+      .agent-card{width:100%;max-width:100%;overflow:hidden}
+      .card-top strong{display:block;max-width:100%;font-size:15px;line-height:1.25;overflow-wrap:anywhere}
+      .voice-entry{grid-template-columns:74px 1fr;padding:15px;border-radius:22px}
+      .voice-orb{width:74px;height:74px}
+      .voice-actions .button{width:100%;justify-content:center}
       .hero .agent-card{margin-top:0}
       .trust-stack{margin-top:32px}
       .trust-item{grid-template-columns:42px 1fr 24px;padding:14px}
@@ -622,6 +640,21 @@
             </div>
             <div class="tg-input-bar">
               <span style="font-size:11px;color:#98a8a0">Bericht…</span>
+            </div>
+          </div>
+        </div>
+        <div class="voice-entry" aria-label="Live voice ingang">
+          <button class="voice-orb" type="button" data-voice-action aria-label="Praat live met Sophie">
+            <canvas class="voice-reactor" aria-hidden="true"></canvas>
+            <span>Voice</span>
+          </button>
+          <div>
+            <small>Live intake</small>
+            <h3>Praat live met Sophie</h3>
+            <p>Stel je vraag hardop en ontdek in een paar minuten welke workflow als eerste geschikt is.</p>
+            <div class="voice-actions">
+              <button class="button" type="button" data-voice-action>Start gesprek</button>
+              <button class="button secondary" type="button" data-crisp-open>Liever typen</button>
             </div>
           </div>
         </div>
@@ -1590,9 +1623,14 @@
         "Bij twijfel geldt: eerst menselijke beoordeling, daarna pas actie.": "When in doubt: human review first, action later.",
         "Privacybeleid": "Privacy policy",
         "· Gebouwd voor ZZP met Bernard's AI visie.": "· Built for freelancers with Bernard's AI vision.",
-        "Gebouwd voor ZZP met Bernard's AI visie.": "Built for freelancers with Bernard's AI vision."
-,
-        "Hermes-video": "Hermes video"      }
+        "Gebouwd voor ZZP met Bernard's AI visie.": "Built for freelancers with Bernard's AI vision.",
+        "Hermes-video": "Hermes video",
+        "Live intake": "Live intake",
+        "Praat live met Sophie": "Talk live with Sophie",
+        "Stel je vraag hardop en ontdek in een paar minuten welke workflow als eerste geschikt is.": "Ask your question out loud and discover in a few minutes which workflow is the best first step.",
+        "Start gesprek": "Start conversation",
+        "Liever typen": "Prefer typing",
+        "Voice": "Voice"      }
     };
 
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
@@ -1865,6 +1903,80 @@
       });
     }
 
+    function openCrispWithVoiceContext(){
+      try{
+        window.$crisp = window.$crisp || [];
+        window.$crisp.push(['do', 'chat:open']);
+        window.$crisp.push(['set', 'message:text', ['Ik wil graag live met Sophie praten over een AI-agent voor mijn werk.']]);
+      }catch(error){}
+    }
+
+    function openVoiceEntry(){
+      const localVoiceUrl = 'http://127.0.0.1:8789?v=site';
+      const configuredVoiceUrl = window.ZZPAGENT_VOICE_URL || '';
+      const isLocalPreview = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      if(configuredVoiceUrl){
+        window.open(configuredVoiceUrl, '_blank', 'noopener');
+        return;
+      }
+      if(isLocalPreview){
+        window.open(localVoiceUrl, '_blank', 'noopener');
+        return;
+      }
+      openCrispWithVoiceContext();
+    }
+
+    document.querySelectorAll('[data-voice-action]').forEach(button => {
+      button.addEventListener('click', openVoiceEntry);
+    });
+    document.querySelectorAll('[data-crisp-open]').forEach(button => {
+      button.addEventListener('click', openCrispWithVoiceContext);
+    });
+
+    function drawVoiceReactor(canvas){
+      const ctx = canvas.getContext('2d');
+      let rot = 0;
+      function size(){
+        const r = canvas.parentElement.getBoundingClientRect();
+        canvas.width = Math.max(1, Math.floor(r.width * devicePixelRatio));
+        canvas.height = Math.max(1, Math.floor(r.height * devicePixelRatio));
+      }
+      function ring(cx, cy, r, w, color, alpha, dash, offset){
+        ctx.beginPath(); ctx.strokeStyle = color; ctx.globalAlpha = alpha; ctx.lineWidth = w;
+        if(dash) ctx.setLineDash(dash); else ctx.setLineDash([]);
+        ctx.lineDashOffset = offset || 0;
+        ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke(); ctx.globalAlpha = 1; ctx.setLineDash([]);
+      }
+      function frame(t){
+        rot += 0.45;
+        const W = canvas.width, H = canvas.height, cx = W/2, cy = H/2, base = Math.min(W,H)*0.38;
+        ctx.clearRect(0,0,W,H);
+        const color = '#00e5ff';
+        ctx.shadowColor = color; ctx.shadowBlur = 16 * devicePixelRatio;
+        const pulse = 1 + Math.sin(t/320) * 0.035;
+        ring(cx, cy, base*pulse, 1.6*devicePixelRatio, color, .9);
+        ring(cx, cy, base*.84, 1*devicePixelRatio, color, .45, [18*devicePixelRatio, 9*devicePixelRatio], rot*2);
+        ring(cx, cy, base*.62, 3*devicePixelRatio, color, .22, [3*devicePixelRatio, 7*devicePixelRatio], -rot*3);
+        for(let i=0;i<36;i++){
+          const a=(i/36)*Math.PI*2+rot/180;
+          const r1=base*1.07, r2=base*(i%6===0?1.17:1.11);
+          ctx.beginPath(); ctx.strokeStyle=color; ctx.globalAlpha=i%6===0?.75:.28; ctx.lineWidth=devicePixelRatio;
+          ctx.moveTo(cx+Math.cos(a)*r1, cy+Math.sin(a)*r1);
+          ctx.lineTo(cx+Math.cos(a)*r2, cy+Math.sin(a)*r2); ctx.stroke();
+        }
+        ctx.globalAlpha = 1; ctx.shadowBlur = 18 * devicePixelRatio;
+        const g = ctx.createRadialGradient(cx,cy,0,cx,cy,base*.42);
+        g.addColorStop(0, color+'55'); g.addColorStop(1, 'transparent');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx,cy,base*.42,0,Math.PI*2); ctx.fill();
+        ctx.shadowBlur = 0;
+        requestAnimationFrame(frame);
+      }
+      size();
+      addEventListener('resize', size);
+      requestAnimationFrame(frame);
+    }
+
+    document.querySelectorAll('.voice-reactor').forEach(drawVoiceReactor);
 
     setLanguage(localStorage.getItem('zzpAgentLang') || 'nl');
   </script>
