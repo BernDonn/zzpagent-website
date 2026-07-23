@@ -468,24 +468,6 @@
     .footer-contact strong{color:#17240f}
     .footer-contact a{color:#143f2b;text-decoration:none;font-weight:700}
     .footer-contact a:hover{text-decoration:underline}
-    .ai-chat-widget{position:fixed;left:22px;bottom:22px;z-index:80;font-family:inherit;color:#17240f}
-    .ai-chat-toggle{border:0;border-radius:999px;background:#17240f;color:#fff;padding:14px 18px;box-shadow:0 18px 40px rgba(16,21,18,.22);font:inherit;font-weight:850;cursor:pointer;display:flex;align-items:center;gap:10px}
-    .ai-chat-toggle span:first-child{width:28px;height:28px;border-radius:999px;background:#d7f268;color:#17240f;display:grid;place-items:center;font-size:15px}
-    .ai-chat-panel{position:absolute;left:0;bottom:62px;width:min(360px,calc(100vw - 32px));background:#fffaf1;border:1px solid rgba(22,63,43,.18);border-radius:26px;box-shadow:0 24px 70px rgba(16,21,18,.26);overflow:hidden;display:none}
-    .ai-chat-widget.open .ai-chat-panel{display:block}
-    .ai-chat-head{background:#17240f;color:#fff;padding:18px 20px;display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
-    .ai-chat-head strong{display:block;font-size:18px;letter-spacing:-.025em}
-    .ai-chat-head small{display:block;margin-top:5px;color:#dce7dc;line-height:1.35}
-    .ai-chat-close{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:999px;width:32px;height:32px;cursor:pointer;font-size:20px;line-height:1}
-    .ai-chat-log{max-height:260px;overflow:auto;padding:16px;display:grid;gap:10px;background:#fffaf1}
-    .ai-chat-message{padding:12px 14px;border-radius:18px;line-height:1.45;font-size:14px;white-space:pre-wrap}
-    .ai-chat-message.bot{background:#eef3e5;color:#223226;border:1px solid rgba(22,63,43,.08)}
-    .ai-chat-message.user{background:#17240f;color:#fff;margin-left:28px}
-    .ai-chat-form{padding:14px 16px 16px;display:grid;gap:10px;border-top:1px solid rgba(22,63,43,.12);background:#fff}
-    .ai-chat-form textarea,.ai-chat-form input{width:100%;border:1px solid rgba(22,63,43,.18);border-radius:16px;padding:12px 13px;font:inherit;color:#17240f;background:#fffaf1}
-    .ai-chat-form textarea{min-height:88px;resize:vertical}
-    .ai-chat-form button{justify-content:center;border:0}
-    .ai-chat-status{font-size:13px;color:#5f6d63;min-height:18px}
 
     @media(max-width:1100px){.nav-links{display:none}}
     @media(max-width:900px){
@@ -526,9 +508,7 @@
       .expand-label{justify-content:space-between;width:100%}
       .case-body,.integration-body{padding:16px 18px 18px}
       .integration-wrap{padding:22px}
-      .ai-chat-widget{left:12px;right:12px;bottom:12px}
-      .ai-chat-panel{width:100%;bottom:60px}
-      .ai-chat-toggle{padding:12px 14px}
+
     }
   </style>
   <script type="text/javascript">
@@ -1153,28 +1133,6 @@
     </section>
   </main>
 
-  <aside class="ai-chat-widget" data-ai-chat aria-label="Hugo, de ZZPagent AI-chat">
-    <div class="ai-chat-panel" role="dialog" aria-label="Praat met Hugo, de ZZPagent-assistent">
-      <div class="ai-chat-head">
-        <div>
-          <strong>Praat met Hugo</strong>
-          <small>Hugo kent deze website en helpt je verkennen of Hermes nuttig is voor jouw werk.</small>
-        </div>
-        <button class="ai-chat-close" type="button" data-ai-chat-close aria-label="Sluit chat">×</button>
-      </div>
-      <div class="ai-chat-log" data-ai-chat-log>
-        <div class="ai-chat-message bot">Ik ben Hugo, de ZZPagent-assistent. Welke terugkerende klus zou jij aan een digitale assistent willen overlaten?</div>
-      </div>
-      <form class="ai-chat-form" data-ai-chat-form>
-        <textarea name="message" placeholder="Typ je vraag aan Hugo..." required></textarea>
-        <input name="contact" placeholder="Optioneel: e-mail of telefoon voor opvolging">
-        <button class="button" type="submit">Vraag aan Hugo</button>
-        <div class="ai-chat-status" data-ai-chat-status></div>
-      </form>
-    </div>
-    <button class="ai-chat-toggle" type="button" data-ai-chat-toggle><span>AI</span><span>Praat met Hugo</span></button>
-  </aside>
-
   <footer>
     <div class="foot-inner">
       <div>
@@ -1221,10 +1179,6 @@
         "Telefoon assistent": "Phone assistant",
         "WhatsApp automatiseren": "Automate WhatsApp",
         "Vraag advies": "Ask for advice",
-        "Praat met Hugo": "Talk to Hugo",
-        "Hugo kent deze website en helpt je verkennen of Hermes nuttig is voor jouw werk.": "Hugo knows this website and helps you explore whether Hermes is useful for your work.",
-        "Ik ben Hugo, de ZZPagent-assistent. Welke terugkerende klus zou jij aan een digitale assistent willen overlaten?": "I am Hugo, the ZZPagent assistant. Which recurring task would you hand over to a digital assistant?",
-        "Vraag aan Hugo": "Ask Hugo",
         "Verstuur": "Send",
         "Q&A": "Q&A",
         "Veelgestelde vragen": "Frequently asked questions",
@@ -1911,78 +1865,6 @@
       });
     }
 
-
-    const aiChatWidget = document.querySelector('[data-ai-chat]');
-    const aiChatForm = document.querySelector('[data-ai-chat-form]');
-    const aiChatLog = document.querySelector('[data-ai-chat-log]');
-    const aiChatStatus = document.querySelector('[data-ai-chat-status]');
-    const aiChatEndpoint = 'https://polls-submitted-marketing-encouraged.trycloudflare.com/chat';
-
-    function getAiVisitorId(){
-      const key = 'zzpagent_ai_chat_visitor_v1';
-      let id = localStorage.getItem(key);
-      if(!id){
-        id = 'v-' + Math.random().toString(36).slice(2) + '-' + Date.now().toString(36);
-        localStorage.setItem(key, id);
-      }
-      return id;
-    }
-
-    function appendAiChatMessage(role, text){
-      if(!aiChatLog) return;
-      const item = document.createElement('div');
-      item.className = 'ai-chat-message ' + role;
-      item.textContent = text;
-      aiChatLog.appendChild(item);
-      aiChatLog.scrollTop = aiChatLog.scrollHeight;
-    }
-
-    document.querySelector('[data-ai-chat-toggle]')?.addEventListener('click', () => {
-      aiChatWidget?.classList.toggle('open');
-    });
-
-    document.querySelector('[data-ai-chat-close]')?.addEventListener('click', () => {
-      aiChatWidget?.classList.remove('open');
-    });
-
-    if(aiChatForm){
-      aiChatForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const submitButton = aiChatForm.querySelector('button[type="submit"]');
-        const formData = new FormData(aiChatForm);
-        const message = String(formData.get('message') || '').trim();
-        const contact = String(formData.get('contact') || '').trim();
-        if(!message) return;
-        appendAiChatMessage('user', message);
-        aiChatForm.querySelector('textarea').value = '';
-        if(aiChatStatus) aiChatStatus.textContent = 'Hermes denkt mee...';
-        if(submitButton) submitButton.disabled = true;
-        try{
-          const response = await fetch(aiChatEndpoint, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-              site: 'zzpagent.nl',
-              visitorId: getAiVisitorId(),
-              message,
-              contact,
-              path: location.pathname,
-              referrer: document.referrer || '',
-              userAgent: navigator.userAgent || ''
-            })
-          });
-          const result = await response.json().catch(() => ({}));
-          if(!response.ok || !result.answer) throw new Error(result.error || 'chat_failed');
-          appendAiChatMessage('bot', result.answer);
-          if(aiChatStatus) aiChatStatus.textContent = contact ? 'Je vraag is ook voor opvolging doorgestuurd.' : 'Je kunt optioneel je contactgegevens invullen voor opvolging.';
-        }catch(error){
-          appendAiChatMessage('bot', 'De AI-chat reageert nu niet goed. Probeer het later nog eens of gebruik de contactknop.');
-          if(aiChatStatus) aiChatStatus.textContent = 'Verbinding met de AI-chat lukte niet.';
-        }finally{
-          if(submitButton) submitButton.disabled = false;
-        }
-      });
-    }
 
     setLanguage(localStorage.getItem('zzpAgentLang') || 'nl');
   </script>
