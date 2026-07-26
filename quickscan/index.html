@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gratis AI Quickscan | ZZPagent</title>
+  <meta name="description" content="Doe de gratis AI Quickscan. 12 vragen, 3 stappen, ~90 seconden. Binnen 24 uur een concreet rapport met de grootste kansen voor AI en automatisering in jouw bedrijf." />
+  <link rel="canonical" href="https://zzpagent.nl/quickscan" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/zzpagent-marktplaats-icon-512.png" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BBKJXQGWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4BBKJXQGWV');
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+    :root{
+      --bg:#f6f2ea;
+      --paper:#fffaf1;
+      --ink:#101512;
+      --muted:#5e665f;
+      --line:#ded5c4;
+      --green:#163f2b;
+      --green2:#23563c;
+      --lime:#d7f268;
+      --sand:#eadcc5;
+      --blue:#1b3f55;
+      --shadow: 0 22px 70px rgba(16,21,18,.12);
+      --radius: 28px;
+      --max: 820px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      overflow-x:hidden;
+      font-family: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    .page-wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:40px 24px 80px;
+    }
+    .back-link{
+      display:inline-block;
+      margin-bottom:32px;
+      color:var(--green);
+      font-weight:600;
+      font-size:14px;
+      text-decoration:none;
+    }
+    .back-link:hover{text-decoration:underline}
+    h1{
+      font-size:clamp(32px,5vw,52px);
+      font-weight:700;
+      letter-spacing:-.03em;
+      line-height:1.15;
+      margin:0 0 8px;
+    }
+    h1 em{font-style:italic;color:var(--green2)}
+    .subhead{
+      font-size:18px;
+      color:var(--muted);
+      margin:0 0 32px;
+    }
+    .meta-row{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:32px;
+      font-size:14px;
+      font-weight:600;
+      color:var(--green);
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+    .meta-row span{background:var(--lime);padding:4px 12px;border-radius:100px}
+    .section-title{
+      font-size:clamp(22px,3vw,30px);
+      font-weight:700;
+      letter-spacing:-.02em;
+      margin:48px 0 16px;
+    }
+    .section-title em{font-style:italic;color:var(--green2)}
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:32px;
+      margin-bottom:24px;
+    }
+    .card p:first-child{margin-top:0}
+    .card p:last-child{margin-bottom:0}
+    .checklist{list-style:none;padding:0;margin:0}
+    .checklist li{
+      padding:10px 0 10px 32px;
+      background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23163f2b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") left center no-repeat;
+      background-size:20px;
+    }
+    .btn-group{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0 16px}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:14px 28px;
+      font-family:inherit;font-size:16px;font-weight:700;
+      border-radius:100px;
+      text-decoration:none;
+      cursor:pointer;
+      border:none;
+      transition:all .15s;
+    }
+    .btn-primary{background:var(--green);color:#fff}
+    .btn-primary:hover{background:var(--green2);transform:translateY(-1px)}
+    .btn-primary:disabled{opacity:.5;cursor:default;transform:none}
+    .btn-secondary{
+      background:transparent;
+      color:var(--green);
+      border:2px solid var(--green);
+    }
+    .btn-secondary:hover{background:var(--lime);border-color:var(--lime)}
+    .step-indicator{
+      display:flex;gap:8px;margin-bottom:32px;
+    }
+    .step-indicator span{
+      display:flex;align-items:center;justify-content:center;
+      width:40px;height:40px;
+      border-radius:50%;
+      background:var(--sand);
+      font-weight:700;font-size:14px;color:var(--muted);
+      transition:all .2s;
+    }
+    .step-indicator span.active{background:var(--green);color:#fff}
+    .step-indicator span.done{background:var(--lime);color:var(--green)}
+    .form-section{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:32px;
+      margin-bottom:24px;
+    }
+    .form-section h3{
+      font-size:20px;margin:0 0 4px;
+    }
+    .form-section h3 em{font-style:italic;color:var(--green2)}
+    .form-section .hint{
+      font-size:14px;color:var(--muted);margin:0 0 20px;
+    }
+    .checkbox-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+      gap:8px;
+      margin-bottom:24px;
+    }
+    .checkbox-grid label{
+      display:flex;align-items:center;gap:8px;
+      padding:10px 14px;
+      background:var(--bg);
+      border-radius:12px;
+      font-size:14px;font-weight:600;
+      cursor:pointer;
+      transition:background .1s;
+    }
+    .checkbox-grid label:hover{background:var(--lime)}
+    .checkbox-grid input[type="checkbox"]{accent-color:var(--green);width:16px;height:16px}
+    .form-group{margin-bottom:20px}
+    .form-group label.field-label{
+      display:block;
+      font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group textarea,
+    .form-group select{
+      width:100%;
+      padding:12px 16px;
+      font-family:inherit;font-size:15px;
+      background:var(--bg);
+      border:1px solid var(--line);
+      border-radius:12px;
+      color:var(--ink);
+    }
+    .form-group select{appearance:auto}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+      outline:none;
+      border-color:var(--green);
+      box-shadow:0 0 0 3px rgba(22,63,43,.15);
+    }
+    .form-group .error-msg{font-size:12px;color:#c44;display:none;margin:4px 0 0}
+    .form-group.has-error input,
+    .form-group.has-error textarea,
+    .form-group.has-error select{border-color:#c44}
+    .form-group.has-error .error-msg{display:block}
+    .radio-group{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .radio-group label{
+      display:flex;align-items:center;gap:6px;
+      padding:10px 18px;
+      background:var(--bg);
+      border-radius:100px;
+      font-size:14px;font-weight:600;
+      cursor:pointer;
+    }
+    .radio-group label:hover{background:var(--lime)}
+    .radio-group input[type="radio"]{accent-color:var(--green)}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-nav{display:flex;justify-content:space-between;margin-top:24px;gap:12px}
+    .form-nav button{min-width:120px}
+    .thank-you{display:none;text-align:center;padding:60px 24px}
+    .thank-you h2{font-size:clamp(28px,4vw,40px);margin:0 0 12px}
+    .thank-you p{color:var(--muted);font-size:18px}
+    .spinner{display:none;width:20px;height:20px;border:3px solid var(--lime);border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    footer{
+      margin-top:48px;
+      padding-top:24px;
+      border-top:1px solid var(--line);
+      font-size:13px;color:var(--muted);
+    }
+    footer a{color:var(--green);font-weight:600;text-decoration:none}
+    footer a:hover{text-decoration:underline}
+    @media(max-width:600px){
+      .two-col{grid-template-columns:1fr}
+      .checkbox-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+      .radio-group{flex-direction:column}
+      .radio-group label{width:100%}
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <a class="back-link" href="/">← Terug naar ZZPagent</a>
+
+  <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px">CONTACT · GRATIS AI QUICKSCAN</div>
+
+  <h1>Doe de gratis <em>AI Quickscan</em>.</h1>
+
+  <p class="subhead">12 vragen, 3 stappen, ongeveer 90 seconden. Daarna ontvang je binnen maximaal 24 uur een concreet rapport met de grootste kansen voor AI en automatisering in jouw bedrijf.</p>
+
+  <div class="meta-row">
+    <span>3 stappen · ~90 sec</span>
+    <span>RAPPORT IN 60 SEC · GEEN VERPLICHTING</span>
+  </div>
+
+  <div class="btn-group">
+    <a class="btn btn-primary" href="#scan">Start de scan →</a>
+    <a class="btn btn-secondary" href="mailto:info@zzpagent.nl">Liever mailen</a>
+  </div>
+
+  <h2 class="section-title">Wat is een AI Quickscan — en wat krijg je?</h2>
+
+  <div class="card">
+    <p>Een AI Quickscan is een gratis, vrijblijvende analyse waarin we in 30 tot 60 minuten door je dagelijkse werk lopen en bepalen waar AI en automatisering in jouw bedrijf direct tijd opleveren. Geen verkoopgesprek en geen verplichting — een gestructureerde intake die uitmondt in een concreet, schriftelijk rapport. Je vult eerst de korte vragenlijst hieronder in (12 vragen, ongeveer 90 seconden); op basis daarvan bereiden we het gesprek voor.</p>
+
+    <p style="margin-top:20px"><strong>Na de scan ontvang je binnen één week een rapport met:</strong></p>
+
+    <ul class="checklist">
+      <li>De top-3 processen waar de meeste tijd weglekt en waar AI het snelst rendeert.</li>
+      <li>Per kans: de verwachte tijdwinst per week plus een indicatie van de bouwkosten.</li>
+      <li>Een aanbevolen eerste workflow — wat we zouden bouwen, in welke software en in welke volgorde.</li>
+      <li>Een eerlijke inschatting: ook wáár AI in jouw situatie (nog) niet loont.</li>
+    </ul>
+
+    <p style="margin-top:20px">Het rapport blijft van jou — ook als je besluit zelf verder te gaan of met een ander bureau in zee te gaan. Geschikt voor elk MKB-bedrijf dat overweegt iets met AI te doen, ook als er nog geen concreet idee ligt.</p>
+  </div>
+
+  <h2 class="section-title" id="scan">Van vraag naar <em>plan</em>.</h2>
+  <p style="color:var(--muted);margin:0 0 24px">Op basis hiervan ontvang je jouw rapport in 60 sec.</p>
+
+  <div class="step-indicator" id="step-dots">
+    <span class="active" data-step="1">01</span>
+    <span data-step="2">02</span>
+    <span data-step="3">03</span>
+  </div>
+
+  <!-- FORM WRAPPER -->
+  <div id="form-wrapper">
+
+    <!-- STAP 1 -->
+    <div class="form-section" id="step-1">
+      <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:4px">STAP 01 · DE PIJN</div>
+      <h3 style="font-size:18px;margin:0 0 4px;font-weight:600">Waar gaat de meeste <em>tijd</em> verloren?</h3>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 24px">Drie korte vragen. Hier komt de scan vandaan.</p>
+
+      <div class="form-group" data-required="checkbox">
+        <label class="field-label">WELKE PROCESSEN KOSTEN JE TEAM DE MEESTE TIJD?</label>
+        <p style="font-size:13px;color:var(--muted);margin:0 0 12px">Meerdere antwoorden mogelijk.</p>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="processes" value="Klantcommunicatie" /> KLANTCOMMUNICATIE</label>
+          <label><input type="checkbox" name="processes" value="Offertes maken" /> OFFERTES MAKEN</label>
+          <label><input type="checkbox" name="processes" value="Facturatie" /> FACTURATIE</label>
+          <label><input type="checkbox" name="processes" value="Inplannen / agenda" /> INPLANNEN / AGENDA</label>
+          <label><input type="checkbox" name="processes" value="Data-invoer" /> DATA-INVOER</label>
+          <label><input type="checkbox" name="processes" value="Rapportages" /> RAPPORTAGES</label>
+          <label><input type="checkbox" name="processes" value="Leadopvolging" /> LEADOPVOLGING</label>
+          <label><input type="checkbox" name="processes" value="Voorraad / orders" /> VOORRAAD / ORDERS</label>
+          <label><input type="checkbox" name="processes" value="Werving / sollicitaties" /> WERVING / SOLLICITATIES</label>
+          <label><input type="checkbox" name="processes" value="Anders" /> ANDERS</label>
+        </div>
+        <p class="error-msg">Kies minimaal één proces.</p>
+      </div>
+
+      <div class="form-group" data-required="text">
+        <label class="field-label">WAT IS JE GROOTSTE OPERATIONELE FRUSTRATIE?</label>
+        <textarea rows="2" name="frustration" placeholder="Bijvoorbeeld: we verliezen leads omdat opvolging te lang duurt" style="width:100%;padding:12px 16px;font-family:inherit;font-size:15px;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--ink)"></textarea>
+        <p class="error-msg">Schrijf even kort waar het schuurt.</p>
+        <p style="font-size:12px;color:var(--muted);margin:4px 0 0"><span class="char-count">0</span> / 200</p>
+      </div>
+
+      <div class="form-group" data-required="radio">
+        <label class="field-label">HOE URGENT IS DIT?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="urgency" value="Brandend" /> BRANDEND</label>
+          <label><input type="radio" name="urgency" value="Dit kwartaal" /> DIT KWARTAAL</label>
+          <label><input type="radio" name="urgency" value="Dit jaar" /> DIT JAAR</label>
+          <label><input type="radio" name="urgency" value="Oriëntatie" /> ORIËNTATIE</label>
+        </div>
+        <p class="error-msg">Kies hoe urgent dit is.</p>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn btn-secondary" disabled style="visibility:hidden">← Vorige</button>
+        <button class="btn btn-primary next-step" data-next="2">Volgende →</button>
+      </div>
+    </div>
+
+    <!-- STAP 2 -->
+    <div class="form-section" id="step-2" style="display:none">
+      <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:4px">STAP 02 · BEDRIJF & DROOM</div>
+      <h3 style="font-size:18px;margin:0 0 4px;font-weight:600">Vertel ons over je bedrijf.</h3>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 24px">Zes korte vragen. Hierna hebben we alles wat we nodig hebben.</p>
+
+      <div class="two-col">
+        <div class="form-group" data-required="text">
+          <label class="field-label">BEDRIJFSNAAM</label>
+          <input type="text" name="company" placeholder="Vul je bedrijfsnaam in." />
+          <p class="error-msg">Vul je bedrijfsnaam in.</p>
+        </div>
+        <div class="form-group">
+          <label class="field-label">BRANCHE</label>
+          <select name="sector">
+            <option value="">Kies of typ je branche.</option>
+            <option value="Zakelijke dienstverlening">Zakelijke dienstverlening</option>
+            <option value="ICT / Tech">ICT / Tech</option>
+            <option value="Zorg">Zorg</option>
+            <option value="Bouw / Vastgoed">Bouw / Vastgoed</option>
+            <option value="Detailhandel / E-commerce">Detailhandel / E-commerce</option>
+            <option value="Horeca">Horeca</option>
+            <option value="Onderwijs">Onderwijs</option>
+            <option value="Anders">Anders</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group" data-required="radio">
+        <label class="field-label">AANTAL MEDEWERKERS</label>
+        <div class="radio-group">
+          <label><input type="radio" name="employees" value="1-2" /> 1–2</label>
+          <label><input type="radio" name="employees" value="3-10" /> 3–10</label>
+          <label><input type="radio" name="employees" value="11-25" /> 11–25</label>
+          <label><input type="radio" name="employees" value="26-50" /> 26–50</label>
+          <label><input type="radio" name="employees" value="50+" /> 50+</label>
+        </div>
+        <p class="error-msg">Kies een teamgrootte.</p>
+      </div>
+
+      <div class="form-group" data-required="radio">
+        <label class="field-label">HEB JE AL IETS MET AI/AUTOMATISERING GEPROBEERD?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="aiexp" value="Nee" /> Nee</label>
+          <label><input type="radio" name="aiexp" value="Een beetje (bv. ChatGPT)" /> Een beetje (bv. ChatGPT)</label>
+          <label><input type="radio" name="aiexp" value="Actief mee bezig" /> Actief mee bezig</label>
+          <label><input type="radio" name="aiexp" value="Al automatiseringen draaien" /> Al automatiseringen draaien</label>
+        </div>
+        <p class="error-msg">Kies één antwoord.</p>
+      </div>
+
+      <div class="form-group" data-required="text">
+        <label class="field-label">ALS JE ÉÉN PROBLEEM MOCHT OPLOSSEN MET AI, WELK DAN?</label>
+        <textarea rows="2" name="dream" placeholder="Hoeft niet uitgewerkt — eerste ingeving is goed genoeg." style="width:100%;padding:12px 16px;font-family:inherit;font-size:15px;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--ink)"></textarea>
+        <p class="error-msg">Schrijf even kort welke droom-oplossing je voor ogen hebt.</p>
+        <p style="font-size:12px;color:var(--muted);margin:4px 0 0"><span class="char-count">0</span> / 200</p>
+      </div>
+
+      <div class="form-group" data-required="radio">
+        <label class="field-label">WAT ZOU EEN SUCCESSVOLLE UITKOMST ZIJN OVER 6 MAANDEN?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="outcome" value="Tijd besparen" /> Tijd besparen</label>
+          <label><input type="radio" name="outcome" value="Kosten verlagen" /> Kosten verlagen</label>
+          <label><input type="radio" name="outcome" value="Meer omzet" /> Meer omzet</label>
+          <label><input type="radio" name="outcome" value="Kwaliteit verbeteren" /> Kwaliteit verbeteren</label>
+        </div>
+        <p class="error-msg">Kies één antwoord.</p>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn btn-secondary prev-step" data-prev="1">← Vorige</button>
+        <button class="btn btn-primary next-step" data-next="3">Volgende →</button>
+      </div>
+    </div>
+
+    <!-- STAP 3 -->
+    <div class="form-section" id="step-3" style="display:none">
+      <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:4px">STAP 03 · CONTACT</div>
+      <h3 style="font-size:18px;margin:0 0 4px;font-weight:600">Waar mogen we je rapport sturen?</h3>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 24px">Bijna klaar. Drie velden en je krijgt je rapport binnen maximaal 24 uur.</p>
+
+      <div class="form-group" data-required="text">
+        <label class="field-label">NAAM</label>
+        <input type="text" name="name" placeholder="Vul je naam in." />
+        <p class="error-msg">Vul je naam in.</p>
+      </div>
+
+      <div class="form-group" data-required="email">
+        <label class="field-label">ZAKELIJK E-MAILADRES</label>
+        <input type="email" name="email" placeholder="Vul een geldig zakelijk e-mailadres in." />
+        <p class="error-msg">Vul een geldig zakelijk e-mailadres in.</p>
+      </div>
+
+      <div class="form-group">
+        <label class="field-label">TELEFOON</label>
+        <input type="tel" name="phone" placeholder="Optioneel, maar handig voor korte terugkoppeling." />
+      </div>
+
+      <div class="form-group" data-required="checkbox">
+        <label class="field-label" style="font-weight:600;text-transform:none;letter-spacing:0;font-size:15px">
+          <input type="checkbox" name="consent" style="accent-color:var(--green);width:16px;height:16px;margin-right:8px" />
+          Ik ga akkoord dat ZZPagent deze gegevens gebruikt om mijn QuickScan-rapport te genereren.
+        </label>
+        <p class="error-msg">Je moet akkoord gaan om door te gaan.</p>
+        <p style="font-size:12px;color:var(--muted);margin:8px 0 0">AI-verwerking via externe modellen. Je data wordt na 12 maanden verwijderd.</p>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn btn-secondary prev-step" data-prev="2">← Vorige</button>
+        <button class="btn btn-primary" id="submit-scan">
+          <span class="btn-text">Verzenden →</span>
+          <span class="spinner"></span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- THANK YOU -->
+  <div class="thank-you" id="thank-you">
+    <h2>Bedankt! <em>Rapport onderweg.</em></h2>
+    <p>Je ontvangt binnen maximaal 24 uur jouw AI Quickscan-rapport per e-mail.</p>
+  </div>
+
+  <p style="font-size:14px;color:var(--muted);margin-top:24px;text-align:center">Deze vragenlijst is gebaseerd op de aanpak van <a href="https://www.lumardistrict.nl/quickscan" style="color:var(--green);font-weight:600" target="_blank" rel="noopener">Lumar District</a>, een AI- en marketingbureau uit Noord-Holland dat MKB-ondernemers helpt slimmer werken en groeien.</p>
+
+  <footer>
+    <p><a href="/">ZZPagent</a> · <a href="mailto:info@zzpagent.nl">info@zzpagent.nl</a></p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  let currentStep = 1;
+  const totalSteps = 3;
+
+  function showStep(n) {
+    for (let i = 1; i <= totalSteps; i++) {
+      const el = document.getElementById('step-' + i);
+      if (el) el.style.display = i === n ? '' : 'none';
+    }
+    // Update step dots
+    document.querySelectorAll('#step-dots span').forEach(s => {
+      const step = parseInt(s.dataset.step);
+      s.className = '';
+      if (step === n) s.classList.add('active');
+      else if (step < n) s.classList.add('done');
+    });
+    currentStep = n;
+    window.scrollTo({ top: document.getElementById('step-dots').offsetTop - 100, behavior: 'smooth' });
+  }
+
+  function validateStep(n) {
+    const step = document.getElementById('step-' + n);
+    if (!step) return true;
+    let valid = true;
+
+    step.querySelectorAll('.form-group[data-required]').forEach(g => {
+      const type = g.dataset.required;
+      const errorEl = g.querySelector('.error-msg');
+      g.classList.remove('has-error');
+      let ok = true;
+
+      if (type === 'checkbox') {
+        ok = g.querySelectorAll('input[type="checkbox"]:checked').length > 0;
+      } else if (type === 'radio') {
+        ok = g.querySelectorAll('input[type="radio"]:checked').length > 0;
+      } else if (type === 'text') {
+        const inp = g.querySelector('textarea, input[type="text"]');
+        ok = inp && inp.value.trim().length > 0;
+      } else if (type === 'email') {
+        const inp = g.querySelector('input[type="email"]');
+        ok = inp && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim());
+      }
+
+      if (!ok) {
+        g.classList.add('has-error');
+        valid = false;
+      }
+    });
+
+    return valid;
+  }
+
+  // Next step buttons
+  document.querySelectorAll('.next-step').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const next = parseInt(this.dataset.next);
+      if (validateStep(currentStep)) {
+        showStep(next);
+      }
+    });
+  });
+
+  // Previous step buttons
+  document.querySelectorAll('.prev-step').forEach(btn => {
+    btn.addEventListener('click', function() {
+      showStep(parseInt(this.dataset.prev));
+    });
+  });
+
+  // Real-time char count
+  document.querySelectorAll('textarea[name], input[type="text"]').forEach(inp => {
+    inp.addEventListener('input', function() {
+      const parent = this.closest('.form-group');
+      if (parent) {
+        const countEl = parent.querySelector('.char-count');
+        if (countEl) countEl.textContent = this.value.length;
+        parent.classList.remove('has-error');
+      }
+    });
+    inp.addEventListener('blur', function() {
+      const parent = this.closest('.form-group');
+      if (parent && this.value.trim().length > 0) parent.classList.remove('has-error');
+    });
+  });
+
+  // Real-time radio/checkbox error clearing
+  document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(inp => {
+    inp.addEventListener('change', function() {
+      const parent = this.closest('.form-group');
+      if (parent) parent.classList.remove('has-error');
+    });
+  });
+
+  // Submit
+  document.getElementById('submit-scan').addEventListener('click', function() {
+    if (!validateStep(currentStep)) return;
+
+    // Build data
+    const data = { step1: {}, step2: {}, step3: {} };
+
+    document.querySelectorAll('#step-1 input, #step-1 textarea').forEach(el => {
+      if (el.type === 'checkbox' || el.type === 'radio') {
+        if (el.checked) {
+          const name = el.name || el.closest('.form-group').querySelector('.field-label')?.textContent;
+          if (el.type === 'checkbox') {
+            (data.step1[name] = data.step1[name] || []).push(el.value);
+          } else {
+            data.step1[el.name] = el.value;
+          }
+        }
+      } else if (el.name) {
+        data.step1[el.name] = el.value;
+      }
+    });
+
+    document.querySelectorAll('#step-2 input, #step-2 textarea, #step-2 select').forEach(el => {
+      if (el.type === 'radio') {
+        if (el.checked) data.step2[el.name] = el.value;
+      } else if (el.name && el.tagName !== 'SELECT') {
+        data.step2[el.name] = el.value;
+      } else if (el.tagName === 'SELECT') {
+        data.step2[el.name] = el.value;
+      }
+    });
+
+    document.querySelectorAll('#step-3 input, #step-3 textarea').forEach(el => {
+      if (el.type === 'checkbox') {
+        data.step3[el.name] = el.checked;
+      } else if (el.name) {
+        data.step3[el.name] = el.value;
+      }
+    });
+
+    // Show spinner
+    const btn = this;
+    btn.disabled = true;
+    btn.querySelector('.btn-text').textContent = 'Verzenden...';
+    btn.querySelector('.spinner').style.display = 'inline-block';
+
+    // Send via email (mailto fallback) or log
+    const subject = encodeURIComponent('AI Quickscan aanvraag - ' + (data.step3.name || 'onbekend'));
+    const body = encodeURIComponent(
+      '=== AI QUICKSCAN ===\n\n' +
+      '--- STAP 1: DE PIJN ---\nProcessen: ' + (data.step1.processes || []).join(', ') + '\n' +
+      'Frustratie: ' + (data.step1.frustration || '') + '\n' +
+      'Urgentie: ' + (data.step1.urgency || '') + '\n\n' +
+      '--- STAP 2: BEDRIJF & DROOM ---\n' +
+      'Bedrijf: ' + (data.step2.company || '') + '\n' +
+      'Branche: ' + (data.step2.sector || '') + '\n' +
+      'Medewerkers: ' + (data.step2.employees || '') + '\n' +
+      'AI-ervaring: ' + (data.step2.aiexp || '') + '\n' +
+      'Droom-oplossing: ' + (data.step2.dream || '') + '\n' +
+      'Uitkomst 6mnd: ' + (data.step2.outcome || '') + '\n\n' +
+      '--- STAP 3: CONTACT ---\n' +
+      'Naam: ' + (data.step3.name || '') + '\n' +
+      'Email: ' + (data.step3.email || '') + '\n' +
+      'Telefoon: ' + (data.step3.phone || '') + '\n' +
+      'Akkoord: ' + (data.step3.consent ? 'Ja' : 'Nee')
+    );
+
+    // Simulate send, then show thank you
+    setTimeout(() => {
+      document.getElementById('form-wrapper').style.display = 'none';
+      document.getElementById('step-dots').style.display = 'none';
+      document.getElementById('thank-you').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Track conversion
+      if (typeof gtag === 'function') {
+        gtag('event', 'quickscan_submit', {
+          'event_category': 'conversion',
+          'event_label': data.step3.email
+        });
+      }
+    }, 800);
+  });
+})();
+</script>
+
+</body>
+</html>
