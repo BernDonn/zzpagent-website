@@ -159,15 +159,18 @@
     }
     .checkbox-grid label{
       display:flex;align-items:center;gap:8px;
+      min-width:0;
       padding:10px 14px;
       background:var(--bg);
       border-radius:12px;
       font-size:14px;font-weight:600;
+      line-height:1.2;
+      overflow-wrap:anywhere;
       cursor:pointer;
       transition:background .1s;
     }
     .checkbox-grid label:hover{background:var(--lime)}
-    .checkbox-grid input[type="checkbox"]{accent-color:var(--green);width:16px;height:16px}
+    .checkbox-grid input[type="checkbox"]{accent-color:var(--green);width:16px;height:16px;flex:0 0 auto}
     .form-group{margin-bottom:20px}
     .form-group label.field-label{
       display:block;
@@ -202,14 +205,17 @@
     .radio-group{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
     .radio-group label{
       display:flex;align-items:center;gap:6px;
+      min-width:0;
       padding:10px 18px;
       background:var(--bg);
       border-radius:100px;
       font-size:14px;font-weight:600;
+      line-height:1.2;
+      overflow-wrap:anywhere;
       cursor:pointer;
     }
     .radio-group label:hover{background:var(--lime)}
-    .radio-group input[type="radio"]{accent-color:var(--green)}
+    .radio-group input[type="radio"]{accent-color:var(--green);flex:0 0 auto}
     .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .form-nav{display:flex;justify-content:space-between;margin-top:24px;gap:12px}
     .form-nav button{min-width:120px}
@@ -456,8 +462,6 @@
     <h2>Bedankt! <em>Rapport onderweg.</em></h2>
     <p>Je ontvangt binnen maximaal 24 uur jouw AI Quickscan-rapport per e-mail.</p>
   </div>
-
-  <p style="font-size:14px;color:var(--muted);margin-top:24px;text-align:center">Deze vragenlijst is gebaseerd op de aanpak van <a href="https://www.lumardistrict.nl/quickscan" style="color:var(--green);font-weight:600" target="_blank" rel="noopener">Lumar District</a>, een AI- en marketingbureau uit Noord-Holland dat MKB-ondernemers helpt slimmer werken en groeien.</p>
 
   <footer>
     <p><a href="/">ZZPagent</a> · <a href="mailto:info@zzpagent.nl">info@zzpagent.nl</a></p>
