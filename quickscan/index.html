@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gratis AI Quickscan | ZZPagent</title>
-  <meta name="description" content="Doe de gratis AI Quickscan. 12 vragen, 3 stappen, ~90 seconden. Binnen één week een concreet rapport met de grootste kansen voor AI en automatisering in jouw bedrijf." />
+  <meta name="description" content="Doe de gratis AI Quickscan. 12 vragen, 3 stappen, ~90 seconden. Ontdek waar AI en automatisering in jouw bedrijf het meeste kunnen opleveren." />
   <link rel="canonical" href="https://zzpagent.nl/quickscan" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/zzpagent-marktplaats-icon-512.png" />
@@ -267,7 +267,7 @@
   <div class="card">
     <p>Een AI Quickscan is een gratis, korte analyse waarin we in 30 tot 60 minuten door je dagelijkse werk lopen en bepalen waar AI en automatisering in jouw bedrijf direct tijd opleveren. Geen verkoopgesprek: wel een gestructureerde intake die uitmondt in een concreet, schriftelijk rapport. Je vult eerst de korte vragenlijst hieronder in (12 vragen, ongeveer 90 seconden); op basis daarvan bereiden we het gesprek voor.</p>
 
-    <p style="margin-top:20px"><strong>Na de scan ontvang je binnen één week een rapport met:</strong></p>
+    <p style="margin-top:20px"><strong>Na de scan weet je welke punten we in het rapport uitwerken:</strong></p>
 
     <ul class="checklist">
       <li>De top-3 processen waar de meeste tijd weglekt en waar AI het snelst rendeert.</li>
@@ -280,7 +280,7 @@
   </div>
 
   <h2 class="section-title" id="scan">Van vraag naar <em>plan</em>.</h2>
-  <p style="color:var(--muted);margin:0 0 24px">Op basis hiervan maken we jouw rapport binnen één week.</p>
+  <p style="color:var(--muted);margin:0 0 24px">Op basis hiervan bekijken we wat Hermes voor jouw situatie kan betekenen.</p>
 
   <div class="step-indicator" id="step-dots">
     <span class="active" data-step="1">01</span>
@@ -417,8 +417,8 @@
     <!-- STAP 3 -->
     <div class="form-section" id="step-3" style="display:none">
       <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:4px">STAP 03 · CONTACT</div>
-      <h3 style="font-size:18px;margin:0 0 4px;font-weight:600">Waar mogen we je rapport sturen?</h3>
-      <p style="font-size:14px;color:var(--muted);margin:0 0 24px">Bijna klaar. Drie velden en je krijgt je rapport binnen één week.</p>
+      <h3 style="font-size:18px;margin:0 0 4px;font-weight:600">Waar mogen we je over de Quickscan bereiken?</h3>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 24px">Bijna klaar. Laat je gegevens achter voor de terugkoppeling.</p>
 
       <div class="form-group" data-required="text">
         <label class="field-label">NAAM</label>
@@ -440,10 +440,10 @@
       <div class="form-group" data-required="checkbox">
         <label class="field-label" style="font-weight:600;text-transform:none;letter-spacing:0;font-size:15px">
           <input type="checkbox" name="consent" style="accent-color:var(--green);width:16px;height:16px;margin-right:8px" />
-          Ik ga akkoord dat ZZPagent deze gegevens gebruikt om mijn QuickScan-rapport te genereren.
+          Ik ga akkoord dat ZZPagent mijn antwoorden gebruikt voor de Quickscan-terugkoppeling.
         </label>
         <p class="error-msg">Je moet akkoord gaan om door te gaan.</p>
-        <p style="font-size:12px;color:var(--muted);margin:8px 0 0">Je data wordt niet opgeslagen. We gebruiken je antwoorden alleen om je Quickscan-rapport te maken.</p>
+        <p style="font-size:12px;color:var(--muted);margin:8px 0 0">Je antwoorden worden niet opgeslagen op deze website. We gebruiken ze alleen voor de Quickscan-terugkoppeling.</p>
       </div>
 
       <div class="form-nav">
@@ -460,7 +460,7 @@
   <!-- THANK YOU -->
   <div class="thank-you" id="thank-you">
     <h2>Bedankt! <em>Scan ontvangen.</em></h2>
-    <p>We maken jouw AI Quickscan-rapport en sturen het binnen één week per e-mail.</p>
+    <p>We nemen je Quickscan-aanvraag in behandeling en koppelen terug per e-mail.</p>
   </div>
 
   <footer>
@@ -639,8 +639,7 @@
       // Track conversion
       if (typeof gtag === 'function') {
         gtag('event', 'quickscan_submit', {
-          'event_category': 'conversion',
-          'event_label': data.step3.email
+          'event_category': 'conversion'
         });
       }
     }, 800);
