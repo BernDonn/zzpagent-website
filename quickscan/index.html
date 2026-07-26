@@ -609,28 +609,7 @@
     btn.querySelector('.btn-text').textContent = 'Verzenden...';
     btn.querySelector('.spinner').style.display = 'inline-block';
 
-    // Send via email (mailto fallback) or log
-    const subject = encodeURIComponent('AI Quickscan aanvraag - ' + (data.step3.name || 'onbekend'));
-    const body = encodeURIComponent(
-      '=== AI QUICKSCAN ===\n\n' +
-      '--- STAP 1: DE PIJN ---\nProcessen: ' + (data.step1.processes || []).join(', ') + '\n' +
-      'Frustratie: ' + (data.step1.frustration || '') + '\n' +
-      'Urgentie: ' + (data.step1.urgency || '') + '\n\n' +
-      '--- STAP 2: BEDRIJF & DROOM ---\n' +
-      'Bedrijf: ' + (data.step2.company || '') + '\n' +
-      'Branche: ' + (data.step2.sector || '') + '\n' +
-      'Medewerkers: ' + (data.step2.employees || '') + '\n' +
-      'AI-ervaring: ' + (data.step2.aiexp || '') + '\n' +
-      'Droom-oplossing: ' + (data.step2.dream || '') + '\n' +
-      'Uitkomst 6mnd: ' + (data.step2.outcome || '') + '\n\n' +
-      '--- STAP 3: CONTACT ---\n' +
-      'Naam: ' + (data.step3.name || '') + '\n' +
-      'Email: ' + (data.step3.email || '') + '\n' +
-      'Telefoon: ' + (data.step3.phone || '') + '\n' +
-      'Akkoord: ' + (data.step3.consent ? 'Ja' : 'Nee')
-    );
-
-    // Simulate send, then show thank you
+    // Show confirmation without storing answers on this website.
     setTimeout(() => {
       document.getElementById('form-wrapper').style.display = 'none';
       document.getElementById('step-dots').style.display = 'none';
