@@ -590,13 +590,17 @@
       .hero .hero-phone-screen .tg-input-bar{left:7px;right:7px;bottom:9px;padding:5px 8px}
       .voice-orb{width:74px;height:74px}
       .voice-actions .button{width:100%;justify-content:center}
-      .floating-voice{left:14px;bottom:14px;grid-template-columns:48px 1fr;max-width:calc(50vw - 18px);padding:8px 14px 8px 8px}
-      .floating-voice .voice-orb{width:48px;height:48px}
-      .floating-voice strong{font-size:15px}
-      .sophie-call-widget{right:14px;bottom:14px;grid-template-columns:48px 1fr;max-width:calc(50vw - 18px);padding:8px 14px 8px 8px}
-      .sophie-call-photo{width:48px;height:48px}
-      .sophie-call-photo:before{width:20px;height:20px;top:9px;box-shadow:0 16px 0 11px #fff1df}
-      .sophie-call-widget strong{font-size:14px}
+      .floating-voice{left:10px;bottom:10px;grid-template-columns:34px minmax(0,1fr);gap:8px;width:calc(50vw - 22px);max-width:178px;box-sizing:border-box;padding:6px 9px 6px 6px;overflow:hidden}
+      .floating-voice .voice-orb{width:34px;height:34px}
+      .floating-voice small{font-size:8px;letter-spacing:.07em}
+      .floating-voice strong{font-size:10.5px;line-height:1.12}
+      .floating-voice span:not(.voice-orb){min-width:0}
+      .sophie-call-widget{left:min(calc(50vw + 8px),203px);right:auto;bottom:10px;grid-template-columns:34px minmax(0,1fr);gap:8px;width:min(calc(50vw - 18px),177px);box-sizing:border-box;padding:6px 9px 6px 6px;overflow:hidden}
+      .sophie-call-photo{width:34px;height:34px}
+      .sophie-call-photo:after{width:15px;height:15px;font-size:9px}
+      .sophie-call-widget span:not(.sophie-call-photo){min-width:0}
+      .sophie-call-widget small{font-size:8px;letter-spacing:.06em}
+      .sophie-call-widget strong{font-size:10px;line-height:1.12}
       .sophie-call-widget em{display:none}
       .sophie-callback-panel,.sophie-voice-panel{bottom:88px;width:calc(100vw - 28px)}.sophie-callback-panel{right:14px}.sophie-voice-panel{left:14px}
 
