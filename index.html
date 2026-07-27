@@ -2195,12 +2195,31 @@
       inlineVoiceWs=null; inlineVoiceProcessor=null; inlineVoiceGain=null; inlineVoiceCtx=null; inlineVoiceMic=null;
       setInlineVoiceState(false);
     }
+    async function getSophieMicStream(){
+      if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+        const error = new Error('mediaDevices.getUserMedia unavailable');
+        error.name = 'UnsupportedBrowserError';
+        throw error;
+      }
+      const attempts = [
+        { audio:true, video:false },
+        { audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}, video:false },
+        { audio:{channelCount:{ideal:1}}, video:false }
+      ];
+      let lastError;
+      for(const constraints of attempts){
+        try{ return await navigator.mediaDevices.getUserMedia(constraints); }
+        catch(error){ lastError = error; logInlineVoiceError(error, 'get_user_media'); }
+      }
+      throw lastError || new Error('Microfoon niet beschikbaar');
+    }
     async function openVoiceEntry(){
       if(inlineVoiceActive){ stopInlineVoice(); return; }
       if(!voicePanel) return;
       if(!SophieAudioContext){ setInlineVoiceError('Deze browser ondersteunt de audio-engine niet goed. Probeer Safari/Chrome met microfoontoegang.'); return; }
       setInlineVoiceState(true, 'Microfoon openen…');
       try{
+        inlineVoiceMic=await getSophieMicStream();
         const endpointBase=callbackEndpointBase();
         const wsUrl=endpointBase.replace(/^https:/,'wss:').replace(/^http:/,'ws:') + '/ws/live';
         inlineVoiceWs=new WebSocket(wsUrl);
@@ -2217,7 +2236,6 @@
         });
         await new Promise((resolve,reject)=>{ inlineVoiceWs.addEventListener('open',resolve,{once:true}); inlineVoiceWs.addEventListener('error',reject,{once:true}); });
         inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
-        inlineVoiceMic=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true,autoGainControl:true},video:false});
         inlineVoiceCtx=new SophieAudioContext();
         const source=inlineVoiceCtx.createMediaStreamSource(inlineVoiceMic);
         inlineVoiceProcessor=inlineVoiceCtx.createScriptProcessor(4096,1,1);
@@ -2236,7 +2254,11 @@
         try{ inlineVoiceCtx?.close(); }catch(e){}
         try{ inlineVoiceMic?.getTracks().forEach(t=>t.stop()); }catch(e){}
         inlineVoiceWs=null; inlineVoiceProcessor=null; inlineVoiceGain=null; inlineVoiceCtx=null; inlineVoiceMic=null;
-        setInlineVoiceError('Microfoon of verbinding lukte niet. Controleer toegang en probeer opnieuw.');
+        let message = 'Microfoon of verbinding lukte niet. Controleer toegang en probeer opnieuw.';
+        if(['NotFoundError','DevicesNotFoundError'].includes(error?.name)) message = 'Firefox vindt geen microfoon. Controleer microfoontoegang en kies een invoerapparaat.';
+        if(['NotAllowedError','PermissionDeniedError'].includes(error?.name)) message = 'Microfoontoegang is geweigerd. Sta de microfoon toe en probeer opnieuw.';
+        if(['OverconstrainedError','ConstraintNotSatisfiedError'].includes(error?.name)) message = 'De microfooninstelling paste niet bij deze browser. Probeer opnieuw; Sophie gebruikt nu een eenvoudigere audio-instelling.';
+        setInlineVoiceError(message);
       }
     }
 
