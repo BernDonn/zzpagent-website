@@ -1332,10 +1332,9 @@
     <span class="voice-orb" aria-hidden="true" data-voice-start><canvas class="voice-reactor"></canvas><span>Live</span></span>
     <div class="voice-panel-content">
       <h3>Praat live met Sophie</h3>
-      <span class="voice-inline-note">Nieuw: direct hier, geen extra scherm</span>
-      <p>Spraakassistent gebouwd door Hermes met Gemini. Klik op de bol of knop; Sophie start in dit paneel.</p>
+      <p>Spraakassistent gebouwd door Hermes met Gemini.</p>
       <div class="sophie-voice-actions">
-        <button class="sophie-voice-start" type="button" data-voice-start>Test nu hier</button>
+        <button class="sophie-voice-start" type="button" data-voice-start>Test nu</button>
       </div>
     </div>
   </div>
@@ -1823,13 +1822,10 @@
         "Praat live met Sophie": "Talk live with Sophie",
         "Laat Sophie jou bellen": "Let Sophie call you",
         "Spraakassistent gebouwd door Hermes met Gemini.": "Voice assistant built by Hermes with Gemini.",
-        "Nieuw: direct hier, geen extra scherm": "New: directly here, no extra screen",
-        "Spraakassistent gebouwd door Hermes met Gemini. Klik op de bol of knop; Sophie start in dit paneel.": "Voice assistant built by Hermes with Gemini. Click the orb or button; Sophie starts in this panel.",
         "Geef svp even je voornaam": "Please enter your first name",
         "Bijv. Anna": "E.g. Anna",
         "Vul je Tel. nummer in": "Enter your phone number",
         "Test nu": "Test now",
-        "Test nu hier": "Test here now",
         "Sluit": "Close",
         "Je naam en nummer worden na de call verwijderd.": "Your name and number are deleted after the call.",
         "Gebouwd door Hermes met Gemini/Twilio.": "Built by Hermes with Gemini/Twilio.",
@@ -2146,10 +2142,10 @@
       voicePanel?.classList.toggle('live-active', active);
       voicePanel?.classList.remove('voice-error');
       document.querySelectorAll('[data-voice-start]').forEach(el => {
-        if(el.tagName === 'BUTTON') el.textContent = active ? 'Stop' : 'Test nu hier';
+        if(el.tagName === 'BUTTON') el.textContent = active ? 'Stop' : 'Test nu';
       });
       const copy=voicePanel?.querySelector('.voice-panel-content p');
-      if(copy) copy.textContent = text || (active ? 'Sophie luistert nu direct in dit paneel.' : 'Spraakassistent gebouwd door Hermes met Gemini. Klik op de bol of knop; Sophie start in dit paneel.');
+      if(copy) copy.textContent = text || (active ? 'Sophie luistert nu direct in dit paneel.' : 'Spraakassistent gebouwd door Hermes met Gemini.');
     }
     function setInlineVoiceError(text){
       inlineVoiceActive=false;
