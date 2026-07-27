@@ -360,7 +360,8 @@
     .floating-voice small{display:block;color:var(--lime);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;line-height:1.1}
     .floating-voice strong{display:block;font-size:16px;line-height:1.15;letter-spacing:-.02em}
     .sophie-voice-panel,.sophie-callback-panel{width:min(235px,calc(100vw - 44px));min-height:9.5cm;align-content:start;justify-items:start}
-    .sophie-voice-panel .voice-orb{width:104px;height:104px;justify-self:center;margin:4px 0 12px;background:radial-gradient(circle at 50% 50%,rgba(215,242,104,.44),rgba(45,98,58,.32) 34%,rgba(8,34,24,.88) 70%,rgba(215,242,104,.18));box-shadow:0 0 36px rgba(215,242,104,.36),0 0 0 5px rgba(215,242,104,.18),inset 0 0 34px rgba(215,242,104,.20)}
+    .sophie-voice-panel .voice-orb{width:104px;height:104px;justify-self:center;margin:4px 0 12px;background:radial-gradient(circle at 50% 50%,rgba(215,242,104,.44),rgba(45,98,58,.32) 34%,rgba(8,34,24,.88) 70%,rgba(215,242,104,.18));box-shadow:0 0 36px rgba(215,242,104,.36),0 0 0 5px rgba(215,242,104,.18),inset 0 0 34px rgba(215,242,104,.20);cursor:pointer}
+    .sophie-voice-panel.live-active .voice-orb{background:radial-gradient(circle at 50% 50%,rgba(25,240,216,.42),rgba(0,229,255,.24) 32%,rgba(7,32,34,.88) 70%,rgba(215,242,104,.16));box-shadow:0 0 38px rgba(25,240,216,.42),0 0 0 5px rgba(215,242,104,.16),inset 0 0 34px rgba(0,229,255,.18)}
     .sophie-voice-panel .voice-orb span{font-size:11px;letter-spacing:.12em;color:#f5ffd4;text-shadow:0 0 16px rgba(215,242,104,.9)}
     .sophie-voice-panel .voice-panel-content{display:grid;gap:13px}
     .sophie-voice-panel p{margin:0;color:#5d6a61;font-size:14px;line-height:1.42}
@@ -1324,7 +1325,7 @@
     <span><small>Sophie</small><strong>Praat live met Sophie</strong></span>
   </button>
   <div class="sophie-voice-panel" id="sophie-voice-panel" aria-hidden="true">
-    <span class="voice-orb" aria-hidden="true"><canvas class="voice-reactor"></canvas><span>Live</span></span>
+    <span class="voice-orb" aria-hidden="true" data-voice-start><canvas class="voice-reactor"></canvas><span>Live</span></span>
     <div class="voice-panel-content">
       <h3>Praat live met Sophie</h3>
       <p>Spraakassistent gebouwd door Hermes met Gemini.</p>
@@ -2106,19 +2107,99 @@
       }catch(error){}
     }
 
-    function openVoiceEntry(){
-      const localVoiceUrl = 'http://127.0.0.1:8789?v=site';
-      const configuredVoiceUrl = window.ZZPAGENT_VOICE_URL || 'https://hepatitis-tub-antenna-strikes.trycloudflare.com?v=site';
-      const isLocalPreview = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-      if(configuredVoiceUrl){
-        window.open(configuredVoiceUrl, '_blank', 'noopener');
-        return;
+    let inlineVoiceWs=null, inlineVoiceMic=null, inlineVoiceCtx=null, inlineVoiceProcessor=null, inlineVoiceGain=null, inlinePlaybackCtx=null, inlineNextPlayback=0, inlineVoiceActive=false;
+    function arrayBufferToBase64(buffer){
+      const bytes=new Uint8Array(buffer); let binary='';
+      for(let i=0;i<bytes.length;i+=0x8000) binary+=String.fromCharCode(...bytes.subarray(i,i+0x8000));
+      return btoa(binary);
+    }
+    function base64ToArrayBuffer(base64){
+      const binary=atob(base64); const bytes=new Uint8Array(binary.length);
+      for(let i=0;i<binary.length;i++) bytes[i]=binary.charCodeAt(i);
+      return bytes.buffer;
+    }
+    function setInlineVoiceState(active, text){
+      inlineVoiceActive=active;
+      voicePanel?.classList.toggle('live-active', active);
+      document.querySelectorAll('[data-voice-start]').forEach(el => {
+        if(el.tagName === 'BUTTON') el.textContent = active ? 'Stop' : 'Test nu';
+      });
+      const copy=voicePanel?.querySelector('.voice-panel-content p');
+      if(copy) copy.textContent = text || (active ? 'Sophie luistert nu direct in dit paneel.' : 'Spraakassistent gebouwd door Hermes met Gemini.');
+    }
+    async function playInlinePcm16(base64){
+      inlinePlaybackCtx ||= new AudioContext({sampleRate:24000});
+      if(inlinePlaybackCtx.state==='suspended') await inlinePlaybackCtx.resume();
+      const pcm=new Int16Array(base64ToArrayBuffer(base64));
+      const audioBuffer=inlinePlaybackCtx.createBuffer(1, pcm.length, 24000);
+      const channel=audioBuffer.getChannelData(0);
+      for(let i=0;i<pcm.length;i++) channel[i]=pcm[i]/32768;
+      const src=inlinePlaybackCtx.createBufferSource();
+      src.buffer=audioBuffer; src.connect(inlinePlaybackCtx.destination);
+      inlineNextPlayback=Math.max(inlineNextPlayback, inlinePlaybackCtx.currentTime+.03);
+      src.start(inlineNextPlayback); inlineNextPlayback+=audioBuffer.duration;
+    }
+    function downsampleTo16k(input, sourceRate){
+      const targetRate=16000;
+      if(sourceRate===targetRate){
+        const out=new Int16Array(input.length);
+        for(let i=0;i<input.length;i++) out[i]=Math.max(-1,Math.min(1,input[i]))*32767;
+        return out.buffer;
       }
-      if(isLocalPreview){
-        window.open(localVoiceUrl, '_blank', 'noopener');
-        return;
+      const ratio=sourceRate/targetRate, newLength=Math.round(input.length/ratio), out=new Int16Array(newLength);
+      for(let i=0;i<newLength;i++){
+        const start=Math.floor(i*ratio), end=Math.min(input.length, Math.floor((i+1)*ratio));
+        let sum=0, count=0;
+        for(let j=start;j<end;j++){ sum+=input[j]; count++; }
+        out[i]=Math.max(-1,Math.min(1,sum/Math.max(1,count)))*32767;
       }
-      openCrispWithVoiceContext();
+      return out.buffer;
+    }
+    function stopInlineVoice(){
+      try{ inlineVoiceWs?.send(JSON.stringify({type:'audio_end'})); }catch(e){}
+      try{ inlineVoiceWs?.close(); }catch(e){}
+      try{ inlineVoiceProcessor?.disconnect(); }catch(e){}
+      try{ inlineVoiceGain?.disconnect(); }catch(e){}
+      try{ inlineVoiceCtx?.close(); }catch(e){}
+      try{ inlineVoiceMic?.getTracks().forEach(t=>t.stop()); }catch(e){}
+      inlineVoiceWs=null; inlineVoiceProcessor=null; inlineVoiceGain=null; inlineVoiceCtx=null; inlineVoiceMic=null;
+      setInlineVoiceState(false);
+    }
+    async function openVoiceEntry(){
+      if(inlineVoiceActive){ stopInlineVoice(); return; }
+      if(!voicePanel) return;
+      setInlineVoiceState(true, 'Microfoon openen…');
+      try{
+        const endpointBase=callbackEndpointBase();
+        const wsUrl=endpointBase.replace(/^https:/,'wss:').replace(/^http:/,'ws:') + '/ws/live';
+        inlineVoiceWs=new WebSocket(wsUrl);
+        inlineVoiceWs.addEventListener('message', async (event) => {
+          try{
+            const msg=JSON.parse(event.data);
+            if(msg.type==='audio' && msg.data) await playInlinePcm16(msg.data);
+            if(msg.type==='status' && msg.status==='ready') setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
+            if(msg.type==='input_transcript') setInlineVoiceState(true, 'Sophie luistert…');
+            if(msg.type==='output_transcript') setInlineVoiceState(true, 'Sophie antwoordt…');
+            if(msg.type==='error') setInlineVoiceState(true, 'Sophie heeft verbindingsproblemen. Probeer straks opnieuw.');
+          }catch(e){}
+        });
+        await new Promise((resolve,reject)=>{ inlineVoiceWs.addEventListener('open',resolve,{once:true}); inlineVoiceWs.addEventListener('error',reject,{once:true}); });
+        inlinePlaybackCtx ||= new AudioContext({sampleRate:24000});
+        inlineVoiceMic=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true,autoGainControl:true},video:false});
+        inlineVoiceCtx=new AudioContext();
+        const source=inlineVoiceCtx.createMediaStreamSource(inlineVoiceMic);
+        inlineVoiceProcessor=inlineVoiceCtx.createScriptProcessor(4096,1,1);
+        inlineVoiceGain=inlineVoiceCtx.createGain(); inlineVoiceGain.gain.value=0;
+        inlineVoiceProcessor.onaudioprocess=(e)=>{
+          if(!inlineVoiceWs || inlineVoiceWs.readyState!==WebSocket.OPEN) return;
+          inlineVoiceWs.send(JSON.stringify({type:'audio',mimeType:'audio/pcm;rate=16000',data:arrayBufferToBase64(downsampleTo16k(e.inputBuffer.getChannelData(0), inlineVoiceCtx.sampleRate))}));
+        };
+        source.connect(inlineVoiceProcessor); inlineVoiceProcessor.connect(inlineVoiceGain); inlineVoiceGain.connect(inlineVoiceCtx.destination);
+        setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
+      }catch(error){
+        setInlineVoiceState(false, 'Microfoon of verbinding lukte niet. Controleer toegang en probeer opnieuw.');
+        stopInlineVoice();
+      }
     }
 
     const voicePanel = document.getElementById('sophie-voice-panel');
@@ -2163,7 +2244,7 @@
         rot += 0.45;
         const W = canvas.width, H = canvas.height, cx = W/2, cy = H/2, base = Math.min(W,H)*0.38;
         ctx.clearRect(0,0,W,H);
-        const color = '#d7f268';
+        const color = canvas.closest('.live-active') ? '#19f0d8' : '#d7f268';
         ctx.shadowColor = color; ctx.shadowBlur = 16 * devicePixelRatio;
         const pulse = 1 + Math.sin(t/320) * 0.035;
         ring(cx, cy, base*pulse, 1.6*devicePixelRatio, color, .9);
@@ -2246,14 +2327,15 @@
       });
       if(callbackStatus){ callbackStatus.textContent='Terugbelverzoek wordt klaargezet…'; callbackStatus.className='sophie-callback-status'; }
       try{
-        await fetch(callbackEndpointBase() + '/visitor-ping', {
+        const response = await fetch(callbackEndpointBase() + '/visitor-ping', {
           method:'POST',
-          mode:'no-cors',
-          headers:{'Content-Type':'text/plain;charset=UTF-8'},
+          mode:'cors',
+          headers:{'Content-Type':'application/json'},
           body:payload,
           keepalive:true
         });
-        if(callbackStatus){ callbackStatus.textContent='Dank je. Sophie heeft je nummer ontvangen.'; callbackStatus.className='sophie-callback-status ok'; }
+        if(!response.ok) throw new Error('callback_failed');
+        if(callbackStatus){ callbackStatus.textContent='Dank je. Sophie belt je nu.'; callbackStatus.className='sophie-callback-status ok'; }
         callbackForm.reset();
       }catch(error){
         if(callbackStatus){ callbackStatus.textContent='Dit lukte niet. Probeer straks opnieuw of gebruik WhatsApp.'; callbackStatus.className='sophie-callback-status err'; }
