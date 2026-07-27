@@ -199,6 +199,7 @@
     }
     .nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:18px 24px;gap:20px}
     .nav-left{display:flex;align-items:center;gap:14px;min-width:0;flex-shrink:0}
+    .nav-compact-actions{display:flex;align-items:center;gap:8px;min-width:0}
     .brand{font-weight:800;letter-spacing:-.04em;font-size:22px;display:flex;align-items:center;gap:10px;white-space:nowrap;flex-shrink:0}
     .brand-dot{width:12px;height:12px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 6px rgba(215,242,104,.23)}
     .nav-links{display:flex;gap:14px;align-items:center;font-size:13px;color:#303832;margin-left:auto}
@@ -540,6 +541,10 @@
     @media(max-width:900px){
       .nav-inner{padding:14px 20px}
       .nav-left{width:100%;justify-content:space-between}
+      .nav-compact-actions{margin-left:auto;gap:7px;justify-content:flex-end}
+      .nav-compact-actions .mobile-qa-link{padding:10px 11px;font-size:12px}
+      .nav-compact-actions .language-toggle{padding:4px;gap:4px}
+      .nav-compact-actions .language-toggle button{padding:7px 8px}
       .section{padding:64px 20px}
       .hero,.two-col,.proof,.footer-cta,.trust-layout,.compare-grid,.why-grid{grid-template-columns:1fr}
       .why-video-card{grid-column:1;margin-top:18px}
@@ -654,12 +659,14 @@
     <div class="nav-inner">
       <div class="nav-left">
         <a class="brand" href="#"><span class="brand-dot"></span>ZZPagent<span style="color:var(--green)">.</span></a>
-        <div class="language-toggle" aria-label="Language selector">
-          <button type="button" class="active" data-lang-button="nl">NL</button>
-          <button type="button" data-lang-button="en">EN</button>
+        <div class="nav-compact-actions">
+          <a class="mobile-qa-link" href="#faq" data-open-panel="faq">Q&A</a>
+          <a class="mobile-qa-link" href="/quickscan/">Quickscan</a>
+          <div class="language-toggle" aria-label="Language selector">
+            <button type="button" class="active" data-lang-button="nl">NL</button>
+            <button type="button" data-lang-button="en">EN</button>
+          </div>
         </div>
-        <a class="mobile-qa-link" href="#faq" data-open-panel="faq">Q&A</a>
-        <a class="mobile-qa-link" href="/quickscan/">Quickscan</a>
       </div>
       <div class="nav-links">
         <a href="#oplossingen">Oplossingen</a>
