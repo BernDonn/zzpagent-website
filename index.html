@@ -347,10 +347,12 @@
     .voice-entry p{margin:0;color:#546259;font-size:14px;line-height:1.45}
     .voice-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.voice-actions .button{padding:9px 12px;font-size:13px;box-shadow:none}.voice-actions .button.secondary{background:#f0e6d6;color:var(--green);border-color:rgba(22,63,43,.16)}
     .voice-note{margin-top:9px;color:#5d6a61;font-size:12.5px;line-height:1.4}
-    .floating-voice{position:fixed;left:22px;bottom:22px;z-index:999;display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;max-width:min(350px,calc(100vw - 44px));border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,#10291f,#163f2b);color:#fffaf1;border-radius:999px;padding:10px 18px 10px 10px;box-shadow:0 18px 50px rgba(16,41,31,.28);cursor:pointer;font:inherit;text-align:left}
-    .floating-voice .voice-orb{width:54px;height:54px;box-shadow:0 0 24px rgba(0,229,255,.28),inset 0 0 20px rgba(0,229,255,.16)}
+    .floating-voice{position:fixed;left:22px;bottom:22px;z-index:999;display:grid;grid-template-rows:auto auto 1fr auto;gap:10px;align-items:start;width:min(4cm,calc(50vw - 18px));min-height:8cm;border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,#10291f,#163f2b);color:#fffaf1;border-radius:24px;padding:14px;box-shadow:0 18px 50px rgba(16,41,31,.28);cursor:pointer;font:inherit;text-align:left}
+    .floating-voice .voice-orb{width:58px;height:58px;box-shadow:0 0 24px rgba(0,229,255,.28),inset 0 0 20px rgba(0,229,255,.16)}
     .floating-voice small{display:block;color:var(--lime);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;line-height:1.1}
-    .floating-voice strong{display:block;font-size:16px;line-height:1.15;letter-spacing:-.02em}
+    .floating-voice strong{display:block;font-size:18px;line-height:1.12;letter-spacing:-.03em}
+    .floating-voice p{margin:0;color:#dce9df;font-size:12.5px;line-height:1.35}
+    .voice-start-pill{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:var(--lime);color:var(--green);padding:9px 11px;font-size:12px;font-weight:900;box-shadow:0 10px 24px rgba(215,242,104,.28)}
     .crisp-client{display:none!important;visibility:hidden!important;pointer-events:none!important}
     .sophie-call-widget{position:fixed;right:22px;bottom:22px;z-index:1000;display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:center;max-width:min(360px,calc(100vw - 44px));border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,#fffaf1,#f2eadc);color:var(--green);border-radius:999px;padding:9px 18px 9px 9px;box-shadow:0 18px 50px rgba(16,41,31,.20);font:inherit;text-align:left}
     .sophie-call-widget:hover{transform:translateY(-1px);box-shadow:0 22px 58px rgba(16,41,31,.25)}
@@ -362,13 +364,7 @@
     .sophie-call-widget em{display:block;font-style:normal;color:#687568;font-size:12px;line-height:1.25;margin-top:2px}
     .sophie-callback-panel,.sophie-voice-panel{position:fixed;bottom:92px;z-index:1001;width:min(330px,calc(100vw - 44px));background:rgba(255,250,241,.98);border:1px solid rgba(22,63,43,.16);border-radius:24px;padding:14px;box-shadow:0 22px 58px rgba(16,41,31,.22);color:var(--green);display:none}.sophie-callback-panel{right:22px}.sophie-voice-panel{left:22px}
     .sophie-callback-panel.open,.sophie-voice-panel.open{display:block}.sophie-callback-panel h3,.sophie-voice-panel h3{font-size:18px;margin:0 0 5px;color:#17240f;letter-spacing:-.03em}.sophie-callback-panel p,.sophie-voice-panel p{font-size:13px;line-height:1.38;margin:0 0 11px;color:#5d6a61}.sophie-callback-panel .sophie-callback-tech{font-size:11px;line-height:1.25;margin-bottom:13px;color:#687568}.sophie-callback-form{display:grid;gap:8px}.sophie-callback-form label{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:#415147}.sophie-callback-form input{width:100%;border:1px solid rgba(22,63,43,.18);background:#fff;border-radius:999px;padding:11px 13px;font:inherit;color:#17240f}.sophie-callback-form input:focus{outline:2px solid rgba(215,242,104,.85);border-color:rgba(22,63,43,.35)}.sophie-callback-actions,.sophie-voice-actions{display:flex;gap:8px;align-items:center}.sophie-callback-actions button,.sophie-voice-actions button{border:1px solid var(--green);border-radius:999px;padding:10px 13px;font:inherit;font-weight:850;cursor:pointer}.sophie-callback-submit,.sophie-voice-start{background:var(--lime);color:var(--green);border-color:var(--lime);box-shadow:0 10px 24px rgba(215,242,104,.32)}.sophie-callback-close,.sophie-voice-close{background:transparent;color:var(--green)}.sophie-callback-status{font-size:12.5px;color:#5d6a61;min-height:18px}.sophie-callback-status.ok{color:#1d6a3b}.sophie-callback-status.err{color:#9a2d2d}
-    .hermes-showcase-nudge{position:fixed;left:22px;right:22px;bottom:104px;z-index:998;display:grid;grid-template-columns:minmax(190px,1fr) auto minmax(190px,1fr);gap:16px;align-items:end;pointer-events:none;opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .55s ease}
-    .hermes-showcase-nudge.visible{opacity:1;transform:translateY(0)}
-    .showcase-pill{background:rgba(255,250,241,.96);border:1px solid rgba(22,63,43,.14);border-radius:22px;padding:12px 15px;box-shadow:0 18px 44px rgba(16,41,31,.16);color:var(--green);font-size:13px;line-height:1.32;max-width:330px}
-    .showcase-pill strong{display:block;font-size:14px;margin-bottom:3px;color:#17240f}.showcase-pill span{color:#5d6a61}
-    .showcase-pill.left{text-align:left;justify-self:start}.showcase-pill.right{text-align:right;justify-self:end}
-    .showcase-title{align-self:center;justify-self:center;background:linear-gradient(135deg,#10291f,#163f2b);color:#fffaf1;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:10px 16px;box-shadow:0 18px 44px rgba(16,41,31,.20);font-size:13px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
-    .showcase-arrow{display:inline-block;color:var(--lime);font-size:22px;font-weight:900;line-height:1;vertical-align:-2px}.showcase-pill.left .showcase-arrow{margin-right:7px}.showcase-pill.right .showcase-arrow{margin-left:7px}
+
     .status{color:#bde9c5;font-size:13px}
     .metric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:12px;border-radius:18px;color:#fff}
     .chat{margin-top:22px;display:grid;gap:12px;position:relative;z-index:1}
@@ -591,17 +587,17 @@
       .hero .hero-phone-screen .tg-input-bar{left:7px;right:7px;bottom:9px;padding:5px 8px}
       .voice-orb{width:74px;height:74px}
       .voice-actions .button{width:100%;justify-content:center}
-      .floating-voice{left:14px;bottom:14px;grid-template-columns:48px 1fr;max-width:calc(50vw - 18px);padding:8px 14px 8px 8px}
-      .floating-voice .voice-orb{width:48px;height:48px}
-      .floating-voice strong{font-size:15px}
+      .floating-voice{left:14px;bottom:14px;width:calc(50vw - 18px);min-height:7.4cm;padding:12px}
+      .floating-voice .voice-orb{width:50px;height:50px}
+      .floating-voice strong{font-size:16px}
+      .floating-voice p{font-size:11.5px}
       .sophie-call-widget{right:14px;bottom:14px;grid-template-columns:48px 1fr;max-width:calc(50vw - 18px);padding:8px 14px 8px 8px}
       .sophie-call-photo{width:48px;height:48px}
       .sophie-call-photo:before{width:20px;height:20px;top:9px;box-shadow:0 16px 0 11px #fff1df}
       .sophie-call-widget strong{font-size:14px}
       .sophie-call-widget em{display:none}
       .sophie-callback-panel,.sophie-voice-panel{bottom:88px;width:calc(100vw - 28px)}.sophie-callback-panel{right:14px}.sophie-voice-panel{left:14px}
-      .hermes-showcase-nudge{left:14px;right:14px;bottom:92px;grid-template-columns:1fr;gap:8px;align-items:stretch}
-      .showcase-title{order:0;justify-self:center;font-size:12px;padding:8px 12px}.showcase-pill{max-width:none;font-size:12px;padding:10px 12px}.showcase-pill.left,.showcase-pill.right{text-align:left;justify-self:stretch}.showcase-pill.right .showcase-arrow{margin-left:0;margin-right:7px}.showcase-pill.right .showcase-arrow:before{content:"←"}.showcase-pill.right .showcase-arrow{font-size:0}.showcase-pill.right .showcase-arrow:before{font-size:20px}
+
       .hero .agent-card{margin-top:0}
       .trust-stack{margin-top:32px}
       .trust-item{grid-template-columns:42px 1fr 24px;padding:14px}
@@ -1309,17 +1305,11 @@
       <div><a href="#voorwaarden">Voorwaarden</a> · <a href="#privacy">Privacybeleid</a> · Gebouwd voor ZZP met Bernard's AI visie.</div>
     </div>
   </footer>
-  <button class="floating-voice" type="button" data-voice-action aria-label="Praat live met Sophie">
+  <div class="floating-voice" id="sophie-floating-panel" data-voice-action aria-label="Praat live met Sophie">
     <span class="voice-orb" aria-hidden="true"><canvas class="voice-reactor"></canvas></span>
-    <span><small>Sophie</small><strong>Praat live met Sophie</strong></span>
-  </button>
-  <div class="sophie-voice-panel" id="sophie-voice-panel" aria-hidden="true">
-    <h3>Praat live met Sophie</h3>
+    <div><small>Sophie</small><strong>Praat live met Sophie</strong></div>
     <p>Test onze spraakassistent gebouwd door Hermes met Gemini.</p>
-    <div class="sophie-voice-actions">
-      <button class="sophie-voice-start" type="button" data-voice-start>Praat nu</button>
-      <button class="sophie-voice-close" type="button" data-voice-close>Sluit</button>
-    </div>
+    <button class="voice-start-pill" type="button" data-voice-start>Praat nu</button>
   </div>
   <button class="sophie-call-widget" type="button" data-callback-open aria-label="Laat Sophie jou bellen">
     <span class="sophie-call-photo" aria-hidden="true"><img src="/assets/sophie-hermes.png" alt=""></span>
@@ -1331,19 +1321,14 @@
     <form class="sophie-callback-form" id="sophie-callback-form">
       <label for="sophie-callback-phone">Vul je Tel. nummer in</label>
       <input id="sophie-callback-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Bijv. 06 12 34 56 78" required>
-      <label for="sophie-callback-note">Vraag (optioneel)</label>
-      <input id="sophie-callback-note" name="note" type="text" maxlength="160" placeholder="Waar mag Sophie over beginnen?">
+      <label for="sophie-callback-note">Je voornaam</label>
+      <input id="sophie-callback-note" name="note" type="text" maxlength="160" placeholder="Bijv. Anna">
       <div class="sophie-callback-actions">
         <button class="sophie-callback-submit" type="submit">Test nu</button>
         <button class="sophie-callback-close" type="button" data-callback-close>Sluit</button>
       </div>
       <div class="sophie-callback-status" id="sophie-callback-status" role="status"></div>
     </form>
-  </div>
-  <div class="hermes-showcase-nudge" id="hermes-showcase-nudge" aria-live="polite" aria-hidden="true">
-    <div class="showcase-pill left"><span class="showcase-arrow" aria-hidden="true">←</span><strong>Bij de linkse</strong><span>praat je direct met Sophie.</span></div>
-    <div class="showcase-title">Hermes Showcases</div>
-    <div class="showcase-pill right"><strong>Bij de rechtse</strong><span>belt Sophie jou op. Je geeft eerst even je tel. nummer.</span><span class="showcase-arrow" aria-hidden="true">→</span></div>
   </div>
   <script>
     const translations = {
@@ -1809,15 +1794,10 @@
         "Praat met Sophie": "Talk to Sophie",
         "Praat live met Sophie": "Talk live with Sophie",
         "Laat Sophie jou bellen": "Let Sophie call you",
-        "Hermes Showcases": "Hermes showcases",
-        "Bij de linkse": "On the left",
-        "praat je direct met Sophie.": "you talk directly with Sophie.",
-        "Bij de rechtse": "On the right",
-        "belt Sophie jou op. Je geeft eerst even je tel. nummer.": "Sophie calls you. You first leave your phone number.",
+        "Test onze spraakassistent gebouwd door Hermes met Gemini.": "Test our voice assistant built by Hermes with Gemini.",
+        "Je voornaam": "Your first name",
+        "Bijv. Anna": "E.g. Anna",
         "Vul je Tel. nummer in": "Enter your phone number",
-        "Vraag (optioneel)": "Question (optional)",
-        "Waar mag Sophie over beginnen?": "What should Sophie start with?",
-        "Test nu": "Test now",
         "Sluit": "Close",
         "Gebouwd door Hermes met Gemini/Twilio.": "Built by Hermes with Gemini/Twilio.",
         "Praat nu": "Talk now",
@@ -2118,29 +2098,16 @@
       openCrispWithVoiceContext();
     }
 
-    const voicePanel = document.getElementById('sophie-voice-panel');
     const callbackPanel = document.getElementById('sophie-callback-panel');
-    function openVoicePanel(){
-      if(!voicePanel){ openVoiceEntry(); return; }
-      if(voicePanel.classList.contains('open')){ closeVoicePanel(); return; }
-      closeCallbackPanel();
-      voicePanel.classList.add('open');
-      voicePanel.setAttribute('aria-hidden', 'false');
-    }
-    function closeVoicePanel(){
-      if(!voicePanel) return;
-      voicePanel.classList.remove('open');
-      voicePanel.setAttribute('aria-hidden', 'true');
-    }
-
-    document.querySelectorAll('[data-voice-action]').forEach(button => {
-      button.addEventListener('click', openVoicePanel);
-    });
     document.querySelectorAll('[data-voice-start]').forEach(button => {
       button.addEventListener('click', openVoiceEntry);
     });
-    document.querySelectorAll('[data-voice-close]').forEach(button => {
-      button.addEventListener('click', closeVoicePanel);
+    // The floating-voice panel itself is always visible; clicking anywhere does openVoiceEntry
+    document.querySelectorAll('#sophie-floating-panel').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if(e.target.closest('[data-voice-start]')) return; // already handled above
+        openVoiceEntry();
+      });
     });
     document.querySelectorAll('[data-crisp-open]').forEach(button => {
       button.addEventListener('click', openCrispWithVoiceContext);
@@ -2191,14 +2158,6 @@
 
     document.querySelectorAll('.voice-reactor').forEach(drawVoiceReactor);
 
-    const showcaseNudge = document.getElementById('hermes-showcase-nudge');
-    if(showcaseNudge){
-      setTimeout(() => {
-        showcaseNudge.classList.add('visible');
-        showcaseNudge.setAttribute('aria-hidden', 'false');
-      }, 30000);
-    }
-
     const callbackForm = document.getElementById('sophie-callback-form');
     const callbackStatus = document.getElementById('sophie-callback-status');
     const callbackPhone = document.getElementById('sophie-callback-phone');
@@ -2218,7 +2177,6 @@
     function openCallbackPanel(){
       if(!callbackPanel) return;
       if(callbackPanel.classList.contains('open')){ closeCallbackPanel(); return; }
-      closeVoicePanel();
       callbackPanel.classList.add('open');
       callbackPanel.setAttribute('aria-hidden', 'false');
       if(callbackStatus){ callbackStatus.textContent=''; callbackStatus.className='sophie-callback-status'; }
@@ -2273,4 +2231,4 @@
     setLanguage(localStorage.getItem('zzpAgentLang') || 'nl');
   </script>
 </body>
-</html>
+</html> 
