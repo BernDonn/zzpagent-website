@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-  <Say language="nl-NL">Hallo, je spreekt met Sophie van ZZPagent. Dit is een korte telefoondemo. Ik laat horen hoe een AI-assistent aan de telefoon kan openen. De echte intake volgt later.</Say>
-  <Pause length="1"/>
-  <Say language="nl-NL">Dank je wel voor het testen. Je kunt nu ophangen.</Say>
+  <Connect>
+    <Stream url="wss://regional-maintaining-perl-dive.trycloudflare.com/ws/twilio" />
+  </Connect>
 </Response>
