@@ -361,8 +361,9 @@
     .floating-voice strong{display:block;font-size:16px;line-height:1.15;letter-spacing:-.02em}
     .sophie-voice-panel,.sophie-callback-panel{width:min(235px,calc(100vw - 44px));min-height:9.5cm;align-content:start;justify-items:start}
     .sophie-voice-panel .voice-orb{width:104px;height:104px;justify-self:center;margin:4px 0 12px;background:radial-gradient(circle at 50% 50%,rgba(215,242,104,.44),rgba(45,98,58,.32) 34%,rgba(8,34,24,.88) 70%,rgba(215,242,104,.18));box-shadow:0 0 36px rgba(215,242,104,.36),0 0 0 5px rgba(215,242,104,.18),inset 0 0 34px rgba(215,242,104,.20);cursor:pointer}
-    .sophie-voice-panel.live-active .voice-orb{background:radial-gradient(circle at 50% 50%,rgba(25,240,216,.42),rgba(0,229,255,.24) 32%,rgba(7,32,34,.88) 70%,rgba(215,242,104,.16));box-shadow:0 0 38px rgba(25,240,216,.42),0 0 0 5px rgba(215,242,104,.16),inset 0 0 34px rgba(0,229,255,.18)}
+    .sophie-voice-panel.live-active .voice-orb,.sophie-voice-panel.voice-error .voice-orb{background:radial-gradient(circle at 50% 50%,rgba(25,240,216,.42),rgba(0,229,255,.24) 32%,rgba(7,32,34,.88) 70%,rgba(215,242,104,.16));box-shadow:0 0 38px rgba(25,240,216,.42),0 0 0 5px rgba(215,242,104,.16),inset 0 0 34px rgba(0,229,255,.18)}
     .sophie-voice-panel .voice-orb span{font-size:11px;letter-spacing:.12em;color:#f5ffd4;text-shadow:0 0 16px rgba(215,242,104,.9)}
+    .sophie-voice-panel .voice-inline-note{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(25,240,216,.24);background:rgba(25,240,216,.09);color:#174137;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
     .sophie-voice-panel .voice-panel-content{display:grid;gap:13px}
     .sophie-voice-panel p{margin:0;color:#5d6a61;font-size:14px;line-height:1.42}
     .crisp-client{display:none!important;visibility:hidden!important;pointer-events:none!important}
@@ -1328,9 +1329,10 @@
     <span class="voice-orb" aria-hidden="true" data-voice-start><canvas class="voice-reactor"></canvas><span>Live</span></span>
     <div class="voice-panel-content">
       <h3>Praat live met Sophie</h3>
-      <p>Spraakassistent gebouwd door Hermes met Gemini.</p>
+      <span class="voice-inline-note">Nieuw: direct hier, geen extra scherm</span>
+      <p>Spraakassistent gebouwd door Hermes met Gemini. Klik op de bol of knop; Sophie start in dit paneel.</p>
       <div class="sophie-voice-actions">
-        <button class="sophie-voice-start" type="button" data-voice-start>Test nu</button>
+        <button class="sophie-voice-start" type="button" data-voice-start>Test nu hier</button>
       </div>
     </div>
   </div>
@@ -1818,10 +1820,13 @@
         "Praat live met Sophie": "Talk live with Sophie",
         "Laat Sophie jou bellen": "Let Sophie call you",
         "Spraakassistent gebouwd door Hermes met Gemini.": "Voice assistant built by Hermes with Gemini.",
+        "Nieuw: direct hier, geen extra scherm": "New: directly here, no extra screen",
+        "Spraakassistent gebouwd door Hermes met Gemini. Klik op de bol of knop; Sophie start in dit paneel.": "Voice assistant built by Hermes with Gemini. Click the orb or button; Sophie starts in this panel.",
         "Geef svp even je voornaam": "Please enter your first name",
         "Bijv. Anna": "E.g. Anna",
         "Vul je Tel. nummer in": "Enter your phone number",
         "Test nu": "Test now",
+        "Test nu hier": "Test here now",
         "Sluit": "Close",
         "Je naam en nummer worden na de call verwijderd.": "Your name and number are deleted after the call.",
         "Gebouwd door Hermes met Gemini/Twilio.": "Built by Hermes with Gemini/Twilio.",
@@ -2121,11 +2126,22 @@
     function setInlineVoiceState(active, text){
       inlineVoiceActive=active;
       voicePanel?.classList.toggle('live-active', active);
+      voicePanel?.classList.remove('voice-error');
       document.querySelectorAll('[data-voice-start]').forEach(el => {
-        if(el.tagName === 'BUTTON') el.textContent = active ? 'Stop' : 'Test nu';
+        if(el.tagName === 'BUTTON') el.textContent = active ? 'Stop' : 'Test nu hier';
       });
       const copy=voicePanel?.querySelector('.voice-panel-content p');
-      if(copy) copy.textContent = text || (active ? 'Sophie luistert nu direct in dit paneel.' : 'Spraakassistent gebouwd door Hermes met Gemini.');
+      if(copy) copy.textContent = text || (active ? 'Sophie luistert nu direct in dit paneel.' : 'Spraakassistent gebouwd door Hermes met Gemini. Klik op de bol of knop; Sophie start in dit paneel.');
+    }
+    function setInlineVoiceError(text){
+      inlineVoiceActive=false;
+      voicePanel?.classList.remove('live-active');
+      voicePanel?.classList.add('voice-error');
+      document.querySelectorAll('[data-voice-start]').forEach(el => {
+        if(el.tagName === 'BUTTON') el.textContent = 'Probeer opnieuw';
+      });
+      const copy=voicePanel?.querySelector('.voice-panel-content p');
+      if(copy) copy.textContent = text || 'Microfoon of verbinding lukte niet. Controleer toegang en probeer opnieuw.';
     }
     async function playInlinePcm16(base64){
       inlinePlaybackCtx ||= new AudioContext({sampleRate:24000});
@@ -2197,8 +2213,13 @@
         source.connect(inlineVoiceProcessor); inlineVoiceProcessor.connect(inlineVoiceGain); inlineVoiceGain.connect(inlineVoiceCtx.destination);
         setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
       }catch(error){
-        setInlineVoiceState(false, 'Microfoon of verbinding lukte niet. Controleer toegang en probeer opnieuw.');
-        stopInlineVoice();
+        try{ inlineVoiceWs?.close(); }catch(e){}
+        try{ inlineVoiceProcessor?.disconnect(); }catch(e){}
+        try{ inlineVoiceGain?.disconnect(); }catch(e){}
+        try{ inlineVoiceCtx?.close(); }catch(e){}
+        try{ inlineVoiceMic?.getTracks().forEach(t=>t.stop()); }catch(e){}
+        inlineVoiceWs=null; inlineVoiceProcessor=null; inlineVoiceGain=null; inlineVoiceCtx=null; inlineVoiceMic=null;
+        setInlineVoiceError('Microfoon of verbinding lukte niet. Controleer toegang en probeer opnieuw.');
       }
     }
 
