@@ -360,6 +360,15 @@
     .sophie-call-widget small{display:block;color:#5d6a61;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;line-height:1.1}
     .sophie-call-widget strong{display:block;font-size:16px;line-height:1.16;letter-spacing:-.02em}
     .sophie-call-widget em{display:block;font-style:normal;color:#687568;font-size:12px;line-height:1.25;margin-top:2px}
+    .sophie-callback-panel{position:fixed;right:22px;bottom:98px;z-index:1001;width:min(360px,calc(100vw - 44px));background:rgba(255,250,241,.98);border:1px solid rgba(22,63,43,.16);border-radius:26px;padding:16px;box-shadow:0 24px 70px rgba(16,41,31,.24);color:var(--green);display:none}
+    .sophie-callback-panel.open{display:block}.sophie-callback-panel h3{font-size:19px;margin:0 0 5px;color:#17240f;letter-spacing:-.03em}.sophie-callback-panel p{font-size:13px;line-height:1.42;margin:0 0 12px;color:#5d6a61}.sophie-callback-form{display:grid;gap:9px}.sophie-callback-form label{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:#415147}.sophie-callback-form input{width:100%;border:1px solid rgba(22,63,43,.18);background:#fff;border-radius:999px;padding:12px 14px;font:inherit;color:#17240f}.sophie-callback-form input:focus{outline:2px solid rgba(215,242,104,.85);border-color:rgba(22,63,43,.35)}.sophie-callback-actions{display:flex;gap:8px;align-items:center}.sophie-callback-actions button{border:1px solid var(--green);border-radius:999px;padding:11px 14px;font:inherit;font-weight:850;cursor:pointer}.sophie-callback-submit{background:var(--green);color:#fffaf1}.sophie-callback-close{background:transparent;color:var(--green)}.sophie-callback-status{font-size:12.5px;color:#5d6a61;min-height:18px}.sophie-callback-status.ok{color:#1d6a3b}.sophie-callback-status.err{color:#9a2d2d}
+    .hermes-showcase-nudge{position:fixed;left:22px;right:22px;bottom:104px;z-index:998;display:grid;grid-template-columns:minmax(190px,1fr) auto minmax(190px,1fr);gap:16px;align-items:end;pointer-events:none;opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .55s ease}
+    .hermes-showcase-nudge.visible{opacity:1;transform:translateY(0)}
+    .showcase-pill{background:rgba(255,250,241,.96);border:1px solid rgba(22,63,43,.14);border-radius:22px;padding:12px 15px;box-shadow:0 18px 44px rgba(16,41,31,.16);color:var(--green);font-size:13px;line-height:1.32;max-width:330px}
+    .showcase-pill strong{display:block;font-size:14px;margin-bottom:3px;color:#17240f}.showcase-pill span{color:#5d6a61}
+    .showcase-pill.left{text-align:left;justify-self:start}.showcase-pill.right{text-align:right;justify-self:end}
+    .showcase-title{align-self:center;justify-self:center;background:linear-gradient(135deg,#10291f,#163f2b);color:#fffaf1;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:10px 16px;box-shadow:0 18px 44px rgba(16,41,31,.20);font-size:13px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+    .showcase-arrow{display:inline-block;color:var(--lime);font-size:22px;font-weight:900;line-height:1;vertical-align:-2px}.showcase-pill.left .showcase-arrow{margin-right:7px}.showcase-pill.right .showcase-arrow{margin-left:7px}
     .status{color:#bde9c5;font-size:13px}
     .metric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:12px;border-radius:18px;color:#fff}
     .chat{margin-top:22px;display:grid;gap:12px;position:relative;z-index:1}
@@ -590,6 +599,9 @@
       .sophie-call-photo:before{width:20px;height:20px;top:9px;box-shadow:0 16px 0 11px #fff1df}
       .sophie-call-widget strong{font-size:14px}
       .sophie-call-widget em{display:none}
+      .sophie-callback-panel{right:14px;bottom:88px;width:calc(100vw - 28px)}
+      .hermes-showcase-nudge{left:14px;right:14px;bottom:92px;grid-template-columns:1fr;gap:8px;align-items:stretch}
+      .showcase-title{order:0;justify-self:center;font-size:12px;padding:8px 12px}.showcase-pill{max-width:none;font-size:12px;padding:10px 12px}.showcase-pill.left,.showcase-pill.right{text-align:left;justify-self:stretch}.showcase-pill.right .showcase-arrow{margin-left:0;margin-right:7px}.showcase-pill.right .showcase-arrow:before{content:"←"}.showcase-pill.right .showcase-arrow{font-size:0}.showcase-pill.right .showcase-arrow:before{font-size:20px}
       .hero .agent-card{margin-top:0}
       .trust-stack{margin-top:32px}
       .trust-item{grid-template-columns:42px 1fr 24px;padding:14px}
@@ -642,7 +654,7 @@
       var key="zzpagent_visitor_ping_sent_v2";
       if (window.sessionStorage && sessionStorage.getItem(key)) return;
       if (window.sessionStorage) sessionStorage.setItem(key,"1");
-      var endpointBase=(window.ZZPAGENT_VOICE_URL || "https://charging-amino-compression-sonic.trycloudflare.com?v=site").replace(/[?#].*$/, '').replace(/\/$/, '');
+      var endpointBase=(window.ZZPAGENT_VOICE_URL || "https://hepatitis-tub-antenna-strikes.trycloudflare.com?v=site").replace(/[?#].*$/, '').replace(/\/$/, '');
       var visitorId;
       try {
         visitorId=localStorage.getItem('zzpagent_visitor_id_v1');
@@ -1301,10 +1313,30 @@
     <span class="voice-orb" aria-hidden="true"><canvas class="voice-reactor"></canvas></span>
     <span><small>Sophie</small><strong>Praat live met Sophie</strong></span>
   </button>
-  <a class="sophie-call-widget" href="tel:+3197006531777" aria-label="Bel Sophie van ZZPagent">
+  <button class="sophie-call-widget" type="button" data-callback-open aria-label="Laat Sophie jou bellen">
     <span class="sophie-call-photo" aria-hidden="true"><img src="/assets/sophie-hermes.png" alt=""></span>
-    <span><small>Telefoon-demo</small><strong>Bel Sophie</strong><em>Live met de gekozen Sophie-stem</em></span>
-  </a>
+    <span><strong>Laat Sophie jou bellen</strong></span>
+  </button>
+  <div class="sophie-callback-panel" id="sophie-callback-panel" aria-hidden="true">
+    <h3>Laat Sophie jou bellen</h3>
+    <p>Vul je telefoonnummer in. Sophie belt je terug zodra de demo-route beschikbaar is.</p>
+    <form class="sophie-callback-form" id="sophie-callback-form">
+      <label for="sophie-callback-phone">Telefoonnummer</label>
+      <input id="sophie-callback-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Bijv. +31 6 12 34 56 78" required>
+      <label for="sophie-callback-note">Vraag, optioneel</label>
+      <input id="sophie-callback-note" name="note" type="text" maxlength="160" placeholder="Waar mag Sophie over beginnen?">
+      <div class="sophie-callback-actions">
+        <button class="sophie-callback-submit" type="submit">Vraag terugbeltest aan</button>
+        <button class="sophie-callback-close" type="button" data-callback-close>Sluit</button>
+      </div>
+      <div class="sophie-callback-status" id="sophie-callback-status" role="status"></div>
+    </form>
+  </div>
+  <div class="hermes-showcase-nudge" id="hermes-showcase-nudge" aria-live="polite" aria-hidden="true">
+    <div class="showcase-pill left"><span class="showcase-arrow" aria-hidden="true">←</span><strong>Bij de linkse</strong><span>praat je direct met Sophie.</span></div>
+    <div class="showcase-title">Hermes Showcases</div>
+    <div class="showcase-pill right"><strong>Bij de rechtse</strong><span>belt Sophie jou op. Je geeft eerst even je tel. nummer.</span><span class="showcase-arrow" aria-hidden="true">→</span></div>
+  </div>
   <script>
     const translations = {
       en: {
@@ -1768,9 +1800,18 @@
         "Ja. We hebben ervaring met een praktijkcase waarin Respond.io niet alleen als centrale inbox werkte, maar ook als eerste AI-intakelaag. In die opzet kwamen WhatsApp en sociale kanalen samen in Respond.io, stelde de Respond.io-agent de eerste intakevragen en zorgde n8n daarna voor de vaste workflow richting CRM, kanaallabeling en leadregistratie. Dat is leerzaam voor ZZPagent: Respond.io is sterk als kanaal- en intakelaag, n8n als voorspelbare workflowlaag en Hermes als bredere agentlaag voor samenvatten, duiden, conceptantwoorden en vervolgstappen. De concrete inrichting maken we altijd eigen en AVG-bewust, zonder bestaande cases één-op-één te kopiëren.": "Yes. We have experience with a practical case where Respond.io was not only a central inbox, but also the first AI intake layer. In that setup WhatsApp and social channels came together in Respond.io, the Respond.io agent asked the first intake questions and n8n then handled the fixed workflow towards CRM, channel labeling and lead registration. That is useful for ZZPagent: Respond.io is strong as a channel and intake layer, n8n as a predictable workflow layer and Hermes as the broader agent layer for summaries, interpretation, draft replies and next steps. We always make the actual setup original and GDPR-aware, without copying existing cases one-to-one.",
         "Praat met Sophie": "Talk to Sophie",
         "Praat live met Sophie": "Talk live with Sophie",
-        "Telefoon-demo": "Phone demo",
-        "Bel Sophie": "Call Sophie",
-        "Live met de gekozen Sophie-stem": "Live with the chosen Sophie voice",
+        "Laat Sophie jou bellen": "Let Sophie call you",
+        "Hermes Showcases": "Hermes showcases",
+        "Bij de linkse": "On the left",
+        "praat je direct met Sophie.": "you talk directly with Sophie.",
+        "Bij de rechtse": "On the right",
+        "belt Sophie jou op. Je geeft eerst even je tel. nummer.": "Sophie calls you. You first leave your phone number.",
+        "Telefoonnummer": "Phone number",
+        "Vraag, optioneel": "Question, optional",
+        "Waar mag Sophie over beginnen?": "What should Sophie start with?",
+        "Vraag terugbeltest aan": "Request callback test",
+        "Sluit": "Close",
+        "Vul je telefoonnummer in. Sophie belt je terug zodra de demo-route beschikbaar is.": "Leave your phone number. Sophie will call you back as soon as the demo route is available.",
         "Test onze spraak assistent gebouwd door Hermes met Gemini. Druk op de knop en begin de conversatie.": "Test our voice assistant built by Hermes with Gemini. Press the button and start the conversation."
       }
     };
@@ -2119,6 +2160,84 @@
     }
 
     document.querySelectorAll('.voice-reactor').forEach(drawVoiceReactor);
+
+    const showcaseNudge = document.getElementById('hermes-showcase-nudge');
+    if(showcaseNudge){
+      setTimeout(() => {
+        showcaseNudge.classList.add('visible');
+        showcaseNudge.setAttribute('aria-hidden', 'false');
+      }, 30000);
+    }
+
+    const callbackPanel = document.getElementById('sophie-callback-panel');
+    const callbackForm = document.getElementById('sophie-callback-form');
+    const callbackStatus = document.getElementById('sophie-callback-status');
+    const callbackPhone = document.getElementById('sophie-callback-phone');
+    function getVisitorId(){
+      try{
+        let id = localStorage.getItem('zzpagent_visitor_id_v1');
+        if(!id){
+          id = (crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + '-' + Math.random().toString(16).slice(2);
+          localStorage.setItem('zzpagent_visitor_id_v1', id);
+        }
+        return id;
+      }catch(e){ return String(Date.now()) + '-' + Math.random().toString(16).slice(2); }
+    }
+    function callbackEndpointBase(){
+      return (window.ZZPAGENT_VOICE_URL || 'https://hepatitis-tub-antenna-strikes.trycloudflare.com?v=site').replace(/[?#].*$/, '').replace(/\/$/, '');
+    }
+    function openCallbackPanel(){
+      if(!callbackPanel) return;
+      callbackPanel.classList.add('open');
+      callbackPanel.setAttribute('aria-hidden', 'false');
+      if(callbackStatus){ callbackStatus.textContent=''; callbackStatus.className='sophie-callback-status'; }
+      setTimeout(() => callbackPhone && callbackPhone.focus(), 50);
+    }
+    function closeCallbackPanel(){
+      if(!callbackPanel) return;
+      callbackPanel.classList.remove('open');
+      callbackPanel.setAttribute('aria-hidden', 'true');
+    }
+    document.querySelectorAll('[data-callback-open]').forEach(button => button.addEventListener('click', openCallbackPanel));
+    document.querySelectorAll('[data-callback-close]').forEach(button => button.addEventListener('click', closeCallbackPanel));
+    callbackForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const phone = String(callbackForm.phone.value || '').trim();
+      const note = String(callbackForm.note.value || '').trim();
+      const digits = phone.replace(/\D/g, '');
+      if(digits.length < 9){
+        if(callbackStatus){ callbackStatus.textContent='Vul een geldig telefoonnummer in.'; callbackStatus.className='sophie-callback-status err'; }
+        return;
+      }
+      const payload = JSON.stringify({
+        type:'callback_request',
+        site:'zzpagent.nl',
+        visitorId:getVisitorId(),
+        phone:phone,
+        note:note,
+        path:location.pathname + location.search,
+        referrer:document.referrer || '',
+        language:navigator.language || '',
+        width:window.innerWidth,
+        height:window.innerHeight,
+        timezone:(Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone) || '',
+        time:new Date().toISOString()
+      });
+      if(callbackStatus){ callbackStatus.textContent='Terugbelverzoek wordt klaargezet…'; callbackStatus.className='sophie-callback-status'; }
+      try{
+        await fetch(callbackEndpointBase() + '/visitor-ping', {
+          method:'POST',
+          mode:'no-cors',
+          headers:{'Content-Type':'text/plain;charset=UTF-8'},
+          body:payload,
+          keepalive:true
+        });
+        if(callbackStatus){ callbackStatus.textContent='Dank je. Sophie heeft je nummer ontvangen.'; callbackStatus.className='sophie-callback-status ok'; }
+        callbackForm.reset();
+      }catch(error){
+        if(callbackStatus){ callbackStatus.textContent='Dit lukte niet. Probeer straks opnieuw of gebruik WhatsApp.'; callbackStatus.className='sophie-callback-status err'; }
+      }
+    });
 
     setLanguage(localStorage.getItem('zzpAgentLang') || 'nl');
   </script>
