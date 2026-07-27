@@ -351,6 +351,15 @@
     .floating-voice .voice-orb{width:54px;height:54px;box-shadow:0 0 24px rgba(0,229,255,.28),inset 0 0 20px rgba(0,229,255,.16)}
     .floating-voice small{display:block;color:var(--lime);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;line-height:1.1}
     .floating-voice strong{display:block;font-size:16px;line-height:1.15;letter-spacing:-.02em}
+    .crisp-client{display:none!important;visibility:hidden!important;pointer-events:none!important}
+    .sophie-call-widget{position:fixed;right:22px;bottom:22px;z-index:1000;display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:center;max-width:min(360px,calc(100vw - 44px));border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,#fffaf1,#f2eadc);color:var(--green);border-radius:999px;padding:9px 18px 9px 9px;box-shadow:0 18px 50px rgba(16,41,31,.20);font:inherit;text-align:left}
+    .sophie-call-widget:hover{transform:translateY(-1px);box-shadow:0 22px 58px rgba(16,41,31,.25)}
+    .sophie-call-photo{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 35% 24%,#ffe6ca 0 18%,#d7f268 19% 26%,#173f2b 27% 100%);box-shadow:0 0 0 3px rgba(215,242,104,.34),0 10px 26px rgba(22,63,43,.18)}
+    .sophie-call-photo:before{content:"";position:absolute;width:24px;height:24px;border-radius:50%;top:11px;background:#fff1df;box-shadow:0 19px 0 13px #fff1df}
+    .sophie-call-photo:after{content:"☎";position:absolute;right:4px;bottom:3px;width:21px;height:21px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:var(--green);font-size:12px;font-weight:900;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+    .sophie-call-widget small{display:block;color:#5d6a61;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;line-height:1.1}
+    .sophie-call-widget strong{display:block;font-size:16px;line-height:1.16;letter-spacing:-.02em}
+    .sophie-call-widget em{display:block;font-style:normal;color:#687568;font-size:12px;line-height:1.25;margin-top:2px}
     .status{color:#bde9c5;font-size:13px}
     .metric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:12px;border-radius:18px;color:#fff}
     .chat{margin-top:22px;display:grid;gap:12px;position:relative;z-index:1}
@@ -573,9 +582,14 @@
       .hero .hero-phone-screen .tg-input-bar{left:7px;right:7px;bottom:9px;padding:5px 8px}
       .voice-orb{width:74px;height:74px}
       .voice-actions .button{width:100%;justify-content:center}
-      .floating-voice{left:14px;bottom:14px;grid-template-columns:48px 1fr;max-width:calc(100vw - 28px);padding:8px 14px 8px 8px}
+      .floating-voice{left:14px;bottom:14px;grid-template-columns:48px 1fr;max-width:calc(50vw - 18px);padding:8px 14px 8px 8px}
       .floating-voice .voice-orb{width:48px;height:48px}
       .floating-voice strong{font-size:15px}
+      .sophie-call-widget{right:14px;bottom:14px;grid-template-columns:48px 1fr;max-width:calc(50vw - 18px);padding:8px 14px 8px 8px}
+      .sophie-call-photo{width:48px;height:48px}
+      .sophie-call-photo:before{width:20px;height:20px;top:9px;box-shadow:0 16px 0 11px #fff1df}
+      .sophie-call-widget strong{font-size:14px}
+      .sophie-call-widget em{display:none}
       .hero .agent-card{margin-top:0}
       .trust-stack{margin-top:32px}
       .trust-item{grid-template-columns:42px 1fr 24px;padding:14px}
@@ -605,6 +619,7 @@
   </style>
   <script type="text/javascript">
     window.$crisp=[];
+    window.$crisp.push(["do", "chat:hide"]);
     window.CRISP_WEBSITE_ID="453fc521-ac48-4172-b5b5-c5da448f5178";
     (function(){
       var d=document;
@@ -612,6 +627,13 @@
       s.src="https://client.crisp.chat/l.js";
       s.async=1;
       d.getElementsByTagName("head")[0].appendChild(s);
+      var hideCrisp=function(){
+        try{ if(window.$crisp) window.$crisp.push(["do", "chat:hide"]); }catch(e){}
+        try{ document.querySelectorAll('.crisp-client').forEach(function(el){el.style.display='none';el.style.visibility='hidden';}); }catch(e){}
+      };
+      s.addEventListener('load', hideCrisp);
+      setTimeout(hideCrisp, 1200);
+      setTimeout(hideCrisp, 3500);
     })();
 
     // Visitor ping with server-side IP logging. Browser JavaScript cannot read
@@ -1279,6 +1301,10 @@
     <span class="voice-orb" aria-hidden="true"><canvas class="voice-reactor"></canvas></span>
     <span><small>Sophie</small><strong>Praat live met Sophie</strong></span>
   </button>
+  <a class="sophie-call-widget" href="tel:+3197006531777" aria-label="Bel Sophie van ZZPagent">
+    <span class="sophie-call-photo" aria-hidden="true"></span>
+    <span><small>Telefoon-demo</small><strong>Bel Sophie</strong><em>Live met de gekozen Sophie-stem</em></span>
+  </a>
   <script>
     const translations = {
       en: {
@@ -1742,6 +1768,9 @@
         "Ja. We hebben ervaring met een praktijkcase waarin Respond.io niet alleen als centrale inbox werkte, maar ook als eerste AI-intakelaag. In die opzet kwamen WhatsApp en sociale kanalen samen in Respond.io, stelde de Respond.io-agent de eerste intakevragen en zorgde n8n daarna voor de vaste workflow richting CRM, kanaallabeling en leadregistratie. Dat is leerzaam voor ZZPagent: Respond.io is sterk als kanaal- en intakelaag, n8n als voorspelbare workflowlaag en Hermes als bredere agentlaag voor samenvatten, duiden, conceptantwoorden en vervolgstappen. De concrete inrichting maken we altijd eigen en AVG-bewust, zonder bestaande cases één-op-één te kopiëren.": "Yes. We have experience with a practical case where Respond.io was not only a central inbox, but also the first AI intake layer. In that setup WhatsApp and social channels came together in Respond.io, the Respond.io agent asked the first intake questions and n8n then handled the fixed workflow towards CRM, channel labeling and lead registration. That is useful for ZZPagent: Respond.io is strong as a channel and intake layer, n8n as a predictable workflow layer and Hermes as the broader agent layer for summaries, interpretation, draft replies and next steps. We always make the actual setup original and GDPR-aware, without copying existing cases one-to-one.",
         "Praat met Sophie": "Talk to Sophie",
         "Praat live met Sophie": "Talk live with Sophie",
+        "Telefoon-demo": "Phone demo",
+        "Bel Sophie": "Call Sophie",
+        "Live met de gekozen Sophie-stem": "Live with the chosen Sophie voice",
         "Test onze spraak assistent gebouwd door Hermes met Gemini. Druk op de knop en begin de conversatie.": "Test our voice assistant built by Hermes with Gemini. Press the button and start the conversation."
       }
     };
