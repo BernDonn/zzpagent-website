@@ -354,9 +354,9 @@
     .crisp-client{display:none!important;visibility:hidden!important;pointer-events:none!important}
     .sophie-call-widget{position:fixed;right:22px;bottom:22px;z-index:1000;display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:center;max-width:min(360px,calc(100vw - 44px));border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,#fffaf1,#f2eadc);color:var(--green);border-radius:999px;padding:9px 18px 9px 9px;box-shadow:0 18px 50px rgba(16,41,31,.20);font:inherit;text-align:left}
     .sophie-call-widget:hover{transform:translateY(-1px);box-shadow:0 22px 58px rgba(16,41,31,.25)}
-    .sophie-call-photo{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 35% 24%,#ffe6ca 0 18%,#d7f268 19% 26%,#173f2b 27% 100%);box-shadow:0 0 0 3px rgba(215,242,104,.34),0 10px 26px rgba(22,63,43,.18)}
-    .sophie-call-photo:before{content:"";position:absolute;width:24px;height:24px;border-radius:50%;top:11px;background:#fff1df;box-shadow:0 19px 0 13px #fff1df}
-    .sophie-call-photo:after{content:"☎";position:absolute;right:4px;bottom:3px;width:21px;height:21px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:var(--green);font-size:12px;font-weight:900;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+    .sophie-call-photo{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;position:relative;overflow:hidden;background:#faf1e5;box-shadow:0 0 0 3px rgba(215,242,104,.34),0 10px 26px rgba(22,63,43,.18)}
+    .sophie-call-photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}
+    .sophie-call-photo:after{content:"☎";position:absolute;right:0;bottom:0;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:var(--green);font-size:12px;font-weight:900;box-shadow:0 4px 12px rgba(0,0,0,.18)}
     .sophie-call-widget small{display:block;color:#5d6a61;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;line-height:1.1}
     .sophie-call-widget strong{display:block;font-size:16px;line-height:1.16;letter-spacing:-.02em}
     .sophie-call-widget em{display:block;font-style:normal;color:#687568;font-size:12px;line-height:1.25;margin-top:2px}
@@ -1302,7 +1302,7 @@
     <span><small>Sophie</small><strong>Praat live met Sophie</strong></span>
   </button>
   <a class="sophie-call-widget" href="tel:+3197006531777" aria-label="Bel Sophie van ZZPagent">
-    <span class="sophie-call-photo" aria-hidden="true"></span>
+    <span class="sophie-call-photo" aria-hidden="true"><img src="/assets/sophie-hermes.png" alt=""></span>
     <span><small>Telefoon-demo</small><strong>Bel Sophie</strong><em>Live met de gekozen Sophie-stem</em></span>
   </a>
   <script>
