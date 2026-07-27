@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://zzpagent.nl/assets/zzpagent-marktplaats-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Bernard Donners, docent AI, met ZZPagent en Hermes agent op MacBook, iPhone en iWatch" />
+  <meta property="og:image:alt" content="Bernard Donners met ZZPagent AI-assistent op MacBook, iPhone en iWatch" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://zzpagent.nl/assets/zzpagent-marktplaats-preview.jpg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
@@ -37,7 +37,7 @@
         "@id": "https://zzpagent.nl/#organization",
         "name": "ZZPagent",
         "url": "https://zzpagent.nl/",
-        "description": "ZZPagent levert beheerde AI-agents voor Nederlandse zelfstandigen en kleine ondernemers, met open-source agentlagen zoals Hermes, modelkeuze, menselijke controle en workflowautomatisering.",
+        "description": "ZZPagent levert beheerde AI-agents voor Nederlandse zelfstandigen en kleine ondernemers, met controle over data, menselijke goedkeuring en workflowautomatisering.",
         "founder": {
           "@type": "Person",
           "name": "Bernard Donners"
@@ -54,7 +54,7 @@
           "n8n",
           "WhatsApp Business",
           "Telegram bots",
-          "modelkeuze",
+          "AI-governance",
           "vendor lock-in",
           "menselijke controle"
         ]
@@ -65,7 +65,7 @@
         "name": "ZZPagent",
         "url": "https://zzpagent.nl/",
         "image": "https://zzpagent.nl/assets/zzpagent-marktplaats-preview.jpg",
-        "description": "Implementatie, configuratie en beheer van AI-agents voor ZZP rond bestaande workflows, kanalen en modelroutes.",
+        "description": "Implementatie, configuratie en beheer van AI-agents voor ZZP rond bestaande workflows, kanalen en veilige automatisering.",
         "provider": {
           "@id": "https://zzpagent.nl/#organization"
         },
@@ -356,13 +356,13 @@
     .voice-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.voice-actions .button{padding:9px 12px;font-size:13px;box-shadow:none}.voice-actions .button.secondary{background:#f0e6d6;color:var(--green);border-color:rgba(22,63,43,.16)}
     .voice-note{margin-top:9px;color:#5d6a61;font-size:12.5px;line-height:1.4}
     .floating-voice{position:fixed;left:22px;bottom:22px;z-index:999;display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;max-width:min(350px,calc(100vw - 44px));border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,#10291f,#163f2b);color:#fffaf1;border-radius:999px;padding:10px 18px 10px 10px;box-shadow:0 18px 50px rgba(16,41,31,.28);cursor:pointer;font:inherit;text-align:left}
-    .floating-voice .voice-orb{width:54px;height:54px;background:radial-gradient(circle at 50% 50%,rgba(0,229,255,.24),rgba(25,240,216,.12) 34%,rgba(5,11,20,.94) 68%,rgba(0,229,255,.18));box-shadow:0 0 24px rgba(0,229,255,.38),0 0 0 4px rgba(10,127,150,.18),inset 0 0 22px rgba(25,240,216,.18);border:1px solid rgba(0,229,255,.30)}
+    .floating-voice .voice-orb{width:54px;height:54px;background:#050b14;box-shadow:0 0 28px rgba(0,229,255,.46),0 0 0 4px rgba(10,127,150,.22),inset 0 0 26px rgba(25,240,216,.20);border:1px solid rgba(0,229,255,.44)}
     .floating-voice small{display:block;color:var(--lime);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;line-height:1.1}
     .floating-voice strong{display:block;font-size:16px;line-height:1.15;letter-spacing:-.02em}
     .sophie-voice-panel,.sophie-callback-panel{width:min(235px,calc(100vw - 44px));min-height:9.5cm;align-content:start;justify-items:start}
-    .sophie-voice-panel .voice-orb{width:104px;height:104px;justify-self:center;margin:4px 0 12px;background:radial-gradient(circle at 50% 50%,rgba(0,229,255,.28),rgba(25,240,216,.16) 32%,rgba(5,11,20,.96) 66%,rgba(0,229,255,.22));box-shadow:0 0 46px rgba(0,229,255,.40),0 0 0 5px rgba(10,127,150,.20),inset 0 0 42px rgba(25,240,216,.18);cursor:pointer;border:1px solid rgba(0,229,255,.38)}
-    .sophie-voice-panel .voice-orb:before{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px solid rgba(0,229,255,.36);box-shadow:0 0 34px rgba(0,229,255,.28);animation:jarvisHalo 2.8s ease-in-out infinite;pointer-events:none}
-    .sophie-voice-panel.live-active .voice-orb{background:radial-gradient(circle at 50% 50%,rgba(25,240,216,.54),rgba(0,229,255,.34) 30%,rgba(5,11,20,.96) 67%,rgba(25,240,216,.26));box-shadow:0 0 58px rgba(0,229,255,.52),0 0 0 5px rgba(25,240,216,.22),inset 0 0 48px rgba(0,229,255,.26)}
+    .sophie-voice-panel .voice-orb{width:112px;height:112px;justify-self:center;margin:2px 0 12px;background:#050b14;box-shadow:0 0 58px rgba(0,229,255,.54),0 0 0 5px rgba(10,127,150,.22),inset 0 0 48px rgba(0,229,255,.18);cursor:pointer;border:1px solid rgba(0,229,255,.50)}
+    .sophie-voice-panel .voice-orb:before{content:"";position:absolute;inset:-10px;border-radius:50%;border:1px solid rgba(0,229,255,.42);box-shadow:0 0 38px rgba(0,229,255,.34);animation:jarvisHalo 2.8s ease-in-out infinite;pointer-events:none}
+    .sophie-voice-panel.live-active .voice-orb{background:#050b14;box-shadow:0 0 70px rgba(25,240,216,.64),0 0 0 5px rgba(25,240,216,.26),inset 0 0 54px rgba(25,240,216,.24)}
     .sophie-voice-panel.voice-error .voice-orb{background:radial-gradient(circle at 50% 50%,rgba(255,179,0,.28),rgba(0,229,255,.18) 34%,rgba(5,11,20,.94) 68%,rgba(255,179,0,.16));box-shadow:0 0 42px rgba(255,179,0,.32),0 0 0 5px rgba(0,229,255,.12),inset 0 0 34px rgba(0,229,255,.16)}
     @keyframes jarvisHalo{0%,100%{transform:scale(.96);opacity:.45}50%{transform:scale(1.06);opacity:.9}}
     .sophie-voice-panel .voice-orb span{font-size:11px;letter-spacing:.16em;color:#9fd8e8;text-shadow:0 0 16px rgba(0,229,255,.95),0 0 30px rgba(25,240,216,.55);font-family:var(--font-display)}
@@ -2270,6 +2270,7 @@
       closeCallbackPanel();
       voicePanel.classList.add('open');
       voicePanel.setAttribute('aria-hidden', 'false');
+      requestAnimationFrame(() => document.querySelectorAll('.voice-reactor').forEach(canvas => canvas.dispatchEvent(new Event('sophie:resize'))));
     }
     function closeVoicePanel(){
       if(!voicePanel) return;
@@ -2289,10 +2290,13 @@
     function drawVoiceReactor(canvas){
       const ctx = canvas.getContext('2d');
       let rot = 0;
+      let lastW = 0, lastH = 0;
       function size(){
         const r = canvas.parentElement.getBoundingClientRect();
-        canvas.width = Math.max(1, Math.floor(r.width * devicePixelRatio));
-        canvas.height = Math.max(1, Math.floor(r.height * devicePixelRatio));
+        const nextW = Math.max(1, Math.floor(r.width * devicePixelRatio));
+        const nextH = Math.max(1, Math.floor(r.height * devicePixelRatio));
+        if(nextW !== canvas.width || nextH !== canvas.height){ canvas.width = nextW; canvas.height = nextH; }
+        lastW = r.width; lastH = r.height;
       }
       function ring(cx, cy, r, w, color, alpha, dash, offset){
         ctx.beginPath(); ctx.strokeStyle = color; ctx.globalAlpha = alpha; ctx.lineWidth = w;
@@ -2301,24 +2305,27 @@
         ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke(); ctx.globalAlpha = 1; ctx.setLineDash([]);
       }
       function frame(t){
+        const box = canvas.parentElement.getBoundingClientRect();
+        if(Math.abs(box.width - lastW) > .5 || Math.abs(box.height - lastH) > .5 || canvas.width < 10 || canvas.height < 10) size();
         rot += 0.45;
         const W = canvas.width, H = canvas.height, cx = W/2, cy = H/2, base = Math.min(W,H)*0.38;
         ctx.clearRect(0,0,W,H);
         const active = !!canvas.closest('.live-active');
         const color = active ? '#19f0d8' : '#00e5ff';
-        ctx.shadowColor = color; ctx.shadowBlur = (active ? 24 : 20) * devicePixelRatio;
-        const pulse = 1 + Math.sin(t/300) * (active ? 0.032 : 0.018);
-        ring(cx, cy, base*pulse, 1.7*devicePixelRatio, color, .92);
-        ring(cx, cy, base*.86, 1*devicePixelRatio, color, .52, [20*devicePixelRatio, 10*devicePixelRatio], rot*2);
-        ring(cx, cy, base*.58, 2.2*devicePixelRatio, color, .34, [4*devicePixelRatio, 8*devicePixelRatio], -rot*3);
+        ctx.shadowColor = color; ctx.shadowBlur = (active ? 34 : 28) * devicePixelRatio;
+        const pulse = 1 + Math.sin(t/300) * (active ? 0.038 : 0.014);
+        ring(cx, cy, base*pulse, 2*devicePixelRatio, color, .92);
+        ring(cx, cy, base*.86, 1.2*devicePixelRatio, color, .48, [40*devicePixelRatio, 18*devicePixelRatio], rot*2);
+        ring(cx, cy, base*.72, 5*devicePixelRatio, color, .25, [4*devicePixelRatio, 10*devicePixelRatio], -rot*3);
+        ring(cx, cy, base*.58, 1.5*devicePixelRatio, color, .62, [90*devicePixelRatio, 40*devicePixelRatio], rot*1.2);
         for(let i=0;i<60;i++){
           const a=(i/60)*Math.PI*2+rot/180;
-          const r1=base*1.06, r2=base*(i%5===0?1.16:1.10);
+          const r1=base*1.06, r2=base*(i%5===0?1.12:1.09);
           ctx.beginPath(); ctx.strokeStyle=color; ctx.globalAlpha=i%5===0?.82:.30; ctx.lineWidth=devicePixelRatio;
           ctx.moveTo(cx+Math.cos(a)*r1, cy+Math.sin(a)*r1);
           ctx.lineTo(cx+Math.cos(a)*r2, cy+Math.sin(a)*r2); ctx.stroke();
         }
-        ctx.globalAlpha = 1; ctx.shadowBlur = 24 * devicePixelRatio;
+        ctx.globalAlpha = 1; ctx.shadowColor = color; ctx.shadowBlur = 42 * devicePixelRatio;
         const g = ctx.createRadialGradient(cx,cy,0,cx,cy,base*.42);
         g.addColorStop(0, color+'66'); g.addColorStop(1, 'transparent');
         ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx,cy,base*.42,0,Math.PI*2); ctx.fill();
@@ -2327,6 +2334,7 @@
       }
       size();
       addEventListener('resize', size);
+      canvas.addEventListener('sophie:resize', size);
       requestAnimationFrame(frame);
     }
 
