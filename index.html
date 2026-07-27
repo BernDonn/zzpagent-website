@@ -208,6 +208,7 @@
     .language-toggle button{border:0;background:transparent;color:var(--green);border-radius:999px;padding:7px 9px;font:inherit;cursor:pointer;opacity:.55}
     .language-toggle button.active{background:var(--green);color:#fff;opacity:1}
     .mobile-qa-link{display:none;align-items:center;justify-content:center;border:1px solid var(--line);background:rgba(255,250,241,.9);border-radius:999px;padding:11px 13px;color:var(--green);font-size:12px;font-weight:850;box-shadow:0 8px 22px rgba(22,63,43,.08);white-space:nowrap}
+    .mobile-qa-link.mobile-quickscan-link{background:var(--lime);border-color:var(--lime);color:var(--green);box-shadow:none}
     .button{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 18px;font-weight:700;border:1px solid var(--green);background:var(--green);color:#fff;box-shadow:0 10px 26px rgba(22,63,43,.16)}
     .button.quickscan-nav{background:var(--lime);color:var(--green);border-color:var(--lime);box-shadow:none;font-size:13px}
     .button.secondary{background:transparent;color:var(--green);box-shadow:none}
@@ -658,10 +659,10 @@
   <nav class="nav">
     <div class="nav-inner">
       <div class="nav-left">
-        <a class="brand" href="#"><span class="brand-dot"></span>ZZPagent<span style="color:var(--green)">.</span></a>
+        <a class="brand" href="#"><span class="brand-dot"></span>ZZPagent</a>
         <div class="nav-compact-actions">
           <a class="mobile-qa-link" href="#faq" data-open-panel="faq">Q&A</a>
-          <a class="mobile-qa-link" href="/quickscan/">Quickscan</a>
+          <a class="mobile-qa-link mobile-quickscan-link" href="/quickscan/">Quickscan</a>
           <div class="language-toggle" aria-label="Language selector">
             <button type="button" class="active" data-lang-button="nl">NL</button>
             <button type="button" data-lang-button="en">EN</button>
