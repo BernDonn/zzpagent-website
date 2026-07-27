@@ -351,7 +351,7 @@
     .floating-voice .voice-orb{width:54px;height:54px;box-shadow:0 0 24px rgba(215,242,104,.34),inset 0 0 20px rgba(215,242,104,.18)}
     .floating-voice small{display:block;color:var(--lime);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;line-height:1.1}
     .floating-voice strong{display:block;font-size:16px;line-height:1.15;letter-spacing:-.02em}
-    .sophie-voice-panel{width:min(235px,calc(100vw - 44px));min-height:9.5cm;align-content:start;justify-items:start}
+    .sophie-voice-panel,.sophie-callback-panel{width:min(235px,calc(100vw - 44px));min-height:9.5cm;align-content:start;justify-items:start}
     .sophie-voice-panel .voice-orb{width:104px;height:104px;justify-self:center;margin:4px 0 12px;background:radial-gradient(circle at 50% 50%,rgba(215,242,104,.44),rgba(45,98,58,.32) 34%,rgba(8,34,24,.88) 70%,rgba(215,242,104,.18));box-shadow:0 0 36px rgba(215,242,104,.36),0 0 0 5px rgba(215,242,104,.18),inset 0 0 34px rgba(215,242,104,.20)}
     .sophie-voice-panel .voice-orb span{font-size:11px;letter-spacing:.12em;color:#f5ffd4;text-shadow:0 0 16px rgba(215,242,104,.9)}
     .sophie-voice-panel .voice-panel-content{display:grid;gap:13px}
@@ -365,8 +365,8 @@
     .sophie-call-widget small{display:block;color:#5d6a61;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;line-height:1.1}
     .sophie-call-widget strong{display:block;font-size:16px;line-height:1.16;letter-spacing:-.02em}
     .sophie-call-widget em{display:block;font-style:normal;color:#687568;font-size:12px;line-height:1.25;margin-top:2px}
-    .sophie-callback-panel,.sophie-voice-panel{position:fixed;bottom:98px;z-index:1001;background:rgba(255,250,241,.98);border:1px solid rgba(22,63,43,.16);border-radius:28px;padding:18px;box-shadow:0 24px 70px rgba(16,41,31,.24);color:var(--green);display:none}.sophie-callback-panel{right:22px;width:min(430px,calc(100vw - 44px))}.sophie-voice-panel{left:22px}
-    .sophie-callback-panel.open,.sophie-voice-panel.open{display:grid;gap:11px}.sophie-callback-panel h3,.sophie-voice-panel h3{font-size:23px;margin:0;color:#17240f;letter-spacing:-.03em}.sophie-callback-panel p{font-size:14px;line-height:1.42;margin:0 0 12px;color:#5d6a61}.sophie-callback-panel .sophie-callback-tech{font-size:11px;line-height:1.25;margin-bottom:13px;color:#687568}.sophie-callback-form{display:grid;gap:9px}.sophie-callback-form label{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:#415147}.sophie-callback-form input{width:100%;border:1px solid rgba(22,63,43,.18);background:#fff;border-radius:999px;padding:12px 14px;font:inherit;color:#17240f}.sophie-callback-form input:focus{outline:2px solid rgba(215,242,104,.85);border-color:rgba(22,63,43,.35)}.sophie-callback-actions,.sophie-voice-actions{display:flex;gap:8px;align-items:center}.sophie-callback-actions button,.sophie-voice-actions button{border:1px solid var(--green);border-radius:999px;padding:11px 14px;font:inherit;font-weight:850;cursor:pointer}.sophie-callback-submit,.sophie-voice-start{background:var(--lime);color:var(--green);border-color:var(--lime);box-shadow:0 10px 24px rgba(215,242,104,.32)}.sophie-callback-close,.sophie-voice-close{background:transparent;color:var(--green)}.sophie-callback-privacy{font-size:11px;line-height:1.3;color:#687568;margin-top:2px}.sophie-callback-status{font-size:12.5px;color:#5d6a61;min-height:18px}.sophie-callback-status.ok{color:#1d6a3b}.sophie-callback-status.err{color:#9a2d2d}
+    .sophie-callback-panel,.sophie-voice-panel{position:fixed;bottom:98px;z-index:1001;background:rgba(255,250,241,.98);border:1px solid rgba(22,63,43,.16);border-radius:28px;padding:18px;box-shadow:0 24px 70px rgba(16,41,31,.24);color:var(--green);display:none}.sophie-callback-panel{right:22px}.sophie-voice-panel{left:22px}
+    .sophie-callback-panel.open,.sophie-voice-panel.open{display:grid;gap:11px}.sophie-callback-panel h3,.sophie-voice-panel h3{font-size:23px;margin:0;color:#17240f;letter-spacing:-.03em}.sophie-callback-panel p{font-size:14px;line-height:1.42;margin:0 0 12px;color:#5d6a61}.sophie-callback-panel .sophie-callback-tech{font-size:11px;line-height:1.25;margin-bottom:13px;color:#687568}.sophie-callback-form{display:grid;gap:9px}.sophie-callback-form label{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:#415147}.sophie-callback-form input{width:100%;box-sizing:border-box;border:1px solid rgba(22,63,43,.18);background:#fff;border-radius:999px;padding:12px 14px;font:inherit;color:#17240f}.sophie-callback-form input:focus{outline:2px solid rgba(215,242,104,.85);border-color:rgba(22,63,43,.35)}.sophie-callback-actions,.sophie-voice-actions{display:flex;gap:8px;align-items:center}.sophie-callback-actions button,.sophie-voice-actions button{border:1px solid var(--green);border-radius:999px;padding:11px 14px;font:inherit;font-weight:850;cursor:pointer}.sophie-callback-submit,.sophie-voice-start{background:var(--lime);color:var(--green);border-color:var(--lime);box-shadow:0 10px 24px rgba(215,242,104,.32)}.sophie-callback-privacy{font-size:11px;line-height:1.3;color:#687568;margin-top:2px}.sophie-callback-status{font-size:12.5px;color:#5d6a61;min-height:18px}.sophie-callback-status.ok{color:#1d6a3b}.sophie-callback-status.err{color:#9a2d2d}
 
     .status{color:#bde9c5;font-size:13px}
     .metric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:12px;border-radius:18px;color:#fff}
@@ -1322,7 +1322,6 @@
       <p>Spraakassistent gebouwd door Hermes met Gemini.</p>
       <div class="sophie-voice-actions">
         <button class="sophie-voice-start" type="button" data-voice-start>Test nu</button>
-        <button class="sophie-voice-close" type="button" data-voice-close>Sluit</button>
       </div>
     </div>
   </div>
@@ -1340,7 +1339,6 @@
       <input id="sophie-callback-note" name="note" type="text" maxlength="160" placeholder="Bijv. Anna">
       <div class="sophie-callback-actions">
         <button class="sophie-callback-submit" type="submit">Test nu</button>
-        <button class="sophie-callback-close" type="button" data-callback-close>Sluit</button>
       </div>
       <div class="sophie-callback-status" id="sophie-callback-status" role="status"></div>
       <div class="sophie-callback-privacy">Je naam en nummer worden na de call verwijderd.</div>
@@ -2135,9 +2133,6 @@
     document.querySelectorAll('[data-voice-start]').forEach(button => {
       button.addEventListener('click', openVoiceEntry);
     });
-    document.querySelectorAll('[data-voice-close]').forEach(button => {
-      button.addEventListener('click', closeVoicePanel);
-    });
     document.querySelectorAll('[data-crisp-open]').forEach(button => {
       button.addEventListener('click', openCrispWithVoiceContext);
     });
@@ -2218,7 +2213,6 @@
       callbackPanel.setAttribute('aria-hidden', 'true');
     }
     document.querySelectorAll('[data-callback-open]').forEach(button => button.addEventListener('click', openCallbackPanel));
-    document.querySelectorAll('[data-callback-close]').forEach(button => button.addEventListener('click', closeCallbackPanel));
     callbackForm?.addEventListener('submit', async (event) => {
       event.preventDefault();
       const phone = String(callbackForm.phone.value || '').trim();
