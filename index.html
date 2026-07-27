@@ -361,7 +361,7 @@
     .sophie-call-widget strong{display:block;font-size:16px;line-height:1.16;letter-spacing:-.02em}
     .sophie-call-widget em{display:block;font-style:normal;color:#687568;font-size:12px;line-height:1.25;margin-top:2px}
     .sophie-callback-panel{position:fixed;right:22px;bottom:98px;z-index:1001;width:min(360px,calc(100vw - 44px));background:rgba(255,250,241,.98);border:1px solid rgba(22,63,43,.16);border-radius:26px;padding:16px;box-shadow:0 24px 70px rgba(16,41,31,.24);color:var(--green);display:none}
-    .sophie-callback-panel.open{display:block}.sophie-callback-panel h3{font-size:19px;margin:0 0 5px;color:#17240f;letter-spacing:-.03em}.sophie-callback-panel p{font-size:13px;line-height:1.42;margin:0 0 12px;color:#5d6a61}.sophie-callback-form{display:grid;gap:9px}.sophie-callback-form label{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:#415147}.sophie-callback-form input{width:100%;border:1px solid rgba(22,63,43,.18);background:#fff;border-radius:999px;padding:12px 14px;font:inherit;color:#17240f}.sophie-callback-form input:focus{outline:2px solid rgba(215,242,104,.85);border-color:rgba(22,63,43,.35)}.sophie-callback-actions{display:flex;gap:8px;align-items:center}.sophie-callback-actions button{border:1px solid var(--green);border-radius:999px;padding:11px 14px;font:inherit;font-weight:850;cursor:pointer}.sophie-callback-submit{background:var(--green);color:#fffaf1}.sophie-callback-close{background:transparent;color:var(--green)}.sophie-callback-status{font-size:12.5px;color:#5d6a61;min-height:18px}.sophie-callback-status.ok{color:#1d6a3b}.sophie-callback-status.err{color:#9a2d2d}
+    .sophie-callback-panel.open{display:block}.sophie-callback-panel h3{font-size:19px;margin:0 0 5px;color:#17240f;letter-spacing:-.03em}.sophie-callback-panel p{font-size:13px;line-height:1.42;margin:0 0 12px;color:#5d6a61}.sophie-callback-form{display:grid;gap:9px}.sophie-callback-form label{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:#415147}.sophie-callback-form input{width:100%;border:1px solid rgba(22,63,43,.18);background:#fff;border-radius:999px;padding:12px 14px;font:inherit;color:#17240f}.sophie-callback-form input:focus{outline:2px solid rgba(215,242,104,.85);border-color:rgba(22,63,43,.35)}.sophie-callback-actions{display:flex;gap:8px;align-items:center}.sophie-callback-actions button{border:1px solid var(--green);border-radius:999px;padding:11px 14px;font:inherit;font-weight:850;cursor:pointer}.sophie-callback-submit{background:var(--lime);color:var(--green);border-color:var(--lime);box-shadow:0 10px 24px rgba(215,242,104,.32)}.sophie-callback-close{background:transparent;color:var(--green)}.sophie-callback-status{font-size:12.5px;color:#5d6a61;min-height:18px}.sophie-callback-status.ok{color:#1d6a3b}.sophie-callback-status.err{color:#9a2d2d}
     .hermes-showcase-nudge{position:fixed;left:22px;right:22px;bottom:104px;z-index:998;display:grid;grid-template-columns:minmax(190px,1fr) auto minmax(190px,1fr);gap:16px;align-items:end;pointer-events:none;opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .55s ease}
     .hermes-showcase-nudge.visible{opacity:1;transform:translateY(0)}
     .showcase-pill{background:rgba(255,250,241,.96);border:1px solid rgba(22,63,43,.14);border-radius:22px;padding:12px 15px;box-shadow:0 18px 44px rgba(16,41,31,.16);color:var(--green);font-size:13px;line-height:1.32;max-width:330px}
@@ -1319,14 +1319,14 @@
   </button>
   <div class="sophie-callback-panel" id="sophie-callback-panel" aria-hidden="true">
     <h3>Laat Sophie jou bellen</h3>
-    <p>Vul je telefoonnummer in. Sophie belt je terug zodra de demo-route beschikbaar is.</p>
+    <p>Test het zelf: een gesprek zoals je het niet verwacht.</p>
     <form class="sophie-callback-form" id="sophie-callback-form">
       <label for="sophie-callback-phone">Telefoonnummer</label>
       <input id="sophie-callback-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Bijv. +31 6 12 34 56 78" required>
       <label for="sophie-callback-note">Vraag, optioneel</label>
       <input id="sophie-callback-note" name="note" type="text" maxlength="160" placeholder="Waar mag Sophie over beginnen?">
       <div class="sophie-callback-actions">
-        <button class="sophie-callback-submit" type="submit">Vraag terugbeltest aan</button>
+        <button class="sophie-callback-submit" type="submit">Test het zelf</button>
         <button class="sophie-callback-close" type="button" data-callback-close>Sluit</button>
       </div>
       <div class="sophie-callback-status" id="sophie-callback-status" role="status"></div>
@@ -1809,9 +1809,9 @@
         "Telefoonnummer": "Phone number",
         "Vraag, optioneel": "Question, optional",
         "Waar mag Sophie over beginnen?": "What should Sophie start with?",
-        "Vraag terugbeltest aan": "Request callback test",
+        "Test het zelf": "Try it yourself",
         "Sluit": "Close",
-        "Vul je telefoonnummer in. Sophie belt je terug zodra de demo-route beschikbaar is.": "Leave your phone number. Sophie will call you back as soon as the demo route is available.",
+        "Test het zelf: een gesprek zoals je het niet verwacht.": "Try it yourself: a conversation unlike what you expect.",
         "Test onze spraak assistent gebouwd door Hermes met Gemini. Druk op de knop en begin de conversatie.": "Test our voice assistant built by Hermes with Gemini. Press the button and start the conversation."
       }
     };
