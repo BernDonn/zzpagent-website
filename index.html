@@ -360,9 +360,12 @@
     .floating-voice small{display:block;color:var(--lime);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;line-height:1.1}
     .floating-voice strong{display:block;font-size:16px;line-height:1.15;letter-spacing:-.02em}
     .sophie-voice-panel,.sophie-callback-panel{width:min(235px,calc(100vw - 44px));min-height:9.5cm;align-content:start;justify-items:start}
-    .sophie-voice-panel .voice-orb{width:104px;height:104px;justify-self:center;margin:4px 0 12px;background:radial-gradient(circle at 50% 50%,rgba(215,242,104,.44),rgba(45,98,58,.32) 34%,rgba(8,34,24,.88) 70%,rgba(215,242,104,.18));box-shadow:0 0 36px rgba(215,242,104,.36),0 0 0 5px rgba(215,242,104,.18),inset 0 0 34px rgba(215,242,104,.20);cursor:pointer}
-    .sophie-voice-panel.live-active .voice-orb,.sophie-voice-panel.voice-error .voice-orb{background:radial-gradient(circle at 50% 50%,rgba(25,240,216,.42),rgba(0,229,255,.24) 32%,rgba(7,32,34,.88) 70%,rgba(215,242,104,.16));box-shadow:0 0 38px rgba(25,240,216,.42),0 0 0 5px rgba(215,242,104,.16),inset 0 0 34px rgba(0,229,255,.18)}
-    .sophie-voice-panel .voice-orb span{font-size:11px;letter-spacing:.12em;color:#f5ffd4;text-shadow:0 0 16px rgba(215,242,104,.9)}
+    .sophie-voice-panel .voice-orb{width:104px;height:104px;justify-self:center;margin:4px 0 12px;background:radial-gradient(circle at 50% 50%,rgba(0,229,255,.18),rgba(25,240,216,.10) 34%,rgba(5,11,20,.92) 66%,rgba(0,229,255,.16));box-shadow:0 0 34px rgba(0,229,255,.28),0 0 0 5px rgba(10,127,150,.18),inset 0 0 34px rgba(25,240,216,.14);cursor:pointer;border:1px solid rgba(0,229,255,.28)}
+    .sophie-voice-panel .voice-orb:before{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(0,229,255,.28);box-shadow:0 0 28px rgba(0,229,255,.20);animation:jarvisHalo 2.8s ease-in-out infinite;pointer-events:none}
+    .sophie-voice-panel.live-active .voice-orb{background:radial-gradient(circle at 50% 50%,rgba(25,240,216,.48),rgba(0,229,255,.26) 32%,rgba(5,11,20,.94) 68%,rgba(25,240,216,.22));box-shadow:0 0 46px rgba(0,229,255,.42),0 0 0 5px rgba(25,240,216,.20),inset 0 0 40px rgba(0,229,255,.22)}
+    .sophie-voice-panel.voice-error .voice-orb{background:radial-gradient(circle at 50% 50%,rgba(255,179,0,.28),rgba(0,229,255,.18) 34%,rgba(5,11,20,.94) 68%,rgba(255,179,0,.16));box-shadow:0 0 42px rgba(255,179,0,.32),0 0 0 5px rgba(0,229,255,.12),inset 0 0 34px rgba(0,229,255,.16)}
+    @keyframes jarvisHalo{0%,100%{transform:scale(.96);opacity:.45}50%{transform:scale(1.06);opacity:.9}}
+    .sophie-voice-panel .voice-orb span{font-size:11px;letter-spacing:.16em;color:#9fd8e8;text-shadow:0 0 16px rgba(0,229,255,.95),0 0 30px rgba(25,240,216,.55);font-family:var(--font-display)}
     .sophie-voice-panel .voice-inline-note{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(25,240,216,.24);background:rgba(25,240,216,.09);color:#174137;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
     .sophie-voice-panel .voice-panel-content{display:grid;gap:13px}
     .sophie-voice-panel p{margin:0;color:#5d6a61;font-size:14px;line-height:1.42}
@@ -2113,6 +2116,20 @@
     }
 
     let inlineVoiceWs=null, inlineVoiceMic=null, inlineVoiceCtx=null, inlineVoiceProcessor=null, inlineVoiceGain=null, inlinePlaybackCtx=null, inlineNextPlayback=0, inlineVoiceActive=false;
+    const SophieAudioContext = window.AudioContext || window.webkitAudioContext;
+    function logInlineVoiceError(error, stage){
+      try{
+        fetch(callbackEndpointBase() + '/visitor-ping', {
+          method:'POST', mode:'cors', headers:{'Content-Type':'application/json'}, keepalive:true,
+          body:JSON.stringify({
+            type:'voice_error', site:'zzpagent.nl', path:location.pathname, stage,
+            note:String((error && (error.name || error.message)) || error || 'unknown').slice(0,180),
+            userAgent:navigator.userAgent, language:navigator.language,
+            width:innerWidth, height:innerHeight, timezone:Intl.DateTimeFormat().resolvedOptions().timeZone || ''
+          })
+        }).catch(()=>{});
+      }catch(e){}
+    }
     function arrayBufferToBase64(buffer){
       const bytes=new Uint8Array(buffer); let binary='';
       for(let i=0;i<bytes.length;i+=0x8000) binary+=String.fromCharCode(...bytes.subarray(i,i+0x8000));
@@ -2144,7 +2161,7 @@
       if(copy) copy.textContent = text || 'Microfoon of verbinding lukte niet. Controleer toegang en probeer opnieuw.';
     }
     async function playInlinePcm16(base64){
-      inlinePlaybackCtx ||= new AudioContext({sampleRate:24000});
+      inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
       if(inlinePlaybackCtx.state==='suspended') await inlinePlaybackCtx.resume();
       const pcm=new Int16Array(base64ToArrayBuffer(base64));
       const audioBuffer=inlinePlaybackCtx.createBuffer(1, pcm.length, 24000);
@@ -2184,11 +2201,13 @@
     async function openVoiceEntry(){
       if(inlineVoiceActive){ stopInlineVoice(); return; }
       if(!voicePanel) return;
+      if(!SophieAudioContext){ setInlineVoiceError('Deze browser ondersteunt de audio-engine niet goed. Probeer Safari/Chrome met microfoontoegang.'); return; }
       setInlineVoiceState(true, 'Microfoon openen…');
       try{
         const endpointBase=callbackEndpointBase();
         const wsUrl=endpointBase.replace(/^https:/,'wss:').replace(/^http:/,'ws:') + '/ws/live';
         inlineVoiceWs=new WebSocket(wsUrl);
+        inlineVoiceWs.addEventListener('error', (event) => logInlineVoiceError(event, 'websocket'));
         inlineVoiceWs.addEventListener('message', async (event) => {
           try{
             const msg=JSON.parse(event.data);
@@ -2200,9 +2219,9 @@
           }catch(e){}
         });
         await new Promise((resolve,reject)=>{ inlineVoiceWs.addEventListener('open',resolve,{once:true}); inlineVoiceWs.addEventListener('error',reject,{once:true}); });
-        inlinePlaybackCtx ||= new AudioContext({sampleRate:24000});
+        inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
         inlineVoiceMic=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true,autoGainControl:true},video:false});
-        inlineVoiceCtx=new AudioContext();
+        inlineVoiceCtx=new SophieAudioContext();
         const source=inlineVoiceCtx.createMediaStreamSource(inlineVoiceMic);
         inlineVoiceProcessor=inlineVoiceCtx.createScriptProcessor(4096,1,1);
         inlineVoiceGain=inlineVoiceCtx.createGain(); inlineVoiceGain.gain.value=0;
@@ -2213,6 +2232,7 @@
         source.connect(inlineVoiceProcessor); inlineVoiceProcessor.connect(inlineVoiceGain); inlineVoiceGain.connect(inlineVoiceCtx.destination);
         setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
       }catch(error){
+        logInlineVoiceError(error, 'inline_voice_start');
         try{ inlineVoiceWs?.close(); }catch(e){}
         try{ inlineVoiceProcessor?.disconnect(); }catch(e){}
         try{ inlineVoiceGain?.disconnect(); }catch(e){}
