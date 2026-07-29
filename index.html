@@ -693,7 +693,7 @@
       var key="zzpagent_visitor_ping_sent_v2";
       if (window.sessionStorage && sessionStorage.getItem(key)) return;
       if (window.sessionStorage) sessionStorage.setItem(key,"1");
-      var endpointBase=(window.ZZPAGENT_VOICE_URL || "https://biblical-bingo-switches-recreation.trycloudflare.com?v=site").replace(/[?#].*$/, '').replace(/\/$/, '');
+      var endpointBase=(window.ZZPAGENT_VOICE_URL || "https://piano-permanent-neutral-similarly.trycloudflare.com?v=site").replace(/[?#].*$/, '').replace(/\/$/, '');
       var visitorId;
       try {
         visitorId=localStorage.getItem('zzpagent_visitor_id_v1');
@@ -2330,7 +2330,8 @@
         inlinePlaybackCtx=null; inlineNextPlayback=0; inlineAmbienceBuffer=null;
         inlineVoiceMic=await getSophieMicStream();
         const endpointBase=callbackEndpointBase();
-        const wsUrl=endpointBase.replace(/^https:/,'wss:').replace(/^http:/,'ws:') + '/ws/live?site=zzpagent.nl';
+        const visitorTimeZone=encodeURIComponent(Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/Amsterdam');
+        const wsUrl=endpointBase.replace(/^https:/,'wss:').replace(/^http:/,'ws:') + '/ws/live?site=zzpagent.nl&tz=' + visitorTimeZone;
         inlineVoiceWs=new WebSocket(wsUrl);
         inlineVoiceWs.addEventListener('error', (event) => logInlineVoiceError(event, 'websocket'));
         inlineVoiceWs.addEventListener('message', async (event) => {
@@ -2474,7 +2475,7 @@
       }catch(e){ return String(Date.now()) + '-' + Math.random().toString(16).slice(2); }
     }
     function callbackEndpointBase(){
-      return (window.ZZPAGENT_VOICE_URL || 'https://biblical-bingo-switches-recreation.trycloudflare.com?v=site').replace(/[?#].*$/, '').replace(/\/$/, '');
+      return (window.ZZPAGENT_VOICE_URL || 'https://piano-permanent-neutral-similarly.trycloudflare.com?v=site').replace(/[?#].*$/, '').replace(/\/$/, '');
     }
     function openCallbackPanel(){
       if(!callbackPanel) return;
