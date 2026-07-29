@@ -693,7 +693,7 @@
       var key="zzpagent_visitor_ping_sent_v2";
       if (window.sessionStorage && sessionStorage.getItem(key)) return;
       if (window.sessionStorage) sessionStorage.setItem(key,"1");
-      var endpointBase=(window.ZZPAGENT_VOICE_URL || "https://have-bolt-since-slope.trycloudflare.com?v=site").replace(/[?#].*$/, '').replace(/\/$/, '');
+      var endpointBase=(window.ZZPAGENT_VOICE_URL || "https://beans-reference-rand-boss.trycloudflare.com?v=site").replace(/[?#].*$/, '').replace(/\/$/, '');
       var visitorId;
       try {
         visitorId=localStorage.getItem('zzpagent_visitor_id_v1');
@@ -2191,7 +2191,7 @@
     }
 
     const SITE_BUILD_MARKER='sophie-eva-hud-f93a128-20260727';
-    let inlineVoiceWs=null, inlineVoiceMic=null, inlineVoiceCtx=null, inlineVoiceProcessor=null, inlineVoiceGain=null, inlinePlaybackCtx=null, inlineNextPlayback=0, inlineVoiceActive=false;
+    let inlineVoiceWs=null, inlineVoiceMic=null, inlineVoiceCtx=null, inlineVoiceProcessor=null, inlineVoiceGain=null, inlinePlaybackCtx=null, inlineNextPlayback=0, inlineVoiceActive=false, inlineAmbienceSource=null, inlineAmbienceGain=null, inlineAmbienceBuffer=null;
     const SophieAudioContext = window.AudioContext || window.webkitAudioContext;
     function logInlineVoiceError(error, stage){
       try{
@@ -2248,6 +2248,32 @@
       inlineNextPlayback=Math.max(inlineNextPlayback, inlinePlaybackCtx.currentTime+.03);
       src.start(inlineNextPlayback); inlineNextPlayback+=audioBuffer.duration;
     }
+    async function startInlineOfficeAmbience(endpointBase){
+      try{
+        inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
+        if(inlinePlaybackCtx.state==='suspended') await inlinePlaybackCtx.resume();
+        const health=await fetch(endpointBase + '/health', {cache:'no-store'}).then(res=>res.json());
+        const cfg=health && health.officeAmbience;
+        if(!cfg || !cfg.enabled) return;
+        inlineAmbienceBuffer ||= await fetch(endpointBase + '/assets/audio/office-ambience.wav', {cache:'no-store'})
+          .then(res=>res.arrayBuffer())
+          .then(data=>inlinePlaybackCtx.decodeAudioData(data));
+        stopInlineOfficeAmbience();
+        inlineAmbienceSource=inlinePlaybackCtx.createBufferSource();
+        inlineAmbienceSource.buffer=inlineAmbienceBuffer;
+        inlineAmbienceSource.loop=true;
+        inlineAmbienceGain=inlinePlaybackCtx.createGain();
+        inlineAmbienceGain.gain.value=Math.max(0,Math.min(1,Number(cfg.clientGain ?? 0.10)));
+        inlineAmbienceSource.connect(inlineAmbienceGain).connect(inlinePlaybackCtx.destination);
+        inlineAmbienceSource.start();
+      }catch(error){ logInlineVoiceError(error, 'office_ambience'); }
+    }
+    function stopInlineOfficeAmbience(){
+      try{ inlineAmbienceSource?.stop(); }catch(e){}
+      try{ inlineAmbienceSource?.disconnect(); }catch(e){}
+      try{ inlineAmbienceGain?.disconnect(); }catch(e){}
+      inlineAmbienceSource=null; inlineAmbienceGain=null;
+    }
     function downsampleTo16k(input, sourceRate){
       const targetRate=16000;
       if(sourceRate===targetRate){
@@ -2271,6 +2297,7 @@
       try{ inlineVoiceGain?.disconnect(); }catch(e){}
       try{ inlineVoiceCtx?.close(); }catch(e){}
       try{ inlineVoiceMic?.getTracks().forEach(t=>t.stop()); }catch(e){}
+      stopInlineOfficeAmbience();
       inlineVoiceWs=null; inlineVoiceProcessor=null; inlineVoiceGain=null; inlineVoiceCtx=null; inlineVoiceMic=null;
       setInlineVoiceState(false);
     }
@@ -2315,6 +2342,7 @@
         });
         await new Promise((resolve,reject)=>{ inlineVoiceWs.addEventListener('open',resolve,{once:true}); inlineVoiceWs.addEventListener('error',reject,{once:true}); });
         inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
+        await startInlineOfficeAmbience(endpointBase);
         inlineVoiceCtx=new SophieAudioContext();
         const source=inlineVoiceCtx.createMediaStreamSource(inlineVoiceMic);
         inlineVoiceProcessor=inlineVoiceCtx.createScriptProcessor(4096,1,1);
@@ -2442,7 +2470,7 @@
       }catch(e){ return String(Date.now()) + '-' + Math.random().toString(16).slice(2); }
     }
     function callbackEndpointBase(){
-      return (window.ZZPAGENT_VOICE_URL || 'https://have-bolt-since-slope.trycloudflare.com?v=site').replace(/[?#].*$/, '').replace(/\/$/, '');
+      return (window.ZZPAGENT_VOICE_URL || 'https://beans-reference-rand-boss.trycloudflare.com?v=site').replace(/[?#].*$/, '').replace(/\/$/, '');
     }
     function openCallbackPanel(){
       if(!callbackPanel) return;
