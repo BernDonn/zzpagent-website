@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
   <Connect>
-    <Stream url="wss://transparent-divisions-resources-notebooks.trycloudflare.com/ws/twilio" />
+    <Stream url="wss://sensor-accessibility-investigation-bidder.trycloudflare.com/ws/twilio" />
   </Connect>
 </Response>
