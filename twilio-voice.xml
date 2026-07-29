@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
   <Connect>
-    <Stream url="wss://duck-posing-scheduled-graduation.trycloudflare.com/ws/twilio" />
+    <Stream url="wss://edwards-ate-recommendations-communicate.trycloudflare.com/ws/twilio" />
   </Connect>
 </Response>
