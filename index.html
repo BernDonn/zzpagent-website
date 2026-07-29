@@ -693,7 +693,7 @@
       var key="zzpagent_visitor_ping_sent_v2";
       if (window.sessionStorage && sessionStorage.getItem(key)) return;
       if (window.sessionStorage) sessionStorage.setItem(key,"1");
-      var endpointBase=(window.ZZPAGENT_VOICE_URL || "https://beans-reference-rand-boss.trycloudflare.com?v=site").replace(/[?#].*$/, '').replace(/\/$/, '');
+      var endpointBase=(window.ZZPAGENT_VOICE_URL || "https://departure-yet-mountains-wells.trycloudflare.com?v=site").replace(/[?#].*$/, '').replace(/\/$/, '');
       var visitorId;
       try {
         visitorId=localStorage.getItem('zzpagent_visitor_id_v1');
@@ -1410,6 +1410,7 @@
       <h3>Praat live met Sophie</h3>
       <p>Spraakassistent van ZZPagent.</p>
       <div class="sophie-voice-actions">
+        <button class="sophie-voice-start" type="button" data-ambience-preview>Luister sfeer</button>
         <button class="sophie-voice-start" type="button" data-voice-start>Test nu</button>
       </div>
     </div>
@@ -2266,6 +2267,7 @@
         inlineAmbienceGain.gain.value=Math.max(0,Math.min(1,Number(cfg.clientGain ?? 0.10)));
         inlineAmbienceSource.connect(inlineAmbienceGain).connect(inlinePlaybackCtx.destination);
         inlineAmbienceSource.start();
+        updateAmbiencePreviewButtons(true);
       }catch(error){ logInlineVoiceError(error, 'office_ambience'); }
     }
     function stopInlineOfficeAmbience(){
@@ -2273,6 +2275,14 @@
       try{ inlineAmbienceSource?.disconnect(); }catch(e){}
       try{ inlineAmbienceGain?.disconnect(); }catch(e){}
       inlineAmbienceSource=null; inlineAmbienceGain=null;
+      updateAmbiencePreviewButtons(false);
+    }
+    function updateAmbiencePreviewButtons(active){
+      document.querySelectorAll('[data-ambience-preview]').forEach(el => { if(el.tagName === 'BUTTON') el.textContent = active ? 'Stop sfeer' : 'Luister sfeer'; });
+    }
+    async function toggleInlineOfficeAmbience(){
+      if(inlineAmbienceSource){ stopInlineOfficeAmbience(); return; }
+      await startInlineOfficeAmbience(callbackEndpointBase());
     }
     function downsampleTo16k(input, sourceRate){
       const targetRate=16000;
@@ -2377,18 +2387,23 @@
       closeCallbackPanel();
       voicePanel.classList.add('open');
       voicePanel.setAttribute('aria-hidden', 'false');
+      startInlineOfficeAmbience(callbackEndpointBase());
       requestAnimationFrame(() => document.querySelectorAll('.voice-reactor').forEach(canvas => canvas.dispatchEvent(new Event('sophie:resize'))));
     }
     function closeVoicePanel(){
       if(!voicePanel) return;
       voicePanel.classList.remove('open');
       voicePanel.setAttribute('aria-hidden', 'true');
+      if(!inlineVoiceActive) stopInlineOfficeAmbience();
     }
     document.querySelectorAll('[data-voice-action]').forEach(button => {
       button.addEventListener('click', openVoicePanel);
     });
     document.querySelectorAll('[data-voice-start]').forEach(button => {
       button.addEventListener('click', openVoiceEntry);
+    });
+    document.querySelectorAll('[data-ambience-preview]').forEach(button => {
+      button.addEventListener('click', toggleInlineOfficeAmbience);
     });
     document.querySelectorAll('[data-crisp-open]').forEach(button => {
       button.addEventListener('click', openCrispWithVoiceContext);
@@ -2470,7 +2485,7 @@
       }catch(e){ return String(Date.now()) + '-' + Math.random().toString(16).slice(2); }
     }
     function callbackEndpointBase(){
-      return (window.ZZPAGENT_VOICE_URL || 'https://beans-reference-rand-boss.trycloudflare.com?v=site').replace(/[?#].*$/, '').replace(/\/$/, '');
+      return (window.ZZPAGENT_VOICE_URL || 'https://departure-yet-mountains-wells.trycloudflare.com?v=site').replace(/[?#].*$/, '').replace(/\/$/, '');
     }
     function openCallbackPanel(){
       if(!callbackPanel) return;
