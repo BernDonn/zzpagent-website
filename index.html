@@ -2411,6 +2411,15 @@
     const callbackForm = document.getElementById('sophie-callback-form');
     const callbackStatus = document.getElementById('sophie-callback-status');
     const callbackPhone = document.getElementById('sophie-callback-phone');
+    const callbackPhonePlaceholders = ['Bijv. 06 12 34 56 78', 'of', '020 123 45 67'];
+    if(callbackPhone){
+      let callbackPhonePlaceholderIndex = 0;
+      setInterval(() => {
+        if(callbackPhone.value) return;
+        callbackPhonePlaceholderIndex = (callbackPhonePlaceholderIndex + 1) % callbackPhonePlaceholders.length;
+        callbackPhone.placeholder = callbackPhonePlaceholders[callbackPhonePlaceholderIndex];
+      }, 1500);
+    }
     function getVisitorId(){
       try{
         let id = localStorage.getItem('zzpagent_visitor_id_v1');
