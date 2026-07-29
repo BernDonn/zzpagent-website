@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
   <Connect>
-    <Stream url="wss://piano-permanent-neutral-similarly.trycloudflare.com/ws/twilio" />
+    <Stream url="wss://kits-foundation-feed-implementation.trycloudflare.com/ws/twilio" />
   </Connect>
 </Response>
