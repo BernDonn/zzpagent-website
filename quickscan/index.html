@@ -598,6 +598,41 @@
     return result;
   }
 
+  function buildQuickscanJson(data) {
+    return {
+      site: 'zzpagent.nl',
+      visitorId: (crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()),
+      name: data.step3.name || '',
+      email: data.step3.email || '',
+      phone: data.step3.phone || '',
+      processes: data.step1.processes || [],
+      frustration: data.step1.frustration || '',
+      urgency: data.step1.urgency || '',
+      company: data.step2.company || '',
+      sector: data.step2.sector || '',
+      employees: data.step2.employees || '',
+      aiexp: data.step2.aiexp || '',
+      dream: data.step2.dream || '',
+      outcome: data.step2.outcome || '',
+      consent: !!data.step3.consent,
+      path: location.pathname + location.search,
+      referrer: document.referrer || '',
+      userAgent: navigator.userAgent || ''
+    };
+  }
+
+  async function sendQuickscanFallback(data) {
+    const response = await fetch('https://sophie.zzpagent.nl/quickscan-submit', {
+      method: 'POST',
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(buildQuickscanJson(data)),
+      keepalive: true
+    });
+    if (!response.ok) throw new Error('Quickscan fallback failed: ' + response.status);
+    return response.json().catch(() => ({ ok: true }));
+  }
+
   // Submit
   document.getElementById('submit-scan').addEventListener('click', async function() {
     if (!validateStep(currentStep)) return;
@@ -645,7 +680,12 @@
     btn.querySelector('.spinner').style.display = 'inline-block';
 
     try {
-      await sendQuickscanMail(data);
+      try {
+        await sendQuickscanMail(data);
+      } catch (mailErr) {
+        console.warn('FormSubmit failed, using Sophie fallback', mailErr);
+        await sendQuickscanFallback(data);
+      }
       document.getElementById('form-wrapper').style.display = 'none';
       document.getElementById('step-dots').style.display = 'none';
       document.getElementById('thank-you').style.display = 'block';
