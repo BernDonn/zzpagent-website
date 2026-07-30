@@ -459,8 +459,8 @@
 
   <!-- THANK YOU -->
   <div class="thank-you" id="thank-you">
-    <h2>Bedankt! <em>Je Quickscan is verstuurd.</em></h2>
-    <p>Je ziet deze bevestiging omdat de aanvraag goed is verzonden. We hebben je Quickscan ontvangen en koppelen terug per e-mail.</p>
+    <h2>Bedankt! <em>Je Quickscan is ontvangen.</em></h2>
+    <p>Je ziet deze bevestiging omdat de aanvraag goed is ontvangen. We hebben je Quickscan binnen en koppelen terug per e-mail.</p>
   </div>
 
   <footer>
@@ -680,12 +680,10 @@
     btn.querySelector('.spinner').style.display = 'inline-block';
 
     try {
-      try {
-        await sendQuickscanMail(data);
-      } catch (mailErr) {
-        console.warn('FormSubmit failed, using Sophie fallback', mailErr);
-        await sendQuickscanFallback(data);
-      }
+      await sendQuickscanFallback(data);
+      sendQuickscanMail(data).catch(mailErr => {
+        console.warn('Optional FormSubmit mail failed after Sophie receipt', mailErr);
+      });
       document.getElementById('form-wrapper').style.display = 'none';
       document.getElementById('step-dots').style.display = 'none';
       document.getElementById('thank-you').style.display = 'block';
