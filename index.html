@@ -1424,8 +1424,8 @@
     <form class="sophie-callback-form" id="sophie-callback-form">
       <label for="sophie-callback-phone">Vul je Tel. nummer in</label>
       <input id="sophie-callback-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Bijv. 06 12 34 56 78" required>
-      <label for="sophie-callback-note">Geef svp even je voornaam</label>
-      <input id="sophie-callback-note" name="note" type="text" maxlength="160" placeholder="Bijv. Anna">
+      <label for="sophie-callback-name">Geef svp even je voornaam</label>
+      <input id="sophie-callback-name" name="name" type="text" autocomplete="given-name" maxlength="40" placeholder="Bijv. Anna">
       <div class="sophie-callback-actions">
         <button class="sophie-callback-submit" type="submit">Test nu</button>
       </div>
@@ -2495,7 +2495,7 @@
     callbackForm?.addEventListener('submit', async (event) => {
       event.preventDefault();
       const phone = String(callbackForm.phone.value || '').trim();
-      const note = String(callbackForm.note.value || '').trim();
+      const name = String(callbackForm.name.value || '').trim();
       const digits = phone.replace(/\D/g, '');
       if(digits.length < 9){
         if(callbackStatus){ callbackStatus.textContent='Vul een geldig telefoonnummer in.'; callbackStatus.className='sophie-callback-status err'; }
@@ -2505,8 +2505,10 @@
         type:'callback_request',
         site:'zzpagent.nl',
         visitorId:getVisitorId(),
+        name:name,
+        callerName:name,
         phone:phone,
-        note:note,
+        note:name,
         path:location.pathname + location.search,
         referrer:document.referrer || '',
         language:navigator.language || '',
