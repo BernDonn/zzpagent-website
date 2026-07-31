@@ -667,6 +667,76 @@
       .hero-disclosures > div:first-child{gap:6px!important;flex-wrap:nowrap!important}
       .hero-disclosures .disclosure-btn{padding:8px 11px!important;font-size:13px!important;line-height:1.15!important;white-space:nowrap!important}
     }
+
+    /* Liquid Glass readiness layer: subtle Apple-style glass polish without changing content. */
+    @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))){
+      .nav{
+        -webkit-backdrop-filter:saturate(1.35) blur(24px);
+        backdrop-filter:saturate(1.35) blur(24px);
+        background:linear-gradient(180deg,rgba(255,253,248,.78),rgba(246,242,234,.64));
+        border-bottom:1px solid rgba(255,255,255,.48);
+        box-shadow:0 12px 34px rgba(18,43,32,.08);
+      }
+      .language-toggle,.mobile-qa-link,.pill,
+      .hero-faq,.top-panel,.comparison-wrap,.case,.integration-card,.compare-card,
+      .deploy-panel,.provider-card,.legal-card,.pricing-card,.price-mini-row,.hero-mini-video{
+        -webkit-backdrop-filter:saturate(1.2) blur(18px);
+        backdrop-filter:saturate(1.2) blur(18px);
+        background:linear-gradient(145deg,rgba(255,253,248,.82),rgba(255,255,255,.56));
+        border-color:rgba(255,255,255,.50);
+        box-shadow:0 18px 48px rgba(18,43,32,.07), inset 0 1px 0 rgba(255,255,255,.72);
+      }
+      .agent-card,.demo-card,.dark-card,.cta-band,.footer-card,.tile.dark,.trust-stack,
+      .trust-visual,.integration-note,.product.featured,.acceptance-box,.compare-card.opensource,
+      .proof,.footer-cta{
+        background:linear-gradient(150deg,rgba(22,63,43,.94),rgba(35,86,60,.84) 55%,rgba(16,41,31,.94));
+        border-color:rgba(255,255,255,.20);
+        box-shadow:0 28px 80px rgba(16,41,31,.18), inset 0 1px 0 rgba(255,255,255,.22);
+        isolation:isolate;
+      }
+      .agent-card:before,.demo-card:before,.dark-card:before,.cta-band:before,.footer-cta:before{
+        content:"";
+        position:absolute;
+        inset:0;
+        pointer-events:none;
+        z-index:0;
+        background:
+          radial-gradient(circle at 16% 0%,rgba(255,255,255,.28),transparent 30%),
+          linear-gradient(115deg,rgba(255,255,255,.20),transparent 22% 62%,rgba(255,255,255,.08));
+        mix-blend-mode:screen;
+      }
+      .card-top,.voice-entry,.agent-card > *,.demo-card > *,.dark-card > *,.cta-band > *,.footer-cta > *{position:relative;z-index:1}
+      .agent-card p,.demo-card p,.dark-card p,.cta-band p,.footer-card p,.tile.dark p,.tile.dark li,
+      .trust-stack p,.trust-stack li,.trust-stack .lead,.trust-stack .muted,.trust-copy p,
+      .integration-note p,.integration-note li,.product.featured p,.product.featured li,
+      .acceptance-box p,.acceptance-box li,.compare-card.opensource p,.compare-card.opensource li,
+      .proof p,.proof li,.footer-cta p,.footer-cta li{color:rgba(248,251,255,.80)}
+      .trust-stack h2,.trust-stack h3,.trust-visual h2,.trust-visual h3,.integration-note h2,.integration-note h3,
+      .product.featured h2,.product.featured h3,.acceptance-box h2,.acceptance-box h3,
+      .compare-card.opensource h2,.compare-card.opensource h3,.proof h2,.proof h3,.footer-cta h2,.footer-cta h3{color:#f8fbff}
+      .voice-entry,.sophie-callback-panel,.sophie-voice-panel,.sophie-call-widget{
+        -webkit-backdrop-filter:saturate(1.25) blur(20px);
+        backdrop-filter:saturate(1.25) blur(20px);
+        background:linear-gradient(145deg,rgba(255,253,248,.88),rgba(255,255,255,.64));
+        border-color:rgba(255,255,255,.48);
+        box-shadow:0 24px 70px rgba(18,43,32,.12), inset 0 1px 0 rgba(255,255,255,.72);
+      }
+      .floating-voice{
+        -webkit-backdrop-filter:saturate(1.35) blur(18px);
+        backdrop-filter:saturate(1.35) blur(18px);
+        background:linear-gradient(135deg,rgba(9,26,42,.88),rgba(13,86,103,.76));
+        border-color:rgba(128,235,255,.30);
+        box-shadow:0 22px 58px rgba(3,25,39,.26), inset 0 1px 0 rgba(255,255,255,.16);
+      }
+      .button.secondary,.disclosure-btn{
+        -webkit-backdrop-filter:saturate(1.15) blur(14px);
+        backdrop-filter:saturate(1.15) blur(14px);
+        background:rgba(255,255,255,.34)!important;
+        border-color:rgba(255,255,255,.52)!important;
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 10px 26px rgba(18,43,32,.06);
+      }
+    }
+
   </style>
   <script type="text/javascript">
     window.$crisp=[];
