@@ -39,6 +39,7 @@
     /* ===== BIO SECTION ===== */
     .bio-section{padding:32px 30px;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,1))}
     .bio-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+    .bio-photo-stack{display:flex;flex-direction:column;gap:12px}
     .bio-image{position:relative;border-radius:32px;overflow:hidden;box-shadow:0 20px 60px rgba(16,24,40,.18)}
     .bio-image img{width:100%;height:490px;object-fit:cover;object-position:center 40%}
     .bio-info h2{font-size:clamp(30px,4vw,52px);margin:0 0 16px;letter-spacing:-.03em}
@@ -90,7 +91,7 @@
     .linkedin-author .linkedin-icon{width:28px;height:28px;border-radius:14px;background:#1a73e8;color:#fff;display:grid;place-items:center;font-weight:900;font-size:12px}
     .linkedin-author span{font-size:13px;color:var(--muted)}
     /* ===== RESPONSIVE ===== */
-    @media (max-width:1000px){.bio-hero{grid-template-columns:1fr}.bio-image{order:-1}.bio-image img{height:320px}}
+    @media (max-width:1000px){.bio-hero{grid-template-columns:1fr}.bio-photo-stack{order:-1}.bio-image img{height:320px}}
     @media (max-width:800px){.bio-details{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}.linkedin-feed{grid-template-columns:1fr}}
   </style>
 </head>
@@ -98,21 +99,20 @@
   <main class="page">
     <!-- ZZP SITE -->
     <section class="site zzp">
-      <div class="topbar">
-        <a class="brand" href="/" style="text-decoration:none"><span class="dot"></span> ZZPagent</a>
-      </div>
 
       <!-- BIO SECTION -->
       <section class="bio-section">
         <div class="bio-hero">
-          <div class="bio-image">
-            <img src="../assets/bernard-donners.jpg" alt="Bernard Donners" />
+          <div class="bio-photo-stack">
+            <div class="bio-role">Lector AI & Organisational Behaviour • TIO Business School</div>
+            <div class="bio-image">
+              <img src="../assets/bernard-donners.jpg" alt="Bernard Donners" />
+            </div>
           </div>
           <div class="bio-info">
-            <div class="bio-role">Lector AI & Organisational Behaviour • TIO Business School</div>
             <h2>Bernard Donners</h2>
             <p>Ik help ondernemers een persoonlijke AI-agent praktisch in te zetten. In mijn eigen bedrijf heb ik een productiviteitsstijging van een factor 10 weten te realiseren door op een slimme manier AI in te zetten voor routinematige processen. Systemen zoals OpenClaw en Hermes leren jouw gewoontes en worden over tijd een nieuw Operating Systeem voor je activiteiten, maar wel Open Source, dus zonder afhankelijkheid van Big Tech. Inmiddels heb ik 3 digitale collega's in het team (Eva, Felix en Sophie) die helpen bij dagelijkse werkzaamheden.</p>
-            <h3>Wie is Bernard Donners?</h3>
+            <h3>Wie is Bernard?</h3>
             <p>Meer dan 25 jaar ervaring in C-level functies bij multinationals zoals Philips, als ondernemer in e-commerce, en nu als docent International Business & AI aan TIO Business School. Bernard vertaalt complexe AI-ontwikkelingen naar praktische ondersteuning voor zelfstandigen.</p>
             <p><strong>Lees ook de laatste blogs en LinkedIn-posts van Bernard beneden.</strong></p>
           </div>
