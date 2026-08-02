@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Concept: Over-ons-pagina — State-of-the-art layout</title>
+  <style>
+    :root{
+      --zzp-green:#163f2b;
+      --zzp-green-2:#0f2b1d;
+      --zzp-cream:#f5f0df;
+      --ink:#172033;
+      --muted:#667085;
+      --line:rgba(23,32,51,.13);
+      --white:#fff;
+      --shadow:0 24px 70px rgba(16,24,40,.14);
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",system-ui,sans-serif;
+      color:var(--ink);
+      background:linear-gradient(135deg,#f8f5ed 0%,#eef3f8 50%,#f7f4e9 100%);
+      line-height:1.55;
+    }
+    .page{max-width:1320px;margin:0 auto;padding:42px 24px 64px}
+    h1{font-size:clamp(32px,4vw,56px);line-height:.98;margin:0 0 14px;letter-spacing:-.045em}
+    .intro p{max-width:800px;margin:0;color:var(--muted);font-size:18px}
+    .note{padding:14px 16px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.7);color:#475467;font-size:14px;max-width:360px;margin-top:18px}
+    .site{background:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.9);border-radius:38px;box-shadow:var(--shadow);overflow:hidden;margin:30px 0 40px}
+    .site.zzp{--brand:var(--zzp-green);--brand2:var(--zzp-green-2);--paper:var(--zzp-cream)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:24px 30px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.75);backdrop-filter:blur(16px)}
+    .brand{display:flex;align-items:center;gap:14px;font-weight:900;color:var(--brand);letter-spacing:-.02em;font-size:22px}
+    .dot{width:38px;height:38px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:0 10px 30px color-mix(in srgb,var(--brand) 25%, transparent)}
+    .nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .nav span{font-size:14px;color:#667085;padding:10px 12px;border-radius:999px}
+    .nav .active{color:var(--brand);background:var(--paper);font-weight:900;border:1px solid color-mix(in srgb,var(--brand) 20%, transparent)}
+    /* ===== BIO SECTION ===== */
+    .bio-section{padding:32px 30px;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,1))}
+    .bio-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+    .bio-image-wrap{display:flex;flex-direction:column;gap:16px}
+    .bio-photo-title{display:none;font-size:clamp(28px,3.5vw,42px);line-height:1.05;margin:0;letter-spacing:-.03em}
+    .bio-image{position:relative;border-radius:32px;overflow:hidden;box-shadow:0 20px 60px rgba(16,24,40,.18)}
+    .bio-image img{width:100%;height:490px;object-fit:cover;object-position:center 40%}
+    .bio-info h2{font-size:clamp(30px,4vw,52px);margin:0 0 16px;letter-spacing:-.03em}
+    .bio-role{display:inline-flex;align-items:center;gap:10px;font-size:16px;color:var(--brand);font-weight:800;margin-bottom:12px}
+    .bio-role::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand)}
+    .bio-info p{color:var(--muted);font-size:18px;line-height:1.65;margin-bottom:24px}
+    .bio-timeline{display:flex;gap:20px;margin-top:24px}
+    .timeline-item{flex:1;border:1px solid var(--line);border-radius:22px;padding:20px;background:var(--paper)}
+    .timeline-year{font-weight:900;color:var(--brand);font-size:20px}
+    .timeline-title{font-weight:800;color:#1d2939}
+    .bio-details{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+    .detail-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px}
+    .detail-card h4{margin:0 0 8px;font-size:15px;font-weight:800}
+    .detail-card p{margin:0;color:var(--muted);font-size:14px}
+    /* ===== BLOG SECTION ===== */
+    .blog-section{padding:32px 30px}
+    .blog-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px}
+    .blog-header h3{font-size:clamp(28px,3.5vw,42px);margin:0;letter-spacing:-.03em}
+    .blog-header a{color:var(--brand);text-decoration:none;font-weight:800}
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .blog-card{display:flex;flex-direction:column;overflow:hidden;border-radius:26px;box-shadow:0 10px 40px rgba(16,24,40,.08);transition:transform .2s ease, box-shadow .2s ease;position:relative}
+    .blog-card:hover{transform:translateY(-6px);box-shadow:0 16px 50px rgba(16,24,40,.12)}
+    .blog-image{height:220px;overflow:hidden}
+    .blog-image img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+    .blog-card:hover .blog-image img{transform:scale(1.06)}
+    .blog-content{padding:22px 24px 24px}
+    .blog-meta{display:flex;gap:12px;align-items:center;font-size:13px;color:var(--muted);margin-bottom:10px}
+    .blog-meta span{color:var(--brand);font-weight:800}
+    .blog-card h4{font-size:22px;margin:0 0 10px;letter-spacing:-.02em;line-height:1.3}
+    .blog-card p{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
+    .blog-card.read-more{margin-top:auto;padding-top:16px}
+    .blog-card.read-more a{color:var(--brand);text-decoration:none;font-weight:800;font-size:14px}
+    .blog-card .read-more a::after{content:'';position:absolute;inset:0}
+    /* ===== LINKEDIN SECTION ===== */
+    .linkedin-section{padding:32px 30px;background:linear-gradient(180deg,rgba(26,115,232,0.06),rgba(255,255,255,1))}
+    .linkedin-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px}
+    .linkedin-header h3{font-size:clamp(28px,3.5vw,42px);margin:0;letter-spacing:-.03em}
+    .linkedin-header a{color:#1a73e8;text-decoration:none;font-weight:800}
+    .linkedin-feed{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .linkedin-post{background:#fff;border:1px solid #e0e7ff;border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(26,115,232,.08);transition:transform .2s}
+    .linkedin-post:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(26,115,232,.15)}
+    .linkedin-post a{text-decoration:none;color:inherit;display:block}
+    .linkedin-post img{width:100%;height:140px;object-fit:cover}
+    .linkedin-text{padding:18px}
+    .linkedin-text strong{display:block;color:#1d2939;margin-bottom:6px;font-size:15px}
+    .linkedin-text p{margin:0;color:#667085;font-size:13px}
+    .linkedin-author{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid #f0f4ff}
+    .linkedin-author .linkedin-icon{width:28px;height:28px;border-radius:14px;background:#1a73e8;color:#fff;display:grid;place-items:center;font-weight:900;font-size:12px}
+    .linkedin-author span{font-size:13px;color:var(--muted)}
+    /* ===== RESPONSIVE ===== */
+    @media (min-width:1001px){.bio-photo-title{display:block}.bio-info h2{display:none}}
+    @media (max-width:1000px){.bio-hero{grid-template-columns:1fr}.bio-image-wrap{order:-1}.bio-image img{height:320px}}
+    @media (max-width:800px){.bio-details{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}.linkedin-feed{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="intro">
+      <div>
+        <h1>Concept: Over-ons-pagina</h1>
+        <p>State-of-the-art layout: split bio-section, magazine-style blog grid, LinkedIn grid.</p>
+      </div>
+    </section>
+
+    <!-- ZZP SITE -->
+    <section class="site zzp">
+      <div class="topbar">
+        <div class="brand"><span class="dot"></span> ZZPagent</div>
+        <nav class="nav">
+          <span>Waarom Hermes</span><span>Voor wie</span><span>De laatste blogs</span><span>Modelkeuze</span><span class="active">Over ons</span><span>Adviesgesprek</span>
+        </nav>
+      </div>
+
+      <!-- BIO SECTION -->
+      <section class="bio-section">
+        <div class="bio-hero">
+          <div class="bio-image-wrap">
+            <h2 class="bio-photo-title">Bernard Donners</h2>
+            <div class="bio-image">
+              <img src="assets/bernard-donners.jpg" alt="Bernard Donners" />
+            </div>
+          </div>
+          <div class="bio-info">
+            <div class="bio-role">Lector AI & Organisational Behaviour • TIO Business School</div>
+            <h2>Bernard Donners</h2>
+            <p>Ik help ondernemers een persoonlijke AI-agent praktisch in te zetten. In mijn eigen bedrijf heb ik een productiviteitsstijging van een factor 10 weten te realiseren door op een slimme manier AI in te zetten voor routinematige processen. Systemen zoals OpenClaw en Hermes leren jouw gewoontes en worden over tijd een nieuw Operating Systeem voor je activiteiten, maar wel Open Source, dus zonder afhankelijkheid van Big Tech. Inmiddels heb ik 3 digitale collega's in het team (Eva, Felix en Sophie) die helpen bij dagelijkse werkzaamheden.</p>
+            <h3>Wie is Bernard Donners?</h3>
+            <p>Meer dan 25 jaar ervaring in C-level functies bij multinationals zoals Philips, als ondernemer in e-commerce, en nu als docent International Business & AI aan TIO Business School. Bernard vertaalt complexe AI-ontwikkelingen naar praktische ondersteuning voor zelfstandigen.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOG SECTION -->
+      <section class="blog-section">
+        <div class="blog-header">
+          <h3>Mijn laatste blogs</h3>
+          <a href="https://www.bernarddonners-ai.nl/blog" target="_blank">Bekijk alle 20 gidsen →</a>
+        </div>
+        <div class="blog-grid">
+          <!-- Normal 1 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="assets/duurste-ai-fout.png" alt="AI-strategie" />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta"><span>21 mei 2026</span> • 6 minuten</div>
+              <h4><a href="https://www.bernarddonners-ai.nl/post/de-oude-buy-or-build-voor-ai-is-dood" target="_blank" style="text-decoration:none;color:inherit">De duurste AI-fout voor ZZP'ers van 2026</a></h4>
+              <p>AI-budgetten exploderen terwijl het rendement onduidelijk blijft. Bernard legt uit hoe je met een doordachte strategie de valkuilen van agentic AI vermijdt.</p>
+              <div class="blog-card read-more"><a href="https://www.bernarddonners-ai.nl/post/de-oude-buy-or-build-voor-ai-is-dood" target="_blank">Lees gids →</a></div>
+            </div>
+          </article>
+          <!-- Normal 2 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="https://static.wixstatic.com/media/2daade_94c4a2d81c90472999409ae4017c0ffa~mv2.png/v1/fill/w_600,h_400,q_90,enc_avif,quality_auto/2daade_94c4a2d81c90472999409ae4017c0ffa~mv2.webp" alt="OpenClaw agent" />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta"><span>27 apr 2026</span> • 7 minuten</div>
+              <h4><a href="https://www.bernarddonners-ai.nl/post/van-chatbot-naar-handelende-assistent-wat-mijn-experimenten-met-openclaw-zichtbaar-maken" target="_blank" style="text-decoration:none;color:inherit">Van chatbot naar handelende assistent</a></h4>
+              <p>Hoe een Hermes-agent anders is dan ChatGPT. OpenClaw-experimenten met tokenkosten, lock-in en autonomie.</p>
+              <div class="blog-card read-more"><a href="https://www.bernarddonners-ai.nl/post/van-chatbot-naar-handelende-assistent-wat-mijn-experimenten-met-openclaw-zichtbaar-maken" target="_blank">Lees gids →</a></div>
+            </div>
+          </article>
+          <!-- Normal 3 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="https://static.wixstatic.com/media/2daade_887b88ee14b24bbe8343e9e3c953eedd~mv2.png/v1/fill/w_600,h_400,q_90,enc_avif,quality_auto/2daade_887b88ee14b24bbe8343e9e3c953eedd~mv2.webp" alt="E-commerce AI" />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta"><span>8 jan 2026</span> • 8 minuten</div>
+              <h4><a href="https://www.bernarddonners-ai.nl/post/we-staan-aan-de-vooravond-van-een-nieuw-economisch-internet-model" target="_blank" style="text-decoration:none;color:inherit">Het fundament van e-commerce verandert door AI</a></h4>
+              <p>Van keywords naar context. Van klikken naar conversaties. AI maakt marketing weer menselijker.</p>
+              <div class="blog-card read-more"><a href="https://www.bernarddonners-ai.nl/post/we-staan-aan-de-vooravond-van-een-nieuw-economisch-internet-model" target="_blank">Lees gids →</a></div>
+            </div>
+          </article>
+          <!-- Normal 4 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="https://static.wixstatic.com/media/2daade_ec29300605e945e7aada0b3c82865a79~mv2.png/v1/fill/w_600,h_400,q_90,enc_avif,quality_auto/2daade_ec29300605e945e7aada0b3c82865a79~mv2.webp" alt="Agentic browsers" />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta"><span>26 okt 2025</span> • 3 minuten</div>
+              <h4><a href="https://www.bernarddonners-ai.nl/post/de-browsers-die-met-je-mee-kijken-perplexity-comet-vs-chat-gpt-atlas-en-het-belang-van-prompt-injec" target="_blank" style="text-decoration:none;color:inherit">De browsers die met je mee kijken</a></h4>
+              <p>Perplexity Comet vs ChatGPT Atlas — agentic browsers die voor jou zoeken, lezen en samenvatten.</p>
+              <div class="blog-card read-more"><a href="https://www.bernarddonners-ai.nl/post/de-browsers-die-met-je-mee-kijken-perplexity-comet-vs-chat-gpt-atlas-en-het-belang-van-prompt-injec" target="_blank">Lees gids →</a></div>
+            </div>
+          </article>
+          <!-- Normal 5 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="https://static.wixstatic.com/media/2daade_9c1aba47e00d4e88804a904e6c800996~mv2.png/v1/fill/w_600,h_400,q_90,enc_avif,quality_auto/2daade_9c1aba47e00d4e88804a904e6c800996~mv2.webp" alt="AI in bedrijven" />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta"><span>13 aug 2025</span> • 5 minuten</div>
+              <h4><a href="https://www.bernarddonners-ai.nl/post/van-hype-naar-realiteit-waarom-ai-zo-moeizaam-landt-in-bedrijven" target="_blank" style="text-decoration:none;color:inherit">Van hype naar realiteit</a></h4>
+              <p>Waarom AI zo moeizaam landt in bedrijven. Praktijkervaringen met verandermanagement en AI-strategie.</p>
+              <div class="blog-card read-more"><a href="https://www.bernarddonners-ai.nl/post/van-hype-naar-realiteit-waarom-ai-zo-moeizaam-landt-in-bedrijven" target="_blank">Lees gids →</a></div>
+            </div>
+          </article>
+          <!-- Normal 6 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="https://static.wixstatic.com/media/2daade_17e01ce7659e49dd8ac2b8f9a321d3c7~mv2.png/v1/fill/w_600,h_400,q_90,enc_avif,quality_auto/2daade_17e01ce7659e49dd8ac2b8f9a321d3c7~mv2.webp" alt="ChatGPT Agents" />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta"><span>7 aug 2025</span> • 4 minuten</div>
+              <h4><a href="https://www.bernarddonners-ai.nl/post/chatgpt-agentic-browsing-en-de-nieuwe-manier-van-werken" target="_blank" style="text-decoration:none;color:inherit">ChatGPT-5 Agents (Agentic Browsing)</a></h4>
+              <p>Drie praktische video tutorials. Agentic browsing verandert zoekgedrag — handig voor research.</p>
+              <div class="blog-card read-more"><a href="https://www.bernarddonners-ai.nl/post/chatgpt-agentic-browsing-en-de-nieuwe-manier-van-werken" target="_blank">Lees gids →</a></div>
+            </div>
+          </article>
+          <!-- Normal 7 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="https://static.wixstatic.com/media/2daade_ded4d118c856469b90594a817062d269~mv2.png/v1/fill/w_600,h_400,q_90,enc_avif,quality_auto/2daade_ded4d118c856469b90594a817062d269~mv2.webp" alt="AI-implementatie" />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta"><span>11 feb 2025</span> • 8 minuten</div>
+              <h4><a href="https://www.bernarddonners-ai.nl/post/succesvolle-ai-implementatie-in-organisaties-van-theorie-naar-praktijk" target="_blank" style="text-decoration:none;color:inherit">Succesvolle AI-Implementatie in Organisaties</a></h4>
+              <p>Van theorie naar praktijk. Een stappenplan voor AI-implementatie met Kotter 8-stappenmodel en praktijkcases.</p>
+              <div class="blog-card read-more"><a href="https://www.bernarddonners-ai.nl/post/succesvolle-ai-implementatie-in-organisaties-van-theorie-naar-praktijk" target="_blank">Lees gids →</a></div>
+            </div>
+          </article>
+          <!-- Normal 8 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="https://static.wixstatic.com/media/2daade_52d2be89e3c9412796330d39cb5d25dd~mv2.png/v1/fill/w_600,h_400,q_90,enc_avif,quality_auto/2daade_52d2be89e3c9412796330d39cb5d25dd~mv2.webp" alt="AI-leiderschap" />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta"><span>13 apr 2025</span> • 5 minuten</div>
+              <h4><a href="https://www.bernarddonners-ai.nl/post/korte-bloemlezing-over-ai-leiderschap-verandermanagement-en-onderwijs" target="_blank" style="text-decoration:none;color:inherit">Korte bloemlezing over AI-leiderschap</a></h4>
+              <p>Een toegankelijke samenvatting van belangrijkste AI-inzichten en een oproep tot actie voor onderwijs en bedrijfsleven.</p>
+              <div class="blog-card read-more"><a href="https://www.bernarddonners-ai.nl/post/korte-bloemlezing-over-ai-leiderschap-verandermanagement-en-onderwijs" target="_blank">Lees gids →</a></div>
+            </div>
+          </article>
+          <!-- Normal 9 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="https://static.wixstatic.com/media/2daade_2bf470582b5f457fbca9dd5ce6be8327~mv2.png/v1/fill/w_600,h_400,q_90,enc_avif,quality_auto/2daade_2bf470582b5f457fbca9dd5ce6be8327~mv2.webp" alt="Mens en AI" />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta"><span>11 feb 2025</span> • 5 minuten</div>
+              <h4><a href="https://www.bernarddonners-ai.nl/post/de-onmisbare-menselijke-rol-in-een-ai-gedreven-wereld" target="_blank" style="text-decoration:none;color:inherit">De Mens in een AI-Gedreven Wereld</a></h4>
+              <p>Menselijke creativiteit, empathie en kritisch denken aangevuld met AI. Een roadmap voor organisaties en professionals.</p>
+              <div class="blog-card read-more"><a href="https://www.bernarddonners-ai.nl/post/de-onmisbare-menselijke-rol-in-een-ai-gedreven-wereld" target="_blank">Lees gids →</a></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- LINKEDIN SECTION -->
+      <section class="linkedin-section">
+        <div class="linkedin-header">
+          <h3>Laatste LinkedIn-activity</h3>
+          <a href="https://nl.linkedin.com/in/bernard-donners-288b0aa" target="_blank">Volg Bernard op LinkedIn →</a>
+        </div>
+        <div class="linkedin-feed">
+          <a href="https://nl.linkedin.com/in/bernard-donners-288b0aa/recent-activity/all/" target="_blank" rel="noopener"><article class="linkedin-post">
+            <img src="assets/li-notebooklm.png" alt="LinkedIn post NotebookLM" />
+            <div class="linkedin-text">
+              <strong>"Make sure you own your AI. AI in the cloud is not aligned with you; it's aligned with the company that owns it"</strong>
+              <p>Mitko Vasilevs quote over vendor lock-in is ook relevant voor MKB en ZZP. Bernard met een korte NotebookLM phone commercial hierover.</p>
+            </div>
+            <div class="linkedin-author">
+              <span class="linkedin-icon">BD</span>
+              <span>Bernard Donners • 1 week geleden</span>
+            </div>
+          </article></a>
+          <a href="https://nl.linkedin.com/in/bernard-donners-288b0aa/recent-activity/all/" target="_blank" rel="noopener"><article class="linkedin-post">
+            <img src="assets/li-hermes.png" alt="LinkedIn post Hermes" />
+            <div class="linkedin-text">
+              <strong>De kracht van autonome agents getest met Hermes</strong>
+              <p>ZZPagent en MKBagents gebouwd in 3 weken met open source Hermes. 13.753 impressies op het verschil tussen chatbot en autonome agent.</p>
+            </div>
+            <div class="linkedin-author">
+              <span class="linkedin-icon">BD</span>
+              <span>Bernard Donners • 1 week geleden</span>
+            </div>
+          </article></a>
+          <a href="https://nl.linkedin.com/in/bernard-donners-288b0aa/recent-activity/all/" target="_blank" rel="noopener"><article class="linkedin-post">
+            <img src="assets/li-open-source.png" alt="LinkedIn post open source" />
+            <div class="linkedin-text">
+              <strong>Laat AI voor je werken, maar geef niet de regie weg</strong>
+              <p>AI-agents, open source Hermes, en waarom vendor lock-in gevaarlijk is voor ondernemers. Praktische inzichten voor zelfstandigen.</p>
+            </div>
+            <div class="linkedin-author">
+              <span class="linkedin-icon">BD</span>
+              <span>Bernard Donners • 2 weken geleden</span>
+            </div>
+          </article></a>
+          <a href="https://nl.linkedin.com/in/bernard-donners-288b0aa/recent-activity/all/" target="_blank" rel="noopener"><article class="linkedin-post">
+            <img src="assets/li-glm-chart.png" alt="LinkedIn post GLM" />
+            <div class="linkedin-text">
+              <strong>Open Source AI heet met GLM-5.1 het 'ChatGPT-moment' bereikt</strong>
+              <p>GLM-5.1, DeepSeek V4, GPT-5 Codex — de strijd gaat niet alleen over kwaliteit maar over kosten, controle en workflow-fit.</p>
+            </div>
+            <div class="linkedin-author">
+              <span class="linkedin-icon">BD</span>
+              <span>Bernard Donners • 1 maand geleden</span>
+            </div>
+          </article></a>
+          <a href="https://nl.linkedin.com/in/bernard-donners-288b0aa/recent-activity/all/" target="_blank" rel="noopener"><article class="linkedin-post">
+            <img src="assets/li-europa.png" alt="LinkedIn post Europa" />
+            <div class="linkedin-text">
+              <strong>Europa kan zich geen AI-afhankelijkheid meer veroorloven</strong>
+              <p>Europese AI-soevereiniteit, NAVO versus technologie, en hoe Europa binnen 10 jaar autonoom kan worden met kenniseconomie.</p>
+            </div>
+            <div class="linkedin-author">
+              <span class="linkedin-icon">BD</span>
+              <span>Bernard Donners • 1 maand geleden</span>
+            </div>
+          </article></a>
+          <a href="https://nl.linkedin.com/in/bernard-donners-288b0aa/recent-activity/all/" target="_blank" rel="noopener"><article class="linkedin-post">
+            <img src="assets/li-bsp.png" alt="LinkedIn post BSP" />
+            <div class="linkedin-text">
+              <strong>Gastcollege bij BSP Business & Law School in Berlijn</strong>
+              <p>Lecture in the historic Concert Hall of the Siemens Villa over AI literacy, agents en de toekomst van werk aan studenten van BSP.</p>
+            </div>
+            <div class="linkedin-author">
+              <span class="linkedin-icon">BD</span>
+              <span>Bernard Donners • 1 maand geleden</span>
+            </div>
+          </article></a>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
