@@ -42,8 +42,10 @@
     .bio-photo-stack{display:flex;flex-direction:column;gap:12px}
     .bio-image{position:relative;border-radius:32px;overflow:hidden;box-shadow:0 20px 60px rgba(16,24,40,.18)}
     .bio-image img{width:100%;height:490px;object-fit:cover;object-position:center 40%}
-    .bio-info h2{font-size:clamp(30px,4vw,52px);margin:0 0 16px;letter-spacing:-.03em}
+    .bio-info h2,.bio-photo-title{font-size:clamp(30px,4vw,52px);margin:0 0 16px;letter-spacing:-.03em;line-height:.98}
+    .bio-info h2{display:none}
     .bio-role{display:inline-flex;align-items:center;gap:10px;font-size:16px;color:var(--brand);font-weight:800;margin-bottom:12px}
+    .bio-role-mobile{display:none}
     .bio-role::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand)}
     .bio-info p{color:var(--muted);font-size:18px;line-height:1.65;margin-bottom:24px}
     .bio-timeline{display:flex;gap:20px;margin-top:24px}
@@ -91,7 +93,7 @@
     .linkedin-author .linkedin-icon{width:28px;height:28px;border-radius:14px;background:#1a73e8;color:#fff;display:grid;place-items:center;font-weight:900;font-size:12px}
     .linkedin-author span{font-size:13px;color:var(--muted)}
     /* ===== RESPONSIVE ===== */
-    @media (max-width:1000px){.bio-hero{grid-template-columns:1fr}.bio-photo-stack{order:-1}.bio-image img{height:320px}}
+    @media (max-width:1000px){.bio-hero{grid-template-columns:1fr}.bio-photo-stack{order:-1}.bio-photo-title{display:none}.bio-role-mobile{display:inline-flex}.bio-info h2{display:block}.bio-info .bio-role{display:none}.bio-image img{height:320px}}
     @media (max-width:800px){.bio-details{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}.linkedin-feed{grid-template-columns:1fr}}
   </style>
 </head>
@@ -104,12 +106,14 @@
       <section class="bio-section">
         <div class="bio-hero">
           <div class="bio-photo-stack">
-            <div class="bio-role">Lector AI & Organisational Behaviour • TIO Business School</div>
+            <div class="bio-role bio-role-mobile">Lector AI & Organisational Behaviour • TIO Business School</div>
+            <h2 class="bio-photo-title">Bernard Donners</h2>
             <div class="bio-image">
               <img src="../assets/bernard-donners.jpg" alt="Bernard Donners" />
             </div>
           </div>
           <div class="bio-info">
+            <div class="bio-role">Lector AI & Organisational Behaviour • TIO Business School</div>
             <h2>Bernard Donners</h2>
             <p>Ik help ondernemers een persoonlijke AI-agent praktisch in te zetten. In mijn eigen bedrijf heb ik een productiviteitsstijging van een factor 10 weten te realiseren door op een slimme manier AI in te zetten voor routinematige processen. Systemen zoals OpenClaw en Hermes leren jouw gewoontes en worden over tijd een nieuw Operating Systeem voor je activiteiten, maar wel Open Source, dus zonder afhankelijkheid van Big Tech. Inmiddels heb ik 3 digitale collega's in het team (Eva, Felix en Sophie) die helpen bij dagelijkse werkzaamheden.</p>
             <h3>Wie is Bernard?</h3>
