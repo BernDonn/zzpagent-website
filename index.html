@@ -78,18 +78,18 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Wat is een Hermes Agent en wie maakt het?",
+            "name": "Is een Hermes Agent niet gewoon een chatbot?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Hermes Agent is een open-source framework van Nous Research in New York voor autonome AI-agents, beschikbaar onder de MIT-licentie. ZZPagent helpt zelfstandigen om Hermes praktisch in te richten rond hun werk, kanalen en datagrenzen."
+              "text": "Nee. De vorm kan chat zijn, maar het verschil zit in context, tools gebruiken, stappen voorbereiden en binnen grenzen werk afmaken. Een chatbot geeft antwoord. Een agent bereidt voor, onthoudt context en handelt af waar dat veilig kan."
             }
           },
           {
             "@type": "Question",
-            "name": "Waarom zou ik een Hermes Agent kiezen in plaats van Claude, ChatGPT Work, Perplexity of zelfs n8n?",
+            "name": "Wat als de agent twijfelt of iets fout kan doen?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Claude, ChatGPT Work en Perplexity zijn sterke AI-tools voor losse vragen, zoeken en schrijven. Hermes is bedoeld als eigen agentlaag rond jouw werk: met geheugen, skills, tools, modelkeuze, kanalen en menselijke goedkeuring. n8n kan juist goed naast Hermes werken voor vaste, controleerbare workflows."
+              "text": "Dan stopt hij en vraagt akkoord. Geen klantbericht, betaling of gevoelige actie zonder menselijke controle. Dat is geen bijzaak, het is het uitgangspunt."
             }
           },
           {
@@ -1099,31 +1099,43 @@
         <div class="top-panel-body">
           <div class="hero-faq" aria-label="Veelgestelde vragen over Hermes en ZZPagent">
         <div class="hero-faq-list">
-          <div class="faq-group-title">Beginnen en kosten</div>
-          <details>
-            <summary>01. Wat is een Hermes Agent en wie maakt het?</summary>
-            <p>Hermes Agent is een open-source framework van Nous Research in New York voor autonome AI-agents, beschikbaar onder de MIT-licentie: digitale assistenten die niet alleen chatten, maar taken kunnen voorbereiden, tools kunnen gebruiken, context onthouden en terugkerend werk op schema kunnen uitvoeren. ZZPagent helpt zelfstandigen om Hermes praktisch in te richten rond hun eigen werk, kanalen en datagrenzen.</p>
-          </details>
-          <details>
-            <summary>02. Waarom zou ik een Hermes Agent kiezen in plaats van Claude, ChatGPT Work, Perplexity of zelfs n8n?</summary>
-            <p>Claude, ChatGPT Work en Perplexity zijn sterke AI-tools voor losse vragen, zoeken, schrijven en analyseren. Hermes kies je wanneer AI onderdeel moet worden van jouw eigen werkproces: met geheugen, skills, tools, modelkeuze, kanalen zoals WhatsApp of Telegram en menselijke goedkeuring bij belangrijke acties. n8n is daarbij geen tegenstander, maar vaak een goede aanvulling: n8n voert vaste, controleerbare workflows uit, terwijl Hermes context begrijpt, meedenkt en met jou samenwerkt.</p>
-          </details>
-          <details>
-            <summary>03. Wat kost een Hermes-implementatie via ZZPagent?</summary>
-            <p>Een eerste Hermes-agentproject via ZZPagent start meestal rond €1.000–€3.000 excl. btw voor de implementatie. Daarvoor richten we een afgebakende agent in rond jouw werk: bijvoorbeeld mail, agenda, documenten, WhatsApp, Telegram, browsertoegang of een vaste workflow met n8n. Vooraf spreken we een vaste projectprijs af. Je betaalt dus niet onverwacht per uur door. Voor de AI-modellen gebruiken we waar mogelijk je bestaande ChatGPT- of Claude-route, bijvoorbeeld via OAuth. Daarnaast zetten we OpenRouter klaar als back-up, met sterke modellen die voor veel taken aanzienlijk goedkoper zijn dan premium modellen van OpenAI en Anthropic, soms een factor 10 tot 20.</p>
-          </details>
-          <details>
-            <summary>04. Hoe snel kan een eerste Hermes-agent live zijn?</summary>
-            <p>Een eerste, afgebakende workflow kan vaak snel worden voorbereid zodra doel, kanaal, toegangsroute en datagrenzen duidelijk zijn. Denk aan weken in plaats van maanden: eerst klein beginnen, betrouwbaar testen en één agent met één workflow live zetten; daarna pas uitbreiden.</p>
-          </details>
-          <details>
-            <summary>05. Heb ik eigen ontwikkelaars nodig voor Hermes Agent?</summary>
-            <p>Voor een eerste ZZPagent-route heb je geen eigen ontwikkelaars nodig. Wel zijn jouw keuzes en toegang nodig: welk kanaal, welke mailbox of databron, welke modelroute en welke acties nooit zonder akkoord mogen plaatsvinden. Technische inrichting, koppelingen en beheer worden stap voor stap voorbereid.</p>
-          </details>
-          <details>
-            <summary>06. Krijg ik alleen een kant-en-klare AI-agent, of leer ik er zelf mee werken?</summary>
-            <p>Je kent het gezegde: ‘Geef een man een vis en hij eet één dag, leer hem vissen en hij eet zijn hele leven.’ Veel AI-consultants geven je een vis: een kant-en-klare agent die werkt, maar die je niet begrijpt en niet zelf kunt aanpassen. ZZPagent werkt anders: we leren je vissen. We bouwen niet alleen AI-agents voor je, maar zorgen dat jij als ondernemer begrijpt hoe ze werken, ze zelf kunt aanpassen en nieuwe agents kunt bouwen wanneer je dat wilt. Zo wordt AI met Hermes echt een kracht voor jouw werk en bedrijf, niet een black box die je elke keer moet uitbesteden.</p>
-          </details>
+                  <div class="faq-group-title">Beginnen en kosten</div>
+                  <details>
+                    <summary>01. Wat is een Hermes Agent en wie maakt het?</summary>
+                    <p>Hermes Agent is een open-source framework van Nous Research in New York voor autonome AI-agents, beschikbaar onder de MIT-licentie: digitale assistenten die niet alleen chatten, maar taken kunnen voorbereiden, tools kunnen gebruiken, context onthouden en terugkerend werk op schema kunnen uitvoeren. ZZPagent helpt zelfstandigen om Hermes praktisch in te richten rond hun eigen werk, kanalen en datagrenzen.</p>
+                  </details>
+                  <details>
+                    <summary>Is een Hermes Agent niet gewoon een chatbot?</summary>
+                    <p>Nee. De vorm kan chat zijn, maar het verschil zit in context, tools gebruiken, stappen voorbereiden en binnen grenzen werk afmaken. Een chatbot geeft antwoord. Een agent bereidt voor, onthoudt context en handelt af waar dat veilig kan.</p>
+                  </details>
+                  <details>
+                    <summary>02. Waarom zou ik een Hermes Agent kiezen in plaats van Claude, ChatGPT Work, Perplexity of zelfs n8n?</summary>
+                    <p>Claude, ChatGPT Work en Perplexity zijn sterke AI-tools voor losse vragen, zoeken, schrijven en analyseren. Hermes kies je wanneer AI onderdeel moet worden van jouw eigen werkproces: met geheugen, skills, tools, modelkeuze, kanalen zoals WhatsApp of Telegram en menselijke goedkeuring bij belangrijke acties. n8n is daarbij geen tegenstander, maar vaak een goede aanvulling: n8n voert vaste, controleerbare workflows uit, terwijl Hermes context begrijpt, meedenkt en met jou samenwerkt.</p>
+                  </details>
+                  <details>
+                    <summary>Wat als de agent twijfelt of iets fout kan doen?</summary>
+                    <p>Dan stopt hij en vraagt akkoord. Geen klantbericht, betaling of gevoelige actie zonder menselijke controle. Dat is geen bijzaak, het is het uitgangspunt.</p>
+                  </details>
+                  <details>
+                    <summary>03. Wat kost een Hermes-implementatie via ZZPagent?</summary>
+                    <p>Een eerste Hermes-agentproject via ZZPagent start meestal rond €1.000–€3.000 excl. btw voor de implementatie. Daarvoor richten we een afgebakende agent in rond jouw werk: bijvoorbeeld mail, agenda, documenten, WhatsApp, Telegram, browsertoegang of een vaste workflow met n8n. Vooraf spreken we een vaste projectprijs af. Je betaalt dus niet onverwacht per uur door. Voor de AI-modellen gebruiken we waar mogelijk je bestaande ChatGPT- of Claude-route, bijvoorbeeld via OAuth. Daarnaast zetten we OpenRouter klaar als back-up, met sterke modellen die voor veel taken aanzienlijk goedkoper zijn dan premium modellen van OpenAI en Anthropic, soms een factor 10 tot 20.</p>
+                  </details>
+                  <details>
+                    <summary>04. Hoe snel kan een eerste Hermes-agent live zijn?</summary>
+                    <p>Een eerste, afgebakende workflow kan vaak snel worden voorbereid zodra doel, kanaal, toegangsroute en datagrenzen duidelijk zijn. Denk aan weken in plaats van maanden: eerst klein beginnen, betrouwbaar testen en één agent met één workflow live zetten; daarna pas uitbreiden.</p>
+                  </details>
+                  <details>
+                    <summary>05. Heb ik eigen ontwikkelaars nodig voor Hermes Agent?</summary>
+                    <p>Voor een eerste ZZPagent-route heb je geen eigen ontwikkelaars nodig. Wel zijn jouw keuzes en toegang nodig: welk kanaal, welke mailbox of databron, welke modelroute en welke acties nooit zonder akkoord mogen plaatsvinden. Technische inrichting, koppelingen en beheer worden stap voor stap voorbereid.</p>
+                  </details>
+                  <details>
+                    <summary>Werkt Hermes met de tools die ik al gebruik?</summary>
+                    <p>Ja, dat is precies het idee: mail, agenda, documenten, WhatsApp, Slack, CRM, boekhouding of n8n. Geen nieuw eiland, maar een laag over wat er al staat.</p>
+                  </details>
+                  <details>
+                    <summary>06. Krijg ik alleen een kant-en-klare AI-agent, of leer ik er zelf mee werken?</summary>
+                    <p>Je kent het gezegde: 'Geef een man een vis en hij eet een dag, leer hem vissen en hij eet zijn hele leven.' Veel AI-consultants geven je een vis: een kant-en-klare agent die werkt, maar die je niet begrijpt en niet zelf kunt aanpassen. ZZPagent werkt anders: we leren je vissen. We bouwen niet alleen AI-agents voor je, maar zorgen dat jij als ondernemer begrijpt hoe ze werken, ze zelf kunt aanpassen en nieuwe agents kunt bouwen wanneer je dat wilt. Zo wordt AI met Hermes echt een kracht voor jouw werk en bedrijf, niet een black box die je elke keer moet uitbesteden.</p>
+                  </details>
           <div class="faq-group-title">Praktijk en voorbeelden</div>
           <details>
             <summary>07. Hoe begin ik klein met een AI-agent?</summary>
