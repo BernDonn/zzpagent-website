@@ -77,6 +77,9 @@
     .blog-card.read-more{margin-top:auto;padding-top:16px}
     .blog-card.read-more a{color:var(--brand);text-decoration:none;font-weight:800;font-size:14px}
     .blog-card .read-more a::after{content:'';position:absolute;inset:0}
+
+    .blog-image{position:relative}
+    .new-badge{position:absolute;top:14px;left:14px;background:#d7652f;color:#fff;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.08em}
     /* ===== LINKEDIN SECTION ===== */
     .linkedin-section{padding:32px 30px;background:linear-gradient(180deg,rgba(26,115,232,0.06),rgba(255,255,255,1))}
     .linkedin-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px}
@@ -126,11 +129,24 @@
       </section>
 
       <!-- BLOG SECTION -->
-      <section class="blog-section">
+      <section class="blog-section" id="blogs">
         <div class="blog-header">
           <h3>Mijn laatste blogs</h3>
         </div>
         <div class="blog-grid">
+          <!-- Newest -->
+          <article class="blog-card newest-card">
+            <div class="blog-image">
+              <img src="/assets/china-ai-studiereis/selected-09-CROP-13.jpg" alt="Gesprek met live vertaling tijdens de China AI-studiereis" />
+              <span class="new-badge">NIEUW</span>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta"><span>8 aug 2026</span> • 10 minuten + fotobijlage</div>
+              <h4><a href="/blog/china-ai-studiereis/" style="text-decoration:none;color:inherit">China AI studiereis</a></h4>
+              <p>Verslag van een reis door Shenzhen, Chongqing, Chengdu en Shanghai. Over AI in het dagelijks leven, mobiliteit, betalen en Chinese innovatie.</p>
+              <div class="blog-card read-more"><a href="/blog/china-ai-studiereis/">Lees blog →</a></div>
+            </div>
+          </article>
           <!-- Normal 1 -->
           <article class="blog-card">
             <div class="blog-image">
@@ -225,18 +241,6 @@
               <h4><a href="https://www.bernarddonners-ai.nl/post/korte-bloemlezing-over-ai-leiderschap-verandermanagement-en-onderwijs" target="_blank" style="text-decoration:none;color:inherit">Korte bloemlezing over AI-leiderschap</a></h4>
               <p>Een toegankelijke samenvatting van belangrijkste AI-inzichten en een oproep tot actie voor onderwijs en bedrijfsleven.</p>
               <div class="blog-card read-more"><a href="https://www.bernarddonners-ai.nl/post/korte-bloemlezing-over-ai-leiderschap-verandermanagement-en-onderwijs" target="_blank">Lees blog →</a></div>
-            </div>
-          </article>
-          <!-- Normal 9 -->
-          <article class="blog-card">
-            <div class="blog-image">
-              <img src="https://static.wixstatic.com/media/2daade_2bf470582b5f457fbca9dd5ce6be8327~mv2.png/v1/fill/w_600,h_400,q_90,enc_avif,quality_auto/2daade_2bf470582b5f457fbca9dd5ce6be8327~mv2.webp" alt="Mens en AI" />
-            </div>
-            <div class="blog-content">
-              <div class="blog-meta"><span>11 feb 2025</span> • 5 minuten</div>
-              <h4><a href="https://www.bernarddonners-ai.nl/post/de-onmisbare-menselijke-rol-in-een-ai-gedreven-wereld" target="_blank" style="text-decoration:none;color:inherit">De Mens in een AI-Gedreven Wereld</a></h4>
-              <p>Menselijke creativiteit, empathie en kritisch denken aangevuld met AI. Een roadmap voor organisaties en professionals.</p>
-              <div class="blog-card read-more"><a href="https://www.bernarddonners-ai.nl/post/de-onmisbare-menselijke-rol-in-een-ai-gedreven-wereld" target="_blank">Lees blog →</a></div>
             </div>
           </article>
         </div>
