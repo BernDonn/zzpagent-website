@@ -8,7 +8,7 @@ Een AI-agent is software die niet alleen antwoord geeft, maar ook context onthou
 
 ChatGPT is vooral een model of interface. Een ZZPagent is een ingerichte agentlaag rond jouw werkproces: geheugen, tools, kanaalkoppelingen, rechten, modelroutes, planning en afspraken over wat de agent wel en niet zelfstandig mag doen.
 
-## Leg verder uit
+## Wat is dan het verschil tussen een chatbot en een agent?
 
 Het model is het taalbrein, maar de agent ontstaat pas door de **harness (omgeving)** rond dat model. Die omgeving bepaalt welke instructies de agent meekrijgt, welke tools of API’s gebruikt mogen worden, hoe stappen worden gepland en waar menselijke controle nodig blijft.
 
