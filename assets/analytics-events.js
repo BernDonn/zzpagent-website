@@ -26,7 +26,7 @@
       };
     }
 
-    const linkedInPost = element.closest?.('.linkedin-post');
+    const linkedInPost = element.closest?.('.linkedin-post') || element.querySelector?.('.linkedin-post');
     if (linkedInPost) {
       const posts = [...document.querySelectorAll('.linkedin-post')];
       return {
