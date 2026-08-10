@@ -8,6 +8,12 @@ Een AI-agent is software die niet alleen antwoord geeft, maar ook context onthou
 
 ChatGPT is vooral een model of interface. Een ZZPagent is een ingerichte agentlaag rond jouw werkproces: geheugen, tools, kanaalkoppelingen, rechten, modelroutes, planning en afspraken over wat de agent wel en niet zelfstandig mag doen.
 
+## Leg verder uit
+
+Het model is het taalbrein, maar de agent ontstaat pas door de **harness**, de werkomgeving rond dat model. Die omgeving bepaalt welke instructies de agent meekrijgt, welk geheugen beschikbaar is, welke tools of API’s gebruikt mogen worden, hoe stappen worden gepland en waar menselijke controle nodig blijft.
+
+Zonder harness heb je vooral een slim antwoordmodel. Met harness krijg je een werkende agent die context kan vasthouden, met systemen kan praten en taken gecontroleerd kan uitvoeren. In de praktijk bestaat zo’n harness vaak uit een promptlaag, geheugen, toolkits, een agent-executor of workflowlaag en koppelingen naar bijvoorbeeld documenten, tabellen of externe API’s.
+
 ## Voor wie is ZZPagent bedoeld?
 
 ZZPagent is bedoeld voor Nederlandse zelfstandigen die terugkerend werk willen automatiseren zonder hun hele workflow direct vast te zetten in één gesloten AI-platform.
