@@ -1353,10 +1353,9 @@
                 <div class="price-mini-row"><div><strong>Claude Sonnet 4</strong><span>Veelgekozen premium model voor schrijven, analyse en code.</span></div><div class="price-mini-cost">$3 / $15 per 1M</div></div>
                 <div class="price-mini-row"><div><strong>GPT-5</strong><span>Sterke allround route voor redeneren en tooling.</span></div><div class="price-mini-cost">$1.25 / $10 per 1M</div></div>
                 <div class="price-mini-row"><div><strong>GLM 5.2</strong><span>Open-weight model met sterke agentische coding- en tool-use, 1M context.</span></div><div class="price-mini-cost">$0.95 / $3 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>DeepSeek V4 Pro</strong><span>Zwaardere DeepSeek-route voor complexere analyse, code en lange context.</span></div><div class="price-mini-cost">$0.435 / $0.87 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>DeepSeek V4 Flash</strong><span>Snelle en goedkope DeepSeek-route voor veel volume en responsieve workflows.</span></div><div class="price-mini-cost">$0.09 / $0.18 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>DeepSeek V4 Flash</strong><span>Snelle DeepSeek-route. Vanaf 17 augustus 2026 werkt DeepSeek met dal- en piektarieven; OpenRouter kan per provider afwijken.</span></div><div class="price-mini-cost">$0.22 / $0.66 dal · $0.44 / $1.32 piek</div></div>
               </div>
-              <ul><li>Pay-as-you-go met officiële modelprijzen + circa 5,5% platform fee</li><li>Geschikt voor fallback, vergelijking en budgetcontrole</li><li>Hermes kiest daarna per taak de ingestelde route</li></ul>
+              <ul><li>Pay-as-you-go; prijzen kunnen per provider, tijdstip en OpenRouter-route verschillen</li><li>Geschikt voor fallback, vergelijking en budgetcontrole</li><li>Hermes kiest daarna per taak de ingestelde route</li></ul>
             </article>
           </div>
           <div class="flow-note"><strong>Hoe het werkt:</strong> tijdens deployment bepalen we of een OAuth-route (ChatGPT of Claude) of OpenRouter de primaire route wordt, plus minimaal één fallback. Als een OAuth-route zijn limiet bereikt of niet beschikbaar is, schakelt de agent door naar het OpenRouter-model dat we vooraf hebben gekozen. Sleutels en OAuth-tokens horen in de private agent-workspace, niet in de website.</div>
@@ -1917,13 +1916,10 @@
         "GLM 5.2": "GLM 5.2",
         "Open-weight model met sterke agentische coding- en tool-use, 1M context.": "Open-weight model with strong agentic coding and tool use, 1M context.",
         "$0.95 / $3 per 1M": "$0.95 / $3 per 1M",
-        "DeepSeek V4 Pro": "DeepSeek V4 Pro",
-        "Zwaardere DeepSeek-route voor complexere analyse, code en lange context.": "Heavier DeepSeek route for more complex analysis, code, and long context.",
-        "$0.435 / $0.87 per 1M": "$0.435 / $0.87 per 1M",
         "DeepSeek V4 Flash": "DeepSeek V4 Flash",
-        "Snelle en goedkope DeepSeek-route voor veel volume en responsieve workflows.": "Fast and lower-cost DeepSeek route for high volume and responsive workflows.",
-        "$0.09 / $0.18 per 1M": "$0.09 / $0.18 per 1M",
-        "Pay-as-you-go met officiële modelprijzen + circa 5,5% platform fee": "Pay-as-you-go with official model prices + about 5.5% platform fee",
+        "Snelle DeepSeek-route. Vanaf 17 augustus 2026 werkt DeepSeek met dal- en piektarieven; OpenRouter kan per provider afwijken.": "Fast DeepSeek route. From 17 August 2026, DeepSeek uses off-peak and peak rates; OpenRouter prices may vary by provider.",
+        "$0.22 / $0.66 dal · $0.44 / $1.32 piek": "$0.22 / $0.66 off-peak · $0.44 / $1.32 peak",
+        "Pay-as-you-go; prijzen kunnen per provider, tijdstip en OpenRouter-route verschillen": "Pay as you go; prices may vary by provider, time of day, and OpenRouter route",
         "Geschikt voor fallback, vergelijking en budgetcontrole": "Suitable for fallback, comparison and budget control",
         "Hermes kiest daarna per taak de ingestelde route": "Hermes then chooses the configured route for each task",
         "Hoe het werkt:": "How it works:",
