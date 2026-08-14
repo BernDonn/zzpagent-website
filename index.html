@@ -127,6 +127,22 @@
           },
           {
             "@type": "Question",
+            "name": "Wat is een workflow en wat is het verschil met een losse prompt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Een workflow is een vaste reeks stappen die telkens in dezelfde logische volgorde wordt uitgevoerd. Een losse prompt is één afzonderlijke opdracht aan AI. Een workflow beschrijft het hele terugkerende proces, van de informatie die binnenkomt tot menselijke controle of akkoord. Hermes kan binnen dat proces informatie ordenen, iets voorbereiden, tools gebruiken en vervolgstappen uitvoeren, terwijl jij controleert en beslist."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wat is MCP en heeft Hermes dat nodig?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MCP staat voor Model Context Protocol. Het is een standaard waarmee een AI-agent verbinding kan maken met externe documenten, agenda’s, databases of andere systemen. Bij Hermes heb je MCP meestal niet nodig, omdat Hermes het meeste zelf kan regelen met ingebouwde tools, vaardigheden en rechtstreekse koppelingen. MCP is alleen een aanvullende mogelijkheid als een specifiek extern systeem niet rechtstreeks bereikbaar is."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "Kan ik met Hermes praten terwijl ik auto rijd?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -936,7 +952,7 @@
           <h2>De zelflerende agent die het werk doet</h2>
           <p class="lead">Geen losse chatbot en geen black box, maar een Hermes-agent die leert hoe jij werkt, terugkerende taken voorbereidt en je dag overzichtelijker maakt.</p>
           <p class="muted">Van concept naar uitvoering, jij houdt de regie. We richten de agent samen in, leggen uit waarom hij doet wat hij doet en zorgen dat je hem later zelf kunt bijsturen. Eerst laat de agent zien wat hij wil doen. Pas na feedback en vertrouwen krijgt hij meer ruimte.</p>
-          <details style="margin:14px 0 18px 0"><summary style="display:inline-block;padding:8px 16px;font-size:13px;font-weight:800;color:#17240f;cursor:pointer;list-style:none;border-radius:100px;background:rgba(255,250,241,.72);border:1px solid rgba(22,63,43,.15)">Waarom human-AI teams?</summary><div style="margin-top:12px;padding:18px 20px;background:rgba(255,250,241,.08);border:1px solid rgba(255,250,241,.14);border-radius:18px;color:#dce7dc;line-height:1.62"><p>Succesvolle AI is niet alleen technische vooruitgang, maar een combinatie van sterke technologie, ethiek, transparantie, menselijke controle, veiligheid, wetgeving en voortdurende evaluatie.</p><p style="margin-top:12px">Daarom bouwt ZZPagent liever met kleinere, gespecialiseerde agents die taakgericht samenwerken in human-AI teams. Waar zinvol combineren ze tekst, beeld, audio en andere gegevens, maar altijd rond een concrete workflow en met mensen in de beslissende rol.</p></div></details>
+          <details style="margin:14px 0 18px 0"><summary style="display:inline-block;padding:8px 16px;font-size:13px;font-weight:800;color:#17240f;cursor:pointer;list-style:none;border-radius:100px;background:rgba(255,250,241,.72);border:1px solid rgba(22,63,43,.15)">Waarom human-AI teams?</summary><div style="margin-top:12px;padding:18px 20px;background:rgba(255,250,241,.08);border:1px solid rgba(255,250,241,.14);border-radius:18px;color:#dce7dc;line-height:1.62"><p>Succesvolle AI is niet alleen technische vooruitgang, maar een combinatie van sterke technologie, ethiek, transparantie, menselijke controle, veiligheid, wetgeving en voortdurende evaluatie.</p><p style="margin-top:12px">Je kunt meerdere kleine agents ieder een eigen taak geven. De ene analyseert aanvragen, een andere bereidt documenten voor en een derde bewaakt open acties. Hermes brengt hun werk samen, maar jij bepaalt de prioriteiten en geeft akkoord.</p></div></details>
           <div class="trust-list">
             <article class="trust-item active">
               <div class="trust-icon">◉</div>
@@ -1133,6 +1149,12 @@
             <p>Kies één concrete taak: inboxfiltering, agenda-briefings, klantvragen samenvatten, documenten ordenen of conceptmails voorbereiden. Of misschien wil je beginnen met een AI-telefoonassistent. Eerst één agent en één workflow betrouwbaar maken; daarna pas uitbreiden naar extra kanalen, tools of automatiseringen.</p>
           </details>
           <details>
+            <summary>10a. Wat is een workflow en wat is het verschil met een losse prompt?</summary>
+            <p>Een workflow is een vaste reeks stappen die telkens in dezelfde logische volgorde wordt uitgevoerd. Een losse prompt is één afzonderlijke opdracht aan AI. Een workflow beschrijft het hele terugkerende proces, van de informatie die binnenkomt tot jouw controle of akkoord.</p>
+            <p>Een eenvoudige workflow bestaat bijvoorbeeld uit vier stappen: een mail, formulier, bestand of bericht komt binnen; Hermes vat samen, ordent informatie of maakt een concept; Hermes zet een taak, antwoord of document klaar en kan waar nodig een tool gebruiken; jij controleert, past aan en beslist.</p>
+            <p>Een agent kan binnen zo’n workflow zelfstandiger stappen uitvoeren en bepalen wat er vervolgens nodig is. Jij spreekt vooraf af waar Hermes zelf mag handelen en wanneer jouw akkoord nodig blijft.</p>
+          </details>
+          <details>
             <summary>11. Kan Hermes mij helpen met het bouwen van een website?</summary>
             <p>Ja. Hermes kan helpen bij het bouwen, verbeteren en publiceren van een website. Denk aan het ordenen van ideeën, het schrijven van conceptteksten, het voorbereiden van pagina's, het controleren van formulieren en het ondersteunen bij publicatie. Maar ook het eenvoudig ontwikkelen en koppelen van apps. De mens blijft nodig voor keuzes, controle, merkgevoel en akkoord op wat gepubliceerd wordt.</p>
           </details>
@@ -1156,6 +1178,11 @@
           <details>
             <summary>16. Kan ik Hermes via WhatsApp Business gebruiken?</summary>
             <p>Ja. WhatsApp Business kan het laagdrempelige kanaal zijn waarmee jij of je klanten de agent bereiken. Hermes begint veilig: profiel, intake, labels en conceptantwoorden eerst; verdergaande automatisering pas met duidelijke opt-in, logging, officiële routes en menselijke goedkeuring. Hier ligt ook de kracht van Hermes: we kunnen WhatsApp-berichten laten sturen, groeperen, labelen en opvolgen. Zie het als een mini-CRM rond je klantgesprekken.</p>
+          </details>
+          <details>
+            <summary>16a. Wat is MCP en heeft Hermes dat nodig?</summary>
+            <p>MCP staat voor Model Context Protocol. Het is een standaard waarmee een AI-agent verbinding kan maken met externe documenten, agenda’s, databases of andere systemen.</p>
+            <p>Bij Hermes heb je MCP meestal niet nodig. Hermes kan het meeste zelf regelen met ingebouwde tools, vaardigheden en rechtstreekse koppelingen. Alleen als een specifiek extern systeem niet rechtstreeks bereikbaar is, kan MCP een aanvullende koppeling zijn. Het is dus een mogelijkheid, geen vereiste om met Hermes te beginnen.</p>
           </details>
           <div class="faq-group-title">Veiligheid en data</div>
           <details>
@@ -1518,8 +1545,15 @@
         "Een agent die met je meegroeit, onthoudt voorkeuren, werkwijzen en terugkerende taken binnen afgesproken grenzen. Daardoor hoef je niet steeds opnieuw uit te leggen hoe je werkt. Hermes kan zo briefings, conceptmails, documentordening, planning en opvolging steeds beter voorbereiden, terwijl jij de eindcontrole houdt.": "An agent that grows with you remembers preferences, ways of working and recurring tasks within agreed boundaries. That means you do not have to explain how you work again and again. Hermes can increasingly prepare briefings, draft emails, document organization, planning and follow-up while you keep final control.",
         "16. Kan ik Hermes via WhatsApp Business gebruiken?": "16. Can I use Hermes through WhatsApp Business?",
         "Ja. WhatsApp Business kan het laagdrempelige kanaal zijn waarmee jij of je klanten de agent bereiken. Hermes begint veilig: profiel, intake, labels en conceptantwoorden eerst; verdergaande automatisering pas met duidelijke opt-in, logging, officiële routes en menselijke goedkeuring. Hier ligt ook de kracht van Hermes: we kunnen WhatsApp-berichten laten sturen, groeperen, labelen en opvolgen. Zie het als een mini-CRM rond je klantgesprekken.": "Yes. WhatsApp Business can be the low-threshold channel through which you or your customers reach the agent. Hermes starts safely: profile, intake, labels and draft replies first; further automation only with clear opt-in, logging, official routes and human approval. This is also where Hermes is strong: we can have WhatsApp messages sent, grouped, labelled and followed up. Think of it as a mini CRM around your customer conversations.",
+        "16a. Wat is MCP en heeft Hermes dat nodig?": "16a. What is MCP and does Hermes need it?",
+        "MCP staat voor Model Context Protocol. Het is een standaard waarmee een AI-agent verbinding kan maken met externe documenten, agenda’s, databases of andere systemen.": "MCP stands for Model Context Protocol. It is a standard that allows an AI agent to connect to external documents, calendars, databases or other systems.",
+        "Bij Hermes heb je MCP meestal niet nodig. Hermes kan het meeste zelf regelen met ingebouwde tools, vaardigheden en rechtstreekse koppelingen. Alleen als een specifiek extern systeem niet rechtstreeks bereikbaar is, kan MCP een aanvullende koppeling zijn. Het is dus een mogelijkheid, geen vereiste om met Hermes te beginnen.": "With Hermes, you usually do not need MCP. Hermes can handle most things itself with built-in tools, skills and direct integrations. MCP can be an additional connection only when a specific external system cannot be reached directly. It is therefore an option, not a requirement for getting started with Hermes.",
         "07. Hoe begin ik klein met een AI-agent?": "07. How do I start small with an AI agent?",
         "Kies één concrete taak: inboxfiltering, agenda-briefings, klantvragen samenvatten, documenten ordenen of conceptmails voorbereiden. Of misschien wil je beginnen met een AI-telefoonassistent. Eerst één agent en één workflow betrouwbaar maken; daarna pas uitbreiden naar extra kanalen, tools of automatiseringen.": "Choose one concrete task: inbox filtering, agenda briefings, summarizing customer questions, organizing documents or preparing draft emails. Or perhaps you want to start with an AI phone assistant. First make one agent and one workflow reliable; only then expand to extra channels, tools or automations.",
+        "10a. Wat is een workflow en wat is het verschil met een losse prompt?": "10a. What is a workflow and how is it different from a single prompt?",
+        "Een workflow is een vaste reeks stappen die telkens in dezelfde logische volgorde wordt uitgevoerd. Een losse prompt is één afzonderlijke opdracht aan AI. Een workflow beschrijft het hele terugkerende proces, van de informatie die binnenkomt tot jouw controle of akkoord.": "A workflow is a fixed series of steps that is carried out in the same logical order each time. A single prompt is one separate instruction to AI. A workflow describes the entire recurring process, from the information that comes in to your review or approval.",
+        "Een eenvoudige workflow bestaat bijvoorbeeld uit vier stappen: een mail, formulier, bestand of bericht komt binnen; Hermes vat samen, ordent informatie of maakt een concept; Hermes zet een taak, antwoord of document klaar en kan waar nodig een tool gebruiken; jij controleert, past aan en beslist.": "A simple workflow can consist of four steps: an email, form, file or message comes in; Hermes summarizes, organizes information or prepares a draft; Hermes prepares a task, reply or document and can use a tool where needed; you review, adjust and decide.",
+        "Een agent kan binnen zo’n workflow zelfstandiger stappen uitvoeren en bepalen wat er vervolgens nodig is. Jij spreekt vooraf af waar Hermes zelf mag handelen en wanneer jouw akkoord nodig blijft.": "Within such a workflow, an agent can carry out steps more independently and determine what is needed next. You agree in advance where Hermes may act on its own and when your approval remains necessary.",
         "10. Kan ik met Hermes praten terwijl ik auto rijd?": "10. Can I talk to Hermes while driving?",
         "Ja. Hermes kan via kanalen zoals Telegram of WhatsApp op je iWatch of Apple Watch bereikbaar zijn. Je spreekt een bericht in, Hermes kan reageren en je kunt gesproken berichten terugkrijgen, bijvoorbeeld onderweg in de auto.": "Yes. Hermes can be reachable through channels such as Telegram or WhatsApp on your iWatch or Apple Watch. You speak a message, Hermes can respond and you can receive spoken messages back, for example while driving.",
         "08. Kan Hermes mij helpen met het bouwen van een website?": "08. Can Hermes help me build a website?",
@@ -1647,7 +1681,7 @@
         "Van concept naar uitvoering, jij houdt de regie. Eerst laat de agent zien wat hij wil doen. Pas na feedback en vertrouwen krijgt hij meer ruimte.": "From draft to execution, you stay in control. First the agent shows what it wants to do. Only after feedback and trust does it get more room.",
         "Waarom human-AI teams?": "Why human-AI teams?",
         "Succesvolle AI is niet alleen technische vooruitgang, maar een combinatie van sterke technologie, ethiek, transparantie, menselijke controle, veiligheid, wetgeving en voortdurende evaluatie.": "Successful AI is not just technical progress, but a combination of strong technology, ethics, transparency, human control, safety, regulation and continuous evaluation.",
-        "Daarom bouwt ZZPagent liever met kleinere, gespecialiseerde agents die taakgericht samenwerken in human-AI teams. Waar zinvol combineren ze tekst, beeld, audio en andere gegevens, maar altijd rond een concrete workflow en met mensen in de beslissende rol.": "That is why ZZPagent prefers working with smaller, specialized agents that collaborate task by task in human-AI teams. Where useful they combine text, image, audio and other data, but always around a concrete workflow and with humans in the deciding role.",
+        "Je kunt meerdere kleine agents ieder een eigen taak geven. De ene analyseert aanvragen, een andere bereidt documenten voor en een derde bewaakt open acties. Hermes brengt hun werk samen, maar jij bepaalt de prioriteiten en geeft akkoord.": "You can give several small agents their own task. One analyzes requests, another prepares documents and a third monitors open actions. Hermes brings their work together, while you set the priorities and approve.",
         "Niet alleen slim. Ook beheersbaar.": "Not just smart. Also controllable.",
         "Blijvend geheugen": "Persistent memory",
         "Onthoudt elk gesprek en doorzoekt ze.": "Remembers every conversation and searches across them.",

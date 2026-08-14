@@ -72,9 +72,23 @@ Een agent die met je meegroeit, onthoudt voorkeuren, werkwijzen en terugkerende 
 
 Begin met één duidelijke workflow. Voor zelfstandigen kan dat bijvoorbeeld inboxfiltering, agenda-briefings, klantvragen samenvatten, documenten ordenen of conceptantwoorden voorbereiden zijn. Pas als die eerste taak betrouwbaar werkt, breid je uit naar extra kanalen, tools of automatiseringen.
 
+## Wat is een workflow en wat is het verschil met een losse prompt?
+
+Een workflow is een vaste reeks stappen die telkens in dezelfde logische volgorde wordt uitgevoerd. Een losse prompt is één afzonderlijke opdracht aan AI. Een workflow beschrijft het hele terugkerende proces, van de informatie die binnenkomt tot menselijke controle of akkoord.
+
+Een eenvoudige workflow bestaat bijvoorbeeld uit vier stappen: een mail, formulier, bestand of bericht komt binnen; Hermes vat samen, ordent informatie of maakt een concept; Hermes zet een taak, antwoord of document klaar en kan waar nodig een tool gebruiken; de gebruiker controleert, past aan en beslist.
+
+Een agent kan binnen zo’n workflow zelfstandiger stappen uitvoeren en bepalen wat er vervolgens nodig is. Vooraf wordt afgesproken waar Hermes zelf mag handelen en wanneer menselijk akkoord nodig blijft.
+
 ## Kan ZZPagent helpen met een AI-agent via WhatsApp Business?
 
 Ja. WhatsApp Business kan het laagdrempelige kanaal zijn waarmee klanten of de zelfstandige de agent bereiken. ZZPagent richt dit voorzichtig in: eerst profiel, intake, labels en conceptantwoorden; daarna pas verdergaande automatisering via officiële routes, opt-in, logging en menselijke goedkeuring.
+
+## Wat is MCP en heeft Hermes dat nodig?
+
+MCP staat voor Model Context Protocol. Het is een standaard waarmee een AI-agent verbinding kan maken met externe documenten, agenda’s, databases of andere systemen.
+
+Bij Hermes is MCP meestal niet nodig. Hermes kan het meeste zelf regelen met ingebouwde tools, vaardigheden en rechtstreekse koppelingen. Alleen als een specifiek extern systeem niet rechtstreeks bereikbaar is, kan MCP een aanvullende koppeling zijn. Het is dus een mogelijkheid, geen vereiste om met Hermes te beginnen.
 
 ## Kan Hermes mij helpen met het bouwen van een website?
 
