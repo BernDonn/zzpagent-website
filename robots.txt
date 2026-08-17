@@ -7,8 +7,10 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+# ChatGPT Search blijft toegestaan via OAI-SearchBot.
+# Modeltraining via GPTBot is uitgeschakeld.
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 User-agent: PerplexityBot
 Allow: /

@@ -4,11 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ZZPagent, de Hermes AI-assistent voor ZZP’ers</title>
-  <meta name="description" content="ZZPagent levert beheerde AI-agent voor ZZP’ers die snel willen automatiseren: veilig, controleerbaar en AVG-bewust." />
+  <meta name="description" content="ZZPagent uit Amsterdam helpt Nederlandse ZZP’ers een persoonlijke Hermes AI-assistent in te richten rond terugkerend werk, met menselijke controle." />
   <link rel="canonical" href="https://zzpagent.nl/" />
+  <link rel="describedby" href="https://zzpagent.nl/llms.txt" type="text/plain" />
+  <link rel="alternate" href="https://zzpagent.nl/wat-is-zzpagent.md" type="text/markdown" title="Wat is ZZPagent?" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="ZZPagent, de Hermes AI-assistent voor ZZP’ers" />
-  <meta property="og:description" content="Beheerde AI-agents voor ZZP, met veilige kanalen, menselijke controle en minder workflow-lock-in." />
+  <meta property="og:description" content="Een persoonlijke Hermes AI-assistent voor Nederlandse ZZP’ers, ingericht vanuit Amsterdam met menselijke controle." />
   <meta property="og:url" content="https://zzpagent.nl/" />
   <meta property="og:image" content="https://zzpagent.nl/assets/zzpagent-marktplaats-preview.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -38,10 +40,18 @@
         "@id": "https://zzpagent.nl/#organization",
         "name": "ZZPagent",
         "url": "https://zzpagent.nl/",
-        "description": "ZZPagent levert beheerde AI-agents voor Nederlandse zelfstandigen en kleine ondernemers, met controle over data, menselijke goedkeuring en workflowautomatisering.",
+        "description": "ZZPagent uit Amsterdam helpt Nederlandse ZZP’ers een persoonlijke Hermes AI-assistent in te richten rond terugkerend werk, met menselijke controle bij gevoelige acties.",
         "founder": {
           "@type": "Person",
-          "name": "Bernard Donners"
+          "name": "Bernard Donners",
+          "sameAs": "https://nl.linkedin.com/in/bernard-donners-288b0aa"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Laan der Hesperiden 128",
+          "postalCode": "1076 DX",
+          "addressLocality": "Amsterdam",
+          "addressCountry": "NL"
         },
         "areaServed": {
           "@type": "Country",
@@ -864,7 +874,7 @@
       <div>
         <div class="eyebrow">Voor zelfstandige kenniswerkers</div>
         <h1 style="font-size:clamp(46px,6vw,74px);font-weight:700;letter-spacing:-.04em">Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech</h1>
-        <p class="lead">Claude en ChatGPT zijn sterke modellen, maar ontwikkelen zich als een gesloten ecosysteem met terugkerende, stijgende tokenkosten. Ons alternatief is powered by Hermes, een open-source AI-assistent waarmee je workflows, tools en providerkeuze in eigen hand houdt en goedkoper kunt opschalen of wisselen wanneer dat nodig is. Wij zetten jouw persoonlijke AI-assistent klaar en bij elke actie leer jij hem jouw manier van werken.</p>
+        <p class="lead">ZZPagent uit Amsterdam helpt Nederlandse ZZP’ers een persoonlijke Hermes AI-assistent in te richten die terugkerend werk voorbereidt en uitvoert, met menselijke controle bij gevoelige acties. Claude en ChatGPT zijn sterke modellen, maar ontwikkelen zich als een gesloten ecosysteem met terugkerende, stijgende tokenkosten. Ons alternatief is powered by Hermes, een open-source AI-assistent waarmee je workflows, tools en providerkeuze in eigen hand houdt en goedkoper kunt opschalen of wisselen wanneer dat nodig is. Wij zetten jouw persoonlijke AI-assistent klaar en bij elke actie leer jij hem jouw manier van werken.</p>
         <div class="hero-disclosures" style="margin:16px 0 10px 0">
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:0">
             <button onclick="toggleDisclosure('controle')" data-key="controle" class="disclosure-btn" style="display:inline-block;padding:8px 20px;font-size:14px;font-weight:600;color:#17240f;cursor:pointer;border-radius:100px;background:rgba(255,250,241,.72);border:1px solid rgba(22,63,43,.15);font-family:inherit">Menselijke controle</button>
@@ -1393,6 +1403,12 @@
           <span>Adres:</span> Laan der Hesperiden 128, 1076 DX Amsterdam<br>
           <span>KvK:</span> 84357053
         </address>
+        <nav class="footer-contact" aria-label="Kennisbank ZZPagent">
+          <span>Kennis:</span>
+          <a href="/wat-is-een-ai-agent-voor-zzp/">AI-agent voor ZZP</a> ·
+          <a href="/persoonlijke-ai-assistent-voor-zzp/">persoonlijke AI-assistent</a> ·
+          <a href="/ai-agent-via-whatsapp-business/">WhatsApp Business</a>
+        </nav>
       </div>
       <div class="footer-legal" aria-label="Voorwaarden en privacy ZZPagent">
         <div class="footer-legal-links">
@@ -1478,7 +1494,7 @@
     const translations = {
       en: {
         "ZZPagent, de Hermes AI-assistent voor ZZP’ers": "ZZPagent, the Hermes AI assistant for freelancers",
-        "ZZPagent levert beheerde AI-agent voor ZZP’ers die snel willen automatiseren: veilig, controleerbaar en AVG-bewust.": "ZZPagent delivers managed AI agent for freelancers that want to automate quickly: secure, controllable and GDPR-aware.",
+        "ZZPagent uit Amsterdam helpt Nederlandse ZZP’ers een persoonlijke Hermes AI-assistent in te richten rond terugkerend werk, met menselijke controle.": "ZZPagent in Amsterdam helps Dutch independent professionals set up a personal Hermes AI assistant around recurring work, with human control.",
         "AI-agents": "AI agents",
         "Oplossingen": "Solutions",
         "Security-aanpak": "Security approach",
@@ -1641,7 +1657,10 @@
         "Hermes als betrouwbare agentlaag voor ZZPagent": "Hermes as a reliable agent layer for ZZPagent",
         "Hermes op Apple Watch, iPhone en MacBook Air": "Hermes on Apple Watch, iPhone and MacBook Air",
         "Voor zelfstandige kenniswerkers": "For independent knowledge workers",
-        "Claude en ChatGPT zijn sterke modellen, maar ontwikkelen zich als een gesloten ecosysteem met terugkerende, stijgende tokenkosten. Ons alternatief is powered by Hermes, een open-source AI-assistent waarmee je workflows, tools en providerkeuze in eigen hand houdt en goedkoper kunt opschalen of wisselen wanneer dat nodig is. Wij zetten jouw persoonlijke AI-assistent klaar en bij elke actie leer jij hem jouw manier van werken.": "Claude and ChatGPT are strong models, but are developing into a closed ecosystem with recurring, rising token costs. Our alternative is powered by Hermes, an open-source AI assistant that keeps workflows, tools and provider choice in your own hands, allowing you to scale or switch more affordably when needed. We set up your personal AI assistant, and with every action you teach it your way of working.",
+        "ZZPagent uit Amsterdam helpt Nederlandse ZZP’ers een persoonlijke Hermes AI-assistent in te richten die terugkerend werk voorbereidt en uitvoert, met menselijke controle bij gevoelige acties. Claude en ChatGPT zijn sterke modellen, maar ontwikkelen zich als een gesloten ecosysteem met terugkerende, stijgende tokenkosten. Ons alternatief is powered by Hermes, een open-source AI-assistent waarmee je workflows, tools en providerkeuze in eigen hand houdt en goedkoper kunt opschalen of wisselen wanneer dat nodig is. Wij zetten jouw persoonlijke AI-assistent klaar en bij elke actie leer jij hem jouw manier van werken.": "ZZPagent in Amsterdam helps Dutch independent professionals set up a personal Hermes AI assistant that prepares and carries out recurring work, with human control for sensitive actions. Claude and ChatGPT are strong models, but are developing into a closed ecosystem with recurring, rising token costs. Our alternative is powered by Hermes, an open-source AI assistant that keeps workflows, tools and provider choice in your own hands, allowing you to scale or switch more affordably when needed. We set up your personal AI assistant, and with every action you teach it your way of working.",
+        "Kennis:": "Knowledge:",
+        "AI-agent voor ZZP": "AI agent for independent professionals",
+        "persoonlijke AI-assistent": "personal AI assistant",
         "Open Source": "Open Source",
         "Laat AI voor je werken, maar geef je bedrijf niet weg aan Big Tech": "Let AI work for you, but do not give your business away to Big Tech",
         "Claude en ChatGPT zijn sterke modellen, maar ontwikkelen zich als een gesloten ecosysteem met terugkerende, stijgende tokenkosten. Hermes is een open-source AI-assistent die op je eigen machine kan draaien, waarmee je workflows, tools en providerkeuze in eigen hand houdt en goedkoper kunt opschalen of wisselen wanneer dat nodig is.": "Claude and ChatGPT are strong models, but are developing into a closed ecosystem with recurring, rising token costs. Hermes is an open-source AI assistant that can run on your own machine, keeping workflows, tools and provider choice in your own hands so you can scale or switch more cheaply when needed.",
