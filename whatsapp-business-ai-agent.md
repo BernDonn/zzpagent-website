@@ -27,6 +27,10 @@ ZZPagent richt gevoelige acties zo in dat de mens beslist voordat iets naar buit
 
 ## Veelgestelde vragen
 
+### Kan Hermes mijn WhatsApp-berichten uitlezen?
+
+Ja, als je Hermes daar expliciet toegang voor geeft en de WhatsApp-koppeling is ingericht. Dan kan Hermes bijvoorbeeld je recente berichten opzoeken, gesprekken samenvatten, open vragen signaleren en een voorstel voor opvolging klaarzetten. Jij bepaalt welke gesprekken Hermes mag gebruiken en of een antwoord alleen als concept wordt voorbereid of pas na jouw akkoord wordt verstuurd.
+
 ### Stuurt de agent automatisch berichten?
 
 Niet standaard. Bij gevoelige of externe communicatie worden concepten klaargezet en vraagt de agent menselijke goedkeuring.
