@@ -23,6 +23,8 @@ ZZPagent wijst Big Tech-modellen niet af en belooft geen absolute onafhankelijkh
 - [Wat is een AI-agent voor een ZZP’er?](https://zzpagent.nl/wat-is-een-ai-agent-voor-zzp/): direct antwoord voor zelfstandigen die ChatGPT of Claude al gebruiken
 - [Persoonlijke AI-assistent voor ZZP](https://zzpagent.nl/persoonlijke-ai-assistent-voor-zzp/): voorbeelden van terugkerend werk en een veilige eerste stap
 - [AI-agent via WhatsApp Business](https://zzpagent.nl/ai-agent-via-whatsapp-business/): WhatsApp als kanaal met Hermes als agentlaag
+- [AI-telefoonassistent voor ZZP](https://zzpagent.nl/telefoonassistent-voor-zzp/): gesprekken voeren, informatie verzamelen en gecontroleerde opvolging voorbereiden
+- [Workflowautomatisering voor ZZP](https://zzpagent.nl/workflowautomatisering-voor-zzp/): één terugkerende taak omzetten in vaste stappen met menselijke controle
 - [FAQ over AI-agents voor ZZP](https://zzpagent.nl/faq-ai-agents-zzp.md): uitgebreide vragen en antwoorden over kosten, veiligheid, AVG, lokaal draaien, MCP en workflows
 - [Hermes als open-source agentlaag](https://zzpagent.nl/hermes-open-source-agentlaag.md): technische en strategische positionering
 - [Over ZZPagent en Bernard Donners](https://zzpagent.nl/over-ons/): achtergrond, ervaring en publicaties

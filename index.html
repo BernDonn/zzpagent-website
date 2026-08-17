@@ -436,7 +436,9 @@
     .bubble.agent{background:var(--paper);color:#172019}
     .mini{font-size:13px;color:#c7d5cc;margin-bottom:6px}
     .logos{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;color:#646b65;text-transform:uppercase;letter-spacing:.08em;font-size:13px;font-weight:760}
-    .sector-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;color:#202720;text-transform:none;letter-spacing:0;font-size:16px;font-weight:650}
+    .sector-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;color:#202720;text-transform:none;letter-spacing:0;font-size:16px;font-weight:650}
+    .sector-row a{display:inline-flex;align-items:center;padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,250,241,.82);color:#143f2b;text-decoration:none;font-weight:750}
+    .sector-row a:hover{text-decoration:underline;text-underline-offset:3px}
     .two-col{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
     .statement{font-size:clamp(28px,4vw,50px);line-height:1.08;letter-spacing:-.04em;font-weight:800}
     .muted{color:var(--muted);line-height:1.65;font-size:17px;letter-spacing:-.003em}
@@ -1054,13 +1056,16 @@
     </section>
 
     <section class="section" id="prijzen">
-      <div class="eyebrow">Startersaanbod</div>
-      <h2>Begin met één taak voor één persoon</h2>
-      <p class="lead" style="max-width:980px">Geen groot automatiseringsproject. We kiezen samen één terugkerende taak die jou nu tijd of overzicht kost en richten je persoonlijke Hermes-assistent daarop in. Jij blijft beslissen. Eerst betrouwbaar voorbereiden en testen, daarna pas uitbreiden.</p>
+      <div class="eyebrow">Hoe begin je?</div>
+      <h2>Je begint met een persoonlijk startgesprek</h2>
+      <div style="max-width:980px">
+        <p class="lead">We beginnen met een kort persoonlijk startgesprek. Je vertelt hoe je werkt, welke hulpmiddelen je gebruikt en welk werk je tijd of overzicht kost. Daarna ga je meteen met Hermes aan de slag. Je praat of typt wat je wilt dat hij voor je voorbereidt. Door jouw aanwijzingen en correcties leert Hermes stap voor stap hoe jij werkt.</p>
+        <p class="lead">Je hoeft niets te programmeren en je hoeft vooraf geen compleet proces uit te denken. Je ziet meteen wat Hermes voorbereidt, past het aan waar nodig en bepaalt zelf wat er daarna gebeurt. Zo raakt je persoonlijke assistent vertrouwd met jouw manier van werken terwijl je hem gebruikt.</p>
+      </div>
       <div class="products">
         <article class="product featured">
           <span class="tag">Dit is inbegrepen</span>
-          <h3>Van Contextscan tot een werkende eerste taak</h3>
+          <h3>Van startgesprek tot een werkende eerste taak</h3>
           <p class="muted">We beginnen met één hulpmiddel dat je al gebruikt, bijvoorbeeld mail, agenda, documenten, Apple Notes, WhatsApp of Telegram. Hermes krijgt alleen de toegang die voor die eerste taak nodig is.</p>
           <ul><li>Je praat tegen Hermes en vertelt (of typt) wat je wilt dat er gebeurt</li><li>Samen één concrete terugkerende taak kiezen</li><li>De passende Hermes-inrichting en één kanaal voorbereiden</li><li>Toegang, grenzen en menselijke goedkeuring vastleggen</li></ul>
         </article>
@@ -1072,7 +1077,7 @@
         <article class="product">
           <span class="tag">Vaste prijs</span>
           <h3>Eerst duidelijkheid, daarna een vaste prijs</h3>
-          <p class="muted">De Contextscan laat zien welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken startersaanbod. Geen open urenrekening en geen verrassingen achteraf.</p>
+          <p class="muted">In het startgesprek bepalen we welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken starttraject. Geen open urenrekening en geen verrassingen achteraf.</p>
           <ul><li>Begeleiding, inrichting, test en overdracht in de projectprijs</li><li>Externe kosten vooraf apart zichtbaar</li><li>Geen verplicht beheerabonnement</li></ul>
         </article>
       </div>
@@ -1092,7 +1097,7 @@
           </div>
         </div>
       </details>
-      <div class="flow-note" style="margin-top:22px"><strong>Reken op weken, niet op maanden:</strong> na de Contextscan spreken we doel, toegang, grenzen en testvoorbeelden af. Daarna richten we de gekozen taken in, testen we met jouw eigen werk en sturen we samen bij. De precieze planning hangt af van de gekozen taken en benodigde toegang.</div>
+      <div class="flow-note" style="margin-top:22px"><strong>Reken op weken, niet op maanden:</strong> na het startgesprek spreken we doel, toegang, grenzen en testvoorbeelden af. Daarna richten we de gekozen taken in, testen we met jouw eigen werk en sturen we samen bij. De precieze planning hangt af van de gekozen taken en benodigde toegang.</div>
     </section>
 
     <section class="section top-panels nav-panel-overlay" id="agent-panelen" aria-label="Q&A en Agent Platform" hidden>
@@ -1135,11 +1140,11 @@
                   </details>
                   <details>
                     <summary>05. Wat kost een Hermes-implementatie via ZZPagent?</summary>
-                    <p>De eerste Contextscan laat zien welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken startersaanbod. Geen open urenrekening en geen verrassingen achteraf. Reken voor het inrichten van een eerste afgebakende Hermes-assistent op ongeveer €1.000 exclusief btw. Wil je Hermes op een Europese VPS laten draaien, reken dan doorgaans op ongeveer €10 tot €20 per maand exclusief btw, afhankelijk van de server en eventuele extra’s. Met een bestaand ChatGPT Plus-abonnement met Codex kom je meestal al erg ver en heb je een goede LLM als basis. In Nederland kost dat momenteel ongeveer €23 per maand inclusief btw. Daarnaast richten we veel goedkopere commoditymodellen in als fallback. Bij normaal gebruik blijven de kosten daarvan vaak onder €10 per maand, maar het exacte bedrag hangt af van het daadwerkelijke verbruik. Er is geen verplicht beheerabonnement.</p>
+                    <p>In het eerste startgesprek bepalen we welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken starttraject. Geen open urenrekening en geen verrassingen achteraf. Reken voor het inrichten van een eerste afgebakende Hermes-assistent op ongeveer €1.000 exclusief btw. Wil je Hermes op een Europese VPS laten draaien, reken dan doorgaans op ongeveer €10 tot €20 per maand exclusief btw, afhankelijk van de server en eventuele extra’s. Met een bestaand ChatGPT Plus-abonnement met Codex kom je meestal al erg ver en heb je een goede LLM als basis. In Nederland kost dat momenteel ongeveer €23 per maand inclusief btw. Daarnaast richten we veel goedkopere commoditymodellen in als fallback. Bij normaal gebruik blijven de kosten daarvan vaak onder €10 per maand, maar het exacte bedrag hangt af van het daadwerkelijke verbruik. Er is geen verplicht beheerabonnement.</p>
                   </details>
                   <details>
                     <summary>06. Hoe snel kan een eerste Hermes-agent live zijn?</summary>
-                    <p>Reken op weken, niet op maanden. Na de Contextscan spreken we doel, toegang, grenzen en testvoorbeelden af. Daarna richten we de gekozen taken in, testen we met jouw eigen werk en sturen we samen bij. De precieze planning hangt af van de gekozen taken en benodigde toegang.</p>
+                    <p>Reken op weken, niet op maanden. Na het startgesprek spreken we doel, toegang, grenzen en testvoorbeelden af. Daarna richten we de gekozen taken in, testen we met jouw eigen werk en sturen we samen bij. De precieze planning hangt af van de gekozen taken en benodigde toegang.</p>
                   </details>
                   <details>
                     <summary>07. Heb ik eigen ontwikkelaars nodig voor Hermes Agent?</summary>
@@ -1376,11 +1381,11 @@
       <div class="footer-cta">
         <div>
           <h2>Welke taak wil jij niet meer iedere keer vanaf nul doen?</h2>
-          <p class="muted">Doe eerst de Hermes Contextscan. Daarmee brengen we je taken, huidige werkwijze, bronnen, gewenste controle en technische uitgangssituatie in kaart. Daarna kun je een korte verkenning plannen. Er wordt nog niets geïnstalleerd of betaald voordat duidelijk is wat bij jou past en welke vaste prijs daarbij hoort.</p>
+          <p class="muted">Vul eerst de Hermes Quickscan in. Daarmee krijgen we een eerste beeld van je taken, huidige werkwijze, bronnen, gewenste controle en technische uitgangssituatie. Daarna plannen we een persoonlijk startgesprek. Er wordt nog niets geïnstalleerd of betaald voordat duidelijk is wat bij jou past en welke vaste prijs daarbij hoort.</p>
         </div>
         <div class="footer-cta-actions">
-          <a class="button light" href="/quickscan/">Doe de Hermes Contextscan</a>
-          <a class="button secondary" href="https://wa.me/31618569839?text=Hallo%20ZZPagent%2C%20ik%20wil%20graag%20een%20korte%20verkenning%20plannen." target="_blank" rel="noopener">Plan een korte verkenning</a>
+          <a class="button light" href="/quickscan/">Doe de Hermes Quickscan</a>
+          <a class="button secondary" href="https://wa.me/31618569839?text=Hallo%20ZZPagent%2C%20ik%20wil%20graag%20een%20persoonlijk%20startgesprek%20plannen." target="_blank" rel="noopener">Plan een persoonlijk startgesprek</a>
           <p class="muted" style="font-size:14px">Altijd met menselijke goedkeuring en duidelijke datagrenzen. Eerst één taak betrouwbaar maken; daarna pas uitbreiden.</p>
         </div>
       </div>
@@ -1389,7 +1394,11 @@
     <section class="section" style="padding-top:10px;padding-bottom:8px">
       <div class="logos">Voor ondernemers waar transparantie, vertrouwen en privacy tellen
         <div class="sector-row">
-          <span>Inbox & agenda</span><span>Offertes & opvolging</span><span>CRM & klantcontact</span><span>Workflowautomatisering</span><span>Telefoon assistent</span><span>WhatsApp automatiseren</span>
+          <a href="/wat-is-een-ai-agent-voor-zzp/">AI-agent voor ZZP</a>
+          <a href="/persoonlijke-ai-assistent-voor-zzp/">persoonlijke AI-assistent</a>
+          <a href="/ai-agent-via-whatsapp-business/">WhatsApp Business</a>
+          <a href="/telefoonassistent-voor-zzp/">Telefoonassistent</a>
+          <a href="/workflowautomatisering-voor-zzp/">Workflowautomatisering</a>
         </div>
       </div>
     </section>
@@ -1435,12 +1444,7 @@
           </details>
           <span>· Gebouwd voor ZZP met Bernard's AI visie.</span>
         </div>
-        <nav class="footer-contact" aria-label="Kennisbank ZZPagent">
-          <span>Kennis:</span>
-          <a href="/wat-is-een-ai-agent-voor-zzp/">AI-agent voor ZZP</a> ·
-          <a href="/persoonlijke-ai-assistent-voor-zzp/">persoonlijke AI-assistent</a> ·
-          <a href="/ai-agent-via-whatsapp-business/">WhatsApp Business</a>
-        </nav>
+
       </div>
     </div>
   </footer>
@@ -1525,7 +1529,8 @@
         "Voorwaarden": "Terms",
         "Adres:": "Address:",
         "KvK:": "Chamber of Commerce:",
-        "Telefoon assistent": "Phone assistant",
+        "Telefoonassistent": "Phone assistant",
+        "WhatsApp Business": "WhatsApp Business",
         "WhatsApp automatiseren": "Automate WhatsApp",
         "Verstuur": "Send",
         "Q&A": "Q&A",
@@ -1544,10 +1549,10 @@
         "Ja, mits de inrichting klopt. Bij ZZPagent begint dat met dataminimalisatie, duidelijke toegang, menselijke goedkeuring bij gevoelige acties en een route die past bij je risico’s: VPS in Europa, eigen Mac mini/Mac of hybride. AVG-proof is dus geen losse claim, maar een ontwerpkeuze per workflow, kanaal en databron.": "Yes, provided the setup is right. At ZZPagent that starts with data minimization, clear access, human approval for sensitive actions and a route that fits your risks: VPS in Europe, your own Mac mini/Mac or hybrid. GDPR-proof is therefore not a loose claim, but a design choice per workflow, channel and data source.",
         "05. Wat kost een Hermes-implementatie via ZZPagent?": "05. What does a Hermes implementation through ZZPagent cost?",
 
-        "De eerste Contextscan laat zien welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken startersaanbod. Geen open urenrekening en geen verrassingen achteraf. Reken voor het inrichten van een eerste afgebakende Hermes-assistent op ongeveer €1.000 exclusief btw. Wil je Hermes op een Europese VPS laten draaien, reken dan doorgaans op ongeveer €10 tot €20 per maand exclusief btw, afhankelijk van de server en eventuele extra’s. Met een bestaand ChatGPT Plus-abonnement met Codex kom je meestal al erg ver en heb je een goede LLM als basis. In Nederland kost dat momenteel ongeveer €23 per maand inclusief btw. Daarnaast richten we veel goedkopere commoditymodellen in als fallback. Bij normaal gebruik blijven de kosten daarvan vaak onder €10 per maand, maar het exacte bedrag hangt af van het daadwerkelijke verbruik. Er is geen verplicht beheerabonnement.": "The first Contextscan shows which task, access and setup are needed. You then receive one fixed price in advance for the agreed starter offer. No open-ended hourly billing and no surprises afterwards. For setting up a first clearly scoped Hermes assistant, expect approximately €1,000 excluding VAT. If you want Hermes to run on a European VPS, typically allow around €10 to €20 per month excluding VAT, depending on the server and any extras. An existing ChatGPT Plus subscription with Codex will usually take you a long way and gives you a strong LLM as a foundation. In the Netherlands this currently costs approximately €23 per month including VAT. We also configure much cheaper commodity models as fallback. With normal usage, their costs often remain below €10 per month, but the exact amount depends on actual usage. There is no mandatory management subscription.",
+        "In het eerste startgesprek bepalen we welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken starttraject. Geen open urenrekening en geen verrassingen achteraf. Reken voor het inrichten van een eerste afgebakende Hermes-assistent op ongeveer €1.000 exclusief btw. Wil je Hermes op een Europese VPS laten draaien, reken dan doorgaans op ongeveer €10 tot €20 per maand exclusief btw, afhankelijk van de server en eventuele extra’s. Met een bestaand ChatGPT Plus-abonnement met Codex kom je meestal al erg ver en heb je een goede LLM als basis. In Nederland kost dat momenteel ongeveer €23 per maand inclusief btw. Daarnaast richten we veel goedkopere commoditymodellen in als fallback. Bij normaal gebruik blijven de kosten daarvan vaak onder €10 per maand, maar het exacte bedrag hangt af van het daadwerkelijke verbruik. Er is geen verplicht beheerabonnement.": "In the first introductory conversation, we determine which task, access and setup are needed. You then receive one fixed price in advance for the agreed starting project. No open-ended hourly billing and no surprises afterwards. For setting up a first clearly scoped Hermes assistant, expect approximately €1,000 excluding VAT. If you want Hermes to run on a European VPS, typically allow around €10 to €20 per month excluding VAT, depending on the server and any extras. An existing ChatGPT Plus subscription with Codex will usually take you a long way and gives you a strong LLM as a foundation. In the Netherlands this currently costs approximately €23 per month including VAT. We also configure much cheaper commodity models as fallback. With normal usage, their costs often remain below €10 per month, but the exact amount depends on actual usage. There is no mandatory management subscription.",
         "04. Hoe snel kan een eerste Hermes-agent live zijn?": "04. How quickly can a first Hermes agent go live?",
 
-        "Reken op weken, niet op maanden. Na de Contextscan spreken we doel, toegang, grenzen en testvoorbeelden af. Daarna richten we de gekozen taken in, testen we met jouw eigen werk en sturen we samen bij. De precieze planning hangt af van de gekozen taken en benodigde toegang.": "Expect weeks, not months. After the Contextscan we agree on the goal, access, boundaries and test examples. We then set up the chosen tasks, test them with your own work and adjust them together. The exact schedule depends on the chosen tasks and the access required.",
+        "Reken op weken, niet op maanden. Na het startgesprek spreken we doel, toegang, grenzen en testvoorbeelden af. Daarna richten we de gekozen taken in, testen we met jouw eigen werk en sturen we samen bij. De precieze planning hangt af van de gekozen taken en benodigde toegang.": "Expect weeks, not months. After the introductory conversation we agree on the goal, access, boundaries and test examples. We then set up the chosen tasks, test them with your own work and adjust them together. The exact schedule depends on the chosen tasks and the access required.",
         "05. Heb ik eigen ontwikkelaars nodig voor Hermes Agent?": "05. Do I need my own developers for Hermes Agent?",
         "Voor een eerste ZZPagent-route heb je geen eigen ontwikkelaars nodig. Wel zijn jouw keuzes en toegang nodig: welk kanaal, welke mailbox of databron, welke modelroute en welke acties nooit zonder akkoord mogen plaatsvinden. Technische inrichting, koppelingen en beheer worden stap voor stap voorbereid.": "For a first ZZPagent route you do not need your own developers. Your choices and access are needed though: which channel, which mailbox or data source, which model route and which actions must never happen without approval. Technical setup, integrations and management are prepared step by step.",
         "06. Krijg ik alleen een kant-en-klare AI-agent, of leer ik er zelf mee werken?": "06. Do I only get a ready-made AI agent, or do I learn to work with it myself?",
@@ -1832,11 +1837,12 @@
         "Hermes kan samenwerken met workflowtools zoals n8n: de agent denkt mee, de workflow voert gecontroleerd uit. Dat maakt routinetaken betrouwbaarder, voorspelbaarder en goedkoper, terwijl Hermes zich richt op waar context, beoordeling en menselijk inzicht nodig zijn.": "Hermes can work together with workflow tools such as n8n: the agent thinks along, the workflow executes in a controlled way. This makes routine tasks more reliable, predictable and cost-effective, while Hermes focuses on where context, judgement and human insight are needed.",
         "CRM & opvolging": "CRM & follow-up",
         "Prijzen": "Pricing",
-        "Startersaanbod": "Starter offer",
-        "Begin met één taak voor één persoon": "Start with one task for one person",
-        "Geen groot automatiseringsproject. We kiezen samen één terugkerende taak die jou nu tijd of overzicht kost en richten je persoonlijke Hermes-assistent daarop in. Jij blijft beslissen. Eerst betrouwbaar voorbereiden en testen, daarna pas uitbreiden.": "No large automation project. Together we choose one recurring task that currently costs you time or clarity and set up your personal Hermes assistant around it. You remain in control. First prepare and test reliably, then expand.",
+        "Hoe begin je?": "How do you start?",
+        "Je begint met een persoonlijk startgesprek": "You start with a personal introductory conversation",
+        "We beginnen met een kort persoonlijk startgesprek. Je vertelt hoe je werkt, welke hulpmiddelen je gebruikt en welk werk je tijd of overzicht kost. Daarna ga je meteen met Hermes aan de slag. Je praat of typt wat je wilt dat hij voor je voorbereidt. Door jouw aanwijzingen en correcties leert Hermes stap voor stap hoe jij werkt.": "We start with a short personal conversation. You explain how you work, which tools you use and which work costs you time or clarity. You then start working with Hermes straight away. You speak or type what you want it to prepare. Through your guidance and corrections, Hermes gradually learns how you work.",
+        "Je hoeft niets te programmeren en je hoeft vooraf geen compleet proces uit te denken. Je ziet meteen wat Hermes voorbereidt, past het aan waar nodig en bepaalt zelf wat er daarna gebeurt. Zo raakt je persoonlijke assistent vertrouwd met jouw manier van werken terwijl je hem gebruikt.": "You do not need to program anything or design a complete process in advance. You immediately see what Hermes prepares, adjust it where needed and decide what happens next. This is how your personal assistant becomes familiar with the way you work while you use it.",
         "Dit is inbegrepen": "This is included",
-        "Van Contextscan tot een werkende eerste taak": "From Contextscan to a working first task",
+        "Van startgesprek tot een werkende eerste taak": "From introductory conversation to a working first task",
         "We beginnen met één hulpmiddel dat je al gebruikt, bijvoorbeeld mail, agenda, documenten, Apple Notes, WhatsApp of Telegram. Hermes krijgt alleen de toegang die voor die eerste taak nodig is.": "We start with one tool you already use, such as email, calendar, documents, Apple Notes, WhatsApp or Telegram. Hermes only gets the access needed for that first task.",
         "Je praat tegen Hermes en vertelt (of typt) wat je wilt dat er gebeurt": "You talk to Hermes and tell it (or type) what you want to happen",
         "Samen één concrete terugkerende taak kiezen": "Choose one concrete recurring task together",
@@ -1850,7 +1856,7 @@
         "Een afgesproken periode voor nazorg na de oplevering": "An agreed period of aftercare following delivery",
         "Vaste prijs": "Fixed price",
         "Eerst duidelijkheid, daarna een vaste prijs": "Clarity first, then a fixed price",
-        "De Contextscan laat zien welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken startersaanbod. Geen open urenrekening en geen verrassingen achteraf.": "The Contextscan shows which task, access and setup are needed. You then receive one fixed price in advance for the agreed starter offer. No open-ended hourly billing and no surprises afterwards.",
+        "In het startgesprek bepalen we welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken starttraject. Geen open urenrekening en geen verrassingen achteraf.": "During the introductory conversation, we determine which task, access and setup are needed. You then receive one fixed price in advance for the agreed starting project. No open-ended hourly billing and no surprises afterwards.",
         "Begeleiding, inrichting, test en overdracht in de projectprijs": "Guidance, setup, testing and handover included in the project price",
         "Externe kosten vooraf apart zichtbaar": "External costs shown separately in advance",
         "Geen verplicht beheerabonnement": "No mandatory management subscription",
@@ -1868,7 +1874,7 @@
         "Lokaal en online combineren": "Combine local and online",
         "Gevoelige context kan lokaal blijven, terwijl een online route bereikbaarheid of geplande taken ondersteunt.": "Sensitive context can remain local, while an online route supports availability or scheduled tasks.",
         "Reken op weken, niet op maanden:": "Expect weeks, not months:",
-        "na de Contextscan spreken we doel, toegang, grenzen en testvoorbeelden af. Daarna richten we de gekozen taken in, testen we met jouw eigen werk en sturen we samen bij. De precieze planning hangt af van de gekozen taken en benodigde toegang.": "after the Contextscan we agree on the goal, access, boundaries and test examples. We then set up the chosen tasks, test them with your own work and adjust them together. The exact schedule depends on the chosen tasks and the access required.",
+        "na het startgesprek spreken we doel, toegang, grenzen en testvoorbeelden af. Daarna richten we de gekozen taken in, testen we met jouw eigen werk en sturen we samen bij. De precieze planning hangt af van de gekozen taken en benodigde toegang.": "after the introductory conversation we agree on the goal, access, boundaries and test examples. We then set up the chosen tasks, test them with your own work and adjust them together. The exact schedule depends on the chosen tasks and the access required.",
         "Inrichting": "Setup routes",
         "Drie routes om Hermes te draaien": "Three routes for running Hermes",
         "Hermes hoeft niet vast te zitten aan één platform of leverancier. Je kunt Hermes draaien op een VPS, op je eigen Mac mini of in een hybride opstelling. ZZPagent helpt je vooral de route kiezen die past bij je werk, privacywensen, bereikbaarheid en budget.": "Hermes does not have to be tied to one platform or supplier. You can run Hermes on a VPS, on your own Mac mini or in a hybrid setup. ZZPagent mainly helps you choose the route that fits your work, privacy needs, availability and budget.",
@@ -1947,12 +1953,12 @@
         "“Niet alles wat technologisch kan is ook maatschappelijk gewenst.”": "“Not everything that is technologically possible is socially desirable.”",
         ", lijn vanuit bernarddonners-ai.nl, vertaald naar veilige zakelijke toepassing": ", line from bernarddonners-ai.nl, translated into safe business application",
         "Welke taak wil jij niet meer iedere keer vanaf nul doen?": "Which task do you no longer want to start from scratch every time?",
-        "Doe eerst de Hermes Contextscan. Daarmee brengen we je taken, huidige werkwijze, bronnen, gewenste controle en technische uitgangssituatie in kaart. Daarna kun je een korte verkenning plannen. Er wordt nog niets geïnstalleerd of betaald voordat duidelijk is wat bij jou past en welke vaste prijs daarbij hoort.": "Start with the Hermes Contextscan. It maps your tasks, current way of working, sources, desired control and technical starting point. You can then plan a short exploration. Nothing is installed or paid for until it is clear what suits you and which fixed price applies.",
-        "Doe de Hermes Contextscan": "Take the Hermes Contextscan",
-        "Plan een korte verkenning": "Plan a short exploration",
+        "Vul eerst de Hermes Quickscan in. Daarmee krijgen we een eerste beeld van je taken, huidige werkwijze, bronnen, gewenste controle en technische uitgangssituatie. Daarna plannen we een persoonlijk startgesprek. Er wordt nog niets geïnstalleerd of betaald voordat duidelijk is wat bij jou past en welke vaste prijs daarbij hoort.": "Start by completing the Hermes Quickscan. It gives us an initial picture of your tasks, current way of working, sources, desired control and technical starting point. We then schedule a personal introductory conversation. Nothing is installed or paid for until it is clear what suits you and which fixed price applies.",
+        "Doe de Hermes Quickscan": "Take the Hermes Quickscan",
+        "Plan een persoonlijk startgesprek": "Plan a personal introductory conversation",
         "Altijd met menselijke goedkeuring en duidelijke datagrenzen. Eerst één taak betrouwbaar maken; daarna pas uitbreiden.": "Always with human approval and clear data boundaries. First make one task reliable; only then expand.",
         "Klaar om je Hermes-route te verkennen?": "Ready to explore your Hermes route?",
-        "Begin met een korte verkenning van je workflow, bereikbaarheid, privacywensen en budget. Daarna weet je of een VPS, eigen Mac mini of hybride route logisch is.": "Start with a short exploration of your workflow, availability, privacy needs and budget. After that you know whether a VPS, your own Mac mini or a hybrid route makes sense.",
+        "Begin met een persoonlijk startgesprek over je workflow, bereikbaarheid, privacywensen en budget. Daarna weet je of een VPS, eigen Mac mini of hybride route logisch is.": "Start with a personal conversation about your workflow, availability, privacy needs and budget. After that you know whether a VPS, your own Mac mini or a hybrid route makes sense.",
         "Bespreek mijn Hermes-route": "Discuss my Hermes route",
         "Lees over ons": "Read about us",
         "Altijd met menselijke goedkeuring, duidelijke datagrenzen en verantwoord gebruik. Start met één agent en één workflow; daarna pas uitbreiden.": "Always with human approval, clear data boundaries and responsible use. Start with one agent and one workflow; only then expand.",

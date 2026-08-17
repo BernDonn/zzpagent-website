@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hermes Contextscan | ZZPagent</title>
-  <meta name="description" content="Doe de Hermes Contextscan voor zelfstandige kenniswerkers. Ontdek waar context, herhaling en menselijke beslismomenten kansen bieden voor meer rust en overzicht." />
+  <title>Hermes Quickscan | ZZPagent</title>
+  <meta name="description" content="Doe de Hermes Quickscan voor zelfstandige kenniswerkers. Ontdek waar context, herhaling en menselijke beslismomenten kansen bieden voor meer rust en overzicht." />
   <link rel="canonical" href="https://zzpagent.nl/quickscan/" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/zzpagent-marktplaats-icon-512.png" />
@@ -247,7 +247,7 @@
 
   <a class="back-link" href="/">← Terug naar ZZPagent</a>
 
-  <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px">CONTACT · HERMES CONTEXTSCAN</div>
+  <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px">CONTACT · HERMES QUICKSCAN</div>
 
   <h1>Waar kan een persoonlijke AI-assistent jou <em>werkelijk rust</em> geven?</h1>
 
@@ -263,12 +263,12 @@
     <a class="btn btn-secondary" href="mailto:info@zzpagent.nl">Liever mailen</a>
   </div>
 
-  <h2 class="section-title">Wat onderzoekt de Hermes Contextscan?</h2>
+  <h2 class="section-title">Wat onderzoekt de Hermes Quickscan?</h2>
 
   <div class="card">
-    <p>De Contextscan onderzoekt of jouw werk veel lopende achtergrondinformatie, terugkerende uitleg en menselijke beslismomenten bevat. Dat zijn situaties waarin een persoonlijke assistent vaak meer waarde biedt dan een losse automatisering.</p>
+    <p>De Quickscan onderzoekt of jouw werk veel lopende achtergrondinformatie, terugkerende uitleg en menselijke beslismomenten bevat. Dat zijn situaties waarin een persoonlijke assistent vaak meer waarde biedt dan een losse automatisering.</p>
 
-    <p style="margin-top:20px"><strong>Na de Contextscan heb je een helder eerste beeld van:</strong></p>
+    <p style="margin-top:20px"><strong>Na de Quickscan heb je een helder eerste beeld van:</strong></p>
 
     <ul class="checklist">
       <li>Hoe contextintensief jouw projecten en dossiers zijn.</li>
@@ -379,7 +379,7 @@
     <!-- STAP 3 -->
     <div class="form-section" id="step-3" style="display:none">
       <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:4px">STAP 03 · CONTACT</div>
-      <h3 style="font-size:18px;margin:0 0 4px;font-weight:600">Waar kunnen we de Contextscan-terugkoppeling naartoe sturen?</h3>
+      <h3 style="font-size:18px;margin:0 0 4px;font-weight:600">Waar kunnen we de Quickscan-terugkoppeling naartoe sturen?</h3>
       <p style="font-size:14px;color:var(--muted);margin:0 0 24px">Bijna klaar. We gebruiken je antwoorden om terug te koppelen waar contextdruk zit, welke grenzen gelden en welke eerste ondersteuning binnen dertig dagen rust kan opleveren.</p>
 
       <div class="form-group" data-required="text">
@@ -402,10 +402,10 @@
       <div class="form-group" data-required="checkbox">
         <label class="field-label" style="font-weight:600;text-transform:none;letter-spacing:0;font-size:15px">
           <input type="checkbox" name="consent" style="accent-color:var(--green);width:16px;height:16px;margin-right:8px" />
-          Ik ga akkoord dat ZZPagent mijn antwoorden gebruikt voor de Contextscan-terugkoppeling over mijn mogelijke persoonlijke Hermes-assistent.
+          Ik ga akkoord dat ZZPagent mijn antwoorden gebruikt voor de Quickscan-terugkoppeling over mijn mogelijke persoonlijke Hermes-assistent.
         </label>
         <p class="error-msg">Je moet akkoord gaan om door te gaan.</p>
-        <p style="font-size:12px;color:var(--muted);margin:8px 0 0">Je antwoorden worden niet opgeslagen op deze website. We gebruiken ze alleen voor de Contextscan-terugkoppeling.</p>
+        <p style="font-size:12px;color:var(--muted);margin:8px 0 0">Je antwoorden worden niet opgeslagen op deze website. We gebruiken ze alleen voor de Quickscan-terugkoppeling.</p>
       </div>
 
       <div class="form-nav">
@@ -421,7 +421,7 @@
 
   <!-- THANK YOU -->
   <div class="thank-you" id="thank-you">
-    <h2>Bedankt! <em>Je Hermes Contextscan is ontvangen.</em></h2>
+    <h2>Bedankt! <em>Je Hermes Quickscan is ontvangen.</em></h2>
     <p>We bekijken hoeveel context en herhaling jouw werk bevat, welke informatie- en akkoordgrenzen gelden en waar een persoonlijke assistent binnen dertig dagen merkbaar rust kan geven. We koppelen terug per e-mail.</p>
   </div>
 
@@ -527,7 +527,7 @@
 
   function buildMailPayload(data) {
     const fd = new FormData();
-    fd.append('_subject', 'Hermes Contextscan aanvraag - ' + (data.step3.name || 'onbekend'));
+    fd.append('_subject', 'Hermes Quickscan aanvraag - ' + (data.step3.name || 'onbekend'));
     fd.append('_template', 'table');
     fd.append('_captcha', 'false');
     fd.append('Naam', data.step3.name || '');
@@ -541,7 +541,7 @@
     fd.append('Informatie die niet bewaard mag worden', data.step2.retention_boundaries || '');
     fd.append('Handelingen die akkoord vereisen', data.step2.approval_boundaries || '');
     fd.append('Gewenste rust na dertig dagen', data.step2.thirty_day_rust || '');
-    fd.append('Akkoord Contextscan-terugkoppeling', data.step3.consent ? 'Ja' : 'Nee');
+    fd.append('Akkoord Quickscan-terugkoppeling', data.step3.consent ? 'Ja' : 'Nee');
     return fd;
   }
 
@@ -648,13 +648,13 @@
       document.getElementById('thank-you').style.display = 'block';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       if (typeof gtag === 'function') {
-        gtag('event', 'contextscan_submit', {
+        gtag('event', 'quickscan_submit', {
           'event_category': 'conversion'
         });
       }
     } catch (err) {
       console.error(err);
-      alert('Verzenden lukt nu niet. Mail je antwoorden naar info@zzpagent.nl, dan pak ik de Contextscan alsnog op.');
+      alert('Verzenden lukt nu niet. Mail je antwoorden naar info@zzpagent.nl, dan pak ik de Quickscan alsnog op.');
       btn.disabled = false;
       btn.querySelector('.btn-text').textContent = 'Verzenden →';
       btn.querySelector('.spinner').style.display = 'none';
