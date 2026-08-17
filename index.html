@@ -209,7 +209,7 @@
           },
           {
             "@type": "Question",
-            "name": "Is Hermes een beperktere versie van Het Mainframe?",
+            "name": "Is Hermes volgens Bart Boonstra een beperktere versie van Het Mainframe?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Bart Boonstra vergelijkt Hermes in zijn cursus Slimmer werken met AI met Het Mainframe en presenteert Hermes daarbij als een beperktere variant. Als je kijkt naar technische vrijheid en uitbreidbaarheid, zien wij het eerder omgekeerd. Het Mainframe is een begeleide werkwijze die sterk rond Claude is opgebouwd. Claude is een krachtig maar propriëtair model en platform. Hermes is een open-source agentlaag die niet aan één model vastzit: je kunt onder meer Claude, ChatGPT/Codex, andere cloudmodellen of lokale modellen gebruiken. Het Mainframe wordt aangeboden als een leertraject van ongeveer acht weken. Met Hermes begin je direct met één afgebakende taak en leer je al doende. Door jouw aanwijzingen, controles en correcties bouwt Hermes geheugen en herbruikbare skills op en sluit het steeds beter aan op jouw werkwijze. Het zijn dus verschillende routes. Voor wie modelkeuze, eigen hosting, uitbreidbaarheid en leren in het dagelijkse werk belangrijk vindt, biedt Hermes juist de bredere basis."
@@ -283,7 +283,7 @@
     h2{font-size:clamp(36px, 4.7vw, 58px);font-weight:700;line-height:1.04;letter-spacing:-.03em;margin:14px 0 18px}
     h3{font-size:24px;font-weight:700;letter-spacing:-.025em;margin-bottom:12px}
     .lead{font-size:clamp(18px,1.8vw,22px);line-height:1.55;letter-spacing:-.005em;color:#323b34;max-width:760px}
-    .lead .workflow-inline-link{color:var(--green);font-weight:800;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+    .workflow-inline-link{color:var(--green);font-weight:800;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
     .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 24px}
     .trust-row{display:flex;gap:10px;flex-wrap:wrap;color:#2b362e;font-size:14px}
     .pill{border:1px solid var(--line);background:rgba(255,250,241,.82);padding:9px 12px;border-radius:999px;font-weight:650}
@@ -383,8 +383,12 @@
     @keyframes typeDot{0%,100%{opacity:.35;transform:translateY(0)}50%{opacity:1;transform:translateY(-2px)}}
     @media (prefers-reduced-motion: reduce){.agent-motion:before,.agent-motion:after,.motion-dot,.signal-chip,.sort-line i,.briefing-card,.typing-dots b{animation:none!important}.signal-chip,.briefing-card{opacity:1;transform:none}.sort-line i{opacity:.65}}
     .hero .agent-card{margin-top:0}
+    .hero-visual-column{display:grid;justify-items:center;gap:18px;min-width:0}
+    .hero-agent-photo{width:77%;margin:0;border-radius:24px;overflow:hidden;border:1px solid rgba(22,63,43,.14);box-shadow:0 18px 42px rgba(20,35,24,.12);background:#fffaf1}
+    .hero-agent-photo img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover}
     @media(min-width:901px){
-      .hero .agent-card{width:77%;justify-self:center;margin-top:calc(183px + 3cm);padding:19px;border-radius:30px}
+      .hero-visual-column{margin-top:76px}
+      .hero .hero-visual-column .agent-card{width:77%;justify-self:center;margin-top:0;padding:19px;border-radius:30px}
       .hero .card-top strong{font-size:15px;line-height:1.25}
       .hero .hero-phone{width:min(188px,41vw);height:390px;margin-top:11px;border-radius:34px}
       .hero .hero-phone:before{top:11px;width:72px;height:20px}
@@ -662,6 +666,8 @@
       .products,.grid,.usecases,.deploy-grid,.provider-grid,.legal-grid,.integration-grid{grid-template-columns:1fr}
       .hero{min-height:auto;padding-top:48px}
       .hero > div:first-child,.hero .agent-card{max-width:min(330px,calc(100vw - 48px));width:100%;margin-left:0;margin-right:0}
+      .hero-visual-column{width:100%;max-width:min(330px,calc(100vw - 48px));margin:0;justify-self:start}
+      .hero-agent-photo{width:100%;border-radius:22px}
       .hero h1,.hero .lead{max-width:100%;overflow-wrap:break-word}
       h1{font-size:clamp(38px, 12vw, 54px);margin:18px 0}
       .hero h1{font-size:clamp(28px,8vw,36px)!important;line-height:1.06}
@@ -900,6 +906,10 @@
           <script>var disclosureFallbacks={security:'<p class="muted" style="margin-bottom:12px;color:#17240f">Hermes is open source. Daardoor zit je persoonlijke assistent niet vast in één gesloten ecosysteem en houd je meer grip op de technologie waarop jouw werkwijze wordt gebouwd.</p><ul style="margin:0 0 12px 0;padding-left:18px;display:flex;flex-direction:column;gap:4px"><li>De werking en broncode zijn inzichtelijk en aanpasbaar.</li><li>Je kunt van model of provider wisselen zonder je hele werkwijze opnieuw op te bouwen.</li><li>Hermes kan lokaal, op een eigen Mac of in een gekozen serveromgeving draaien.</li><li>Je behoudt je eigen workflows, tools en uitbreidingen.</li><li>Je vermindert de afhankelijkheid van één AI-leverancier en houdt kosten beter beheersbaar.</li></ul>',privacy:'<p style="margin-bottom:10px">ZZPagent verwerkt persoonsgegevens en bedrijfsgegevens alleen voor zover nodig om de agent te configureren, beveiligen, uitvoeren en beheren. Gevoelige informatie mag niet onnodig in prompts, geheugen of logs terechtkomen.</p><ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px"><li>Gegevens worden niet verkocht aan derden.</li><li>Toegang wordt beperkt tot wat noodzakelijk is voor inrichting, beheer, beveiliging en support.</li><li>Datagovernance, AVG-afspraken en veilige contextbehandeling horen bij de inrichting.</li><li>Bij ontwerp en beheer houden we rekening met relevante kaders zoals EU AI Act, GDPR/AVG, Data Act, Cyber Resilience Act en auteursrecht.</li><li>Waar mogelijk worden gegevens geminimaliseerd en binnen een afgesproken hostingomgeving verwerkt.</li><li>Verzoeken over inzage, correctie of verwijdering kunnen via het contactadres van ZZPagent.</li></ul>',controle:'<p style="margin-bottom:10px">Een ZZPagent mag voorbereiden, samenvatten, signaleren, ordenen en concepten klaarzetten. Juist omdat agentic AI taken kan onthouden, herhalen, uitvoeren en opschalen over systemen heen, blijft menselijke controle nodig bij gevoelige of externe acties. Automatisering mag accountability niet verminderen en processen moeten te stoppen of bij te sturen blijven nadat ze gestart zijn.</p><ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px"><li>Geen automatische verzending zonder akkoord waar reputatie, geld, rechten of privacy geraakt kunnen worden.</li><li>Geen zelfstandige uitvoering van real-world actions zonder expliciete begrenzing.</li><li>Geen gebruik voor onrechtmatige, misleidende of schadelijke doeleinden.</li><li>Geen invoer van bijzondere persoonsgegevens zonder passende grondslag.</li><li>Bij twijfel: eerst menselijke beoordeling, daarna pas actie.</li></ul><div class="quote" style="margin-top:12px;border-color:rgba(22,63,43,.18);background:rgba(22,63,43,.04);color:#17240f">&quot;Niet alles wat technologisch kan is ook maatschappelijk gewenst.&quot;<br><span style="font-size:13px;color:#516156">bron: bernarddonners-ai.nl</span></div>'};function toggleDisclosure(key){var p=document.getElementById('disclosure-panel');var t=document.getElementById('disc-'+key);var btn=document.querySelector('[data-key="'+key+'"]');if(!p||!btn)return;var cur=p.getAttribute('data-open');if(cur===key){p.style.display='none';p.removeAttribute('data-open');p.innerHTML='';btn.style.background='rgba(255,250,241,.72)';return}p.setAttribute('data-open',key);p.innerHTML=(t&&t.innerHTML)?t.innerHTML:disclosureFallbacks[key]||'';p.style.display='block';document.querySelectorAll('.disclosure-btn').forEach(function(b){b.style.background='rgba(255,250,241,.72)'});btn.style.background='rgba(215,242,104,.22)'}</script>
         </div>
       </div>
+      <div class="hero-visual-column">
+        <figure class="hero-agent-photo">
+          <img src="assets/zzpagent-marktplaats-preview.jpg" width="1200" height="630" alt="Bernard Donners met voorbeelden van zijn persoonlijke Hermes AI-assistent">
+        </figure>
       <aside class="agent-card" aria-label="AI agent demo kaart">
         <div class="card-top">
           <strong>Je persoonlijke assistent op je telefoon en Mac</strong>
@@ -933,6 +943,7 @@
           </div>
         </div>
       </aside>
+      </div>
     </section>
 
     <section class="section" style="padding-top:10px;padding-bottom:18px">
@@ -1177,6 +1188,7 @@
             <p>Een workflow is een vaste reeks stappen die telkens in dezelfde logische volgorde wordt uitgevoerd. Een losse prompt is één afzonderlijke opdracht aan AI. Een workflow beschrijft het hele terugkerende proces, van de informatie die binnenkomt tot jouw controle of akkoord.</p>
             <p>Een eenvoudige workflow bestaat bijvoorbeeld uit vier stappen: een mail, formulier, bestand of bericht komt binnen; Hermes vat samen, ordent informatie of maakt een concept; Hermes zet een taak, antwoord of document klaar en kan waar nodig een tool gebruiken; jij controleert, past aan en beslist.</p>
             <p>Een agent kan binnen zo’n workflow zelfstandiger stappen uitvoeren en bepalen wat er vervolgens nodig is. Jij spreekt vooraf af waar Hermes zelf mag handelen en wanneer jouw akkoord nodig blijft.</p>
+            <p><a class="workflow-inline-link" href="/workflowautomatisering-voor-zzp/">Bekijk ook het workflowoverzicht met concrete voorbeelden voor zzp’ers.</a></p>
           </details>
           <details>
             <summary>12. Kan Hermes mij helpen met het bouwen van een website?</summary>
@@ -1231,7 +1243,7 @@
             <p><strong>Hermes Agent is open source. Dat betekent dat de code openbaar beschikbaar is</strong>, ongeveer zoals softwareprojecten op GitHub worden bewaard, gedeeld, verbeterd en door anderen kunnen worden voortgezet. GitHub is een online werkplaats en archief voor softwarecode. Omdat Hermes open source is, blijft de code beschikbaar, ook als Nous Research ooit zou stoppen of het project door anderen wordt voortgezet. Je betaalt geen licentie voor Hermes zelf. Nous Research kan geld verdienen met diensten eromheen, zoals modeltoegang, hosting, support of maatwerk voor bedrijven. Dat zie je vaker bij open source: Google maakte Android open source en bouwde daarmee een groot Google-ecosysteem; Meta geeft Llama-modellen vrij en wordt daardoor belangrijker in open AI. Hermes is dan de open werkbank rond agents; het commerciële deel zit in gemak, beheer en professioneel gebruik eromheen. <strong>Maar voor onze toepassing hoef je je geen zorgen te maken: Hermes blijft open source, door de community up-to-date en er is geen vendor lock-in.</strong></p>
           </details>
           <details>
-            <summary>24. Is Hermes een beperktere versie van Het Mainframe?</summary>
+            <summary>24. Is Hermes volgens Bart Boonstra een beperktere versie van Het Mainframe?</summary>
             <p>Bart Boonstra vergelijkt Hermes in zijn cursus <em>Slimmer werken met AI</em> met Het Mainframe en presenteert Hermes daarbij als een beperktere variant. Als je kijkt naar technische vrijheid en uitbreidbaarheid, zien wij het eerder omgekeerd.</p>
             <p>Het Mainframe is een begeleide werkwijze die sterk rond Claude is opgebouwd. Claude is een krachtig maar propriëtair model en platform. Hermes is een open-source agentlaag die niet aan één model vastzit: je kunt onder meer Claude, ChatGPT/Codex, andere cloudmodellen of lokale modellen gebruiken.</p>
             <p>Het Mainframe wordt aangeboden als een leertraject van ongeveer acht weken. Met Hermes begin je direct met één afgebakende taak en leer je al doende. Door jouw aanwijzingen, controles en correcties bouwt Hermes geheugen en herbruikbare skills op en sluit het steeds beter aan op jouw werkwijze.</p>
@@ -1598,7 +1610,8 @@
         "Hermes Agent is open source. Dat betekent dat de code openbaar beschikbaar is": "Hermes Agent is open source. That means the code is publicly available",
         ", ongeveer zoals softwareprojecten op GitHub worden bewaard, gedeeld, verbeterd en door anderen kunnen worden voortgezet. GitHub is een online werkplaats en archief voor softwarecode. Omdat Hermes open source is, blijft de code beschikbaar, ook als Nous Research ooit zou stoppen of het project door anderen wordt voortgezet. Je betaalt geen licentie voor Hermes zelf. Nous Research kan geld verdienen met diensten eromheen, zoals modeltoegang, hosting, support of maatwerk voor bedrijven. Dat zie je vaker bij open source: Google maakte Android open source en bouwde daarmee een groot Google-ecosysteem; Meta geeft Llama-modellen vrij en wordt daardoor belangrijker in open AI. Hermes is dan de open werkbank rond agents; het commerciële deel zit in gemak, beheer en professioneel gebruik eromheen.": ", much like software projects are stored, shared, improved and continued by others on GitHub. GitHub is an online workshop and archive for software code. Because Hermes is open source, the code remains available, even if Nous Research ever stopped or the project was continued by others. You do not pay a license fee for Hermes itself. Nous Research can earn money from services around it, such as model access, hosting, support or custom work for companies. You see this more often in open source: Google made Android open source and built a large Google ecosystem with it; Meta releases Llama models and becomes more important in open AI as a result. Hermes is the open workbench around agents; the commercial part sits in convenience, management and professional use around it.",
         "Maar voor onze toepassing hoef je je geen zorgen te maken: Hermes blijft open source, door de community up-to-date en er is geen vendor lock-in.": "But for our use case you do not need to worry: Hermes remains open source, kept up-to-date by the community and there is no vendor lock-in.",
-        "24. Is Hermes een beperktere versie van Het Mainframe?": "24. Is Hermes a more limited version of Het Mainframe?",
+        "24. Is Hermes volgens Bart Boonstra een beperktere versie van Het Mainframe?": "24. According to Bart Boonstra, is Hermes a more limited version of Het Mainframe?",
+        "Bekijk ook het workflowoverzicht met concrete voorbeelden voor zzp’ers.": "Also view the workflow overview with practical examples for solo entrepreneurs.",
         "Bart Boonstra vergelijkt Hermes in zijn cursus Slimmer werken met AI met Het Mainframe en presenteert Hermes daarbij als een beperktere variant. Als je kijkt naar technische vrijheid en uitbreidbaarheid, zien wij het eerder omgekeerd.": "Bart Boonstra compares Hermes with Het Mainframe in his Smarter Working with AI course and presents Hermes as a more limited variant. When it comes to technical freedom and extensibility, we see it the other way around.",
         "Het Mainframe is een begeleide werkwijze die sterk rond Claude is opgebouwd. Claude is een krachtig maar propriëtair model en platform. Hermes is een open-source agentlaag die niet aan één model vastzit: je kunt onder meer Claude, ChatGPT/Codex, andere cloudmodellen of lokale modellen gebruiken.": "Het Mainframe is a guided working method built strongly around Claude. Claude is a powerful but proprietary model and platform. Hermes is an open-source agent layer that is not tied to a single model: you can use Claude, ChatGPT/Codex, other cloud models or local models, among others.",
         "Het Mainframe wordt aangeboden als een leertraject van ongeveer acht weken. Met Hermes begin je direct met één afgebakende taak en leer je al doende. Door jouw aanwijzingen, controles en correcties bouwt Hermes geheugen en herbruikbare skills op en sluit het steeds beter aan op jouw werkwijze.": "Het Mainframe is offered as a learning programme of approximately eight weeks. With Hermes, you start directly with one clearly scoped task and learn by doing. Through your instructions, checks and corrections, Hermes builds memory and reusable skills and becomes increasingly aligned with the way you work.",
