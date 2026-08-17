@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<defs><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#163f2b" flood-opacity=".10"/></filter></defs>
+<rect width="1600" height="1000" fill="#fffaf1"/><circle cx="124" cy="86" r="16" fill="#d7f268"/><text x="154" y="99" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#10291c">ZZPagent</text>
+<rect x="1130" y="55" width="330" height="54" rx="27" fill="#eef5cf"/><text x="1295" y="91" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#143f2b">WORKFLOWAUTOMATISERING</text>
+<text x="110" y="215" font-family="Arial,sans-serif" font-size="74" font-weight="850" letter-spacing="-2" fill="#111a12">Kies een goede eerste workflow</text>
+<text x="110" y="274" font-family="Arial,sans-serif" font-size="30" fill="#526057">Drie praktische vragen helpen je bepalen waar Hermes het beste kan beginnen.</text>
+<g filter="url(#shadow)">
+<rect x="110" y="350" width="430" height="390" rx="34" fill="#ffffff" stroke="#bdd4c4" stroke-width="2"/>
+<rect x="585" y="350" width="430" height="390" rx="34" fill="#ffffff" stroke="#e6cf9a" stroke-width="2"/>
+<rect x="1060" y="350" width="430" height="390" rx="34" fill="#ffffff" stroke="#b9d9c1" stroke-width="2"/>
+</g>
+<circle cx="175" cy="420" r="42" fill="#d7f268"/><text x="175" y="435" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="850" fill="#143f2b">1</text>
+<text x="150" y="505" font-family="Arial,sans-serif" font-size="37" font-weight="800" fill="#143f2b"><tspan x="150">Komt deze taak</tspan><tspan x="150" dy="45">vaak terug?</tspan></text>
+<text x="150" y="625" font-family="Arial,sans-serif" font-size="25" fill="#526057"><tspan x="150">Dagelijks, wekelijks of maandelijks?</tspan><tspan x="150" dy="38">En hoeveel tijd kost één keer?</tspan></text>
+<circle cx="650" cy="420" r="42" fill="#f3d88f"/><text x="650" y="435" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="850" fill="#5b4515">2</text>
+<text x="625" y="505" font-family="Arial,sans-serif" font-size="37" font-weight="800" fill="#143f2b"><tspan x="625">Volg je meestal</tspan><tspan x="625" dy="45">dezelfde stappen?</tspan></text>
+<text x="625" y="625" font-family="Arial,sans-serif" font-size="25" fill="#526057"><tspan x="625">Hoe voorspelbaarder de aanpak,</tspan><tspan x="625" dy="38">hoe beter de taak af te bakenen is.</tspan></text>
+<circle cx="1125" cy="420" r="42" fill="#bde2c4"/><text x="1125" y="435" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="850" fill="#143f2b">3</text>
+<text x="1100" y="505" font-family="Arial,sans-serif" font-size="37" font-weight="800" fill="#143f2b"><tspan x="1100">Is de informatie</tspan><tspan x="1100" dy="45">digitaal beschikbaar?</tspan></text>
+<text x="1100" y="625" font-family="Arial,sans-serif" font-size="25" fill="#526057"><tspan x="1100">Bijvoorbeeld in mail, agenda,</tspan><tspan x="1100" dy="38">documenten of een bestaande tool.</tspan></text>
+<rect x="110" y="800" width="1380" height="120" rx="30" fill="#143f2b"/><text x="800" y="852" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="800" fill="#d7f268">STERKE EERSTE KANDIDAAT</text><text x="800" y="895" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" fill="#fffaf1">Vaak terugkerend + herkenbare stappen + digitale informatie</text>
+</svg>
