@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#163f2b" flood-opacity=".10"/></filter>
+  </defs>
+  <rect width="1600" height="1000" fill="#fffaf1"/>
+  <circle cx="124" cy="86" r="16" fill="#d7f268"/>
+  <text x="154" y="99" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#10291c">ZZPagent</text>
+  <rect x="1130" y="55" width="330" height="54" rx="27" fill="#eef5cf"/>
+  <text x="1295" y="91" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#143f2b">MENSELIJKE CONTROLE</text>
+
+  <text x="110" y="205" font-family="Arial,sans-serif" font-size="62" font-weight="850" letter-spacing="-2" fill="#111a12">Stel niet altijd en alleen de 100%-vraag</text>
+  <text x="110" y="265" font-family="Arial,sans-serif" font-size="30" fill="#526057">Begin met de 50%-vraag: wat kan Hermes voorbereiden, terwijl jij de regie houdt?</text>
+
+  <g filter="url(#shadow)">
+    <rect x="110" y="335" width="650" height="475" rx="38" fill="#ffffff" stroke="#e6cfca" stroke-width="2"/>
+    <rect x="840" y="335" width="650" height="475" rx="38" fill="#143f2b"/>
+  </g>
+
+  <circle cx="185" cy="412" r="35" fill="#f3d8d2"/>
+  <path d="M170 397 L200 427 M200 397 L170 427" stroke="#b54e43" stroke-width="9" stroke-linecap="round"/>
+  <text x="245" y="425" font-family="Arial,sans-serif" font-size="30" font-weight="850" fill="#9b4038">NIET: DE 100%-VRAAG</text>
+  <text x="150" y="505" font-family="Arial,sans-serif" font-size="38" font-weight="850" fill="#143f2b"><tspan x="150">“Welke taken kan AI</tspan><tspan x="150" dy="48">volledig overnemen?”</tspan></text>
+  <g font-family="Arial,sans-serif" font-size="27" fill="#35443a">
+    <circle cx="165" cy="635" r="7" fill="#b54e43"/><text x="195" y="645">AI doet alles</text>
+    <circle cx="165" cy="700" r="7" fill="#b54e43"/><text x="195" y="710">jij staat buiten het proces</text>
+    <circle cx="165" cy="765" r="7" fill="#b54e43"/><text x="195" y="775">het resultaat wordt minder persoonlijk</text>
+  </g>
+
+  <circle cx="915" cy="412" r="35" fill="#d7f268"/>
+  <path d="M899 412 L911 424 L934 398" fill="none" stroke="#143f2b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="975" y="425" font-family="Arial,sans-serif" font-size="30" font-weight="850" fill="#d7f268">WEL: DE 50%-VRAAG</text>
+  <text x="880" y="505" font-family="Arial,sans-serif" font-size="38" font-weight="850" fill="#fffaf1"><tspan x="880">“Welke taken kan Hermes</tspan><tspan x="880" dy="48">voor 50% voorbereiden?”</tspan></text>
+  <g font-family="Arial,sans-serif" font-size="27" fill="#f5f1e8">
+    <circle cx="895" cy="635" r="7" fill="#d7f268"/><text x="925" y="645">Hermes verzamelt en structureert</text>
+    <circle cx="895" cy="700" r="7" fill="#d7f268"/><text x="925" y="710">jij voegt context en oordeel toe</text>
+    <circle cx="895" cy="765" r="7" fill="#d7f268"/><text x="925" y="775">jij controleert wat er gebeurt</text>
+  </g>
+
+  <rect x="245" y="855" width="1110" height="84" rx="28" fill="#eef5cf"/>
+  <text x="800" y="908" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="850" fill="#143f2b">Hermes bereidt voor. Jij beslist.</text>
+</svg>
