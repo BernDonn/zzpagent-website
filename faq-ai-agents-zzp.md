@@ -80,6 +80,12 @@ Een eenvoudige workflow bestaat bijvoorbeeld uit vier stappen: een mail, formuli
 
 Een agent kan binnen zo’n workflow zelfstandiger stappen uitvoeren en bepalen wat er vervolgens nodig is. Vooraf wordt afgesproken waar Hermes zelf mag handelen en wanneer menselijk akkoord nodig blijft.
 
+## Wat is het kernverschil tussen automatisering en een AI-agent?
+
+Automatisering volgt vooraf bepaalde stappen; een agent kiest dynamisch acties op basis van doel en context.
+
+Deterministische workflows zijn voorspelbaar en goed controleerbaar bij herhaalde taken. Agenten bieden flexibiliteit bij variatie, maar vragen grenzen, toezicht en controle op fouten.
+
 ## Kan ZZPagent helpen met een AI-agent via WhatsApp Business?
 
 Ja. WhatsApp Business kan het laagdrempelige kanaal zijn waarmee klanten of de zelfstandige de agent bereiken. ZZPagent richt dit voorzichtig in: eerst profiel, intake, labels en conceptantwoorden; daarna pas verdergaande automatisering via officiële routes, opt-in, logging en menselijke goedkeuring.
