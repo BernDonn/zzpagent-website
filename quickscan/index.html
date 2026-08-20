@@ -292,7 +292,7 @@
     <form id="quick-contact-form" action="https://formsubmit.co/info@zzpagent.nl" method="post">
       <input type="hidden" name="_subject" value="Bericht via Hermes Quickscan" />
       <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_autoresponse" value="Bedankt voor je bericht aan ZZPagent. We hebben het goed ontvangen en nemen per e-mail contact met je op." />
       <input type="hidden" name="_next" value="https://zzpagent.nl/quickscan/?contact=bedankt" />
       <div class="two-col">
         <div class="form-group">
@@ -516,7 +516,7 @@
 
   if (new URLSearchParams(location.search).get('contact') === 'bedankt') {
     showContactForm();
-    contactStatus.textContent = 'Bedankt. Je bericht is verstuurd naar info@zzpagent.nl.';
+    contactStatus.textContent = 'Bedankt. Je bericht is ontvangen. Er is een bevestiging naar je e-mailadres gestuurd.';
     contactStatus.className = 'contact-status is-success';
   }
 
@@ -531,51 +531,36 @@
     contactSubmit.textContent = 'Versturen...';
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/info@zzpagent.nl', {
+      const receiptResponse = await fetch('https://sophie.zzpagent.nl/quickscan-submit', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: formData
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          site: 'zzpagent.nl',
+          visitorId: (crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()),
+          scanType: 'mail_contact',
+          name: String(formData.get('Naam') || ''),
+          email: String(formData.get('email') || ''),
+          dream: String(formData.get('Bericht') || ''),
+          consent: formData.get('Akkoord contact') === 'Ja',
+          path: location.pathname + location.search,
+          referrer: document.referrer || '',
+          userAgent: navigator.userAgent || ''
+        }),
+        keepalive: true
       });
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok || result.success === false || result.success === 'false') {
-        throw new Error(result.message || ('Contactmail mislukt: ' + response.status));
-      }
-      contactForm.reset();
-      contactStatus.textContent = 'Bedankt. Je bericht is verstuurd naar info@zzpagent.nl.';
-      contactStatus.className = 'contact-status is-success';
+      if (!receiptResponse.ok) throw new Error('Ontvangstregistratie mislukt: ' + receiptResponse.status);
       if (typeof gtag === 'function') {
         gtag('event', 'quickscan_contact_submit', { 'event_category': 'conversion' });
       }
-    } catch (mailError) {
-      try {
-        const fallbackResponse = await fetch('https://sophie.zzpagent.nl/quickscan-submit', {
-          method: 'POST',
-          mode: 'cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            site: 'zzpagent.nl',
-            visitorId: (crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()),
-            scanType: 'mail_contact',
-            name: String(formData.get('Naam') || ''),
-            email: String(formData.get('email') || ''),
-            dream: String(formData.get('Bericht') || ''),
-            consent: formData.get('Akkoord contact') === 'Ja',
-            path: location.pathname + location.search,
-            referrer: document.referrer || '',
-            userAgent: navigator.userAgent || ''
-          }),
-          keepalive: true
-        });
-        if (!fallbackResponse.ok) throw new Error('Fallback mislukt: ' + fallbackResponse.status);
-        contactForm.reset();
-        contactStatus.textContent = 'Bedankt. Je bericht is ontvangen; we nemen per e-mail contact op.';
-        contactStatus.className = 'contact-status is-success';
-      } catch (fallbackError) {
-        console.error(mailError, fallbackError);
-        contactStatus.textContent = 'Versturen lukt nu niet. Noteer eventueel info@zzpagent.nl en probeer het later opnieuw.';
-        contactStatus.className = 'contact-status is-error';
-      }
-    } finally {
+      contactStatus.textContent = 'Je bericht is veilig ontvangen. Rond zo nodig de e-mailcontrole af.';
+      contactStatus.className = 'contact-status is-success';
+      contactForm.submit();
+      return;
+    } catch (receiptError) {
+      console.error(receiptError);
+      contactStatus.textContent = 'Versturen lukt nu niet. Noteer eventueel info@zzpagent.nl en probeer het later opnieuw.';
+      contactStatus.className = 'contact-status is-error';
       contactSubmit.disabled = false;
       contactSubmit.textContent = 'Verstuur bericht →';
     }
