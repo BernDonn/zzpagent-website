@@ -19,6 +19,11 @@ SOUL.md
 credentials.*
 secrets.*
 
+# Local working drafts and previews
+*-draft.html
+*-preview.html
+*-voorstellen.html
+
 # Local editor and temporary files
 .vscode/
 .idea/
