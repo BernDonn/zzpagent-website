@@ -289,7 +289,7 @@
   <section class="contact-card" id="email-contact" hidden aria-labelledby="email-contact-title">
     <h2 id="email-contact-title">Stuur ons een bericht</h2>
     <p>Je bericht gaat rechtstreeks naar info@zzpagent.nl. Je hoeft hiervoor geen mailprogramma te openen.</p>
-    <form id="quick-contact-form" action="https://formsubmit.co/info@zzpagent.nl" method="post">
+    <form id="quick-contact-form" action="https://formsubmit.co/a8ac860e9776ce229f5c41776fd4878a" method="post">
       <input type="hidden" name="_subject" value="Bericht via Hermes Quickscan" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_autoresponse" value="Bedankt voor je bericht aan ZZPagent. We hebben het goed ontvangen en nemen per e-mail contact met je op." />
@@ -676,7 +676,7 @@
   }
 
   async function sendQuickscanMail(data) {
-    const response = await fetch('https://formsubmit.co/ajax/info@zzpagent.nl', {
+    const response = await fetch('https://formsubmit.co/ajax/a8ac860e9776ce229f5c41776fd4878a', {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
       body: buildMailPayload(data)
