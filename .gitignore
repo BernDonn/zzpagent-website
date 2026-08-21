@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Hermes personal/session state
+.hermes/
+MEMORY.md
+USER.md
+SOUL.md
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+credentials.*
+secrets.*
+
+# Local editor and temporary files
+.vscode/
+.idea/
+*.swp
+*.tmp
+*~
