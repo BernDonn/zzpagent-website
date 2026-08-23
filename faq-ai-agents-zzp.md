@@ -100,6 +100,14 @@ Bij Hermes is MCP meestal niet nodig. Hermes kan het meeste zelf regelen met ing
 
 Ja. Hermes kan helpen bij het bouwen, verbeteren en publiceren van een website. Denk aan het ordenen van ideeën, het schrijven van conceptteksten, het voorbereiden van pagina's, het controleren van formulieren en het ondersteunen bij publicatie. De mens blijft nodig voor keuzes, controle, merkgevoel en akkoord op wat gepubliceerd wordt.
 
+## Stuurt Hermes mijn bedrijfsdata naar een LLM?
+
+Niet standaard je volledige bedrijfsomgeving. Een extern model ontvangt alleen wat voor een taak in de context wordt geplaatst: je prompt, relevante gespreksinformatie, geselecteerde tool- of bestandsresultaten en eventueel memory. Memory wordt lokaal opgeslagen, maar kan bij gebruik wel in de modelcontext terechtkomen.
+
+Gebruik je **/moa (Mixture of Agents)**, een feature van Hermes, dan laat Hermes voor één opdracht meerdere referentiemodellen eerst naar dezelfde vraag kijken. Een aggregatormodel gebruikt hun analyses om één antwoord te maken. Daarna schakelt Hermes terug naar het model dat je al gebruikte. Als de gekozen modellen extern draaien, ontvangen zij dus dezelfde geselecteerde taakcontext.
+
+Open source geeft controle en keuze, maar is niet automatisch privé. Privacy ontwerp je per workflow: context minimaliseren, rechten scheiden en per taak kiezen tussen lokaal, eigen VPS, Europese cloud of externe modellen.
+
 
 ## Wanneer is AI lokaal draaien verstandig?
 
