@@ -118,3 +118,7 @@ Lokaal draaien betekent dat de agent of een deel van het AI-systeem op eigen har
 Dan gebruiken we lokale hosting, ook wel *on-premise hosting* genoemd. Op de server draaien de AI-modellen via software zoals Ollama of vLLM. Je gegevens blijven zo binnen je eigen omgeving.
 
 Voor één server is dit meestal voldoende. OpenInfra/OpenStack wordt pas interessant als je meerdere servers of een complete private cloud wilt beheren.
+
+## Wat betekent het dat Hermes open source is?
+
+Hermes Agent is open source. Dat betekent dat de code openbaar beschikbaar is, ongeveer zoals softwareprojecten op GitHub worden bewaard, gedeeld, verbeterd en door anderen kunnen worden voortgezet. GitHub is een online werkplaats en archief voor softwarecode: een soort digitale garage waar ontwikkelaars code bouwen, onderhouden, verbeteren en delen. Omdat Hermes open source is, blijft de code beschikbaar, ook als Nous Research ooit zou stoppen of het project door anderen wordt voortgezet. Je betaalt geen licentie voor Hermes zelf en er is geen vendor lock-in.
