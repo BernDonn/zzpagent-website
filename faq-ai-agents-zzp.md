@@ -104,3 +104,9 @@ Ja. Hermes kan helpen bij het bouwen, verbeteren en publiceren van een website. 
 ## Wanneer is AI lokaal draaien verstandig?
 
 Lokaal draaien betekent dat de agent of een deel van het AI-systeem op eigen hardware draait, bijvoorbeeld een Mac mini, bedrijfsserver of Europese VPS. Dat is vooral interessant bij gevoelige gegevens, strenge AVG-eisen, behoefte aan controle over data of intensief gebruik waarbij cloudkosten kunnen oplopen. Lokaal is niet automatisch beter: je hebt inrichting, onderhoud, beveiliging en soms extra hardware nodig. Daarom kiest ZZPagent per workflow bewust: lokaal waar privacy en controle zwaar wegen, cloud of hybride waar gemak, snelheid of modelkwaliteit belangrijker is. Juist daarom is de keuze voor een open-source agent zoals Hermes strategisch belangrijk voor de toekomst. Open-source LLM’s worden snel krachtiger. Daardoor kan Hermes straks in de eigen omgeving, op een eigen computer of server, een lokaal taalmodel als basis gebruiken. Je blijft dan vrij om van model te wisselen, zonder de complete agent en alle opgebouwde workflows opnieuw te moeten bouwen. Zo verklein je de afhankelijkheid van Big Tech en voorkom je vendor lock-in. Bij volledig lokaal gebruik betaal je niet meer per token aan een externe modelleverancier; de kosten bestaan dan vooral uit hardware, beheer en elektriciteit. De keuze die je nu maakt tussen een open of gesloten agent is daarom niet alleen technisch, maar ook strategisch voor de toekomst.
+
+## Wat gebruik je voor hosting als ik de AI modellen op een eigen fysieke server wil hebben?
+
+Dan gebruiken we lokale hosting, ook wel *on-premise hosting* genoemd. Op de server draaien de AI-modellen via software zoals Ollama of vLLM. Je gegevens blijven zo binnen je eigen omgeving.
+
+Voor één server is dit meestal voldoende. OpenInfra/OpenStack wordt pas interessant als je meerdere servers of een complete private cloud wilt beheren.
