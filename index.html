@@ -2359,10 +2359,16 @@
         const wsUrl=endpointBase.replace(/^https:/,'wss:').replace(/^http:/,'ws:') + '/ws/live?site=zzpagent.nl&tz=' + visitorTimeZone;
         inlineVoiceWs=new WebSocket(wsUrl);
         inlineVoiceWs.addEventListener('error', (event) => logInlineVoiceError(event, 'websocket'));
+        inlineVoiceWs.addEventListener('close', () => {
+          if(!inlineVoiceActive) return;
+          stopInlineVoice();
+          setInlineVoiceError('De spraaksessie is gestopt. Druk op Probeer opnieuw.');
+        });
         inlineVoiceWs.addEventListener('message', async (event) => {
           try{
             const msg=JSON.parse(event.data);
             if(msg.type==='audio' && msg.data) await playInlinePcm16(msg.data);
+            if(msg.type==='status' && msg.status==='reconnecting') setInlineVoiceState(true, 'Sophie maakt opnieuw verbinding…');
             if(msg.type==='status' && msg.status==='ready') setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
             if(msg.type==='input_transcript') setInlineVoiceState(true, 'Sophie luistert…');
             if(msg.type==='output_transcript') setInlineVoiceState(true, 'Sophie antwoordt…');
