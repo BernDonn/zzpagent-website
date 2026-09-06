@@ -627,8 +627,12 @@
     .footer-cta-actions{display:grid;gap:14px;justify-items:start;z-index:2}
     .footer-cta-actions .button{width:100%;justify-content:center;min-height:54px;padding-inline:26px;border-width:1.5px;box-shadow:0 10px 26px rgba(0,0,0,.16)}
     .sophie-test-bar{width:100%;box-sizing:border-box;background:#d7f268;color:#14211a;border:1.5px solid #d7f268;border-radius:16px;padding:18px 26px;text-align:center}
-    .footer-cta .sophie-test-bar p{margin:0;color:#14211a;font-weight:700;line-height:1.5}
-    .sophie-test-options{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;margin-top:10px}
+    .footer-cta .sophie-test-bar summary{display:block;list-style:none;margin:0;color:#14211a;font-weight:700;line-height:1.5;cursor:pointer}
+    .sophie-test-bar summary::-webkit-details-marker{display:none}
+    .sophie-test-bar summary::after{content:none}
+    .sophie-test-bar:not([open]) .sophie-test-options{display:none}
+    .sophie-test-bar summary:focus-visible{outline:2px solid #14211a;outline-offset:5px;border-radius:4px}
+    .sophie-test-options{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;margin-top:10px}
     .sophie-test-options button{appearance:none;border:0;background:transparent;color:#14211a;font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:5px}
     .footer-cta-actions .button.light{background:#d7f268;color:#14211a;border-color:#d7f268}
     .footer-cta-actions .button.secondary{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.55)}
@@ -1463,12 +1467,12 @@
           <p class="muted">Je kunt contact met ons opnemen voor een eerste gesprek, of eerst de Hermes Quickscan invullen. Daarmee geef je ons alvast een beeld van je taken, huidige werkwijze, bronnen, gewenste controle en technische uitgangssituatie. Vervolgens bespreken we samen welke aanpak bij jou past.</p>
         </div>
         <div class="footer-cta-actions">
-          <div class="sophie-test-bar">
-            <p>Doe een testgesprek met Sophie, via de chatbot of met een terugbelverzoek. Laat je verrassen!</p>
-            <div class="sophie-test-options"><button type="button" data-voice-action>Chatbot</button><button type="button" data-callback-open>Terugbelverzoek</button></div>
-          </div>
           <a class="button secondary" href="https://wa.me/31618569839?text=Hallo%20ZZPagent%2C%20ik%20wil%20graag%20een%20persoonlijk%20startgesprek%20plannen." target="_blank" rel="noopener">Plan een persoonlijk gesprek (via WhatsApp)</a>
           <a class="button secondary" href="/quickscan/">Doe de Hermes Quickscan</a>
+          <details class="sophie-test-bar">
+            <summary>Doe een testgesprek met Sophie, laat je verrassen!</summary>
+            <div class="sophie-test-options"><button type="button" data-voice-action><span aria-hidden="true">←</span> <span>Chatbot</span></button><button type="button" data-callback-open><span>Telefoon</span> <span aria-hidden="true">→</span></button></div>
+          </details>
           <p class="muted" style="font-size:14px">Altijd met menselijke goedkeuring en duidelijke datagrenzen. Eerst één taak betrouwbaar maken; daarna pas uitbreiden.</p>
         </div>
       </div>
@@ -2071,7 +2075,8 @@
         "Plan een persoonlijk gesprek (via WhatsApp)": "Arrange a personal conversation (via WhatsApp)",
         "Chatbot": "Chatbot",
         "Terugbelverzoek": "Request a callback",
-        "Doe een testgesprek met Sophie, via de chatbot of met een terugbelverzoek. Laat je verrassen!": "Try a test conversation with Sophie, via the chatbot or by requesting a callback. Let yourself be surprised!",
+        "Doe een testgesprek met Sophie, laat je verrassen!": "Try a test conversation with Sophie — let yourself be surprised!",
+        "Telefoon": "Phone",
         "Welke taak wil jij niet meer iedere keer vanaf nul doen?": "Which task do you no longer want to start from scratch every time?",
         "Je kunt contact met ons opnemen voor een eerste gesprek, of eerst de Hermes Quickscan invullen. Daarmee geef je ons alvast een beeld van je taken, huidige werkwijze, bronnen, gewenste controle en technische uitgangssituatie. Vervolgens bespreken we samen welke aanpak bij jou past.": "You can contact us for an initial conversation, or complete the Hermes Quickscan first. This gives us an initial picture of your tasks, current way of working, sources, desired level of control and technical starting point. We then discuss together which approach suits you.",
         "Doe de Hermes Quickscan": "Take the Hermes Quickscan",
