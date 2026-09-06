@@ -1,0 +1,38 @@
+/* Three equal actions; the existing Sophie launchers dock over the third. */
+.footer-cta-actions > a.button,
+.footer-cta-actions .sophie-invite-trigger {
+  box-sizing:border-box;width:100%;height:76px;min-height:76px;
+  display:flex;align-items:center;justify-content:center;
+  background:#d7f268!important;color:#14211a!important;border:1.5px solid #d7f268!important;
+  border-radius:38px;padding:12px 24px;font:inherit;font-size:15px;font-weight:750;
+  line-height:1.35;text-align:center;box-shadow:0 10px 26px rgba(0,0,0,.16);cursor:pointer;
+}
+.sophie-invite {position:relative;width:100%;height:76px;isolation:isolate}
+.sophie-invite-trigger:focus-visible,.sophie-invite button:focus-visible {outline:3px solid #fff;outline-offset:3px}
+.sophie-invite.is-open .sophie-invite-trigger {visibility:hidden}
+.sophie-invite-choices {position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;z-index:3}
+.sophie-invite-choices[hidden] {display:none}
+.sophie-invite-choices > .floating-voice,
+.sophie-invite-choices > .sophie-call-widget {
+  position:relative!important;inset:auto!important;transform:none;display:flex;align-items:center;
+  width:100%;max-width:none;min-width:0;height:76px;min-height:76px;gap:9px;
+  padding:10px 12px;border-radius:28px;margin:0;z-index:auto;
+  box-shadow:0 8px 24px rgba(0,0,0,.26);font:inherit;text-align:left;
+}
+.sophie-invite-choices > .floating-voice {background:#102c29;color:#fff;border:1px solid #65c6b4}
+.sophie-invite-choices > .sophie-call-widget {background:#fffaf1;color:#17392c;border:1px solid #e4e6d8}
+.sophie-invite-choices .voice-orb,
+.sophie-invite-choices .sophie-call-photo {flex:0 0 42px;width:42px!important;height:42px!important;margin:0}
+.sophie-invite-choices strong {display:block;font-size:13px!important;line-height:1.25!important;letter-spacing:0!important}
+.sophie-invite-choices small {display:block;font-size:9px!important;margin:0 0 3px;letter-spacing:.08em!important}
+.sophie-invite-choices em {display:none}
+.sophie-invite-close {position:absolute;right:-10px;top:-12px;width:34px;height:34px;border:1px solid #d7f268;
+  border-radius:50%;background:#17392c;color:white;font:22px/1 Arial;z-index:4;cursor:pointer}
+@media(max-width:650px){
+  .footer-cta-actions > a.button,.footer-cta-actions .sophie-invite-trigger {font-size:14px;padding:10px 16px}
+  .sophie-invite-choices {gap:8px}
+  .sophie-invite-choices > .floating-voice,.sophie-invite-choices > .sophie-call-widget {padding:8px;gap:7px;border-radius:23px}
+  .sophie-invite-choices .voice-orb,.sophie-invite-choices .sophie-call-photo {flex-basis:32px;width:32px!important;height:32px!important}
+  .sophie-invite-choices strong {font-size:12px!important}
+  .sophie-invite-choices small {font-size:8px!important}
+}
