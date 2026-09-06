@@ -2226,7 +2226,24 @@
 
     const SITE_BUILD_MARKER='sophie-eva-hud-f93a128-20260727';
     let inlineVoiceWs=null, inlineVoiceMic=null, inlineVoiceCtx=null, inlineVoiceProcessor=null, inlineVoiceGain=null, inlinePlaybackCtx=null, inlineNextPlayback=0, inlineVoiceActive=false, inlineAmbienceSource=null, inlineAmbienceGain=null, inlineAmbienceBuffer=null;
+    let inlineVoiceSession=null, inlineAudioGeneration=0, inlinePendingAudio=0, inlineTurnComplete=false;
+    const inlinePlaybackSources=new Set();
     const SophieAudioContext = window.AudioContext || window.webkitAudioContext;
+    function isInlineVoiceSession(session){ return !!session && inlineVoiceSession===session; }
+    function updateInlinePlaybackState(session){
+      if(!isInlineVoiceSession(session)) return;
+      if(inlinePlaybackSources.size || inlinePendingAudio) setInlineVoiceState(true, 'Sophie antwoordt…');
+      else if(inlineTurnComplete) setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
+    }
+    function cancelInlinePlayback(){
+      inlineAudioGeneration++; inlinePendingAudio=0; inlineTurnComplete=false;
+      for(const source of inlinePlaybackSources){
+        source.onended=null;
+        try{ source.stop(); }catch(e){}
+        try{ source.disconnect(); }catch(e){}
+      }
+      inlinePlaybackSources.clear(); inlineNextPlayback=0;
+    }
     function logInlineVoiceError(error, stage){
       try{
         fetch(callbackEndpointBase() + '/visitor-ping', {
@@ -2270,39 +2287,70 @@
       const copy=voicePanel?.querySelector('.voice-panel-content p');
       if(copy) copy.textContent = text || 'Microfoon of verbinding lukte niet. Controleer toegang en probeer opnieuw.';
     }
-    async function playInlinePcm16(base64){
-      inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
-      if(inlinePlaybackCtx.state==='suspended') await inlinePlaybackCtx.resume();
-      const pcm=new Int16Array(base64ToArrayBuffer(base64));
-      const audioBuffer=inlinePlaybackCtx.createBuffer(1, pcm.length, 24000);
-      const channel=audioBuffer.getChannelData(0);
-      for(let i=0;i<pcm.length;i++) channel[i]=pcm[i]/32768;
-      const src=inlinePlaybackCtx.createBufferSource();
-      src.buffer=audioBuffer; src.connect(inlinePlaybackCtx.destination);
-      inlineNextPlayback=Math.max(inlineNextPlayback, inlinePlaybackCtx.currentTime+.03);
-      src.start(inlineNextPlayback); inlineNextPlayback+=audioBuffer.duration;
-    }
-    async function startInlineOfficeAmbience(endpointBase){
+    async function playInlinePcm16(base64, session=inlineVoiceSession){
+      if(!isInlineVoiceSession(session)) return;
+      const generation=inlineAudioGeneration;
+      const ctx=inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
+      inlinePendingAudio++; inlineTurnComplete=false;
+      updateInlinePlaybackState(session);
       try{
-        inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
-        if(inlinePlaybackCtx.state==='suspended') await inlinePlaybackCtx.resume();
+        if(ctx.state==='suspended') await ctx.resume();
+        if(!isInlineVoiceSession(session) || generation!==inlineAudioGeneration) return;
+        const pcm=new Int16Array(base64ToArrayBuffer(base64));
+        const audioBuffer=ctx.createBuffer(1, pcm.length, 24000);
+        const channel=audioBuffer.getChannelData(0);
+        for(let i=0;i<pcm.length;i++) channel[i]=pcm[i]/32768;
+        const src=ctx.createBufferSource();
+        src.buffer=audioBuffer; src.connect(ctx.destination);
+        src.onended=()=>{
+          inlinePlaybackSources.delete(src); src.disconnect();
+          if(generation===inlineAudioGeneration) updateInlinePlaybackState(session);
+        };
+        inlineNextPlayback=Math.max(inlineNextPlayback, ctx.currentTime+.03);
+        inlinePlaybackSources.add(src);
+        try{ src.start(inlineNextPlayback); }
+        catch(error){ inlinePlaybackSources.delete(src); src.disconnect(); throw error; }
+        inlineNextPlayback+=audioBuffer.duration;
+      }finally{
+        if(isInlineVoiceSession(session) && generation===inlineAudioGeneration){
+          inlinePendingAudio--; updateInlinePlaybackState(session);
+        }
+      }
+    }
+    async function startInlineOfficeAmbience(endpointBase, session=inlineVoiceSession){
+      if(!isInlineVoiceSession(session)) return;
+      const ctx=inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
+      const ambienceGeneration=session.ambienceGeneration;
+      const current=()=>isInlineVoiceSession(session) && session.ambienceGeneration===ambienceGeneration;
+      try{
+        if(ctx.state==='suspended') await ctx.resume();
+        if(!current()) return;
         const health=await fetch(endpointBase + '/health', {cache:'no-store'}).then(res=>res.json());
+        if(!current()) return;
         const cfg=health && health.officeAmbience;
         if(!cfg || !cfg.enabled) return;
-        inlineAmbienceBuffer ||= await fetch(endpointBase + '/assets/audio/office-ambience.wav', {cache:'no-store'})
-          .then(res=>res.arrayBuffer())
-          .then(data=>inlinePlaybackCtx.decodeAudioData(data));
+        let buffer=inlineAmbienceBuffer;
+        if(!buffer){
+          const response=await fetch(endpointBase + '/assets/audio/office-ambience.wav', {cache:'no-store'});
+          if(!current()) return;
+          const data=await response.arrayBuffer();
+          if(!current()) return;
+          buffer=await ctx.decodeAudioData(data);
+          if(!current()) return;
+          inlineAmbienceBuffer=buffer;
+        }
         stopInlineOfficeAmbience();
-        inlineAmbienceSource=inlinePlaybackCtx.createBufferSource();
-        inlineAmbienceSource.buffer=inlineAmbienceBuffer;
+        inlineAmbienceSource=ctx.createBufferSource();
+        inlineAmbienceSource.buffer=buffer;
         inlineAmbienceSource.loop=true;
-        inlineAmbienceGain=inlinePlaybackCtx.createGain();
+        inlineAmbienceGain=ctx.createGain();
         inlineAmbienceGain.gain.value=Math.max(0,Math.min(1,Number(cfg.clientGain ?? 0.10)));
-        inlineAmbienceSource.connect(inlineAmbienceGain).connect(inlinePlaybackCtx.destination);
+        inlineAmbienceSource.connect(inlineAmbienceGain).connect(ctx.destination);
         inlineAmbienceSource.start();
-      }catch(error){ logInlineVoiceError(error, 'office_ambience'); }
+      }catch(error){ if(current()) logInlineVoiceError(error, 'office_ambience'); }
     }
     function stopInlineOfficeAmbience(){
+      if(inlineVoiceSession) inlineVoiceSession.ambienceGeneration++;
       try{ inlineAmbienceSource?.stop(); }catch(e){}
       try{ inlineAmbienceSource?.disconnect(); }catch(e){}
       try{ inlineAmbienceGain?.disconnect(); }catch(e){}
@@ -2325,6 +2373,11 @@
       return out.buffer;
     }
     function stopInlineVoice(){
+      const session=inlineVoiceSession;
+      inlineVoiceSession=null;
+      clearTimeout(session?.ambienceTimer);
+      session?.cancelSetup?.();
+      cancelInlinePlayback();
       try{ inlineVoiceWs?.send(JSON.stringify({type:'audio_end'})); }catch(e){}
       try{ inlineVoiceWs?.close(); }catch(e){}
       try{ inlineVoiceProcessor?.disconnect(); }catch(e){}
@@ -2335,7 +2388,7 @@
       inlineVoiceWs=null; inlineVoiceProcessor=null; inlineVoiceGain=null; inlineVoiceCtx=null; inlineVoiceMic=null;
       setInlineVoiceState(false);
     }
-    async function getSophieMicStream(){
+    async function getSophieMicStream(session){
       if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
         const error = new Error('mediaDevices.getUserMedia unavailable');
         error.name = 'UnsupportedBrowserError';
@@ -2348,8 +2401,15 @@
       ];
       let lastError;
       for(const constraints of attempts){
-        try{ return await navigator.mediaDevices.getUserMedia(constraints); }
-        catch(error){ lastError = error; logInlineVoiceError(error, 'get_user_media'); }
+        if(!isInlineVoiceSession(session)) return null;
+        try{
+          const stream=await navigator.mediaDevices.getUserMedia(constraints);
+          if(!isInlineVoiceSession(session)){ stream.getTracks().forEach(t=>t.stop()); return null; }
+          return stream;
+        }catch(error){
+          if(!isInlineVoiceSession(session)) return null;
+          lastError = error; logInlineVoiceError(error, 'get_user_media');
+        }
       }
       throw lastError || new Error('Microfoon niet beschikbaar');
     }
@@ -2357,54 +2417,76 @@
       if(inlineVoiceActive){ stopInlineVoice(); return; }
       if(!voicePanel) return;
       if(!SophieAudioContext){ setInlineVoiceError('Deze browser ondersteunt de audio-engine niet goed. Probeer Safari/Chrome met microfoontoegang.'); return; }
+      const session={ambienceGeneration:0};
+      inlineVoiceSession=session;
       setInlineVoiceState(true, 'Microfoon openen…');
       try{
         stopInlineOfficeAmbience();
-        try{ await inlinePlaybackCtx?.close(); }catch(e){}
+        const oldPlaybackCtx=inlinePlaybackCtx;
         inlinePlaybackCtx=null; inlineNextPlayback=0; inlineAmbienceBuffer=null;
-        inlineVoiceMic=await getSophieMicStream();
+        try{ await oldPlaybackCtx?.close(); }catch(e){}
+        if(!isInlineVoiceSession(session)) return;
+        const stream=await getSophieMicStream(session);
+        if(!isInlineVoiceSession(session)){ stream?.getTracks().forEach(t=>t.stop()); return; }
+        inlineVoiceMic=stream;
         const endpointBase=callbackEndpointBase();
         const visitorTimeZone=encodeURIComponent(Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/Amsterdam');
         const wsUrl=endpointBase.replace(/^https:/,'wss:').replace(/^http:/,'ws:') + '/ws/live?site=zzpagent.nl&tz=' + visitorTimeZone;
-        inlineVoiceWs=new WebSocket(wsUrl);
-        inlineVoiceWs.addEventListener('error', (event) => logInlineVoiceError(event, 'websocket'));
-        inlineVoiceWs.addEventListener('close', () => {
-          if(!inlineVoiceActive) return;
+        const ws=inlineVoiceWs=new WebSocket(wsUrl);
+        ws.addEventListener('error', (event) => { if(isInlineVoiceSession(session)) logInlineVoiceError(event, 'websocket'); });
+        ws.addEventListener('close', () => {
+          if(!isInlineVoiceSession(session)) return;
           stopInlineVoice();
           setInlineVoiceError('De spraaksessie is gestopt. Druk op Probeer opnieuw.');
         });
-        inlineVoiceWs.addEventListener('message', async (event) => {
+        ws.addEventListener('message', async (event) => {
+          if(!isInlineVoiceSession(session)) return;
           try{
             const msg=JSON.parse(event.data);
-            if(msg.type==='audio' && msg.data) await playInlinePcm16(msg.data);
+            if(msg.type==='audio' && msg.data){ await playInlinePcm16(msg.data, session); return; }
+            if(msg.type==='interrupted'){
+              cancelInlinePlayback();
+              setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
+              return;
+            }
+            if(msg.type==='turn_complete'){ inlineTurnComplete=true; updateInlinePlaybackState(session); return; }
             if(msg.type==='status' && msg.status==='reconnecting') setInlineVoiceState(true, 'Sophie maakt opnieuw verbinding…');
-            if(msg.type==='status' && msg.status==='ready') setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
-            if(msg.type==='input_transcript') setInlineVoiceState(true, 'Sophie luistert…');
+            if(msg.type==='status' && msg.status==='ready'){
+              setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
+              updateInlinePlaybackState(session);
+            }
+            if(msg.type==='input_transcript'){
+              setInlineVoiceState(true, 'Sophie luistert…');
+              updateInlinePlaybackState(session);
+            }
             if(msg.type==='output_transcript') setInlineVoiceState(true, 'Sophie antwoordt…');
             if(msg.type==='error') setInlineVoiceState(true, 'Sophie heeft verbindingsproblemen. Probeer straks opnieuw.');
           }catch(e){}
         });
-        await new Promise((resolve,reject)=>{ inlineVoiceWs.addEventListener('open',resolve,{once:true}); inlineVoiceWs.addEventListener('error',reject,{once:true}); });
+        await new Promise((resolve,reject)=>{
+          session.cancelSetup=resolve;
+          ws.addEventListener('open',resolve,{once:true});
+          ws.addEventListener('error',reject,{once:true});
+          ws.addEventListener('close',()=>reject(new Error('WebSocket closed before setup')), {once:true});
+        });
+        if(!isInlineVoiceSession(session)) return;
+        session.cancelSetup=null;
         inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
-        inlineVoiceCtx=new SophieAudioContext();
-        const source=inlineVoiceCtx.createMediaStreamSource(inlineVoiceMic);
+        const ctx=inlineVoiceCtx=new SophieAudioContext();
+        const source=ctx.createMediaStreamSource(stream);
         inlineVoiceProcessor=inlineVoiceCtx.createScriptProcessor(4096,1,1);
         inlineVoiceGain=inlineVoiceCtx.createGain(); inlineVoiceGain.gain.value=0;
         inlineVoiceProcessor.onaudioprocess=(e)=>{
-          if(!inlineVoiceWs || inlineVoiceWs.readyState!==WebSocket.OPEN) return;
-          inlineVoiceWs.send(JSON.stringify({type:'audio',mimeType:'audio/pcm;rate=16000',data:arrayBufferToBase64(downsampleTo16k(e.inputBuffer.getChannelData(0), inlineVoiceCtx.sampleRate))}));
+          if(!isInlineVoiceSession(session) || ws.readyState!==WebSocket.OPEN) return;
+          ws.send(JSON.stringify({type:'audio',mimeType:'audio/pcm;rate=16000',data:arrayBufferToBase64(downsampleTo16k(e.inputBuffer.getChannelData(0), ctx.sampleRate))}));
         };
         source.connect(inlineVoiceProcessor); inlineVoiceProcessor.connect(inlineVoiceGain); inlineVoiceGain.connect(inlineVoiceCtx.destination);
         setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
-        setTimeout(() => { if(inlineVoiceActive) startInlineOfficeAmbience(endpointBase); }, 500);
+        session.ambienceTimer=setTimeout(() => { if(isInlineVoiceSession(session)) startInlineOfficeAmbience(endpointBase, session); }, 500);
       }catch(error){
+        if(!isInlineVoiceSession(session)) return;
         logInlineVoiceError(error, 'inline_voice_start');
-        try{ inlineVoiceWs?.close(); }catch(e){}
-        try{ inlineVoiceProcessor?.disconnect(); }catch(e){}
-        try{ inlineVoiceGain?.disconnect(); }catch(e){}
-        try{ inlineVoiceCtx?.close(); }catch(e){}
-        try{ inlineVoiceMic?.getTracks().forEach(t=>t.stop()); }catch(e){}
-        inlineVoiceWs=null; inlineVoiceProcessor=null; inlineVoiceGain=null; inlineVoiceCtx=null; inlineVoiceMic=null;
+        stopInlineVoice();
         let message = 'Microfoon of verbinding lukte niet. Controleer toegang en probeer opnieuw.';
         if(['NotFoundError','DevicesNotFoundError'].includes(error?.name)) message = 'Firefox vindt geen microfoon. Controleer microfoontoegang en kies een invoerapparaat.';
         if(['NotAllowedError','PermissionDeniedError'].includes(error?.name)) message = 'Microfoontoegang is geweigerd. Sta de microfoon toe en probeer opnieuw.';
