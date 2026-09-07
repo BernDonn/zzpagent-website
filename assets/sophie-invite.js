@@ -6,12 +6,7 @@
   const voice = document.querySelector('.floating-voice[data-voice-action]');
   const phone = document.querySelector('.sophie-call-widget[data-callback-open]');
   if (!host || !trigger || !choices || !voice || !phone) return;
-  const closeButton = document.createElement('button');
-  closeButton.type = 'button';
-  closeButton.className = 'sophie-invite-close';
-  closeButton.setAttribute('aria-label', 'Sluiten / Close');
-  closeButton.textContent = '×';
-  choices.append(closeButton);
+
   const launchers = [voice, phone];
   // Move the real buttons, not copies: their existing event handlers and canvas stay intact.
   const homes = launchers.map(button => {
@@ -38,7 +33,7 @@
     host.classList.add('is-open');
     trigger.setAttribute('aria-expanded', 'true');
     launchers.forEach((button, index) => {
-      choices.insertBefore(button, closeButton);
+      choices.append(button);
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches && button.animate) {
         button.animate([
           {opacity:0, transform:`translate(${index ? 20 : -20}px, 10px) scale(.94)`},
@@ -50,7 +45,7 @@
     voice.focus({preventScroll:true});
   }
   trigger.addEventListener('click', () => opened ? close(true) : open());
-  closeButton.addEventListener('click', () => close(true));
+
   launchers.forEach(button => button.addEventListener('click', () => {
     if (!opened) return;
     close(false);
