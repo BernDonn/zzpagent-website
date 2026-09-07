@@ -7,6 +7,13 @@
   border-radius:38px;padding:12px 24px;font:inherit;font-size:15px;font-weight:750;
   line-height:1.35;text-align:center;box-shadow:0 10px 26px rgba(0,0,0,.16);cursor:pointer;
 }
+/* Keep Sophie prominent; the two alternative actions stay understated. */
+.footer-cta-actions > a.button {
+  background:#233d32!important;color:#e0e8e2!important;border-color:#52685b!important;
+  box-shadow:none;font-weight:600;
+}
+.footer-cta-actions > a.button:hover {background:#2d493c!important;border-color:#809587!important}
+.footer-cta-actions > a.button:focus-visible {outline:3px solid #fff;outline-offset:3px}
 .sophie-invite {position:relative;width:100%;height:76px;isolation:isolate}
 .sophie-invite-trigger:focus-visible,.sophie-invite button:focus-visible {outline:3px solid #fff;outline-offset:3px}
 .sophie-invite.is-open .sophie-invite-trigger {visibility:hidden}
