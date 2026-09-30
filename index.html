@@ -1425,7 +1425,7 @@
               <strong>ChatGPT / Codex OAuth</strong>
               <p class="muted">Voor klanten die via ChatGPT of Codex willen werken zonder losse API-key. Je logt eenmalig in; daarna gebruikt de agent een beveiligde OAuth-koppeling als primaire route.</p>
               <div class="price-mini-table" aria-label="ChatGPT Plus prijs">
-                <div class="price-mini-row"><div><strong>ChatGPT Plus · GPT-5</strong><span>Richtprijs in Nederland, inclusief btw. Gebruikslimieten kunnen wisselen.</span></div><div class="price-mini-cost">€23 / maand</div></div>
+                <div class="price-mini-row"><div><strong>ChatGPT Plus</strong><span>Officiële USD-prijs. Lokale valuta en belasting zie je bij het afrekenen. Codex gebruikt de limieten van je abonnement; API-gebruik wordt apart afgerekend.</span></div><div class="price-mini-cost">$20 / maand</div></div>
               </div>
               <ul><li>Geen API-key kopiëren</li><li>Handig voor ChatGPT- en Codex-workflows</li><li>Plus werkt met gebruikslimieten, niet met een publieke vaste tokenpot</li></ul>
             </article>
@@ -1439,16 +1439,18 @@
               <span class="tag">Open Router</span>
               <strong>Meerdere modellen onder één sleutel</strong>
               <p class="muted">OpenRouter geeft via één sleutel toegang tot modellen zoals Claude, GPT, DeepSeek en GLM. Handig voor fallback, prijsbewuste routering en het kiezen van een ander model zodra dat beter past.</p>
-              <p class="muted">Bij deze modelprijzen tonen we twee bedragen per 1M tokens: input voor je prompt naar het model en output voor het antwoord terug. Bij deze modellen is output meestal duurder dan input.</p>
+              <p class="muted">OpenRouter, gecontroleerd op 30 september 2026. Bedragen in USD per miljoen tokens: input / output. Vanafprijzen per provider, inclusief eventuele tijdelijke korting; geen vaste totaalprijs of abonnement.</p>
               <div class="price-mini-table" aria-label="OpenRouter modelprijzen">
-                <div class="price-mini-row"><div><strong>Claude Sonnet 4</strong><span>Veelgekozen premium model voor schrijven, analyse en code.</span></div><div class="price-mini-cost">$3 / $15 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>GPT-5</strong><span>Sterke allround route voor redeneren en tooling.</span></div><div class="price-mini-cost">$1.25 / $10 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>GLM 5.2</strong><span>Open-weight model met sterke agentische coding- en tool-use, 1M context.</span></div><div class="price-mini-cost">$0.95 / $3 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>DeepSeek V4 Flash</strong><span>Snelle DeepSeek-route. Vanaf 17 augustus 2026 werkt DeepSeek met dal- en piektarieven; OpenRouter kan per provider afwijken.</span></div><div class="price-mini-cost">$0.22 / $0.66 dal · $0.44 / $1.32 piek</div></div>
+                <div class="price-mini-row"><div><strong>Claude Sonnet 4</strong><span>Veelgekozen premium model voor schrijven, analyse en code.</span></div><div class="price-mini-cost">vanaf $3 / $15 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>GPT-5</strong><span>Sterke allround route voor redeneren en tooling.</span></div><div class="price-mini-cost">vanaf $1,25 / $10 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>GLM 5.2</strong><span>Open-weight model met sterke agentische coding- en tool-use, 1M context.</span></div><div class="price-mini-cost">vanaf $0,4875 / $1,56 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>DeepSeek V4 Flash 0423</strong><span>OpenRouter-model deepseek/deepseek-v4-flash. Niet hetzelfde model als DeepSeek-V4.1-Flash bij de directe DeepSeek API.</span></div><div class="price-mini-cost">vanaf $0,0679 / $0,168 per 1M</div></div>
               </div>
               <ul><li>Pay-as-you-go; prijzen kunnen per provider, tijdstip en OpenRouter-route verschillen</li><li>Geschikt voor fallback, vergelijking en budgetcontrole</li><li>Hermes kiest daarna per taak de ingestelde route</li></ul>
             </article>
+            <article class="provider-card" id="directe-api-prijzen" style="grid-column:1 / -1"><span class="tag">Directe API, apart van OpenRouter</span><strong>GPT-6.1 Sol (Sol 6.1)</strong><p class="muted">OpenAI · gpt-6.1-sol · USD per miljoen tokens, Standard, maximaal 272K inputtokens per verzoek.</p><p class="muted">Input $2 · cached input $0,10 · output $10</p><p class="muted">Cache writes kosten $2,50 per miljoen tokens. Boven 272K inputtokens gelden voor het hele verzoek 2× input- en cachetarieven en 1,5× output. Fast, Batch, Flex en regionale verwerking hebben andere tarieven.</p><p class="muted">Volgens OpenAI benadert Sol het prestatieniveau van Astra bij complex werk. Dat is geen onafhankelijke kwaliteitsgarantie; vergelijk op je eigen taken.</p><strong>DeepSeek-V4.1-Flash · directe API</strong><p class="muted">Model-ID deepseek-flash. USD per miljoen tokens; input zonder cache / output.</p><p class="muted">Dal $0,15 / $0,60 · piek $0,30 / $1,20</p><p class="muted">Cached input: $0,003 dal en $0,006 piek. Piekuren: maandag t/m vrijdag 01:00–04:00 en 06:00–10:00 UTC, behalve Chinese feestdagen. Alle overige uren zijn daluren.</p><p class="muted">Prijzen gecontroleerd op 30 september 2026. API-kosten staan los van ChatGPT/Codex-abonnementen en onze dienstverlening.</p><p><a href="https://developers.openai.com/api/docs/models/gpt-6.1-sol">Officiële modelprijzen OpenAI</a> · <a href="https://api-docs.deepseek.com/quick_start/pricing/">Officiële modelprijzen DeepSeek</a></p></article>
           </div>
+          <p class="muted"><span>Bronnen OpenRouter</span>: <a href="https://openrouter.ai/anthropic/claude-sonnet-4">Claude Sonnet 4</a> · <a href="https://openrouter.ai/openai/gpt-5">GPT-5</a> · <a href="https://openrouter.ai/z-ai/glm-5.2">GLM 5.2</a> · <a href="https://openrouter.ai/deepseek/deepseek-v4-flash">DeepSeek V4 Flash 0423</a>. <a href="https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus">ChatGPT Plus en Codex</a> · <a href="https://developers.openai.com/codex/pricing/">Codex</a>.</p>
           <div class="flow-note"><strong>Hoe het werkt:</strong> tijdens deployment bepalen we of een OAuth-route (ChatGPT of Claude) of OpenRouter de primaire route wordt, plus minimaal één fallback. Als een OAuth-route zijn limiet bereikt of niet beschikbaar is, schakelt de agent door naar het OpenRouter-model dat we vooraf hebben gekozen. Sleutels en OAuth-tokens horen in de private agent-workspace, niet in de website.</div>
         </div>
       </section>
@@ -2039,24 +2041,39 @@
         "Open Router": "Open Router",
         "Meerdere modellen onder één sleutel": "Multiple models under one key",
         "OpenRouter geeft via één sleutel toegang tot modellen zoals Claude, GPT, DeepSeek en GLM. Handig voor fallback, prijsbewuste routering en het kiezen van een ander model zodra dat beter past.": "OpenRouter gives access through one key to models such as Claude, GPT, DeepSeek and GLM. Useful for fallback, cost-aware routing, and switching to another model as soon as that fits better.",
-        "Bij deze modelprijzen tonen we twee bedragen per 1M tokens: input voor je prompt naar het model en output voor het antwoord terug. Bij deze modellen is output meestal duurder dan input.": "These model prices show two amounts per 1M tokens: input for your prompt to the model and output for the answer that comes back. For these models, output is usually more expensive than input.",
+        "OpenRouter, gecontroleerd op 30 september 2026. Bedragen in USD per miljoen tokens: input / output. Vanafprijzen per provider, inclusief eventuele tijdelijke korting; geen vaste totaalprijs of abonnement.": "OpenRouter, checked on 30 September 2026. USD per million tokens: input / output. Starting rates per provider, including any temporary discounts; not a fixed total price or subscription.",
         "ChatGPT Plus prijs": "ChatGPT Plus price",
-        "ChatGPT Plus · GPT-5": "ChatGPT Plus · GPT-5",
-        "Richtprijs in Nederland, inclusief btw. Gebruikslimieten kunnen wisselen.": "Indicative Netherlands price, including VAT. Usage limits can vary.",
-        "€23 / maand": "€23 / month",
+        "ChatGPT Plus": "ChatGPT Plus",
+        "Officiële USD-prijs. Lokale valuta en belasting zie je bij het afrekenen. Codex gebruikt de limieten van je abonnement; API-gebruik wordt apart afgerekend.": "Official USD price. Local currency and taxes are shown at checkout. Codex uses your plan allowance; API usage is billed separately.",
+        "$20 / maand": "$20 / month",
+        "Directe API, apart van OpenRouter": "Direct API, separate from OpenRouter",
+        "GPT-6.1 Sol (Sol 6.1)": "GPT-6.1 Sol (Sol 6.1)",
+        "OpenAI · gpt-6.1-sol · USD per miljoen tokens, Standard, maximaal 272K inputtokens per verzoek.": "OpenAI · gpt-6.1-sol · USD per million tokens, Standard, up to 272K input tokens per request.",
+        "Input $2 · cached input $0,10 · output $10": "Input $2 · cached input $0.10 · output $10",
+        "Cache writes kosten $2,50 per miljoen tokens. Boven 272K inputtokens gelden voor het hele verzoek 2× input- en cachetarieven en 1,5× output. Fast, Batch, Flex en regionale verwerking hebben andere tarieven.": "Cache writes cost $2.50 per million tokens. Above 272K input tokens, the entire request is charged at 2× input and cache rates and 1.5× output. Fast, Batch, Flex and regional processing have different rates.",
+        "Volgens OpenAI benadert Sol het prestatieniveau van Astra bij complex werk. Dat is geen onafhankelijke kwaliteitsgarantie; vergelijk op je eigen taken.": "OpenAI describes Sol as delivering near-Astra performance for complex work. This is not an independent quality guarantee; compare on your own tasks.",
+        "DeepSeek-V4.1-Flash · directe API": "DeepSeek-V4.1-Flash · direct API",
+        "Model-ID deepseek-flash. USD per miljoen tokens; input zonder cache / output.": "Model ID deepseek-flash. USD per million tokens; uncached input / output.",
+        "Dal $0,15 / $0,60 · piek $0,30 / $1,20": "Off-peak $0.15 / $0.60 · peak $0.30 / $1.20",
+        "Cached input: $0,003 dal en $0,006 piek. Piekuren: maandag t/m vrijdag 01:00–04:00 en 06:00–10:00 UTC, behalve Chinese feestdagen. Alle overige uren zijn daluren.": "Cached input: $0.003 off-peak and $0.006 peak. Peak hours: Monday to Friday 01:00–04:00 and 06:00–10:00 UTC, excluding Chinese public holidays. All other hours are off-peak.",
+        "Prijzen gecontroleerd op 30 september 2026. API-kosten staan los van ChatGPT/Codex-abonnementen en onze dienstverlening.": "Prices checked on 30 September 2026. API costs are separate from ChatGPT/Codex subscriptions and our services.",
+        "Officiële modelprijzen OpenAI": "Official OpenAI model pricing",
+        "Officiële modelprijzen DeepSeek": "Official DeepSeek model pricing",
+        "Bronnen OpenRouter": "OpenRouter sources",
+        "ChatGPT Plus en Codex": "ChatGPT Plus and Codex",
         "OpenRouter modelprijzen": "OpenRouter model prices",
         "Claude Sonnet 4": "Claude Sonnet 4",
         "Veelgekozen premium model voor schrijven, analyse en code.": "Often-chosen premium model for writing, analysis and code.",
-        "$3 / $15 per 1M": "$3 / $15 per 1M",
+        "vanaf $3 / $15 per 1M": "from $3 / $15 per 1M",
         "GPT-5": "GPT-5",
         "Sterke allround route voor redeneren en tooling.": "Strong all-round route for reasoning and tooling.",
-        "$1.25 / $10 per 1M": "$1.25 / $10 per 1M",
+        "vanaf $1,25 / $10 per 1M": "from $1.25 / $10 per 1M",
         "GLM 5.2": "GLM 5.2",
         "Open-weight model met sterke agentische coding- en tool-use, 1M context.": "Open-weight model with strong agentic coding and tool use, 1M context.",
-        "$0.95 / $3 per 1M": "$0.95 / $3 per 1M",
-        "DeepSeek V4 Flash": "DeepSeek V4 Flash",
-        "Snelle DeepSeek-route. Vanaf 17 augustus 2026 werkt DeepSeek met dal- en piektarieven; OpenRouter kan per provider afwijken.": "Fast DeepSeek route. From 17 August 2026, DeepSeek uses off-peak and peak rates; OpenRouter prices may vary by provider.",
-        "$0.22 / $0.66 dal · $0.44 / $1.32 piek": "$0.22 / $0.66 off-peak · $0.44 / $1.32 peak",
+        "vanaf $0,4875 / $1,56 per 1M": "from $0.4875 / $1.56 per 1M",
+        "DeepSeek V4 Flash 0423": "DeepSeek V4 Flash 0423",
+        "OpenRouter-model deepseek/deepseek-v4-flash. Niet hetzelfde model als DeepSeek-V4.1-Flash bij de directe DeepSeek API.": "OpenRouter model deepseek/deepseek-v4-flash. Not the same model as DeepSeek-V4.1-Flash on the direct DeepSeek API.",
+        "vanaf $0,0679 / $0,168 per 1M": "from $0.0679 / $0.168 per 1M",
         "Pay-as-you-go; prijzen kunnen per provider, tijdstip en OpenRouter-route verschillen": "Pay as you go; prices may vary by provider, time of day, and OpenRouter route",
         "Geschikt voor fallback, vergelijking en budgetcontrole": "Suitable for fallback, comparison and budget control",
         "Hermes kiest daarna per taak de ingestelde route": "Hermes then chooses the configured route for each task",
