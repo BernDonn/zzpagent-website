@@ -2297,8 +2297,19 @@
     const inlinePlaybackSources=new Set();
     const SophieAudioContext = window.AudioContext || window.webkitAudioContext;
     function isInlineVoiceSession(session){ return !!session && inlineVoiceSession===session; }
+    // Bounded numeric-only diagnostics: no audio, text, URLs or provider messages.
+    function traceInlineVoice(event, session=inlineVoiceSession, code=0, clean=0){
+      try{
+        const state=ctx=>({running:1,suspended:2,closed:3,interrupted:4}[ctx?.state]||0);
+        const row={e:event,t:Math.max(0,Date.now()-(session?.startedAt??Date.now())),c:Number(code)||0,w:Number(clean)||0,g:Number(!!session?.openingProtected),a:Number(!!session?.openingAudio),q:inlinePendingAudio,s:inlinePlaybackSources.size,f:Number(inlineTurnComplete),m:session?.micChunks||0,r:state(inlinePlaybackCtx),i:state(inlineVoiceCtx)};
+        const diagnostics=window.sophieTurnDiagnostics ||= {v:2,events:[]};
+        diagnostics.events.push(row); if(diagnostics.events.length>32) diagnostics.events.shift();
+        return row;
+      }catch(e){ return null; }
+    }
     function failInlineOpening(session){
       if(!isInlineVoiceSession(session) || !session.openingProtected) return;
+      traceInlineVoice(8,session);
       stopInlineVoice();
       setInlineVoiceError('Introductie niet afgerond. Druk op Probeer opnieuw.');
     }
@@ -2311,6 +2322,7 @@
         if(inlineVoiceWs?.readyState!==WebSocket.OPEN){ failInlineOpening(session); return; }
         inlineVoiceWs.send(JSON.stringify({type:'opening_playback_drained'}));
         session.openingProtected=false;
+        traceInlineVoice(4,session);
         clearTimeout(session.openingTimer);
         startInlineOfficeAmbience(callbackEndpointBase(), session);
         updateInlinePlaybackState(session);
@@ -2332,6 +2344,8 @@
       inlinePlaybackSources.clear(); inlineNextPlayback=0;
     }
     function logInlineVoiceError(error, stage){
+      const stages={websocket:1,office_ambience:2,get_user_media:3,inline_voice_start:4};
+      if(stages[stage]) traceInlineVoice(11,inlineVoiceSession,stages[stage]*100+({TypeError:1,NotAllowedError:2,NotFoundError:3,InvalidStateError:4}[error?.name]||0));
       try{
         fetch(callbackEndpointBase() + '/visitor-ping', {
           method:'POST', mode:'cors', headers:{'Content-Type':'application/json'}, keepalive:true,
@@ -2462,6 +2476,7 @@
     }
     function stopInlineVoice(){
       const session=inlineVoiceSession;
+      if(session) traceInlineVoice(9,session);
       inlineVoiceSession=null;
       clearTimeout(session?.openingTimer);
       clearTimeout(session?.openingDrainTimer);
@@ -2506,8 +2521,9 @@
       if(inlineVoiceActive){ stopInlineVoice(); return; }
       if(!voicePanel) return;
       if(!SophieAudioContext){ setInlineVoiceError('Deze browser ondersteunt de audio-engine niet goed. Probeer Safari/Chrome met microfoontoegang.'); return; }
-      const session={ambienceGeneration:0, openingProtected:true, openingAudio:false};
+      const session={ambienceGeneration:0, openingProtected:true, openingAudio:false, startedAt:Date.now(), micChunks:0};
       inlineVoiceSession=session;
+      window.sophieTurnDiagnostics={v:2,events:[]}; traceInlineVoice(1,session);
       setInlineVoiceState(true, 'Microfoon openen…');
       try{
         stopInlineOfficeAmbience();
@@ -2523,11 +2539,13 @@
         const wsUrl=endpointBase.replace(/^https:/,'wss:').replace(/^http:/,'ws:') + '/ws/live?site=zzpagent.nl&tz=' + visitorTimeZone;
         const ws=inlineVoiceWs=new WebSocket(wsUrl);
         session.openingTimer=setTimeout(()=>failInlineOpening(session),40000);
-        ws.addEventListener('error', (event) => { if(isInlineVoiceSession(session)) logInlineVoiceError(event, 'websocket'); });
-        ws.addEventListener('close', () => {
+        ws.addEventListener('error', (event) => { if(isInlineVoiceSession(session)){ traceInlineVoice(7,session); logInlineVoiceError(event, 'websocket'); } });
+        ws.addEventListener('close', (event) => {
           if(!isInlineVoiceSession(session)) return;
+          const diagnostic=traceInlineVoice(10,session,event.code,event.wasClean);
+          try{ fetch(callbackEndpointBase()+'/client-diagnostic',{method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},keepalive:true,body:JSON.stringify({stage:'website_ws_close_v2',errorName:'WS_'+(Number(event.code)||0),errorMessage:JSON.stringify(diagnostic)})}).catch(()=>{}); }catch(e){}
           stopInlineVoice();
-          setInlineVoiceError('De spraaksessie is gestopt. Druk op Probeer opnieuw.');
+          setInlineVoiceError('De spraaksessie is gestopt. Druk op Probeer opnieuw. (code '+(Number(event.code)||0)+')');
         });
         ws.addEventListener('message', async (event) => {
           if(!isInlineVoiceSession(session)) return;
@@ -2540,7 +2558,7 @@
               setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
               return;
             }
-            if(msg.type==='turn_complete'){ inlineTurnComplete=true; updateInlinePlaybackState(session); return; }
+            if(msg.type==='turn_complete'){ inlineTurnComplete=true; traceInlineVoice(3,session); updateInlinePlaybackState(session); return; }
             if(msg.type==='status' && msg.status==='reconnecting') setInlineVoiceState(true, 'Sophie maakt opnieuw verbinding…');
             if(msg.type==='status' && msg.status==='ready'){
               setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
@@ -2552,6 +2570,7 @@
             }
             if(msg.type==='output_transcript') setInlineVoiceState(true, 'Sophie antwoordt…');
             if(msg.type==='error'){
+              traceInlineVoice(6,session);
               if(session.openingProtected){ failInlineOpening(session); return; }
               setInlineVoiceState(true, 'Sophie heeft verbindingsproblemen. Probeer straks opnieuw.');
             }
@@ -2573,6 +2592,7 @@
         inlineVoiceProcessor.onaudioprocess=(e)=>{
           if(!isInlineVoiceSession(session) || session.openingProtected || ws.readyState!==WebSocket.OPEN) return;
           ws.send(JSON.stringify({type:'audio',mimeType:'audio/pcm;rate=16000',data:arrayBufferToBase64(downsampleTo16k(e.inputBuffer.getChannelData(0), ctx.sampleRate))}));
+          session.micChunks++; if(session.micChunks===1) traceInlineVoice(5,session);
         };
         source.connect(inlineVoiceProcessor); inlineVoiceProcessor.connect(inlineVoiceGain); inlineVoiceGain.connect(inlineVoiceCtx.destination);
         setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
