@@ -2297,9 +2297,29 @@
     const inlinePlaybackSources=new Set();
     const SophieAudioContext = window.AudioContext || window.webkitAudioContext;
     function isInlineVoiceSession(session){ return !!session && inlineVoiceSession===session; }
+    function failInlineOpening(session){
+      if(!isInlineVoiceSession(session) || !session.openingProtected) return;
+      stopInlineVoice();
+      setInlineVoiceError('Introductie niet afgerond. Druk op Probeer opnieuw.');
+    }
+    function finishInlineOpening(session){
+      if(!isInlineVoiceSession(session) || !session.openingProtected || !session.openingAudio || !inlineTurnComplete || inlinePendingAudio || inlinePlaybackSources.size || session.openingDrainTimer) return;
+      // Only actual source.onended plus provider completion can start this echo tail.
+      session.openingDrainTimer=setTimeout(()=>{
+        session.openingDrainTimer=null;
+        if(!isInlineVoiceSession(session) || !session.openingProtected || !inlineTurnComplete || inlinePendingAudio || inlinePlaybackSources.size) return;
+        if(inlineVoiceWs?.readyState!==WebSocket.OPEN){ failInlineOpening(session); return; }
+        inlineVoiceWs.send(JSON.stringify({type:'opening_playback_drained'}));
+        session.openingProtected=false;
+        clearTimeout(session.openingTimer);
+        startInlineOfficeAmbience(callbackEndpointBase(), session);
+        updateInlinePlaybackState(session);
+      },350);
+    }
     function updateInlinePlaybackState(session){
       if(!isInlineVoiceSession(session)) return;
       if(inlinePlaybackSources.size || inlinePendingAudio) setInlineVoiceState(true, 'Sophie antwoordt…');
+      else if(session.openingProtected){ finishInlineOpening(session); setInlineVoiceState(true, 'Sophie stelt zich voor…'); }
       else if(inlineTurnComplete) setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
     }
     function cancelInlinePlayback(){
@@ -2359,6 +2379,7 @@
       const generation=inlineAudioGeneration;
       const ctx=inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
       inlinePendingAudio++; inlineTurnComplete=false;
+      if(session.openingProtected){ session.openingAudio=true; clearTimeout(session.openingDrainTimer); session.openingDrainTimer=null; }
       updateInlinePlaybackState(session);
       try{
         if(ctx.state==='suspended') await ctx.resume();
@@ -2385,10 +2406,10 @@
       }
     }
     async function startInlineOfficeAmbience(endpointBase, session=inlineVoiceSession){
-      if(!isInlineVoiceSession(session)) return;
+      if(!isInlineVoiceSession(session) || session.openingProtected) return;
       const ctx=inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
       const ambienceGeneration=session.ambienceGeneration;
-      const current=()=>isInlineVoiceSession(session) && session.ambienceGeneration===ambienceGeneration;
+      const current=()=>isInlineVoiceSession(session) && !session.openingProtected && session.ambienceGeneration===ambienceGeneration;
       try{
         if(ctx.state==='suspended') await ctx.resume();
         if(!current()) return;
@@ -2442,7 +2463,8 @@
     function stopInlineVoice(){
       const session=inlineVoiceSession;
       inlineVoiceSession=null;
-      clearTimeout(session?.ambienceTimer);
+      clearTimeout(session?.openingTimer);
+      clearTimeout(session?.openingDrainTimer);
       session?.cancelSetup?.();
       cancelInlinePlayback();
       try{ inlineVoiceWs?.send(JSON.stringify({type:'audio_end'})); }catch(e){}
@@ -2484,7 +2506,7 @@
       if(inlineVoiceActive){ stopInlineVoice(); return; }
       if(!voicePanel) return;
       if(!SophieAudioContext){ setInlineVoiceError('Deze browser ondersteunt de audio-engine niet goed. Probeer Safari/Chrome met microfoontoegang.'); return; }
-      const session={ambienceGeneration:0};
+      const session={ambienceGeneration:0, openingProtected:true, openingAudio:false};
       inlineVoiceSession=session;
       setInlineVoiceState(true, 'Microfoon openen…');
       try{
@@ -2500,6 +2522,7 @@
         const visitorTimeZone=encodeURIComponent(Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/Amsterdam');
         const wsUrl=endpointBase.replace(/^https:/,'wss:').replace(/^http:/,'ws:') + '/ws/live?site=zzpagent.nl&tz=' + visitorTimeZone;
         const ws=inlineVoiceWs=new WebSocket(wsUrl);
+        session.openingTimer=setTimeout(()=>failInlineOpening(session),40000);
         ws.addEventListener('error', (event) => { if(isInlineVoiceSession(session)) logInlineVoiceError(event, 'websocket'); });
         ws.addEventListener('close', () => {
           if(!isInlineVoiceSession(session)) return;
@@ -2512,6 +2535,7 @@
             const msg=JSON.parse(event.data);
             if(msg.type==='audio' && msg.data){ await playInlinePcm16(msg.data, session); return; }
             if(msg.type==='interrupted'){
+              if(session.openingProtected){ failInlineOpening(session); return; }
               cancelInlinePlayback();
               setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
               return;
@@ -2527,8 +2551,11 @@
               updateInlinePlaybackState(session);
             }
             if(msg.type==='output_transcript') setInlineVoiceState(true, 'Sophie antwoordt…');
-            if(msg.type==='error') setInlineVoiceState(true, 'Sophie heeft verbindingsproblemen. Probeer straks opnieuw.');
-          }catch(e){}
+            if(msg.type==='error'){
+              if(session.openingProtected){ failInlineOpening(session); return; }
+              setInlineVoiceState(true, 'Sophie heeft verbindingsproblemen. Probeer straks opnieuw.');
+            }
+          }catch(e){ if(session.openingProtected) failInlineOpening(session); }
         });
         await new Promise((resolve,reject)=>{
           session.cancelSetup=resolve;
@@ -2544,12 +2571,12 @@
         inlineVoiceProcessor=inlineVoiceCtx.createScriptProcessor(4096,1,1);
         inlineVoiceGain=inlineVoiceCtx.createGain(); inlineVoiceGain.gain.value=0;
         inlineVoiceProcessor.onaudioprocess=(e)=>{
-          if(!isInlineVoiceSession(session) || ws.readyState!==WebSocket.OPEN) return;
+          if(!isInlineVoiceSession(session) || session.openingProtected || ws.readyState!==WebSocket.OPEN) return;
           ws.send(JSON.stringify({type:'audio',mimeType:'audio/pcm;rate=16000',data:arrayBufferToBase64(downsampleTo16k(e.inputBuffer.getChannelData(0), ctx.sampleRate))}));
         };
         source.connect(inlineVoiceProcessor); inlineVoiceProcessor.connect(inlineVoiceGain); inlineVoiceGain.connect(inlineVoiceCtx.destination);
         setInlineVoiceState(true, 'Sophie luistert. Stel je vraag direct hier.');
-        session.ambienceTimer=setTimeout(() => { if(isInlineVoiceSession(session)) startInlineOfficeAmbience(endpointBase, session); }, 500);
+        updateInlinePlaybackState(session);
       }catch(error){
         if(!isInlineVoiceSession(session)) return;
         logInlineVoiceError(error, 'inline_voice_start');
