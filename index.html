@@ -495,7 +495,11 @@
     .tile .nr{color:var(--green);font-weight:850;font-size:13px;letter-spacing:.12em;margin-bottom:42px;display:block}
     .tile.dark{background:var(--green);color:#fff;border-color:var(--green)}
     .tile.dark .muted{color:#dfe8db}
-    .usecases{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:32px}
+    .usecases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+    #oplossingen .case-summary{grid-template-columns:1fr}
+    .case-link{display:block;color:inherit;text-decoration:none}
+    .case-link .expand-label:after{content:"→"}
+    .case-link:focus-visible{outline:3px solid var(--green);outline-offset:4px}
     .case{background:#fffaf1;border:1px solid var(--line);border-radius:26px;padding:0;overflow:hidden;box-shadow:0 12px 35px rgba(20,35,24,.05)}
     .case summary,.integration-card summary{list-style:none;cursor:pointer}
     .case summary::-webkit-details-marker,.integration-card summary::-webkit-details-marker{display:none}
@@ -1104,20 +1108,11 @@
       <div class="usecases">
         <details class="case"><summary class="case-summary"><span><small>AI inwerken</small><h3>Werk je AI één keer in als assistent voor routinetaken</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Je hebt vast zo’n klus die elke week terugkomt. Het rapport dat je uit drie bronnen samenstelt, de declaraties die je invoert of de vergadering die je uitwerkt. Je zou het willen uitbesteden, maar het uitleggen duurt langer dan het zelf doen.</p><p class="muted">Juist omdat jouw manier van werken vol kleine beslissingen zit die je nooit hebt opgeschreven: welke cijfers je afrondt, welke mailtjes prioriteit krijgen en wat je overslaat. Je doet de taak één keer voor, pratend alsof je een stagiair inwerkt. Hermes kijkt mee, luistert mee en giet jouw werkwijze om in een herbruikbaar recept.</p><p class="muted">Zo wordt AI geen losse tool, maar onderdeel van je werkritme: informatie lezen, samenvatten, routeren of controleren waar dat past en koppelen waar nodig met bestaande systemen. Jij blijft bepalen wat er naar buiten gaat.</p><div class="example">“Laat Hermes meekijken hoe ik deze terugkerende klus doe en maak er een skill van.”</div></div></details>
 <details class="case"><summary class="case-summary"><span><small>Inbox, agenda en overzicht</small><h3>Begin je dag met één rustig overzicht</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Hermes verzamelt relevante afspraken, open acties en belangrijke berichten uit je mail en andere afgesproken kanalen. Hij zet ze overzichtelijk voor je klaar en zorgt dat concrete afspraken in je agenda terechtkomen.</p><p class="muted">Jij ziet wat aandacht vraagt en beslist wat er moet gebeuren. Er wordt niets namens jou verstuurd zonder jouw akkoord.</p><div class="example">“Geef mij iedere ochtend mijn afspraken, open acties en belangrijke berichten in één overzicht.”</div></div></details>
-<details class="case"><summary class="case-summary"><span><small>Onderzoek en voorbereiding</small><h3>Laat terugkerend uitzoekwerk voorbereiden</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Laat Hermes informatie verzamelen uit afgesproken bronnen, verschillen signaleren en de belangrijkste bevindingen met bronverwijzingen klaarzetten. Handig voor een gesprek, les, voorstel, aankoop of beslissing.</p><p class="muted">Jij beoordeelt de bronnen en bepaalt welke conclusie bruikbaar is.</p><div class="example">“Zoek dit onderwerp uit, vergelijk de opties en geef mij een kort overzicht met bronnen.”</div></div></details>
 <details class="case"><summary class="case-summary"><span><small>Vergaderingen en gesprekken</small><h3>Van opname naar besluiten en acties</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Hermes werkt een opname of gespreksnotitie uit, maakt een samenvatting en zet besluiten, vragen en acties apart. Iedere actie krijgt de juiste persoon en, wanneer die bekend is, een concrete datum.</p><p class="muted">Jij controleert de uitwerking voordat iets wordt gedeeld of in je agenda komt.</p><div class="example">“Werk dit gesprek uit en zet besluiten, open vragen en acties per persoon onder elkaar.”</div></div></details>
 <details class="case"><summary class="case-summary"><span><small>Mail en documenten</small><h3>Laat concepten voorbereiden in jouw stijl</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Hermes verzamelt de relevante achtergrond en maakt een eerste versie van een e-mail, voorstel, verslag of document. De assistent houdt rekening met jouw eerdere keuzes en manier van schrijven.</p><p class="muted">Het blijft een concept totdat jij het hebt gecontroleerd en goedgekeurd.</p><div class="example">“Bereid op basis van deze informatie een antwoord voor in mijn stijl, maar verstuur niets.”</div></div></details>
 <details class="case"><summary class="case-summary"><span><small>Bonnetjes en administratie</small><h3>Bonnetjes verwerken zonder overtypen</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Stuur een foto of bestand door. Hermes leest datum, bedrag, btw en leverancier en zet een voorstel klaar voor de juiste kostenpost of banktransactie.</p><p class="muted">Jij controleert alle gegevens voordat iets definitief in je administratie wordt geboekt. Hermes neemt geen fiscale of boekhoudkundige beslissing van je over.</p><div class="example">“Lees deze bon uit en zet de gegevens klaar voor mijn controle en boekhouding.”</div></div></details>
+<a class="case case-link" href="/ai-zichtbaarheidscheck/"><div class="case-summary"><span><small>gevonden worden én opvolgen</small><h3>AI vindbaarheid van jouw bedrijf verbeteren</h3></span><span class="expand-label">Bekijk details</span></div></a>
       </div>
-    </section>
-
-    <section class="section" id="ai-zichtbaarheid" style="padding-top:0;padding-bottom:24px">
-      <article class="product" style="max-width:980px">
-        <span class="tag">AI-zichtbaarheidscheck</span>
-        <h2 style="font-size:clamp(26px,4vw,36px)">Wordt jouw bedrijf genoemd als klanten AI om advies vragen?</h2>
-        <p class="muted">We testen met relevante klantvragen, analyseren wat zichtbaar wordt en geven concrete verbeteradviezen voor je communicatie, dienstenpagina’s en Q&A. Daarna opnieuw meten met dezelfde vragen. Scope en kosten bespreken we vooraf.</p>
-        <a class="button secondary" href="/ai-zichtbaarheidscheck/">Bekijk de AI-zichtbaarheidscheck</a>
-      </article>
     </section>
 
     <section class="section" id="prijzen">
@@ -1509,9 +1504,9 @@
         <div class="sector-row">
           <a href="/wat-is-een-ai-agent-voor-zzp/">AI-agent voor ZZP</a>
           <a href="/persoonlijke-ai-assistent-voor-zzp/">persoonlijke AI-assistent</a>
-          <a href="/ai-agent-via-whatsapp-business/">WhatsApp Business</a>
           <a href="/telefoonassistent-voor-zzp/">Telefoonassistent</a>
           <a href="/workflowautomatisering-voor-zzp/">Workflowautomatisering</a>
+          <a href="/ai-zichtbaarheidscheck/">AI-zichtbaarheidscheck</a>
         </div>
       </div>
     </section>
@@ -1612,9 +1607,8 @@
     const translations = {
       en: {
         "AI-zichtbaarheidscheck": "AI visibility check",
-        "Wordt jouw bedrijf genoemd als klanten AI om advies vragen?": "Is your business mentioned when customers ask AI for advice?",
-        "We testen met relevante klantvragen, analyseren wat zichtbaar wordt en geven concrete verbeteradviezen voor je communicatie, dienstenpagina’s en Q&A. Daarna opnieuw meten met dezelfde vragen. Scope en kosten bespreken we vooraf.": "We test with relevant customer questions, analyse what appears and give practical recommendations for your communication, service pages and Q&A. Then we measure again using the same questions. Scope and costs are discussed beforehand.",
-        "Bekijk de AI-zichtbaarheidscheck": "Explore the AI visibility check",
+        "gevonden worden én opvolgen": "get found and follow through",
+        "AI vindbaarheid van jouw bedrijf verbeteren": "Improve your business’s visibility in AI answers",
         "03b. Wat is het verschil tussen Hermes en OpenClaw 2.0 voor mij als zzp’er?": "03b. What is the difference between Hermes and OpenClaw 2.0 for me as a freelancer?",
         "Hermes is vooral een persoonlijke AI-assistent. OpenClaw biedt daarnaast ingebouwde mogelijkheden om met meerdere mensen dezelfde agentomgeving te gebruiken.": "Hermes is primarily a personal AI assistant. OpenClaw also offers built-in ways for several people to use the same agent environment.",
         "Werk je zelfstandig en zoek je een assistent die jouw werkwijze onthoudt, terugkerende taken uitvoert en specialistische agents kan inschakelen? Dan is Hermes een logische keuze. De samenwerking draait vooral om jou en de agents die voor jou werken.": "If you work independently and want an assistant that remembers how you work, handles recurring tasks and can call on specialist agents, Hermes is a logical choice. Collaboration mainly centres on you and the agents working for you.",
@@ -1920,11 +1914,6 @@
         "Hermes verzamelt relevante afspraken, open acties en belangrijke berichten uit je mail en andere afgesproken kanalen. Hij zet ze overzichtelijk voor je klaar en zorgt dat concrete afspraken in je agenda terechtkomen.": "Hermes collects relevant appointments, open actions and important messages from your email and other agreed channels. It organizes them clearly for you and makes sure concrete appointments are added to your calendar.",
         "Jij ziet wat aandacht vraagt en beslist wat er moet gebeuren. Er wordt niets namens jou verstuurd zonder jouw akkoord.": "You see what needs attention and decide what should happen. Nothing is sent on your behalf without your approval.",
         "“Geef mij iedere ochtend mijn afspraken, open acties en belangrijke berichten in één overzicht.”": "“Every morning, give me my appointments, open actions and important messages in one overview.”",
-        "Onderzoek en voorbereiding": "Research and preparation",
-        "Laat terugkerend uitzoekwerk voorbereiden": "Have recurring research work prepared",
-        "Laat Hermes informatie verzamelen uit afgesproken bronnen, verschillen signaleren en de belangrijkste bevindingen met bronverwijzingen klaarzetten. Handig voor een gesprek, les, voorstel, aankoop of beslissing.": "Have Hermes collect information from agreed sources, flag differences and prepare the key findings with source references. Useful for a conversation, lesson, proposal, purchase or decision.",
-        "Jij beoordeelt de bronnen en bepaalt welke conclusie bruikbaar is.": "You review the sources and decide which conclusion is useful.",
-        "“Zoek dit onderwerp uit, vergelijk de opties en geef mij een kort overzicht met bronnen.”": "“Research this topic, compare the options and give me a short overview with sources.”",
         "Vergaderingen en gesprekken": "Meetings and conversations",
         "Van opname naar besluiten en acties": "From recording to decisions and actions",
         "Hermes werkt een opname of gespreksnotitie uit, maakt een samenvatting en zet besluiten, vragen en acties apart. Iedere actie krijgt de juiste persoon en, wanneer die bekend is, een concrete datum.": "Hermes processes a recording or conversation note, creates a summary and separates decisions, questions and actions. Each action is assigned to the right person and, when known, a specific date.",
