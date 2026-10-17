@@ -330,6 +330,7 @@
       <li>Welke voorbereiding of opvolging iedere week terugkeert.</li>
       <li>Welke informatie de assistent niet mag bewaren.</li>
       <li>Welke handelingen altijd jouw akkoord vereisen.</li>
+      <li>Welke website en klantvragen belangrijk zijn voor vindbaarheid in AI-antwoorden.</li>
       <li>Welk resultaat jou binnen dertig dagen werkelijk rust zou geven.</li>
     </ul>
 
@@ -404,17 +405,17 @@
       </div>
 
       <div class="form-group" data-required="text">
-        <label class="field-label">5. WELKE INFORMATIE MAG DE ASSISTENT ABSOLUUT NIET BEWAREN?</label>
-        <textarea rows="3" maxlength="400" name="retention_boundaries" placeholder="Bijvoorbeeld: medische informatie, wachtwoorden, financiële details, privégesprekken of specifieke dossiers. Schrijf ook ‘geen’ als je nu geen voorbeeld hebt."></textarea>
-        <p class="error-msg">Beschrijf de grens, of vul ‘geen’ in.</p>
-        <p style="font-size:12px;color:var(--muted);margin:4px 0 0"><span class="char-count">0</span> / 400</p>
+        <label class="field-label">5. WELKE INFORMATIE MAG DE ASSISTENT NIET BEWAREN, EN WAARVOOR IS ALTIJD JOUW AKKOORD NODIG?</label>
+        <textarea rows="4" maxlength="800" name="retention_boundaries" placeholder="Noem beide grenzen: informatie die niet bewaard mag worden (bijvoorbeeld wachtwoorden of privégegevens) én handelingen die eerst jouw akkoord vragen (bijvoorbeeld mail versturen, publiceren of betalen). Deel hier geen gevoelige gegevens zelf."></textarea>
+        <p class="error-msg">Beschrijf je grenzen voor bewaren én handelen.</p>
+        <p style="font-size:12px;color:var(--muted);margin:4px 0 0"><span class="char-count">0</span> / 800</p>
       </div>
 
       <div class="form-group" data-required="text">
-        <label class="field-label">6. WELKE HANDELINGEN MOGEN NOOIT ZONDER JOUW AKKOORD WORDEN UITGEVOERD?</label>
-        <textarea rows="3" maxlength="400" name="approval_boundaries" placeholder="Bijvoorbeeld: mail versturen, publiceren, een afspraak wijzigen, bestanden delen, betalingen doen of gegevens verwijderen."></textarea>
-        <p class="error-msg">Beschrijf minimaal één menselijk beslismoment.</p>
-        <p style="font-size:12px;color:var(--muted);margin:4px 0 0"><span class="char-count">0</span> / 400</p>
+        <label class="field-label">6. WAT IS JE WEBSITE, EN HOE WIL JE GEVONDEN WORDEN IN AI-ANTWOORDEN?</label>
+        <textarea rows="4" maxlength="800" name="ai_visibility" placeholder="Vermeld je website en bij welke klantvragen je genoemd wilt worden in bijvoorbeeld ChatGPT, Gemini of Perplexity. Weet je of je daar al zichtbaar bent? Geef aan wat je wilt verbeteren. Nog geen website of niet relevant? Dat mag je ook invullen."></textarea>
+        <p class="error-msg">Beschrijf je website en gewenste AI-vindbaarheid, of vul ‘niet relevant’ in.</p>
+        <p style="font-size:12px;color:var(--muted);margin:4px 0 0"><span class="char-count">0</span> / 800</p>
       </div>
 
       <div class="form-group" data-required="text">
@@ -668,8 +669,8 @@
     fd.append('Zoekfrequentie afspraken en documenten', data.step1.search_frequency || '');
     fd.append('Steeds opnieuw uit te leggen context', data.step1.repeated_context || '');
     fd.append('Wekelijkse voorbereiding of opvolging', data.step2.weekly_repetition || '');
-    fd.append('Informatie die niet bewaard mag worden', data.step2.retention_boundaries || '');
-    fd.append('Handelingen die akkoord vereisen', data.step2.approval_boundaries || '');
+    fd.append('Grenzen voor bewaren en handelen', data.step2.retention_boundaries || '');
+    fd.append('Website en AI-vindbaarheid', data.step2.ai_visibility || '');
     fd.append('Gewenste rust na dertig dagen', data.step2.thirty_day_rust || '');
     fd.append('Akkoord Quickscan-terugkoppeling', data.step3.consent ? 'Ja' : 'Nee');
     return fd;
@@ -701,7 +702,9 @@
       repeatedContext: data.step1.repeated_context || '',
       weeklyRepetition: data.step2.weekly_repetition || '',
       retentionBoundaries: data.step2.retention_boundaries || '',
-      approvalBoundaries: data.step2.approval_boundaries || '',
+      approvalBoundaries: data.step2.retention_boundaries || '',
+      aiVisibility: data.step2.ai_visibility || '',
+      dream: 'Website en AI-vindbaarheid: ' + (data.step2.ai_visibility || ''),
       thirtyDayRust: data.step2.thirty_day_rust || '',
       consent: !!data.step3.consent,
       path: location.pathname + location.search,
