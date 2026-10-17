@@ -497,6 +497,12 @@
     .tile.dark .muted{color:#dfe8db}
     .usecases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
     #oplossingen .case-summary{grid-template-columns:1fr}
+    .case-actions{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .new-badge{display:inline-flex;align-items:center;justify-content:center;flex:none;min-width:52px;padding:4px 10px;border:1px solid rgba(22,63,43,.18);border-radius:999px;background:#edf1e5;color:var(--green);font-size:11px;font-weight:650;line-height:1.4;letter-spacing:.025em}
+    @media(prefers-reduced-motion:no-preference){
+      .new-badge.is-waiting{opacity:0;transform:translateY(3px)}
+      .new-badge.is-revealed{transition:opacity 450ms ease-out,transform 450ms ease-out;opacity:1;transform:translateY(0)}
+    }
     .case-link{display:block;color:inherit;text-decoration:none}
     .case-link .expand-label:after{content:"→"}
     .case-link:focus-visible{outline:3px solid var(--green);outline-offset:4px}
@@ -1111,7 +1117,7 @@
 <details class="case"><summary class="case-summary"><span><small>Vergaderingen en gesprekken</small><h3>Van opname naar besluiten en acties</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Hermes werkt een opname of gespreksnotitie uit, maakt een samenvatting en zet besluiten, vragen en acties apart. Iedere actie krijgt de juiste persoon en, wanneer die bekend is, een concrete datum.</p><p class="muted">Jij controleert de uitwerking voordat iets wordt gedeeld of in je agenda komt.</p><div class="example">“Werk dit gesprek uit en zet besluiten, open vragen en acties per persoon onder elkaar.”</div></div></details>
 <details class="case"><summary class="case-summary"><span><small>Mail en documenten</small><h3>Laat concepten voorbereiden in jouw stijl</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Hermes verzamelt de relevante achtergrond en maakt een eerste versie van een e-mail, voorstel, verslag of document. De assistent houdt rekening met jouw eerdere keuzes en manier van schrijven.</p><p class="muted">Het blijft een concept totdat jij het hebt gecontroleerd en goedgekeurd.</p><div class="example">“Bereid op basis van deze informatie een antwoord voor in mijn stijl, maar verstuur niets.”</div></div></details>
 <details class="case"><summary class="case-summary"><span><small>Bonnetjes en administratie</small><h3>Bonnetjes verwerken zonder overtypen</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Stuur een foto of bestand door. Hermes leest datum, bedrag, btw en leverancier en zet een voorstel klaar voor de juiste kostenpost of banktransactie.</p><p class="muted">Jij controleert alle gegevens voordat iets definitief in je administratie wordt geboekt. Hermes neemt geen fiscale of boekhoudkundige beslissing van je over.</p><div class="example">“Lees deze bon uit en zet de gegevens klaar voor mijn controle en boekhouding.”</div></div></details>
-<details class="case"><summary class="case-summary"><span><small>gevonden worden én opvolgen</small><h3>AI vindbaarheid van jouw bedrijf verbeteren</h3></span><span class="expand-label">Bekijk details</span></summary><div class="case-body"><p class="muted">Met een nulmeting bekijken we met onze AI search check engine hoe jouw bedrijf naar voren komt in AI-antwoorden. Daarna krijg je concrete verbeterpunten voor je communicatie, website en veelgestelde vragen.</p><p class="muted">Ook hier kan Hermes helpen: met deze input kan hij, waar de website dit toelaat, voorgestelde aanpassingen na jouw goedkeuring automatisch doorvoeren. Met Hermes kunnen we de metingen vervolgens automatisch herhalen en over tijd volgen of je AI-vindbaarheid verbetert.</p><p><a class="workflow-inline-link" href="/ai-zichtbaarheidscheck/">Meer over de AI-zichtbaarheidscheck</a></p></div></details>
+<details class="case case-new"><summary class="case-summary"><span><small>gevonden worden én opvolgen</small><h3>AI vindbaarheid van jouw bedrijf verbeteren</h3></span><span class="case-actions"><span class="expand-label">Bekijk details</span><span class="new-badge">Nieuw</span></span></summary><div class="case-body"><p class="muted">Met een nulmeting bekijken we met onze AI search check engine hoe jouw bedrijf naar voren komt in AI-antwoorden. Daarna krijg je concrete verbeterpunten voor je communicatie, website en veelgestelde vragen.</p><p class="muted">Ook hier kan Hermes helpen: met deze input kan hij, waar de website dit toelaat, voorgestelde aanpassingen na jouw goedkeuring automatisch doorvoeren. Met Hermes kunnen we de metingen vervolgens automatisch herhalen en over tijd volgen of je AI-vindbaarheid verbetert.</p><p><a class="workflow-inline-link" href="/ai-zichtbaarheidscheck/">Meer over de AI-zichtbaarheidscheck</a></p></div></details>
       </div>
     </section>
 
@@ -1610,6 +1616,7 @@
         "Met een nulmeting bekijken we met onze AI search check engine hoe jouw bedrijf naar voren komt in AI-antwoorden. Daarna krijg je concrete verbeterpunten voor je communicatie, website en veelgestelde vragen.": "We use our AI search check engine to establish a baseline of how your business appears in AI answers. You then receive concrete recommendations for improving your communications, website and frequently asked questions.",
         "Ook hier kan Hermes helpen: met deze input kan hij, waar de website dit toelaat, voorgestelde aanpassingen na jouw goedkeuring automatisch doorvoeren. Met Hermes kunnen we de metingen vervolgens automatisch herhalen en over tijd volgen of je AI-vindbaarheid verbetert.": "Hermes can help here too: using this input, he can automatically implement proposed changes after your approval, where the website supports this. With Hermes, we can then automatically repeat the measurements and track over time whether your visibility in AI answers improves.",
         "Meer over de AI-zichtbaarheidscheck": "More about the AI visibility check",
+        "Nieuw": "New",
         "gevonden worden én opvolgen": "get found and follow through",
         "AI vindbaarheid van jouw bedrijf verbeteren": "Improve your business’s visibility in AI answers",
         "03b. Wat is het verschil tussen Hermes en OpenClaw 2.0 voor mij als zzp’er?": "03b. What is the difference between Hermes and OpenClaw 2.0 for me as a freelancer?",
@@ -2778,6 +2785,7 @@
 
     setLanguage(localStorage.getItem('zzpAgentLang') || 'nl');
   </script>
+  <script src="/assets/new-badge.js" defer></script>
   <script src="/assets/sophie-invite.js?v=2"></script>
 </body>
 </html> 
