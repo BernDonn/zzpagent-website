@@ -499,7 +499,9 @@
     #oplossingen .case-summary{grid-template-columns:1fr}
     .case-actions{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .new-badge{display:inline-flex;align-items:center;justify-content:center;flex:none;min-width:68px;padding:6px 14px;border:1px solid #789a13;border-radius:999px;background:#d7f268;color:var(--green);font-size:15px;font-weight:750;line-height:1.4;letter-spacing:.025em}
-    .case.case-new{outline:3px solid #789a13;outline-offset:5px;border-radius:24px}
+    .case.case-new{position:relative;overflow:visible;margin-top:12px;outline:3px solid #789a13;outline-offset:5px;border-radius:24px}
+    .case.case-new .new-badge{position:absolute;right:7px;top:-20px;transform:rotate(8deg);min-width:0;padding:2px 9px;border:1px solid #789a13;border-radius:999px;background:#d7f268;color:var(--green);font-size:11px;font-weight:750;line-height:1.4;letter-spacing:.025em;pointer-events:none}
+    .case.case-new .new-badge.is-waiting,.case.case-new .new-badge.is-revealed{transform:rotate(8deg)}
     @keyframes new-card-pulse{0%,100%{outline-color:rgba(120,154,19,1)}50%{outline-color:rgba(120,154,19,.18)}}
     .visibility-pulse{position:relative;outline:3px solid #789a13;outline-offset:3px;border-radius:999px;margin-top:16px}
     .visibility-pulse .visibility-new-badge{position:absolute;right:7px;top:-20px;transform:rotate(8deg);display:inline-flex;align-items:center;justify-content:center;padding:2px 9px;border:1px solid #789a13;border-radius:999px;background:#d7f268;color:var(--green);font-size:11px;font-weight:750;line-height:1.4;letter-spacing:.025em;pointer-events:none}
