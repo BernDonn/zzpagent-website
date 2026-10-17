@@ -2572,7 +2572,9 @@
         }
       }
     }
+    const INLINE_OFFICE_AMBIENCE_ENABLED=false; // Temporary ZZP browser-only pause; keep audio assets and voice lifecycle unchanged.
     async function startInlineOfficeAmbience(endpointBase, session=inlineVoiceSession){
+      if(!INLINE_OFFICE_AMBIENCE_ENABLED) return;
       if(!isInlineVoiceSession(session) || session.openingProtected) return;
       const ctx=inlinePlaybackCtx ||= new SophieAudioContext({sampleRate:24000});
       const ambienceGeneration=session.ambienceGeneration;
