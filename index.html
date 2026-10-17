@@ -32,234 +32,313 @@
   </script>
   <script defer src="/assets/analytics-events.js"></script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://zzpagent.nl/#organization",
-        "name": "ZZPagent",
-        "url": "https://zzpagent.nl/",
-        "description": "ZZPagent uit Amsterdam helpt Nederlandse ZZP’ers een persoonlijke Hermes AI-assistent in te richten rond terugkerend werk, met menselijke controle bij gevoelige acties.",
-        "founder": {
-          "@type": "Person",
-          "name": "Bernard Donners",
-          "sameAs": "https://nl.linkedin.com/in/bernard-donners-288b0aa"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Laan der Hesperiden 128",
-          "postalCode": "1076 DX",
-          "addressLocality": "Amsterdam",
-          "addressCountry": "NL"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Nederland"
-        },
-        "knowsAbout": [
-          "AI-agents",
-          "Hermes",
-
-          "workflowautomatisering",
-          "n8n",
-          "WhatsApp Business",
-          "Telegram bots",
-          "AI-governance",
-          "vendor lock-in",
-          "menselijke controle"
-        ]
-      },
-      {
-        "@type": "ProfessionalService",
-        "@id": "https://zzpagent.nl/#service",
-        "name": "ZZPagent",
-        "url": "https://zzpagent.nl/",
-        "image": "https://zzpagent.nl/assets/zzpagent-ai-assistent-ai-label-1200x630.jpg",
-        "description": "Implementatie, configuratie en beheer van AI-agents voor ZZP rond bestaande workflows, kanalen en veilige automatisering.",
-        "provider": {
-          "@id": "https://zzpagent.nl/#organization"
-        },
-        "areaServed": "NL",
-        "serviceType": "Managed AI agents and workflow automation"
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://zzpagent.nl/#faq",
-        "mainEntity": [
 {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://zzpagent.nl/#organization",
+      "name": "ZZPagent",
+      "url": "https://zzpagent.nl/",
+      "description": "ZZPagent uit Amsterdam helpt Nederlandse ZZP’ers een persoonlijke Hermes AI-assistent in te richten rond terugkerend werk, met menselijke controle bij gevoelige acties.",
+      "founder": {
+        "@type": "Person",
+        "name": "Bernard Donners",
+        "sameAs": "https://nl.linkedin.com/in/bernard-donners-288b0aa"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Laan der Hesperiden 128",
+        "postalCode": "1076 DX",
+        "addressLocality": "Amsterdam",
+        "addressCountry": "NL"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Nederland"
+      },
+      "knowsAbout": [
+        "AI-agents",
+        "Hermes",
+        "workflowautomatisering",
+        "n8n",
+        "WhatsApp Business",
+        "Telegram bots",
+        "AI-governance",
+        "vendor lock-in",
+        "menselijke controle"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://zzpagent.nl/#service",
+      "name": "ZZPagent",
+      "url": "https://zzpagent.nl/",
+      "image": "https://zzpagent.nl/assets/zzpagent-ai-assistent-ai-label-1200x630.jpg",
+      "description": "Implementatie, configuratie en beheer van AI-agents voor ZZP rond bestaande workflows, kanalen en veilige automatisering.",
+      "provider": {
+        "@id": "https://zzpagent.nl/#organization"
+      },
+      "areaServed": "NL",
+      "serviceType": "Managed AI agents and workflow automation"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://zzpagent.nl/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wat is een Hermes Agent en wie maakt het?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hermes Agent is een open-source framework van Nous Research in New York voor autonome AI-agents, beschikbaar onder de MIT-licentie: digitale assistenten die niet alleen chatten, maar taken kunnen voorbereiden, tools kunnen gebruiken, context onthouden en terugkerend werk op schema kunnen uitvoeren. ZZPagent helpt zelfstandigen om Hermes praktisch in te richten rond hun eigen werk, kanalen en datagrenzen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is een Hermes Agent niet gewoon een chatbot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. De vorm kan chat zijn, maar het verschil zit in context, tools gebruiken, stappen voorbereiden en binnen grenzen werk afmaken. Een chatbot geeft antwoord. Een agent bereidt voor, onthoudt context en handelt af waar dat veilig kan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat is dan het verschil tussen een chatbot en een agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kort gezegd: het model is het taalbrein, maar de agent ontstaat pas door de harness (omgeving) eromheen. Die omgeving regelt welke instructies de agent meekrijgt, welke tools of API’s gebruikt mogen worden, hoe stappen worden gepland en waar menselijke controle nodig blijft. Met andere woorden: zonder harness heb je vooral een slim antwoordmodel. Met harness krijg je een werkende agent die context kan vasthouden, met systemen kan praten en taken gecontroleerd kan uitvoeren. In de praktijk bestaat zo’n harness vaak uit een promptlaag, toolkits, een agent-executor of workflowlaag en koppelingen naar bijvoorbeeld documenten, tabellen of externe API’s. Visualisatie van de omgeving rond het model, de harness (omgeving): loop, tools, context, persistence en policy. Samen vormen die de laag die van een los model een werkende agent maakt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Met ChatGPT en Claude kan ik toch ook een AI-agent opzetten? Waarom Hermes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, ook met de tools van OpenAI en Anthropic kun je AI-agents opzetten. Het belangrijkste verschil is niet dát het kan, maar hoeveel controle je over je systeem houdt. ChatGPT en Claude zijn propriëtaire oplossingen: de leverancier bepaalt de mogelijkheden, prijzen en voorwaarden. Als je je werkprocessen daarop inricht, word je ook afhankelijk van toekomstige keuzes van die leverancier. Hermes is open source en kun je zelf beheren. Je kunt de software aanpassen en verschillende AI-modellen aansluiten. Daardoor houd je meer ruimte om van aanbieder te wisselen, zonder je hele agentsysteem opnieuw op te bouwen. Dat maakt je niet automatisch volledig onafhankelijk van big tech: gebruik je via Hermes een model van OpenAI of Anthropic, dan blijf je voor dat onderdeel afhankelijk van die aanbieder. Het verschil is dat je agentsysteem niet onlosmakelijk aan één leverancier vastzit."
+          }
+        },
+        {
           "@type": "Question",
           "name": "Wat is het verschil tussen Hermes en OpenClaw 2.0 voor mij als zzp’er?",
           "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Hermes is vooral een persoonlijke AI-assistent. OpenClaw biedt daarnaast ingebouwde mogelijkheden om met meerdere mensen dezelfde agentomgeving te gebruiken. Werk je zelfstandig en zoek je een assistent die jouw werkwijze onthoudt, terugkerende taken uitvoert en specialistische agents kan inschakelen? Dan is Hermes een logische keuze. De samenwerking draait vooral om jou en de agents die voor jou werken. Wil je met collega’s of vaste samenwerkingspartners in dezelfde gesprekken werken, taken overnemen en afspreken wie mag lezen, voorstellen doen of meewerken? Dan komt OpenClaw 2.0 eerder in beeld. Het is geen harde scheiding: OpenClaw kan ook persoonlijk worden gebruikt en Hermes kan ook binnen een bedrijf worden ingezet. De keuze hangt vooral af van hoe je wilt samenwerken, niet alleen van de grootte van je onderneming."
+            "@type": "Answer",
+            "text": "Hermes is vooral een persoonlijke AI-assistent. OpenClaw biedt daarnaast ingebouwde mogelijkheden om met meerdere mensen dezelfde agentomgeving te gebruiken. Werk je zelfstandig en zoek je een assistent die jouw werkwijze onthoudt, terugkerende taken uitvoert en specialistische agents kan inschakelen? Dan is Hermes een logische keuze. De samenwerking draait vooral om jou en de agents die voor jou werken. Wil je met collega’s of vaste samenwerkingspartners in dezelfde gesprekken werken, taken overnemen en afspreken wie mag lezen, voorstellen doen of meewerken? Dan komt OpenClaw 2.0 eerder in beeld. Het is geen harde scheiding: OpenClaw kan ook persoonlijk worden gebruikt en Hermes kan ook binnen een bedrijf worden ingezet. De keuze hangt vooral af van hoe je wilt samenwerken, niet alleen van de grootte van je onderneming."
           }
-},
-          {
-            "@type": "Question",
-            "name": "Is een Hermes Agent niet gewoon een chatbot?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Nee. De vorm kan chat zijn, maar het verschil zit in context, tools gebruiken, stappen voorbereiden en binnen grenzen werk afmaken. Een chatbot geeft antwoord. Een agent bereidt voor, onthoudt context en handelt af waar dat veilig kan."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Wat als de agent twijfelt of iets fout kan doen?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Dan stopt hij en vraagt akkoord. Geen klantbericht, betaling of gevoelige actie zonder menselijke controle. Dat is geen bijzaak, het is het uitgangspunt."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Krijg ik alleen een kant-en-klare AI-agent, of leer ik er zelf mee werken?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Je kent het gezegde: ‘Geef een man een vis en hij eet één dag, leer hem vissen en hij eet zijn hele leven.’ Veel AI-consultants geven je een vis: een kant-en-klare agent die werkt, maar die je niet begrijpt en niet zelf kunt aanpassen. ZZPagent werkt anders: we leren je vissen. We bouwen niet alleen AI-agents voor je, maar zorgen dat jij als ondernemer begrijpt hoe ze werken, ze zelf kunt aanpassen en nieuwe agents kunt bouwen wanneer je dat wilt. Zo wordt AI met Hermes echt een kracht voor jouw werk en bedrijf, niet een black box die je elke keer moet uitbesteden."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Wat betekent een agent die met je meegroeit?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Een agent die met je meegroeit, onthoudt voorkeuren, werkwijzen en terugkerende taken binnen afgesproken grenzen, zodat briefings, conceptmails, documenten en planning steeds beter voorbereid worden."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Kan ik ZZPagent via WhatsApp Business gebruiken?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ja. WhatsApp Business kan als laagdrempelig kanaal dienen. ZZPagent begint met profiel, intake, labels en conceptantwoorden en automatiseert verder alleen met opt-in, logging en menselijke goedkeuring."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Kan Hermes mijn facturen verwerken met KNAB en DigiBoox?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ja. Hermes kan een factuur uit je e-mail of bestanden ophalen, leverancier, datum, bedrag, btw en factuurnummer controleren en nagaan of de kostenpost al bestaat. Na jouw goedkeuring kan Hermes de factuur automatisch in DigiBoox opnemen en koppelen aan de bijbehorende KNAB-banktransactie. Bij ontbrekende of onduidelijke gegevens stopt Hermes en vraagt het om jouw beoordeling."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Hoe begin ik klein met een AI-agent?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Kies één concrete taak: inboxfiltering, agenda-briefings, klantvragen samenvatten, documenten ordenen of conceptmails voorbereiden. Of misschien wil je beginnen met een AI-telefoonassistent. Eerst één agent en één workflow betrouwbaar maken; daarna pas uitbreiden naar extra kanalen, tools of automatiseringen. Zie een AI-assistent als een slimme, razendsnelle stagiair: die kan veel, maar kent jouw bedrijf nog niet. Laat zien hoe jij een taak uitvoert, geef voorbeelden van een goed resultaat en spreek af wanneer jouw toestemming nodig is. Begin met één terugkerende taak, controleer het werk en leg de aanpak pas als vaste werkwijze vast wanneer die in de praktijk werkt. Goed inwerken is niet alleen beter prompten. Ook de omgeving rond het AI-model, de harness, moet goed zijn ingericht: met toegang tot de juiste bronnen en tools, duidelijke controles en vragen wanneer informatie ontbreekt."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Wat is een workflow en wat is het verschil met een losse prompt?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Een workflow is een vaste reeks stappen die telkens in dezelfde logische volgorde wordt uitgevoerd. Een losse prompt is één afzonderlijke opdracht aan AI. Een workflow beschrijft het hele terugkerende proces, van de informatie die binnenkomt tot menselijke controle of akkoord. Hermes kan binnen dat proces informatie ordenen, iets voorbereiden, tools gebruiken en vervolgstappen uitvoeren, terwijl jij controleert en beslist."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Wat is het kernverschil tussen automatisering en een AI-agent?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Automatisering volgt vooraf bepaalde stappen; een agent kiest dynamisch acties op basis van doel en context. Deterministische workflows zijn voorspelbaar en goed controleerbaar bij herhaalde taken. Agenten bieden flexibiliteit bij variatie, maar vragen grenzen, toezicht en controle op fouten."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Wat is MCP en heeft Hermes dat nodig?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "MCP staat voor Model Context Protocol. Het is een standaard waarmee een AI-agent verbinding kan maken met externe documenten, agenda’s, databases of andere systemen. Bij Hermes heb je MCP meestal niet nodig, omdat Hermes het meeste zelf kan regelen met ingebouwde tools, vaardigheden en rechtstreekse koppelingen. MCP is alleen een aanvullende mogelijkheid als een specifiek extern systeem niet rechtstreeks bereikbaar is."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Kan ik met Hermes praten terwijl ik auto rijd?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ja. Hermes kan via kanalen zoals Telegram of WhatsApp op je Apple Watch of iPhone bereikbaar zijn. Je spreekt een bericht in, Hermes kan reageren en je kunt gesproken berichten terugkrijgen, bijvoorbeeld onderweg in de auto."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Kan Hermes mij helpen met het bouwen van een website?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ja. Hermes kan helpen bij het bouwen, verbeteren en publiceren van een website. Denk aan het ordenen van ideeën, het schrijven van conceptteksten, het voorbereiden van pagina's, het controleren van formulieren en het ondersteunen bij publicatie. Maar ook het eenvoudig ontwikkelen en koppelen van apps. De mens blijft nodig voor keuzes, controle, merkgevoel en akkoord op wat gepubliceerd wordt."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Stuurt Hermes mijn bedrijfsdata naar een LLM?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Hermes stuurt niet standaard de volledige bedrijfsomgeving naar een LLM. Alleen taakcontext zoals je prompt, relevante gespreksinformatie, geselecteerde tool- of bestandsresultaten en eventueel memory kan naar de gekozen modelroute gaan. Gebruik je /moa (Mixture of Agents), een feature van Hermes, dan laat Hermes voor één opdracht meerdere referentiemodellen eerst naar dezelfde vraag kijken. Een aggregatormodel gebruikt hun analyses om één antwoord te maken. Daarna schakelt Hermes terug naar het model dat je al gebruikte. Als de gekozen modellen extern draaien, ontvangen zij dus dezelfde geselecteerde taakcontext. Open source geeft controle en keuze, maar privacy blijft een ontwerpkeuze per workflow, hostingroute, rechtenmodel en modelroute."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Wanneer is AI lokaal draaien verstandig?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Zelf het model beheren Ja, je kunt een beschikbaar AI-model zelf laten draaien als de licentie dat toestaat en de hardware geschikt is. Dat heet zelf hosten. Je gebruikt dan de bestaande modelbestanden, ook wel weights genoemd. Je hoeft dus niet zelf een taalmodel vanaf nul te trainen. De vraag is vooral of deze inrichting past bij jouw werk, gegevens en budget. Een bruikbaar AI-systeem bestaat uit meer dan een model. Het model interpreteert de vraag en maakt een antwoord of voorstel. De applicatielaag eromheen levert bedrijfsgegevens, instructies, tools, toegangsrechten en controles. De derde laag is de rekenkracht: de computer of server waarop dit alles draait. Vergelijk het model met de motor van een auto. Een goede motor is belangrijk, maar pas met besturing, remmen en de rest van de auto kun je verantwoord de weg op. Voor een afgebakende taak kan een open model met passende software en goede bedrijfsinformatie veel waarde leveren. Dat betekent niet dat het op elk gebied even goed presteert als de krachtigste commerciële modellen. Een kleinere motor kan prima passen bij de rit die je wilt maken. Test daarom de concrete taak, inclusief uitzonderingen: wordt het werk betrouwbaar afgerond, klopt het resultaat en stopt het systeem als informatie of toestemming ontbreekt? Alleen een slim klinkend antwoord is niet genoeg. Een voorbeeld voor een zzp’er: een conceptofferte opstellen met je eigen tarieven, voorwaarden en een goedgekeurd voorbeeld. Het model helpt de aanvraag te begrijpen en de tekst te schrijven. De applicatie haalt de juiste tarieven op, rekent bedragen met een rekentool na en meldt ontbrekende gegevens. Jij controleert de offerte en geeft akkoord voordat deze naar de klant gaat. Jouw bedrijfskennis maakt hierbij het verschil: tarieven, afspraken, documenten en de manier waarop je werkt. Die informatie hoef je niet allemaal in het model zelf te trainen. De applicatie kan de relevante gegevens per taak ophalen en meegeven. Bewaak welke informatie daarvoor nodig is, wie erbij mag en hoelang die wordt bewaard. Controleer bij een leverancier de contracten en het databeleid, waaronder afspraken over opslag, hergebruik en training. Dat verschilt per dienst en overeenkomst. Een eigen agentomgeving beheren is niet hetzelfde als het model lokaal draaien. Je kunt Hermes zelf beheren en toch een extern model gebruiken. Dan gaan de geselecteerde opdracht, gesprekscontext, geheugeninformatie en toolresultaten die voor die taak worden meegestuurd naar de modelaanbieder. Ook lokaal bewaard geheugen kan zo extern worden verwerkt. Alleen als ook het model en de overige verwerking binnen de afgesproken eigen omgeving blijven, blijft die gegevensverwerking daar. Zelf hosten kan op eigen hardware, zoals een geschikte computer of bedrijfsserver, of op een gehuurde cloudserver. Een Europese VPS is dus geen computer bij jou op kantoor. Kijk per route naar de benodigde capaciteit, de locatie van de gegevens en wie het beheer doet. Niet iedere server is geschikt voor ieder model. Je krijgt meer zeggenschap over de inrichting, maar blijft afhankelijk van onder meer hardware, software, modellicenties en eventueel een hostingpartij. Bij eigen beheer horen ook updates, beveiliging, back-ups, hersteltests en het opnieuw testen van workflows na wijzigingen. Je betaalt mogelijk geen externe modelprijs per token, maar wel voor hardware of cloudcapaciteit, elektriciteit en beheertijd. Zelf hosten is daarom niet automatisch goedkoper, veiliger of volledig onafhankelijk. Spreek vooraf af wie verantwoordelijk is en vergelijk de totale kosten met de kwaliteit die de taak vraagt. Een hybride inrichting kan ook passen: gevoelige verwerking in de eigen omgeving en een extern model voor taken waarvoor dat is toegestaan. Leg die grens expliciet vast, ook voor geheugen, documenten, hulpmiddelen en een eventuele fallback. Een storing mag niet ongemerkt betekenen dat vertrouwelijke gegevens alsnog naar buiten gaan. ZZPagent kiest daarom per workflow: lokaal waar gegevensgrenzen en controle dat vragen, extern waar dat is toegestaan en beter past. Met een open agentomgeving kun je een andere modelroute aansluiten zonder noodzakelijk al je werkwijzen opnieuw op te bouwen. Koppelingen en resultaten moet je daarna wel opnieuw testen. Begin met één nuttige taak, vergelijk de routes op dezelfde voorbeelden en kies op basis van betrouwbaar afgerond werk."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Wat gebruik je voor hosting als ik de AI modellen op een eigen fysieke server wil hebben?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Dan gebruiken we lokale hosting, ook wel on-premise hosting genoemd. Op de server draaien de AI-modellen via software zoals Ollama of vLLM. Je gegevens blijven zo binnen je eigen omgeving. Voor één server is dit meestal voldoende. OpenInfra/OpenStack wordt pas interessant als je meerdere servers of een complete private cloud wilt beheren."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Hebben jullie ervaring met Respond.io?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ja. We hebben ervaring met een praktijkcase waarin Respond.io zowel centrale inbox als eerste AI-intakelaag was, terwijl n8n de vaste workflow naar CRM en kanaallabeling verzorgde. De les: Respond.io kan klantgesprekken uit WhatsApp, websitechat en sociale kanalen bundelen en eventueel eerste intakevragen stellen, n8n voert voorspelbare stappen uit en Hermes kan daarboven gesprekken samenvatten, klantvragen duiden, conceptantwoorden voorbereiden en vervolgstappen bewaken. De concrete inrichting maken we altijd eigen en AVG-bewust, zonder bestaande cases één-op-één te kopiëren."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Hoe moeilijk is het om een chatbot zoals Sophie die praat en belt te maken?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Een pratende en bellende chatbot zoals Sophie is technisch zeer goed mogelijk. Sophie is een snelle showcase die we gebouwd hebben om te laten zien wat nu al bruikbaar is: spraak, gesprek, bellen, intake en opvolging in één kleine demo. De echte waarde zit niet in de losse demo zelf, maar in wat je ermee kunt laten zien: een agent die zelfstandig een gesprek kan starten, informatie kan verzamelen en een vervolgactie kan voorbereiden. De waarde zit ook in de bredere mogelijkheden van Hermes. Een dienst als Fonio.ai vraagt bijvoorbeeld rond €99 per maand voor alleen al een AI-telefoonassistent, terwijl Hermes zo’n toepassing zelf kan helpen bouwen en koppelen. Je kunt het testen op de website; we hebben haar Sophie genoemd. De waarde zit ook in de bredere mogelijkheden van Hermes. Een dienst als Fonio.ai vraagt bijvoorbeeld rond €99 per maand voor alleen al een AI-telefoonassistent, terwijl Hermes zo’n toepassing zelf kan helpen bouwen en koppelen. Je kunt het testen op de website; we hebben haar Sophie genoemd."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Waarom is Hermes open source?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Hermes Agent is open source: de code is openbaar beschikbaar, kan worden bewaard, gedeeld, verbeterd en door anderen worden voortgezet. GitHub is daarbij een online werkplaats en archief voor softwarecode: een soort digitale garage waar ontwikkelaars code bouwen, onderhouden, verbeteren en delen. Je betaalt geen licentie voor Hermes zelf. Nous Research kan geld verdienen met diensten eromheen, zoals modeltoegang, hosting, support of maatwerk voor bedrijven. Voor onze toepassing blijft Hermes open, community-onderhouden en zonder vendor lock-in."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Volgens Bart Boonstra is Hermes een beperktere versie van Het Mainframe. Klopt dat?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Bart Boonstra vergelijkt Hermes in zijn cursus Slimmer werken met AI met Het Mainframe en presenteert Hermes daarbij als een beperktere variant. Als je kijkt naar technische vrijheid en uitbreidbaarheid, zien wij het eerder omgekeerd. Het Mainframe is een begeleide werkwijze die sterk rond Claude is opgebouwd. Claude is een krachtig maar propriëtair model en platform. Hermes is een open-source agentlaag die niet aan één model vastzit: je kunt onder meer Claude, ChatGPT/Codex, andere cloudmodellen of lokale modellen gebruiken. Het Mainframe wordt aangeboden als een leertraject van ongeveer acht weken. Met Hermes begin je direct met één afgebakende taak en leer je al doende. Door jouw aanwijzingen, controles en correcties bouwt Hermes geheugen en herbruikbare skills op en sluit het steeds beter aan op jouw werkwijze. Het zijn dus verschillende routes. Voor wie modelkeuze, eigen hosting, uitbreidbaarheid en leren in het dagelijkse werk belangrijk vindt, biedt Hermes juist de bredere basis."
-            }
-          },
-{
+        },
+        {
           "@type": "Question",
-          "name": "Wat krijg ik met GeoScope op mijn eigen Hermes?",
+          "name": "Hoe verschillen OpenAI Dots, Meta Muse en Grok Bot van Hermes?",
           "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Voor eenmalig €500 exclusief btw installeren we de GeoScope-skill op jouw bestaande Hermes en richten we die in voor jouw bedrijf. Je krijgt een gebruikslicentie op onze eigen werkwijze voor gevonden worden én opvolgen: je AI-zichtbaarheid meten, antwoorden en bronnen beoordelen, verbeteringen voorbereiden en het resultaat opnieuw meten. Wij blijven de skill doorontwikkelen; het intellectuele eigendom blijft bij GeoScope. De skill staat in jouw eigen Hermes-omgeving. Dat betekent niet dat alle verwerking offline gebeurt: gekoppelde AI-modellen en meetdiensten kunnen extern draaien. Hun gebruikskosten zijn niet inbegrepen. Een nieuwe Hermes-basisinstallatie valt buiten deze €500. We spreken vooraf af welke koppelingen en metingen beschikbaar zijn en wat is inbegrepen aan ondersteuning en eventuele latere updates. Wijzigingen aan je website en andere externe acties gebeuren alleen binnen de afspraken die jij goedkeurt."
+            "@type": "Answer",
+            "text": "OpenAI Dots, Meta Muse en Grok Bot zijn AI-assistenten die niet alleen antwoorden geven, maar ook met apps werken, context onthouden en taken op de achtergrond uitvoeren. Hun aanbieders leveren daarvoor een beheerde omgeving. De beschikbaarheid verschilt per land, abonnement en uitrolfase. Hermes is een open-source werkomgeving voor een AI-assistent. Je kunt Hermes op je eigen computer of server laten draaien en kiezen uit verschillende ondersteunde taalmodellen. Je geheugen, tools en opgebouwde werkwijzen staan in die omgeving, zodat je bij een modelwissel niet automatisch je hele assistent opnieuw hoeft op te bouwen. Het belangrijkste verschil zit dus in keuze en zeggenschap over de inrichting. Bij Dots, Muse en Grok Bot bepaalt de aanbieder de mogelijkheden van het platform. Bij Hermes kun je meer zelf bepalen over hosting, modellen en koppelingen. Daar hoort wel beheer bij. Een eigen installatie betekent bovendien niet dat alle verwerking lokaal gebeurt: dat hangt af van de modellen en diensten die je aansluit."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat als de agent twijfelt of iets fout kan doen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dan stopt hij en vraagt akkoord. Geen klantbericht, betaling of gevoelige actie zonder menselijke controle. Dat is geen bijzaak, het is het uitgangspunt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat kost een Hermes-implementatie via ZZPagent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In het eerste startgesprek bepalen we welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken starttraject. Geen open urenrekening en geen verrassingen achteraf. Reken voor het inrichten van een eerste afgebakende Hermes-assistent op ongeveer €1.000 exclusief btw. Voor eenmalig €500 exclusief btw installeren we daarnaast de GeoScope-skill op jouw bestaande Hermes, inclusief gebruikslicentie en inrichting voor jouw bedrijf. Daarmee richten we de werkwijze voor nulmeting, verbeteracties, vervolgmetingen en rapportage over je AI-vindbaarheid in. Gebruikskosten van modellen en meetdiensten staan hier los van. Wil je Hermes op een Europese VPS laten draaien, reken dan doorgaans op ongeveer €10 tot €20 per maand exclusief btw, afhankelijk van de server en eventuele extra’s. Met een bestaand ChatGPT Plus-abonnement met Codex kom je meestal al erg ver en heb je een goede LLM als basis. In Nederland kost dat momenteel ongeveer €23 per maand inclusief btw. Daarnaast richten we goedkopere commoditymodellen zoals DeepSeek in voor routinewerk. De tokenprijzen kunnen ruim 100 keer lager liggen dan die van Astra. Voor afgebakende routinetaken kan dat hetzelfde bruikbare resultaat opleveren. Bij normaal gebruik blijven de kosten daarvan vaak onder €10 per maand, maar het exacte bedrag hangt af van het daadwerkelijke verbruik. Er is geen verplicht beheerabonnement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat is een AI-vindbaarheidstest (GeoScope) en wat krijg ik?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Voor eenmalig €500 exclusief btw installeren we de GeoScope-skill op jouw bestaande Hermes en richten we die in voor jouw bedrijf. Je krijgt een gebruikslicentie op onze eigen werkwijze voor gevonden worden én opvolgen: je AI-zichtbaarheid meten, antwoorden en bronnen beoordelen, verbeteringen voorbereiden en het resultaat opnieuw meten. Wij blijven de skill doorontwikkelen; het intellectuele eigendom blijft bij GeoScope. De skill staat in jouw eigen Hermes-omgeving. Dat betekent niet dat alle verwerking offline gebeurt: gekoppelde AI-modellen en meetdiensten kunnen extern draaien. Gebruikskosten van modellen en meetdiensten zijn niet inbegrepen. De totale kosten hangen af van het aantal vragen, AI-omgevingen en de gebruikte diensten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe snel kan een eerste Hermes-agent live zijn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reken op weken, niet op maanden. Na het startgesprek spreken we doel, toegang, grenzen en testvoorbeelden af. Daarna richten we de gekozen taken in, testen we met jouw eigen werk en sturen we samen bij. De precieze planning hangt af van de gekozen taken en benodigde toegang."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Heb ik eigen ontwikkelaars nodig voor Hermes Agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Voor een eerste ZZPagent-route heb je geen eigen ontwikkelaars nodig. Wel zijn jouw keuzes en toegang nodig: welk kanaal, welke mailbox of databron, welke modelroute en welke acties nooit zonder akkoord mogen plaatsvinden. Technische inrichting, koppelingen en beheer worden stap voor stap voorbereid."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Werkt Hermes met de tools die ik al gebruik?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, dat is precies het idee: mail, agenda, documenten, WhatsApp, Slack, CRM, boekhouding of n8n. Geen nieuw eiland, maar een laag over wat er al staat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan Hermes mijn facturen verwerken met KNAB en DigiBoox?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Hermes kan een factuur uit je e-mail of bestanden ophalen, leverancier, datum, bedrag, btw en factuurnummer controleren en nagaan of de kostenpost al bestaat. Na jouw goedkeuring kan Hermes de factuur automatisch in DigiBoox opnemen en koppelen aan de bijbehorende KNAB-banktransactie. Bij ontbrekende of onduidelijke gegevens stopt Hermes en vraagt het om jouw beoordeling."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Krijg ik alleen een kant-en-klare AI-agent, of leer ik er zelf mee werken?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Je kent het gezegde: 'Geef een man een vis en hij eet een dag, leer hem vissen en hij eet zijn hele leven.' Veel AI-consultants geven je een vis: een kant-en-klare agent die werkt, maar die je niet begrijpt en niet zelf kunt aanpassen. ZZPagent werkt anders: we leren je vissen. We bouwen niet alleen AI-agents voor je, maar zorgen dat jij als ondernemer begrijpt hoe ze werken, ze zelf kunt aanpassen en nieuwe agents kunt bouwen wanneer je dat wilt. Zo wordt AI met Hermes echt een kracht voor jouw werk en bedrijf, niet een black box die je elke keer moet uitbesteden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe begin ik klein met een AI-agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kies één concrete taak: inboxfiltering, agenda-briefings, klantvragen samenvatten, documenten ordenen of conceptmails voorbereiden. Of misschien wil je beginnen met een AI-telefoonassistent. Eerst één agent en één workflow betrouwbaar maken; daarna pas uitbreiden naar extra kanalen, tools of automatiseringen. Zie een AI-assistent als een slimme, razendsnelle stagiair: die kan veel, maar kent jouw bedrijf nog niet. Laat zien hoe jij een taak uitvoert, geef voorbeelden van een goed resultaat en spreek af wanneer jouw toestemming nodig is. Begin met één terugkerende taak, controleer het werk en leg de aanpak pas als vaste werkwijze vast wanneer die in de praktijk werkt. Goed inwerken is niet alleen beter prompten. Ook de omgeving rond het AI-model, de harness, moet goed zijn ingericht: met toegang tot de juiste bronnen en tools, duidelijke controles en vragen wanneer informatie ontbreekt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welke GEO-auditingtools gebruiken jullie bij GeoScope?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Voor ChatGPT en Gemini gebruiken we DataForSEO. Voor Perplexity gebruiken we Apify; de Copilot-koppeling via Apify is nog in ontwikkeling. Claude wordt getest met een model-API met webzoeken. Hermes ondersteunt de analyse en het voorbereiden van verbeteringen. Het GEO Strategy House: van technische basis tot meten en verbeteren."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat is een workflow en wat is het verschil met een losse prompt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een workflow is een vaste reeks stappen die telkens in dezelfde logische volgorde wordt uitgevoerd. Een losse prompt is één afzonderlijke opdracht aan AI. Een workflow beschrijft het hele terugkerende proces, van de informatie die binnenkomt tot jouw controle of akkoord. Een eenvoudige workflow bestaat bijvoorbeeld uit vier stappen: een mail, formulier, bestand of bericht komt binnen; Hermes vat samen, ordent informatie of maakt een concept; Hermes zet een taak, antwoord of document klaar en kan waar nodig een tool gebruiken; jij controleert, past aan en beslist. Een agent kan binnen zo’n workflow zelfstandiger stappen uitvoeren en bepalen wat er vervolgens nodig is. Jij spreekt vooraf af waar Hermes zelf mag handelen en wanneer jouw akkoord nodig blijft. Bekijk ook het workflowoverzicht met concrete voorbeelden voor zzp’ers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat is het kernverschil tussen automatisering en een AI-agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Automatisering volgt vooraf bepaalde stappen; een agent kiest dynamisch acties op basis van doel en context. Deterministische workflows zijn voorspelbaar en goed controleerbaar bij herhaalde taken. Agenten bieden flexibiliteit bij variatie, maar vragen grenzen, toezicht en controle op fouten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan Hermes mij helpen met het bouwen van een website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Hermes kan helpen bij het bouwen, verbeteren en publiceren van een website. Denk aan het ordenen van ideeën, het schrijven van conceptteksten, het voorbereiden van pagina's, het controleren van formulieren en het ondersteunen bij publicatie. Maar ook het eenvoudig ontwikkelen en koppelen van apps. De mens blijft nodig voor keuzes, controle, merkgevoel en akkoord op wat gepubliceerd wordt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hebben jullie ervaring met Respond.io?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. We hebben ervaring met een praktijkcase waarin Respond.io niet alleen als centrale inbox werkte, maar ook als eerste AI-intakelaag. In die opzet kwamen WhatsApp en sociale kanalen samen in Respond.io, stelde de Respond.io-agent de eerste intakevragen en zorgde n8n daarna voor de vaste workflow richting CRM, kanaallabeling en leadregistratie. Dat is leerzaam voor ZZPagent: Respond.io is sterk als kanaal- en intakelaag, n8n als voorspelbare workflowlaag en Hermes als bredere agentlaag voor samenvatten, duiden, conceptantwoorden en vervolgstappen. De concrete inrichting maken we altijd eigen en AVG-bewust, zonder bestaande cases één-op-één te kopiëren. Dit sluit aan op ons AI-vindbaarheidsmodel GeoScope, powered by Hermes: gevonden worden én opvolgen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ik met Hermes praten terwijl ik auto rijd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Hermes kan via kanalen zoals Telegram of WhatsApp op je Apple Watch of iPhone bereikbaar zijn. Je spreekt een bericht in, Hermes kan reageren en je kunt gesproken berichten terugkrijgen, bijvoorbeeld onderweg in de auto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe moeilijk is het om een chatbot zoals Sophie die praat en belt te maken?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een pratende en bellende chatbot zoals Sophie is technisch zeer goed mogelijk. Sophie is een snelle showcase die we gebouwd hebben om te laten zien wat nu al bruikbaar is: spraak, gesprek, bellen, intake en opvolging in één kleine demo. De echte waarde zit niet in de losse demo zelf, maar in wat je ermee kunt laten zien: een agent die zelfstandig een gesprek kan starten, informatie kan verzamelen en een vervolgactie kan voorbereiden. De waarde zit ook in de bredere mogelijkheden van Hermes. Een dienst als Fonio.ai vraagt bijvoorbeeld rond €99 per maand voor alleen al een AI-telefoonassistent, terwijl Hermes zo’n toepassing zelf kan helpen bouwen en koppelen. Je kunt het testen op de website; we hebben haar Sophie genoemd."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat betekent een agent die met je meegroeit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een agent die met je meegroeit, onthoudt voorkeuren, werkwijzen en terugkerende taken binnen afgesproken grenzen. Daardoor hoef je niet steeds opnieuw uit te leggen hoe je werkt. Hermes kan zo briefings, conceptmails, documentordening, planning en opvolging steeds beter voorbereiden, terwijl jij de eindcontrole houdt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ik Hermes via WhatsApp Business gebruiken?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. WhatsApp Business kan het laagdrempelige kanaal zijn waarmee jij of je klanten de agent bereiken. Hermes begint veilig: profiel, intake, labels en conceptantwoorden eerst; verdergaande automatisering pas met duidelijke opt-in, logging, officiële routes en menselijke goedkeuring. Hier ligt ook de kracht van Hermes: we kunnen WhatsApp-berichten laten sturen, groeperen, labelen en opvolgen. Zie het als een mini-CRM rond je klantgesprekken."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat is MCP en heeft Hermes dat nodig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MCP staat voor Model Context Protocol. Het is een standaard waarmee een AI-agent verbinding kan maken met externe documenten, agenda’s, databases of andere systemen. Bij Hermes heb je MCP meestal niet nodig. Hermes kan het meeste zelf regelen met ingebouwde tools, vaardigheden en rechtstreekse koppelingen. Alleen als een specifiek extern systeem niet rechtstreeks bereikbaar is, kan MCP een aanvullende koppeling zijn. Het is dus een mogelijkheid, geen vereiste om met Hermes te beginnen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Hermes Agent AVG-proof in te zetten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, mits de inrichting klopt. Bij ZZPagent begint dat met dataminimalisatie, duidelijke toegang, menselijke goedkeuring bij gevoelige acties en een route die past bij je risico’s: VPS in Europa, eigen Mac mini/Mac of hybride. AVG-proof is dus geen losse claim, maar een ontwerpkeuze per workflow, kanaal en databron."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Zijn autonome agents zoals Hermes veilig genoeg voor zakelijk gebruik?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Autonome agents vragen begrenzing. ZZPagent kiest daarom voor menselijke controle, beperkte toegang, duidelijke taakafbakening, logging/controleerbaarheid en geen automatische verzending of gevoelige actie zonder akkoord waar reputatie, geld, rechten of privacy geraakt kunnen worden. Veiligheid zit niet in “de agent mag alles”, maar in professioneel beperken wat hij mag doen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Stuurt Hermes mijn bedrijfsdata naar een LLM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Niet standaard je volledige bedrijfsomgeving. Een extern model ontvangt alleen wat voor een taak in de context wordt geplaatst: je prompt, relevante gespreksinformatie, geselecteerde tool- of bestandsresultaten en eventueel memory. Memory wordt lokaal opgeslagen, maar kan bij gebruik wel in de modelcontext terechtkomen. Gebruik je /moa (Mixture of Agents), een feature van Hermes, dan laat Hermes voor één opdracht meerdere referentiemodellen eerst naar dezelfde vraag kijken. Een aggregatormodel gebruikt hun analyses om één antwoord te maken. Daarna schakelt Hermes terug naar het model dat je al gebruikte. Als de gekozen modellen extern draaien, ontvangen zij dus dezelfde geselecteerde taakcontext. Open source geeft controle en keuze, maar is niet automatisch privé. Privacy ontwerp je per workflow: context minimaliseren, rechten scheiden en per taak kiezen tussen lokaal, eigen VPS, Europese cloud of externe modellen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wanneer is AI lokaal draaien verstandig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zelf het model beheren Ja, je kunt een beschikbaar AI-model zelf laten draaien als de licentie dat toestaat en de hardware geschikt is. Dat heet zelf hosten. Je gebruikt dan de bestaande modelbestanden, ook wel weights genoemd. Je hoeft dus niet zelf een taalmodel vanaf nul te trainen. De vraag is vooral of deze inrichting past bij jouw werk, gegevens en budget. Een bruikbaar AI-systeem bestaat uit meer dan een model. Het model interpreteert de vraag en maakt een antwoord of voorstel. De applicatielaag eromheen levert bedrijfsgegevens, instructies, tools, toegangsrechten en controles. De derde laag is de rekenkracht: de computer of server waarop dit alles draait. Vergelijk het model met de motor van een auto. Een goede motor is belangrijk, maar pas met besturing, remmen en de rest van de auto kun je verantwoord de weg op. Voor een afgebakende taak kan een open model met passende software en goede bedrijfsinformatie veel waarde leveren. Dat betekent niet dat het op elk gebied even goed presteert als de krachtigste commerciële modellen. Een kleinere motor kan prima passen bij de rit die je wilt maken. Test daarom de concrete taak, inclusief uitzonderingen: wordt het werk betrouwbaar afgerond, klopt het resultaat en stopt het systeem als informatie of toestemming ontbreekt? Alleen een slim klinkend antwoord is niet genoeg. Een voorbeeld voor een zzp’er: een conceptofferte opstellen met je eigen tarieven, voorwaarden en een goedgekeurd voorbeeld. Het model helpt de aanvraag te begrijpen en de tekst te schrijven. De applicatie haalt de juiste tarieven op, rekent bedragen met een rekentool na en meldt ontbrekende gegevens. Jij controleert de offerte en geeft akkoord voordat deze naar de klant gaat. Jouw bedrijfskennis maakt hierbij het verschil: tarieven, afspraken, documenten en de manier waarop je werkt. Die informatie hoef je niet allemaal in het model zelf te trainen. De applicatie kan de relevante gegevens per taak ophalen en meegeven. Bewaak welke informatie daarvoor nodig is, wie erbij mag en hoelang die wordt bewaard. Controleer bij een leverancier de contracten en het databeleid, waaronder afspraken over opslag, hergebruik en training. Dat verschilt per dienst en overeenkomst. Een eigen agentomgeving beheren is niet hetzelfde als het model lokaal draaien. Je kunt Hermes zelf beheren en toch een extern model gebruiken. Dan gaan de geselecteerde opdracht, gesprekscontext, geheugeninformatie en toolresultaten die voor die taak worden meegestuurd naar de modelaanbieder. Ook lokaal bewaard geheugen kan zo extern worden verwerkt. Alleen als ook het model en de overige verwerking binnen de afgesproken eigen omgeving blijven, blijft die gegevensverwerking daar. Zelf hosten kan op eigen hardware, zoals een geschikte computer of bedrijfsserver, of op een gehuurde cloudserver. Een Europese VPS is dus geen computer bij jou op kantoor. Kijk per route naar de benodigde capaciteit, de locatie van de gegevens en wie het beheer doet. Niet iedere server is geschikt voor ieder model. Je krijgt meer zeggenschap over de inrichting, maar blijft afhankelijk van onder meer hardware, software, modellicenties en eventueel een hostingpartij. Bij eigen beheer horen ook updates, beveiliging, back-ups, hersteltests en het opnieuw testen van workflows na wijzigingen. Je betaalt mogelijk geen externe modelprijs per token, maar wel voor hardware of cloudcapaciteit, elektriciteit en beheertijd. Zelf hosten is daarom niet automatisch goedkoper, veiliger of volledig onafhankelijk. Spreek vooraf af wie verantwoordelijk is en vergelijk de totale kosten met de kwaliteit die de taak vraagt. Een hybride inrichting kan ook passen: gevoelige verwerking in de eigen omgeving en een extern model voor taken waarvoor dat is toegestaan. Leg die grens expliciet vast, ook voor geheugen, documenten, hulpmiddelen en een eventuele fallback. Een storing mag niet ongemerkt betekenen dat vertrouwelijke gegevens alsnog naar buiten gaan. ZZPagent kiest daarom per workflow: lokaal waar gegevensgrenzen en controle dat vragen, extern waar dat is toegestaan en beter past. Met een open agentomgeving kun je een andere modelroute aansluiten zonder noodzakelijk al je werkwijzen opnieuw op te bouwen. Koppelingen en resultaten moet je daarna wel opnieuw testen. Begin met één nuttige taak, vergelijk de routes op dezelfde voorbeelden en kies op basis van betrouwbaar afgerond werk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat gebruik je voor hosting als ik de AI modellen op een eigen fysieke server wil hebben?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dan gebruiken we lokale hosting, ook wel on-premise hosting genoemd. Op de server draaien de AI-modellen via software zoals Ollama of vLLM. Je gegevens blijven zo binnen je eigen omgeving. Voor één server is dit meestal voldoende. OpenInfra/OpenStack wordt pas interessant als je meerdere servers of een complete private cloud wilt beheren."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat betekent het dat Hermes open source is?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hermes Agent is open source. Dat betekent dat de code openbaar beschikbaar is, ongeveer zoals softwareprojecten op GitHub worden bewaard, gedeeld, verbeterd en door anderen kunnen worden voortgezet. GitHub is een online werkplaats en archief voor softwarecode: een soort digitale garage waar ontwikkelaars code bouwen, onderhouden, verbeteren en delen. Omdat Hermes open source is, blijft de code beschikbaar, ook als Nous Research ooit zou stoppen of het project door anderen wordt voortgezet. Je betaalt geen licentie voor Hermes zelf. Nous Research kan geld verdienen met diensten eromheen, zoals modeltoegang, hosting, support of maatwerk voor bedrijven. Dat zie je vaker bij open source: Google maakte Android open source en bouwde daarmee een groot Google-ecosysteem; Meta geeft Llama-modellen vrij en wordt daardoor belangrijker in open AI. Hermes is dan de open werkbank rond agents; het commerciële deel zit in gemak, beheer en professioneel gebruik eromheen. Maar voor onze toepassing hoef je je geen zorgen te maken: Hermes blijft open source, door de community up-to-date en er is geen vendor lock-in."
+          }
+        }
+      ]
+    }
+  ]
 }
-        ]
-      }
-    ]
-  }
-  </script>
+</script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
     :root{
@@ -1232,24 +1311,23 @@
             <p><strong>Hermes is vooral een persoonlijke AI-assistent. OpenClaw biedt daarnaast ingebouwde mogelijkheden om met meerdere mensen dezelfde agentomgeving te gebruiken.</strong></p><p>Werk je zelfstandig en zoek je een assistent die jouw werkwijze onthoudt, terugkerende taken uitvoert en specialistische agents kan inschakelen? Dan is Hermes een logische keuze. De samenwerking draait vooral om jou en de agents die voor jou werken.</p><p>Wil je met collega’s of vaste samenwerkingspartners in dezelfde gesprekken werken, taken overnemen en afspreken wie mag lezen, voorstellen doen of meewerken? Dan komt OpenClaw 2.0 eerder in beeld.</p><p>Het is geen harde scheiding: OpenClaw kan ook persoonlijk worden gebruikt en Hermes kan ook binnen een bedrijf worden ingezet. De keuze hangt vooral af van hoe je wilt samenwerken, niet alleen van de grootte van je onderneming.</p>
           </details>
           <details>
-            <summary>04. Volgens Bart Boonstra is Hermes een beperktere versie van Het Mainframe. Klopt dat?</summary>
-            <p>Bart Boonstra vergelijkt Hermes in zijn cursus <em>Slimmer werken met AI</em> met Het Mainframe en presenteert Hermes daarbij als een beperktere variant. Als je kijkt naar technische vrijheid en uitbreidbaarheid, zien wij het eerder omgekeerd.</p>
-            <p>Het Mainframe is een begeleide werkwijze die sterk rond Claude is opgebouwd. Claude is een krachtig maar propriëtair model en platform. Hermes is een open-source agentlaag die niet aan één model vastzit: je kunt onder meer Claude, ChatGPT/Codex, andere cloudmodellen of lokale modellen gebruiken.</p>
-            <p>Het Mainframe wordt aangeboden als een leertraject van ongeveer acht weken. Met Hermes begin je direct met één afgebakende taak en leer je al doende. Door jouw aanwijzingen, controles en correcties bouwt Hermes geheugen en herbruikbare skills op en sluit het steeds beter aan op jouw werkwijze.</p>
-            <p>Het zijn dus verschillende routes. Voor wie modelkeuze, eigen hosting, uitbreidbaarheid en leren in het dagelijkse werk belangrijk vindt, biedt Hermes juist de bredere basis.</p>
-          </details>
+<summary>04. Hoe verschillen OpenAI Dots, Meta Muse en Grok Bot van Hermes?</summary>
+<p>OpenAI Dots, Meta Muse en Grok Bot zijn AI-assistenten die niet alleen antwoorden geven, maar ook met apps werken, context onthouden en taken op de achtergrond uitvoeren. Hun aanbieders leveren daarvoor een beheerde omgeving. De beschikbaarheid verschilt per land, abonnement en uitrolfase.</p>
+<p>Hermes is een open-source werkomgeving voor een AI-assistent. Je kunt Hermes op je eigen computer of server laten draaien en kiezen uit verschillende ondersteunde taalmodellen. Je geheugen, tools en opgebouwde werkwijzen staan in die omgeving, zodat je bij een modelwissel niet automatisch je hele assistent opnieuw hoeft op te bouwen.</p>
+<p>Het belangrijkste verschil zit dus in keuze en zeggenschap over de inrichting. Bij Dots, Muse en Grok Bot bepaalt de aanbieder de mogelijkheden van het platform. Bij Hermes kun je meer zelf bepalen over hosting, modellen en koppelingen. Daar hoort wel beheer bij. Een eigen installatie betekent bovendien niet dat alle verwerking lokaal gebeurt: dat hangt af van de modellen en diensten die je aansluit.</p>
+</details>
                   <details>
                     <summary>05. Wat als de agent twijfelt of iets fout kan doen?</summary>
                     <p>Dan stopt hij en vraagt akkoord. Geen klantbericht, betaling of gevoelige actie zonder menselijke controle. Dat is geen bijzaak, het is het uitgangspunt.</p>
                   </details>
                   <details>
                     <summary>06. Wat kost een Hermes-implementatie via ZZPagent?</summary>
-                    <p>In het eerste startgesprek bepalen we welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken starttraject. Geen open urenrekening en geen verrassingen achteraf. Reken voor het inrichten van een eerste afgebakende Hermes-assistent op ongeveer €1.000 exclusief btw. Voor eenmalig €500 exclusief btw installeren we daarnaast de GeoScope-skill op jouw bestaande Hermes, inclusief gebruikslicentie en inrichting voor jouw bedrijf. Daarmee richten we de werkwijze voor nulmeting, verbeteracties, vervolgmetingen en rapportage over je AI-vindbaarheid in. Gebruikskosten van modellen en meetdiensten staan hier los van. Wil je Hermes op een Europese VPS laten draaien, reken dan doorgaans op ongeveer €10 tot €20 per maand exclusief btw, afhankelijk van de server en eventuele extra’s. Met een bestaand ChatGPT Plus-abonnement met Codex kom je meestal al erg ver en heb je een goede LLM als basis. In Nederland kost dat momenteel ongeveer €23 per maand inclusief btw. Daarnaast richten we veel goedkopere commoditymodellen in als fallback. Bij normaal gebruik blijven de kosten daarvan vaak onder €10 per maand, maar het exacte bedrag hangt af van het daadwerkelijke verbruik. Er is geen verplicht beheerabonnement.</p>
+                    <p>In het eerste startgesprek bepalen we welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken starttraject. Geen open urenrekening en geen verrassingen achteraf. Reken voor het inrichten van een eerste afgebakende Hermes-assistent op ongeveer €1.000 exclusief btw. Voor eenmalig €500 exclusief btw installeren we daarnaast de GeoScope-skill op jouw bestaande Hermes, inclusief gebruikslicentie en inrichting voor jouw bedrijf. Daarmee richten we de werkwijze voor nulmeting, verbeteracties, vervolgmetingen en rapportage over je AI-vindbaarheid in. Gebruikskosten van modellen en meetdiensten staan hier los van. Wil je Hermes op een Europese VPS laten draaien, reken dan doorgaans op ongeveer €10 tot €20 per maand exclusief btw, afhankelijk van de server en eventuele extra’s. Met een bestaand ChatGPT Plus-abonnement met Codex kom je meestal al erg ver en heb je een goede LLM als basis. In Nederland kost dat momenteel ongeveer €23 per maand inclusief btw. Daarnaast richten we goedkopere commoditymodellen zoals DeepSeek in voor routinewerk. De tokenprijzen kunnen ruim 100 keer lager liggen dan die van Astra. Voor afgebakende routinetaken kan dat hetzelfde bruikbare resultaat opleveren. Bij normaal gebruik blijven de kosten daarvan vaak onder €10 per maand, maar het exacte bedrag hangt af van het daadwerkelijke verbruik. Er is geen verplicht beheerabonnement.</p>
                   </details>
                   <details id="faq-geoscope">
-                    <summary>06a. Wat krijg ik met GeoScope op mijn eigen Hermes?</summary>
+                    <summary>06a. Wat is een AI-vindbaarheidstest (GeoScope) en wat krijg ik?</summary>
                     <p>Voor eenmalig €500 exclusief btw installeren we de GeoScope-skill op jouw bestaande Hermes en richten we die in voor jouw bedrijf. Je krijgt een gebruikslicentie op onze eigen werkwijze voor gevonden worden én opvolgen: je AI-zichtbaarheid meten, antwoorden en bronnen beoordelen, verbeteringen voorbereiden en het resultaat opnieuw meten. Wij blijven de skill doorontwikkelen; het intellectuele eigendom blijft bij GeoScope.</p>
-                    <p>De skill staat in jouw eigen Hermes-omgeving. Dat betekent niet dat alle verwerking offline gebeurt: gekoppelde AI-modellen en meetdiensten kunnen extern draaien. Hun gebruikskosten zijn niet inbegrepen. Een nieuwe Hermes-basisinstallatie valt buiten deze €500. We spreken vooraf af welke koppelingen en metingen beschikbaar zijn en wat is inbegrepen aan ondersteuning en eventuele latere updates. Wijzigingen aan je website en andere externe acties gebeuren alleen binnen de afspraken die jij goedkeurt.</p>
+                    <p>De skill staat in jouw eigen Hermes-omgeving. Dat betekent niet dat alle verwerking offline gebeurt: gekoppelde AI-modellen en meetdiensten kunnen extern draaien. Gebruikskosten van modellen en meetdiensten zijn niet inbegrepen. De totale kosten hangen af van het aantal vragen, AI-omgevingen en de gebruikte diensten.</p>
                   </details>
 <details>
                     <summary>07. Hoe snel kan een eerste Hermes-agent live zijn?</summary>
@@ -1278,7 +1356,12 @@
             <p>Zie een AI-assistent als een slimme, razendsnelle stagiair: die kan veel, maar kent jouw bedrijf nog niet. Laat zien hoe jij een taak uitvoert, geef voorbeelden van een goed resultaat en spreek af wanneer jouw toestemming nodig is. Begin met één terugkerende taak, controleer het werk en leg de aanpak pas als vaste werkwijze vast wanneer die in de praktijk werkt.</p>
             <p>Goed inwerken is niet alleen beter prompten. Ook de omgeving rond het AI-model, de harness, moet goed zijn ingericht: met toegang tot de juiste bronnen en tools, duidelijke controles en vragen wanneer informatie ontbreekt.</p>
           </details>
-          <details>
+          <details id="faq-geoscope-tools">
+<summary>11d. Welke GEO-auditingtools gebruiken jullie bij GeoScope?</summary>
+<p>Voor ChatGPT en Gemini gebruiken we DataForSEO. Voor Perplexity gebruiken we Apify; de Copilot-koppeling via Apify is nog in ontwikkeling. Claude wordt getest met een model-API met webzoeken. Hermes ondersteunt de analyse en het voorbereiden van verbeteringen.</p>
+<figure><img src="assets/geo-strategy-house.jpg" alt="Het GEO Strategy House met GEO-auditing, promptonderzoek, rapportage, content en kanalen" loading="lazy" decoding="async" style="display:block;max-width:100%;width:100%;height:auto" /><figcaption>Het GEO Strategy House: van technische basis tot meten en verbeteren.</figcaption></figure>
+</details>
+<details>
             <summary>12. Wat is een workflow en wat is het verschil met een losse prompt?</summary>
             <p>Een workflow is een vaste reeks stappen die telkens in dezelfde logische volgorde wordt uitgevoerd. Een losse prompt is één afzonderlijke opdracht aan AI. Een workflow beschrijft het hele terugkerende proces, van de informatie die binnenkomt tot jouw controle of akkoord.</p>
             <p>Een eenvoudige workflow bestaat bijvoorbeeld uit vier stappen: een mail, formulier, bestand of bericht komt binnen; Hermes vat samen, ordent informatie of maakt een concept; Hermes zet een taak, antwoord of document klaar en kan waar nodig een tool gebruiken; jij controleert, past aan en beslist.</p>
@@ -1297,7 +1380,8 @@
           <details>
             <summary>15. Hebben jullie ervaring met Respond.io?</summary>
             <p>Ja. We hebben ervaring met een praktijkcase waarin Respond.io niet alleen als centrale inbox werkte, maar ook als eerste AI-intakelaag. In die opzet kwamen WhatsApp en sociale kanalen samen in Respond.io, stelde de Respond.io-agent de eerste intakevragen en zorgde n8n daarna voor de vaste workflow richting CRM, kanaallabeling en leadregistratie. Dat is leerzaam voor ZZPagent: Respond.io is sterk als kanaal- en intakelaag, n8n als voorspelbare workflowlaag en Hermes als bredere agentlaag voor samenvatten, duiden, conceptantwoorden en vervolgstappen. De concrete inrichting maken we altijd eigen en AVG-bewust, zonder bestaande cases één-op-één te kopiëren.</p>
-          </details>
+          <p>Dit sluit aan op ons AI-vindbaarheidsmodel GeoScope, powered by Hermes: <a href="/ai-zichtbaarheidscheck/">gevonden worden én opvolgen</a>.</p>
+</details>
           <details>
             <summary>16. Kan ik met Hermes praten terwijl ik auto rijd?</summary>
             <p>Ja. Hermes kan via kanalen zoals Telegram of WhatsApp op je Apple Watch of iPhone bereikbaar zijn. Je spreekt een bericht in, Hermes kan reageren en je kunt gesproken berichten terugkrijgen, bijvoorbeeld onderweg in de auto.</p>
@@ -1642,18 +1726,128 @@
   <script>
     const translations = {
       en: {
-        "AI-zichtbaarheidscheck": "AI visibility check",
-        "Met een nulmeting bekijken we met onze AI search check engine hoe jouw bedrijf naar voren komt in AI-antwoorden. Daarna krijg je concrete verbeterpunten voor je communicatie, website en veelgestelde vragen.": "We use our AI search check engine to establish a baseline of how your business appears in AI answers. You then receive concrete recommendations for improving your communications, website and frequently asked questions.",
-        "Ook hier kan Hermes helpen: met deze input kan hij, waar de website dit toelaat, voorgestelde aanpassingen na jouw goedkeuring automatisch doorvoeren. Met Hermes kunnen we de metingen vervolgens automatisch herhalen en over tijd volgen of je AI-vindbaarheid verbetert.": "Hermes can help here too: using this input, he can automatically implement proposed changes after your approval, where the website supports this. With Hermes, we can then automatically repeat the measurements and track over time whether your visibility in AI answers improves.",
-        "Meer over de AI-zichtbaarheidscheck": "More about the AI visibility check",
-        "Nieuw": "New",
-        "gevonden worden én opvolgen": "get found and follow through",
-        "AI vindbaarheid van jouw bedrijf verbeteren": "Improve your business’s visibility in AI answers",
+        "Q&A": "Q&A",
+        "Veelgestelde vragen": "Frequently asked questions",
+        "Klap uit": "Expand",
+        "Beginnen en kosten": "Getting started and costs",
+        "01. Wat is een Hermes Agent en wie maakt het?": "01. What is a Hermes Agent and who makes it?",
+        "Hermes Agent is een open-source framework van Nous Research in New York voor autonome AI-agents, beschikbaar onder de MIT-licentie: digitale assistenten die niet alleen chatten, maar taken kunnen voorbereiden, tools kunnen gebruiken, context onthouden en terugkerend werk op schema kunnen uitvoeren. ZZPagent helpt zelfstandigen om Hermes praktisch in te richten rond hun eigen werk, kanalen en datagrenzen.": "Hermes Agent is an open-source framework by Nous Research in New York for autonomous AI agents, available under the MIT license: digital assistants that do not just chat, but can prepare tasks, use tools, remember context and run recurring work on a schedule. ZZPagent helps freelancers set up Hermes practically around their own work, channels and data boundaries.",
+        "02. Is een Hermes Agent niet gewoon een chatbot?": "02. Is a Hermes Agent not just a chatbot?",
+        "Nee. De vorm kan chat zijn, maar het verschil zit in context, tools gebruiken, stappen voorbereiden en binnen grenzen werk afmaken. Een chatbot geeft antwoord. Een agent bereidt voor, onthoudt context en handelt af waar dat veilig kan.": "No. It may look like chat, but the difference lies in context, using tools, preparing steps and finishing work within boundaries. A chatbot gives answers. An agent prepares, remembers context and completes tasks where it is safe to do so.",
+        "02b. Wat is dan het verschil tussen een chatbot en een agent?": "02b. What is the difference between a chatbot and an agent?",
+        "Kort gezegd: het model is het taalbrein, maar de agent ontstaat pas door de": "In short: the model is the language brain, but the agent only emerges through the",
+        "harness (omgeving)": "harness (environment)",
+        "eromheen. Die omgeving regelt welke instructies de agent meekrijgt, welke tools of API’s gebruikt mogen worden, hoe stappen worden gepland en waar menselijke controle nodig blijft.": "around it. That environment determines which instructions the agent receives, which tools or APIs it may use, how steps are planned and where human oversight remains necessary.",
+        "Met andere woorden: zonder harness heb je vooral een slim antwoordmodel. Met harness krijg je een werkende agent die context kan vasthouden, met systemen kan praten en taken gecontroleerd kan uitvoeren. In de praktijk bestaat zo’n harness vaak uit een promptlaag, toolkits, een agent-executor of workflowlaag en koppelingen naar bijvoorbeeld documenten, tabellen of externe API’s.": "In other words: without a harness, you mainly have a smart answering model. With a harness, you get a working agent that can retain context, communicate with systems and carry out tasks in a controlled way. In practice, such a harness often consists of a prompt layer, toolkits, an agent executor or workflow layer and connections to documents, spreadsheets or external APIs.",
+        "Visualisatie van de omgeving rond het model, de harness (omgeving): loop, tools, context, persistence en policy. Samen vormen die de laag die van een los model een werkende agent maakt.": "Visualisation of the environment around the model, the harness (environment): loop, tools, context, persistence and policy. Together, they form the layer that turns a standalone model into a working agent.",
+        "03. Met ChatGPT en Claude kan ik toch ook een AI-agent opzetten? Waarom Hermes?": "03. I can also set up an AI agent with ChatGPT and Claude. Why Hermes?",
+        "Ja, ook met de tools van OpenAI en Anthropic kun je AI-agents opzetten. Het belangrijkste verschil is niet dát het kan, maar hoeveel controle je over je systeem houdt.": "Yes, you can also set up AI agents with tools from OpenAI and Anthropic. The key difference is not whether it is possible, but how much control you retain over your system.",
+        "ChatGPT en Claude zijn propriëtaire oplossingen: de leverancier bepaalt de mogelijkheden, prijzen en voorwaarden. Als je je werkprocessen daarop inricht, word je ook afhankelijk van toekomstige keuzes van die leverancier.": "ChatGPT and Claude are proprietary solutions: the provider determines the features, prices and terms. If you build your workflows around them, you also become dependent on that provider’s future decisions.",
+        "Hermes is open source en kun je zelf beheren. Je kunt de software aanpassen en verschillende AI-modellen aansluiten. Daardoor houd je meer ruimte om van aanbieder te wisselen, zonder je hele agentsysteem opnieuw op te bouwen.": "Hermes is open source and you can manage it yourself. You can modify the software and connect different AI models. This gives you more freedom to switch providers without having to rebuild your entire agent system.",
+        "Dat maakt je niet automatisch volledig onafhankelijk van big tech: gebruik je via Hermes een model van OpenAI of Anthropic, dan blijf je voor dat onderdeel afhankelijk van die aanbieder. Het verschil is dat je agentsysteem niet onlosmakelijk aan één leverancier vastzit.": "That does not automatically make you fully independent of big tech: if you use an OpenAI or Anthropic model through Hermes, you still depend on that provider for that component. The difference is that your agent system is not inseparably tied to a single provider.",
         "03b. Wat is het verschil tussen Hermes en OpenClaw 2.0 voor mij als zzp’er?": "03b. What is the difference between Hermes and OpenClaw 2.0 for me as a freelancer?",
         "Hermes is vooral een persoonlijke AI-assistent. OpenClaw biedt daarnaast ingebouwde mogelijkheden om met meerdere mensen dezelfde agentomgeving te gebruiken.": "Hermes is primarily a personal AI assistant. OpenClaw also offers built-in ways for several people to use the same agent environment.",
         "Werk je zelfstandig en zoek je een assistent die jouw werkwijze onthoudt, terugkerende taken uitvoert en specialistische agents kan inschakelen? Dan is Hermes een logische keuze. De samenwerking draait vooral om jou en de agents die voor jou werken.": "If you work independently and want an assistant that remembers how you work, handles recurring tasks and can call on specialist agents, Hermes is a logical choice. Collaboration mainly centres on you and the agents working for you.",
         "Wil je met collega’s of vaste samenwerkingspartners in dezelfde gesprekken werken, taken overnemen en afspreken wie mag lezen, voorstellen doen of meewerken? Dan komt OpenClaw 2.0 eerder in beeld.": "If you want to work with colleagues or regular partners in the same conversations, take over tasks and agree who may read, suggest or contribute, OpenClaw 2.0 becomes more relevant.",
         "Het is geen harde scheiding: OpenClaw kan ook persoonlijk worden gebruikt en Hermes kan ook binnen een bedrijf worden ingezet. De keuze hangt vooral af van hoe je wilt samenwerken, niet alleen van de grootte van je onderneming.": "This is not a hard boundary: OpenClaw can also be used personally and Hermes can also be deployed within a business. The choice mainly depends on how you want to collaborate, not just the size of your business.",
+        "04. Hoe verschillen OpenAI Dots, Meta Muse en Grok Bot van Hermes?": "04. How do OpenAI Dots, Meta Muse and Grok Bot differ from Hermes?",
+        "OpenAI Dots, Meta Muse en Grok Bot zijn AI-assistenten die niet alleen antwoorden geven, maar ook met apps werken, context onthouden en taken op de achtergrond uitvoeren. Hun aanbieders leveren daarvoor een beheerde omgeving. De beschikbaarheid verschilt per land, abonnement en uitrolfase.": "OpenAI Dots, Meta Muse and Grok Bot are AI assistants that not only answer questions but also work with apps, remember context and carry out tasks in the background. Their providers supply a managed environment for this. Availability varies by country, subscription and rollout stage.",
+        "Hermes is een open-source werkomgeving voor een AI-assistent. Je kunt Hermes op je eigen computer of server laten draaien en kiezen uit verschillende ondersteunde taalmodellen. Je geheugen, tools en opgebouwde werkwijzen staan in die omgeving, zodat je bij een modelwissel niet automatisch je hele assistent opnieuw hoeft op te bouwen.": "Hermes is an open-source working environment for an AI assistant. You can run Hermes on your own computer or server and choose from different supported language models. Your memory, tools and established ways of working reside in that environment, so changing models does not automatically mean rebuilding your entire assistant.",
+        "Het belangrijkste verschil zit dus in keuze en zeggenschap over de inrichting. Bij Dots, Muse en Grok Bot bepaalt de aanbieder de mogelijkheden van het platform. Bij Hermes kun je meer zelf bepalen over hosting, modellen en koppelingen. Daar hoort wel beheer bij. Een eigen installatie betekent bovendien niet dat alle verwerking lokaal gebeurt: dat hangt af van de modellen en diensten die je aansluit.": "The main difference is choice and control over the setup. With Dots, Muse and Grok Bot, the provider determines what the platform can do. With Hermes, you have more control over hosting, models and integrations. This also requires maintenance. Running your own installation does not mean all processing happens locally: that depends on the models and services you connect.",
+        "05. Wat als de agent twijfelt of iets fout kan doen?": "05. What if the agent is uncertain or could make a mistake?",
+        "Dan stopt hij en vraagt akkoord. Geen klantbericht, betaling of gevoelige actie zonder menselijke controle. Dat is geen bijzaak, het is het uitgangspunt.": "Then it stops and asks for approval. No customer message, payment or sensitive action without human oversight. That is not an afterthought; it is the starting point.",
+        "06. Wat kost een Hermes-implementatie via ZZPagent?": "06. What does a Hermes implementation through ZZPagent cost?",
+        "In het eerste startgesprek bepalen we welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken starttraject. Geen open urenrekening en geen verrassingen achteraf. Reken voor het inrichten van een eerste afgebakende Hermes-assistent op ongeveer €1.000 exclusief btw. Voor eenmalig €500 exclusief btw installeren we daarnaast de GeoScope-skill op jouw bestaande Hermes, inclusief gebruikslicentie en inrichting voor jouw bedrijf. Daarmee richten we de werkwijze voor nulmeting, verbeteracties, vervolgmetingen en rapportage over je AI-vindbaarheid in. Gebruikskosten van modellen en meetdiensten staan hier los van. Wil je Hermes op een Europese VPS laten draaien, reken dan doorgaans op ongeveer €10 tot €20 per maand exclusief btw, afhankelijk van de server en eventuele extra’s. Met een bestaand ChatGPT Plus-abonnement met Codex kom je meestal al erg ver en heb je een goede LLM als basis. In Nederland kost dat momenteel ongeveer €23 per maand inclusief btw. Daarnaast richten we goedkopere commoditymodellen zoals DeepSeek in voor routinewerk. De tokenprijzen kunnen ruim 100 keer lager liggen dan die van Astra. Voor afgebakende routinetaken kan dat hetzelfde bruikbare resultaat opleveren. Bij normaal gebruik blijven de kosten daarvan vaak onder €10 per maand, maar het exacte bedrag hangt af van het daadwerkelijke verbruik. Er is geen verplicht beheerabonnement.": "In the first introductory conversation, we determine which task, access and setup are needed. You then receive one fixed price in advance for the agreed starting project. No open-ended hourly billing and no surprises afterwards. For setting up a first clearly scoped Hermes assistant, expect approximately €1,000 excluding VAT. For a one-off €500 excluding VAT, we also install the GeoScope skill on your existing Hermes, including a usage licence and configuration for your business. This sets up the workflow for baseline measurement, improvement actions, follow-up measurements and reporting on your AI visibility. Usage costs for models and measurement services are separate. If you want Hermes to run on a European VPS, typically allow around €10 to €20 per month excluding VAT, depending on the server and any extras. An existing ChatGPT Plus subscription with Codex will usually take you a long way and gives you a strong LLM as a foundation. In the Netherlands this currently costs approximately €23 per month including VAT. We also configure cheaper commodity models such as DeepSeek for routine work. Token prices can be more than 100 times lower than those of Astra. For clearly scoped routine tasks, this can deliver the same usable result. With normal usage, their costs often remain below €10 per month, but the exact amount depends on actual usage. There is no mandatory management subscription.",
+        "06a. Wat is een AI-vindbaarheidstest (GeoScope) en wat krijg ik?": "06a. What is an AI visibility test (GeoScope) and what do I get?",
+        "Voor eenmalig €500 exclusief btw installeren we de GeoScope-skill op jouw bestaande Hermes en richten we die in voor jouw bedrijf. Je krijgt een gebruikslicentie op onze eigen werkwijze voor gevonden worden én opvolgen: je AI-zichtbaarheid meten, antwoorden en bronnen beoordelen, verbeteringen voorbereiden en het resultaat opnieuw meten. Wij blijven de skill doorontwikkelen; het intellectuele eigendom blijft bij GeoScope.": "For a one-off €500 excluding VAT, we install the GeoScope skill on your existing Hermes and configure it for your business. You receive a licence to use our own approach to being found and following through: measuring your AI visibility, reviewing answers and sources, preparing improvements and measuring the results again. We continue developing the skill; the intellectual property remains with GeoScope.",
+        "De skill staat in jouw eigen Hermes-omgeving. Dat betekent niet dat alle verwerking offline gebeurt: gekoppelde AI-modellen en meetdiensten kunnen extern draaien. Gebruikskosten van modellen en meetdiensten zijn niet inbegrepen. De totale kosten hangen af van het aantal vragen, AI-omgevingen en de gebruikte diensten.": "The skill is installed in your own Hermes environment. This does not mean that all processing happens offline: connected AI models and measurement services may run externally. Usage costs for models and measurement services are not included. The total costs depend on the number of questions, AI environments and services used.",
+        "07. Hoe snel kan een eerste Hermes-agent live zijn?": "07. How quickly can a first Hermes agent go live?",
+        "Reken op weken, niet op maanden. Na het startgesprek spreken we doel, toegang, grenzen en testvoorbeelden af. Daarna richten we de gekozen taken in, testen we met jouw eigen werk en sturen we samen bij. De precieze planning hangt af van de gekozen taken en benodigde toegang.": "Expect weeks, not months. After the introductory conversation we agree on the goal, access, boundaries and test examples. We then set up the chosen tasks, test them with your own work and adjust them together. The exact schedule depends on the chosen tasks and the access required.",
+        "08. Heb ik eigen ontwikkelaars nodig voor Hermes Agent?": "08. Do I need my own developers for Hermes Agent?",
+        "Voor een eerste ZZPagent-route heb je geen eigen ontwikkelaars nodig. Wel zijn jouw keuzes en toegang nodig: welk kanaal, welke mailbox of databron, welke modelroute en welke acties nooit zonder akkoord mogen plaatsvinden. Technische inrichting, koppelingen en beheer worden stap voor stap voorbereid.": "For a first ZZPagent route you do not need your own developers. Your choices and access are needed though: which channel, which mailbox or data source, which model route and which actions must never happen without approval. Technical setup, integrations and management are prepared step by step.",
+        "09. Werkt Hermes met de tools die ik al gebruik?": "09. Does Hermes work with the tools I already use?",
+        "Ja, dat is precies het idee: mail, agenda, documenten, WhatsApp, Slack, CRM, boekhouding of n8n. Geen nieuw eiland, maar een laag over wat er al staat.": "Yes, that is exactly the idea: email, calendar, documents, WhatsApp, Slack, CRM, bookkeeping or n8n. Not a new island, but a layer over what is already in place.",
+        "09b. Kan Hermes mijn facturen verwerken met KNAB en DigiBoox?": "09b. Can Hermes process my invoices using KNAB and DigiBoox?",
+        "Ja. Hermes kan een factuur uit je e-mail of bestanden ophalen, leverancier, datum, bedrag, btw en factuurnummer controleren en nagaan of de kostenpost al bestaat. Na jouw goedkeuring kan Hermes de factuur automatisch in DigiBoox opnemen en koppelen aan de bijbehorende KNAB-banktransactie. Bij ontbrekende of onduidelijke gegevens stopt Hermes en vraagt het om jouw beoordeling.": "Yes. Hermes can retrieve an invoice from your email or files, check the supplier, date, amount, VAT and invoice number, and verify whether the expense already exists. After your approval, Hermes can automatically record the invoice in DigiBoox and link it to the corresponding KNAB bank transaction. If information is missing or unclear, Hermes stops and asks for your review.",
+        "10. Krijg ik alleen een kant-en-klare AI-agent, of leer ik er zelf mee werken?": "10. Do I only get a ready-made AI agent, or do I learn to work with it myself?",
+        "Je kent het gezegde: 'Geef een man een vis en hij eet een dag, leer hem vissen en hij eet zijn hele leven.' Veel AI-consultants geven je een vis: een kant-en-klare agent die werkt, maar die je niet begrijpt en niet zelf kunt aanpassen. ZZPagent werkt anders: we leren je vissen. We bouwen niet alleen AI-agents voor je, maar zorgen dat jij als ondernemer begrijpt hoe ze werken, ze zelf kunt aanpassen en nieuwe agents kunt bouwen wanneer je dat wilt. Zo wordt AI met Hermes echt een kracht voor jouw werk en bedrijf, niet een black box die je elke keer moet uitbesteden.": "You know the saying: 'Give a man a fish and you feed him for a day; teach him to fish and you feed him for life.' Many AI consultants give you a fish: a ready-made agent that works, but that you do not understand and cannot adapt yourself. ZZPagent works differently: we teach you to fish. We do not just build AI agents for you; we make sure that you, as business owners, understand how they work, can adapt them yourselves and can build new agents when you want to. This makes AI with Hermes a real strength for your work and business, not a black box you have to outsource every time.",
+        "Praktijk en voorbeelden": "Practice and examples",
+        "11. Hoe begin ik klein met een AI-agent?": "11. How do I start small with an AI agent?",
+        "Kies één concrete taak: inboxfiltering, agenda-briefings, klantvragen samenvatten, documenten ordenen of conceptmails voorbereiden. Of misschien wil je beginnen met een AI-telefoonassistent. Eerst één agent en één workflow betrouwbaar maken; daarna pas uitbreiden naar extra kanalen, tools of automatiseringen.": "Choose one concrete task: inbox filtering, agenda briefings, summarizing customer questions, organizing documents or preparing draft emails. Or perhaps you want to start with an AI phone assistant. First make one agent and one workflow reliable; only then expand to extra channels, tools or automations.",
+        "Zie een AI-assistent als een slimme, razendsnelle stagiair: die kan veel, maar kent jouw bedrijf nog niet. Laat zien hoe jij een taak uitvoert, geef voorbeelden van een goed resultaat en spreek af wanneer jouw toestemming nodig is. Begin met één terugkerende taak, controleer het werk en leg de aanpak pas als vaste werkwijze vast wanneer die in de praktijk werkt.": "Think of an AI assistant as a smart, fast-working intern: capable, but not yet familiar with your business. Show it how you perform a task, provide examples of a good result, and agree on when it needs your approval. Start with one recurring task, check the work, and only turn the approach into a reusable routine once it works in practice.",
+        "Goed inwerken is niet alleen beter prompten. Ook de omgeving rond het AI-model, de harness, moet goed zijn ingericht: met toegang tot de juiste bronnen en tools, duidelijke controles en vragen wanneer informatie ontbreekt.": "Good onboarding is not just about better prompts. The environment around the AI model, the harness, also needs the right sources and tools, clear checks, and a way to ask questions when information is missing.",
+        "11d. Welke GEO-auditingtools gebruiken jullie bij GeoScope?": "11d. Which GEO auditing tools do you use for GeoScope?",
+        "Voor ChatGPT en Gemini gebruiken we DataForSEO. Voor Perplexity gebruiken we Apify; de Copilot-koppeling via Apify is nog in ontwikkeling. Claude wordt getest met een model-API met webzoeken. Hermes ondersteunt de analyse en het voorbereiden van verbeteringen.": "For ChatGPT and Gemini we use DataForSEO. For Perplexity we use Apify; the Copilot integration through Apify is still in development. Claude is tested through a model API with web search. Hermes supports the analysis and preparation of improvements.",
+        "Het GEO Strategy House: van technische basis tot meten en verbeteren.": "The GEO Strategy House: from technical foundations to measurement and improvement.",
+        "12. Wat is een workflow en wat is het verschil met een losse prompt?": "12. What is a workflow and how is it different from a single prompt?",
+        "Een workflow is een vaste reeks stappen die telkens in dezelfde logische volgorde wordt uitgevoerd. Een losse prompt is één afzonderlijke opdracht aan AI. Een workflow beschrijft het hele terugkerende proces, van de informatie die binnenkomt tot jouw controle of akkoord.": "A workflow is a fixed series of steps that is carried out in the same logical order each time. A single prompt is one separate instruction to AI. A workflow describes the entire recurring process, from the information that comes in to your review or approval.",
+        "Een eenvoudige workflow bestaat bijvoorbeeld uit vier stappen: een mail, formulier, bestand of bericht komt binnen; Hermes vat samen, ordent informatie of maakt een concept; Hermes zet een taak, antwoord of document klaar en kan waar nodig een tool gebruiken; jij controleert, past aan en beslist.": "A simple workflow can consist of four steps: an email, form, file or message comes in; Hermes summarizes, organizes information or prepares a draft; Hermes prepares a task, reply or document and can use a tool where needed; you review, adjust and decide.",
+        "Een agent kan binnen zo’n workflow zelfstandiger stappen uitvoeren en bepalen wat er vervolgens nodig is. Jij spreekt vooraf af waar Hermes zelf mag handelen en wanneer jouw akkoord nodig blijft.": "Within such a workflow, an agent can carry out steps more independently and determine what is needed next. You agree in advance where Hermes may act on its own and when your approval remains necessary.",
+        "Bekijk ook het": "Also view the",
+        "workflowoverzicht": "workflow overview",
+        "met concrete voorbeelden voor zzp’ers.": "with practical examples for solo entrepreneurs.",
+        "13. Wat is het kernverschil tussen automatisering en een AI-agent?": "13. What is the key difference between automation and an AI agent?",
+        "Automatisering volgt vooraf bepaalde stappen; een agent kiest dynamisch acties op basis van doel en context.": "Automation follows predefined steps; an agent dynamically chooses actions based on its goal and context.",
+        "Deterministische workflows zijn voorspelbaar en goed controleerbaar bij herhaalde taken. Agenten bieden flexibiliteit bij variatie, maar vragen grenzen, toezicht en controle op fouten.": "Deterministic workflows are predictable and easy to control for repeated tasks. Agents offer flexibility when situations vary, but require boundaries, oversight and checks for errors.",
+        "14. Kan Hermes mij helpen met het bouwen van een website?": "14. Can Hermes help me build a website?",
+        "Ja. Hermes kan helpen bij het bouwen, verbeteren en publiceren van een website. Denk aan het ordenen van ideeën, het schrijven van conceptteksten, het voorbereiden van pagina's, het controleren van formulieren en het ondersteunen bij publicatie. Maar ook het eenvoudig ontwikkelen en koppelen van apps. De mens blijft nodig voor keuzes, controle, merkgevoel en akkoord op wat gepubliceerd wordt.": "Yes. Hermes can help build, improve and publish a website. Think of organizing ideas, drafting copy, preparing pages, checking forms and supporting publication. It can also help with simple app development and integrations. A human is still needed for choices, quality control, brand feel and approval of what gets published.",
+        "15. Hebben jullie ervaring met Respond.io?": "15. Do you have experience with Respond.io?",
+        "Ja. We hebben ervaring met een praktijkcase waarin Respond.io niet alleen als centrale inbox werkte, maar ook als eerste AI-intakelaag. In die opzet kwamen WhatsApp en sociale kanalen samen in Respond.io, stelde de Respond.io-agent de eerste intakevragen en zorgde n8n daarna voor de vaste workflow richting CRM, kanaallabeling en leadregistratie. Dat is leerzaam voor ZZPagent: Respond.io is sterk als kanaal- en intakelaag, n8n als voorspelbare workflowlaag en Hermes als bredere agentlaag voor samenvatten, duiden, conceptantwoorden en vervolgstappen. De concrete inrichting maken we altijd eigen en AVG-bewust, zonder bestaande cases één-op-één te kopiëren.": "Yes. We have experience with a practical case where Respond.io was not only a central inbox, but also the first AI intake layer. In that setup WhatsApp and social channels came together in Respond.io, the Respond.io agent asked the first intake questions and n8n then handled the fixed workflow towards CRM, channel labeling and lead registration. That is useful for ZZPagent: Respond.io is strong as a channel and intake layer, n8n as a predictable workflow layer and Hermes as the broader agent layer for summaries, interpretation, draft replies and next steps. We always make the actual setup original and GDPR-aware, without copying existing cases one-to-one.",
+        "Dit sluit aan op ons AI-vindbaarheidsmodel GeoScope, powered by Hermes:": "This connects with our AI visibility approach GeoScope, powered by Hermes:",
+        "gevonden worden én opvolgen": "being found and following up",
+        ".": ".",
+        "16. Kan ik met Hermes praten terwijl ik auto rijd?": "16. Can I talk to Hermes while driving?",
+        "Ja. Hermes kan via kanalen zoals Telegram of WhatsApp op je Apple Watch of iPhone bereikbaar zijn. Je spreekt een bericht in, Hermes kan reageren en je kunt gesproken berichten terugkrijgen, bijvoorbeeld onderweg in de auto.": "Yes. Hermes can be reachable through channels such as Telegram or WhatsApp on your Apple Watch or iPhone. You speak a message, Hermes can respond and you can receive spoken messages back, for example while driving.",
+        "Koppelingen en kanalen": "Integrations and channels",
+        "17. Hoe moeilijk is het om een chatbot zoals Sophie die praat en belt te maken?": "17. How hard is it to make a chatbot like Sophie that talks and calls?",
+        "Een pratende en bellende chatbot zoals Sophie is technisch zeer goed mogelijk. Sophie is een snelle showcase die we gebouwd hebben om te laten zien wat nu al bruikbaar is: spraak, gesprek, bellen, intake en opvolging in één kleine demo. De echte waarde zit niet in de losse demo zelf, maar in wat je ermee kunt laten zien: een agent die zelfstandig een gesprek kan starten, informatie kan verzamelen en een vervolgactie kan voorbereiden. De waarde zit ook in de bredere mogelijkheden van Hermes. Een dienst als Fonio.ai vraagt bijvoorbeeld rond €99 per maand voor alleen al een AI-telefoonassistent, terwijl Hermes zo’n toepassing zelf kan helpen bouwen en koppelen. Je kunt het testen op de website; we hebben haar Sophie genoemd.": "A speaking and calling chatbot like Sophie is technically very feasible. Sophie is a quick showcase we built to show what is already usable today: voice, conversation, calling, intake and follow-up in one small demo. The real value is not the standalone demo itself, but what it shows: an agent that can start a conversation independently, gather information and prepare a follow-up action. The value also lies in the broader possibilities of Hermes. A service such as Fonio.ai, for example, charges around €99 per month for an AI phone assistant alone, while Hermes can help build and connect such an application itself. You can test it on the website; we called her Sophie.",
+        "18. Wat betekent een agent die met je meegroeit?": "18. What does an agent that grows with you mean?",
+        "Een agent die met je meegroeit, onthoudt voorkeuren, werkwijzen en terugkerende taken binnen afgesproken grenzen. Daardoor hoef je niet steeds opnieuw uit te leggen hoe je werkt. Hermes kan zo briefings, conceptmails, documentordening, planning en opvolging steeds beter voorbereiden, terwijl jij de eindcontrole houdt.": "An agent that grows with you remembers preferences, ways of working and recurring tasks within agreed boundaries. That means you do not have to explain how you work again and again. Hermes can increasingly prepare briefings, draft emails, document organization, planning and follow-up while you keep final control.",
+        "19. Kan ik Hermes via WhatsApp Business gebruiken?": "19. Can I use Hermes through WhatsApp Business?",
+        "Ja. WhatsApp Business kan het laagdrempelige kanaal zijn waarmee jij of je klanten de agent bereiken. Hermes begint veilig: profiel, intake, labels en conceptantwoorden eerst; verdergaande automatisering pas met duidelijke opt-in, logging, officiële routes en menselijke goedkeuring. Hier ligt ook de kracht van Hermes: we kunnen WhatsApp-berichten laten sturen, groeperen, labelen en opvolgen. Zie het als een mini-CRM rond je klantgesprekken.": "Yes. WhatsApp Business can be the low-threshold channel through which you or your customers reach the agent. Hermes starts safely: profile, intake, labels and draft replies first; further automation only with clear opt-in, logging, official routes and human approval. This is also where Hermes is strong: we can have WhatsApp messages sent, grouped, labelled and followed up. Think of it as a mini CRM around your customer conversations.",
+        "20. Wat is MCP en heeft Hermes dat nodig?": "20. What is MCP and does Hermes need it?",
+        "MCP staat voor Model Context Protocol. Het is een standaard waarmee een AI-agent verbinding kan maken met externe documenten, agenda’s, databases of andere systemen.": "MCP stands for Model Context Protocol. It is a standard that allows an AI agent to connect to external documents, calendars, databases or other systems.",
+        "Bij Hermes heb je MCP meestal niet nodig. Hermes kan het meeste zelf regelen met ingebouwde tools, vaardigheden en rechtstreekse koppelingen. Alleen als een specifiek extern systeem niet rechtstreeks bereikbaar is, kan MCP een aanvullende koppeling zijn. Het is dus een mogelijkheid, geen vereiste om met Hermes te beginnen.": "With Hermes, you usually do not need MCP. Hermes can handle most things itself with built-in tools, skills and direct integrations. MCP can be an additional connection only when a specific external system cannot be reached directly. It is therefore an option, not a requirement for getting started with Hermes.",
+        "Veiligheid en data": "Safety and data",
+        "21. Is Hermes Agent AVG-proof in te zetten?": "21. Can Hermes Agent be used in a GDPR-compliant way?",
+        "Ja, mits de inrichting klopt. Bij ZZPagent begint dat met dataminimalisatie, duidelijke toegang, menselijke goedkeuring bij gevoelige acties en een route die past bij je risico’s: VPS in Europa, eigen Mac mini/Mac of hybride. AVG-proof is dus geen losse claim, maar een ontwerpkeuze per workflow, kanaal en databron.": "Yes, provided the setup is right. At ZZPagent that starts with data minimization, clear access, human approval for sensitive actions and a route that fits your risks: VPS in Europe, your own Mac mini/Mac or hybrid. GDPR-proof is therefore not a loose claim, but a design choice per workflow, channel and data source.",
+        "22. Zijn autonome agents zoals Hermes veilig genoeg voor zakelijk gebruik?": "22. Are autonomous agents like Hermes safe enough for business use?",
+        "Autonome agents vragen begrenzing. ZZPagent kiest daarom voor menselijke controle, beperkte toegang, duidelijke taakafbakening, logging/controleerbaarheid en geen automatische verzending of gevoelige actie zonder akkoord waar reputatie, geld, rechten of privacy geraakt kunnen worden. Veiligheid zit niet in “de agent mag alles”, maar in professioneel beperken wat hij mag doen.": "Autonomous agents need boundaries. ZZPagent therefore chooses human control, limited access, clear task boundaries, logging/auditability and no automatic sending or sensitive action without approval where reputation, money, rights or privacy may be affected. Safety is not in ‘the agent may do everything’, but in professionally limiting what it may do.",
+        "23. Stuurt Hermes mijn bedrijfsdata naar een LLM?": "23. Does Hermes send my business data to an LLM?",
+        "Niet standaard je volledige bedrijfsomgeving. Een extern model ontvangt alleen wat voor een taak in de context wordt geplaatst: je prompt, relevante gespreksinformatie, geselecteerde tool- of bestandsresultaten en eventueel memory. Memory wordt lokaal opgeslagen, maar kan bij gebruik wel in de modelcontext terechtkomen.": "Not your full business environment by default. An external model only receives what is placed in context for a task: your prompt, relevant conversation context, selected tool or file results and possibly memory. Memory is stored locally, but when used it can enter the model context.",
+        "Gebruik je": "When you use",
+        "/moa (Mixture of Agents)": "/moa (Mixture of Agents)",
+        ", een feature van Hermes, dan laat Hermes voor één opdracht meerdere referentiemodellen eerst naar dezelfde vraag kijken. Een aggregatormodel gebruikt hun analyses om één antwoord te maken. Daarna schakelt Hermes terug naar het model dat je al gebruikte. Als de gekozen modellen extern draaien, ontvangen zij dus dezelfde geselecteerde taakcontext.": ", a Hermes feature, Hermes first lets multiple reference models examine the same question for one task. An aggregator model uses their analyses to produce one answer. Hermes then switches back to the model you were already using. If the selected models run externally, they therefore receive the same selected task context.",
+        "Open source geeft controle en keuze, maar is niet automatisch privé. Privacy ontwerp je per workflow: context minimaliseren, rechten scheiden en per taak kiezen tussen lokaal, eigen VPS, Europese cloud of externe modellen.": "Open source gives control and choice, but is not automatically private. Privacy is designed per workflow: minimize context, separate permissions and choose per task between local, your own VPS, European cloud or external models.",
+        "24. Wanneer is AI lokaal draaien verstandig?": "24. When is running AI locally sensible?",
+        "Zelf het model beheren": "Managing the model yourself",
+        "Ja, je kunt een beschikbaar AI-model zelf laten draaien als de licentie dat toestaat en de hardware geschikt is. Dat heet zelf hosten. Je gebruikt dan de bestaande modelbestanden, ook wel weights genoemd. Je hoeft dus niet zelf een taalmodel vanaf nul te trainen. De vraag is vooral of deze inrichting past bij jouw werk, gegevens en budget.": "Yes, you can run an available AI model yourself if its licence permits it and the hardware is suitable. This is called self-hosting. You use the existing model files, also known as weights. You do not need to train a language model from scratch. The main question is whether this setup suits your work, data and budget.",
+        "Een bruikbaar AI-systeem bestaat uit meer dan een model. Het model interpreteert de vraag en maakt een antwoord of voorstel. De applicatielaag eromheen levert bedrijfsgegevens, instructies, tools, toegangsrechten en controles. De derde laag is de rekenkracht: de computer of server waarop dit alles draait. Vergelijk het model met de motor van een auto. Een goede motor is belangrijk, maar pas met besturing, remmen en de rest van de auto kun je verantwoord de weg op.": "A useful AI system consists of more than a model. The model interprets the question and produces an answer or proposal. The application layer around it supplies business data, instructions, tools, access permissions and checks. The third layer is computing power: the computer or server on which it all runs. Think of the model as a car engine. A good engine matters, but you also need steering, brakes and the rest of the car before you can drive responsibly.",
+        "Voor een afgebakende taak kan een open model met passende software en goede bedrijfsinformatie veel waarde leveren. Dat betekent niet dat het op elk gebied even goed presteert als de krachtigste commerciële modellen. Een kleinere motor kan prima passen bij de rit die je wilt maken. Test daarom de concrete taak, inclusief uitzonderingen: wordt het werk betrouwbaar afgerond, klopt het resultaat en stopt het systeem als informatie of toestemming ontbreekt? Alleen een slim klinkend antwoord is niet genoeg.": "For a well-defined task, an open model with suitable software and good business information can provide considerable value. That does not mean it performs as well as the most capable commercial models in every area. A smaller engine may be perfectly adequate for the journey you need to make. Test the actual task, including exceptions: is the work completed reliably, is the result correct and does the system stop when information or permission is missing? An answer that sounds clever is not enough.",
+        "Een voorbeeld voor een zzp’er: een conceptofferte opstellen met je eigen tarieven, voorwaarden en een goedgekeurd voorbeeld. Het model helpt de aanvraag te begrijpen en de tekst te schrijven. De applicatie haalt de juiste tarieven op, rekent bedragen met een rekentool na en meldt ontbrekende gegevens. Jij controleert de offerte en geeft akkoord voordat deze naar de klant gaat.": "For a self-employed professional, consider preparing a draft quotation using your own rates, terms and an approved example. The model helps interpret the request and write the text. The application retrieves the correct rates, verifies amounts with a calculation tool and flags missing information. You review the quotation and approve it before it goes to the customer.",
+        "Jouw bedrijfskennis maakt hierbij het verschil: tarieven, afspraken, documenten en de manier waarop je werkt. Die informatie hoef je niet allemaal in het model zelf te trainen. De applicatie kan de relevante gegevens per taak ophalen en meegeven. Bewaak welke informatie daarvoor nodig is, wie erbij mag en hoelang die wordt bewaard. Controleer bij een leverancier de contracten en het databeleid, waaronder afspraken over opslag, hergebruik en training. Dat verschilt per dienst en overeenkomst.": "Your business knowledge makes the difference here: rates, agreements, documents and the way you work. You do not have to train all that information into the model itself. The application can retrieve the relevant data for each task and supply it as context. Control which information is needed, who may access it and how long it is retained. Check a supplier’s contracts and data policy, including arrangements for storage, reuse and training. These differ between services and agreements.",
+        "Een eigen agentomgeving beheren is niet hetzelfde als het model lokaal draaien. Je kunt Hermes zelf beheren en toch een extern model gebruiken. Dan gaan de geselecteerde opdracht, gesprekscontext, geheugeninformatie en toolresultaten die voor die taak worden meegestuurd naar de modelaanbieder. Ook lokaal bewaard geheugen kan zo extern worden verwerkt. Alleen als ook het model en de overige verwerking binnen de afgesproken eigen omgeving blijven, blijft die gegevensverwerking daar.": "Managing your own agent environment is not the same as running the model locally. You can manage Hermes yourself while still using an external model. In that case, the selected request, conversation context, memory information and tool results included for the task are sent to the model provider. Even locally stored memory can therefore be processed externally. That processing stays within your agreed environment only if the model and the other processing also remain there.",
+        "Zelf hosten kan op eigen hardware, zoals een geschikte computer of bedrijfsserver, of op een gehuurde cloudserver. Een Europese VPS is dus geen computer bij jou op kantoor. Kijk per route naar de benodigde capaciteit, de locatie van de gegevens en wie het beheer doet. Niet iedere server is geschikt voor ieder model. Je krijgt meer zeggenschap over de inrichting, maar blijft afhankelijk van onder meer hardware, software, modellicenties en eventueel een hostingpartij.": "Self-hosting can use your own hardware, such as a suitable computer or business server, or a rented cloud server. A European VPS is not a computer in your office. For each route, consider the required capacity, the location of the data and who manages the setup. Not every server is suitable for every model. You gain more control over the setup, but still depend on hardware, software, model licences and possibly a hosting provider.",
+        "Bij eigen beheer horen ook updates, beveiliging, back-ups, hersteltests en het opnieuw testen van workflows na wijzigingen. Je betaalt mogelijk geen externe modelprijs per token, maar wel voor hardware of cloudcapaciteit, elektriciteit en beheertijd. Zelf hosten is daarom niet automatisch goedkoper, veiliger of volledig onafhankelijk. Spreek vooraf af wie verantwoordelijk is en vergelijk de totale kosten met de kwaliteit die de taak vraagt.": "Self-management also involves updates, security, backups, recovery tests and retesting workflows after changes. You may no longer pay an external model provider per token, but you still pay for hardware or cloud capacity, electricity and management time. Self-hosting is therefore not automatically cheaper, safer or fully independent. Agree in advance who is responsible and compare total costs with the quality the task requires.",
+        "Een hybride inrichting kan ook passen: gevoelige verwerking in de eigen omgeving en een extern model voor taken waarvoor dat is toegestaan. Leg die grens expliciet vast, ook voor geheugen, documenten, hulpmiddelen en een eventuele fallback. Een storing mag niet ongemerkt betekenen dat vertrouwelijke gegevens alsnog naar buiten gaan.": "A hybrid setup may also be suitable: sensitive processing within your own environment and an external model for tasks where this is permitted. Define that boundary explicitly, including memory, documents, tools and any fallback. An outage must not silently cause confidential data to be sent outside that boundary.",
+        "ZZPagent kiest daarom per workflow: lokaal waar gegevensgrenzen en controle dat vragen, extern waar dat is toegestaan en beter past. Met een open agentomgeving kun je een andere modelroute aansluiten zonder noodzakelijk al je werkwijzen opnieuw op te bouwen. Koppelingen en resultaten moet je daarna wel opnieuw testen. Begin met één nuttige taak, vergelijk de routes op dezelfde voorbeelden en kies op basis van betrouwbaar afgerond werk.": "ZZPagent therefore chooses per workflow: local processing where data boundaries and control require it, external processing where it is permitted and a better fit. An open agent environment lets you connect a different model route without necessarily rebuilding all your procedures. Integrations and results still need to be retested afterwards. Start with one useful task, compare the routes using the same examples and choose based on reliably completed work.",
+        "25. Wat gebruik je voor hosting als ik de AI modellen op een eigen fysieke server wil hebben?": "25. What hosting do you use if I want the AI models on my own physical server?",
+        "Dan gebruiken we lokale hosting, ook wel": "We then use local hosting, also called",
+        "on-premise hosting": "on-premise hosting",
+        "genoemd. Op de server draaien de AI-modellen via software zoals Ollama of vLLM. Je gegevens blijven zo binnen je eigen omgeving.": ". The AI models run on the server using software such as Ollama or vLLM. This keeps your data within your own environment.",
+        "Voor één server is dit meestal voldoende. OpenInfra/OpenStack wordt pas interessant als je meerdere servers of een complete private cloud wilt beheren.": "For one server, this is usually sufficient. OpenInfra/OpenStack only becomes relevant when you want to manage multiple servers or a complete private cloud.",
+        "Open source en continuïteit": "Open source and continuity",
+        "26. Wat betekent het dat Hermes open source is?": "26. What does it mean that Hermes is open source?",
+        "Hermes Agent is open source. Dat betekent dat de code openbaar beschikbaar is": "Hermes Agent is open source. That means the code is publicly available",
+        ", ongeveer zoals softwareprojecten op GitHub worden bewaard, gedeeld, verbeterd en door anderen kunnen worden voortgezet. GitHub is een online werkplaats en archief voor softwarecode: een soort digitale garage waar ontwikkelaars code bouwen, onderhouden, verbeteren en delen. Omdat Hermes open source is, blijft de code beschikbaar, ook als Nous Research ooit zou stoppen of het project door anderen wordt voortgezet. Je betaalt geen licentie voor Hermes zelf. Nous Research kan geld verdienen met diensten eromheen, zoals modeltoegang, hosting, support of maatwerk voor bedrijven. Dat zie je vaker bij open source: Google maakte Android open source en bouwde daarmee een groot Google-ecosysteem; Meta geeft Llama-modellen vrij en wordt daardoor belangrijker in open AI. Hermes is dan de open werkbank rond agents; het commerciële deel zit in gemak, beheer en professioneel gebruik eromheen.": ", much like software projects are stored, shared, improved and continued by others on GitHub. GitHub is an online workshop and archive for software code: a kind of digital garage where developers build, maintain, improve and share code. Because Hermes is open source, the code remains available, even if Nous Research ever stopped or the project was continued by others. You do not pay a license fee for Hermes itself. Nous Research can earn money from services around it, such as model access, hosting, support or custom work for companies. You see this more often in open source: Google made Android open source and built a large Google ecosystem with it; Meta releases Llama models and becomes more important in open AI as a result. Hermes is the open workbench around agents; the commercial part sits in convenience, management and professional use around it.",
+        "Maar voor onze toepassing hoef je je geen zorgen te maken: Hermes blijft open source, door de community up-to-date en er is geen vendor lock-in.": "But for our use case you do not need to worry: Hermes remains open source, kept up-to-date by the community and there is no vendor lock-in.",
+
+        "AI-zichtbaarheidscheck": "AI visibility check",
+        "Met een nulmeting bekijken we met onze AI search check engine hoe jouw bedrijf naar voren komt in AI-antwoorden. Daarna krijg je concrete verbeterpunten voor je communicatie, website en veelgestelde vragen.": "We use our AI search check engine to establish a baseline of how your business appears in AI answers. You then receive concrete recommendations for improving your communications, website and frequently asked questions.",
+        "Ook hier kan Hermes helpen: met deze input kan hij, waar de website dit toelaat, voorgestelde aanpassingen na jouw goedkeuring automatisch doorvoeren. Met Hermes kunnen we de metingen vervolgens automatisch herhalen en over tijd volgen of je AI-vindbaarheid verbetert.": "Hermes can help here too: using this input, he can automatically implement proposed changes after your approval, where the website supports this. With Hermes, we can then automatically repeat the measurements and track over time whether your visibility in AI answers improves.",
+        "Meer over de AI-zichtbaarheidscheck": "More about the AI visibility check",
+        "Nieuw": "New",
+        "AI vindbaarheid van jouw bedrijf verbeteren": "Improve your business’s visibility in AI answers",
         "ZZPagent, de Hermes AI-assistent voor ZZP’ers": "ZZPagent, the Hermes AI assistant for freelancers",
         "ZZPagent uit Amsterdam helpt Nederlandse ZZP’ers een persoonlijke Hermes AI-assistent in te richten rond terugkerend werk, met menselijke controle.": "ZZPagent in Amsterdam helps Dutch independent professionals set up a personal Hermes AI assistant around recurring work, with human control.",
         "AI-agents": "AI agents",
@@ -1690,93 +1884,14 @@
         "WhatsApp Business": "WhatsApp Business",
         "WhatsApp automatiseren": "Automate WhatsApp",
         "Verstuur": "Send",
-        "Q&A": "Q&A",
         "Over mij": "About me",
         "Vacatures": "Vacancies",
-        "Veelgestelde vragen": "Frequently asked questions",
-        "Beginnen en kosten": "Getting started and costs",
-        "Veiligheid en data": "Safety and data",
-        "Koppelingen en kanalen": "Integrations and channels",
-        "Praktijk en voorbeelden": "Practice and examples",
-        "Open source en continuïteit": "Open source and continuity",
-        "01. Wat is een Hermes Agent en wie maakt het?": "01. What is a Hermes Agent and who makes it?",
-        "02. Is een Hermes Agent niet gewoon een chatbot?": "02. Is a Hermes Agent not just a chatbot?",
-        "02b. Wat is dan het verschil tussen een chatbot en een agent?": "02b. What is the difference between a chatbot and an agent?",
 
-        "03. Met ChatGPT en Claude kan ik toch ook een AI-agent opzetten? Waarom Hermes?": "03. I can also set up an AI agent with ChatGPT and Claude. Why Hermes?",
-        "Ja, ook met de tools van OpenAI en Anthropic kun je AI-agents opzetten. Het belangrijkste verschil is niet dát het kan, maar hoeveel controle je over je systeem houdt.": "Yes, you can also set up AI agents with tools from OpenAI and Anthropic. The key difference is not whether it is possible, but how much control you retain over your system.",
-        "ChatGPT en Claude zijn propriëtaire oplossingen: de leverancier bepaalt de mogelijkheden, prijzen en voorwaarden. Als je je werkprocessen daarop inricht, word je ook afhankelijk van toekomstige keuzes van die leverancier.": "ChatGPT and Claude are proprietary solutions: the provider determines the features, prices and terms. If you build your workflows around them, you also become dependent on that provider’s future decisions.",
-        "Hermes is open source en kun je zelf beheren. Je kunt de software aanpassen en verschillende AI-modellen aansluiten. Daardoor houd je meer ruimte om van aanbieder te wisselen, zonder je hele agentsysteem opnieuw op te bouwen.": "Hermes is open source and you can manage it yourself. You can modify the software and connect different AI models. This gives you more freedom to switch providers without having to rebuild your entire agent system.",
-        "Dat maakt je niet automatisch volledig onafhankelijk van big tech: gebruik je via Hermes een model van OpenAI of Anthropic, dan blijf je voor dat onderdeel afhankelijk van die aanbieder. Het verschil is dat je agentsysteem niet onlosmakelijk aan één leverancier vastzit.": "That does not automatically make you fully independent of big tech: if you use an OpenAI or Anthropic model through Hermes, you still depend on that provider for that component. The difference is that your agent system is not inseparably tied to a single provider.",
-        "04. Volgens Bart Boonstra is Hermes een beperktere versie van Het Mainframe. Klopt dat?": "04. According to Bart Boonstra, Hermes is a more limited version of Het Mainframe. Is that correct?",
-        "05. Wat als de agent twijfelt of iets fout kan doen?": "05. What if the agent is uncertain or could make a mistake?",
-        "06. Wat kost een Hermes-implementatie via ZZPagent?": "06. What does a Hermes implementation through ZZPagent cost?",
-        "06a. Wat krijg ik met GeoScope op mijn eigen Hermes?": "06a. What do I get with GeoScope on my own Hermes?",
-        "Voor eenmalig €500 exclusief btw installeren we de GeoScope-skill op jouw bestaande Hermes en richten we die in voor jouw bedrijf. Je krijgt een gebruikslicentie op onze eigen werkwijze voor gevonden worden én opvolgen: je AI-zichtbaarheid meten, antwoorden en bronnen beoordelen, verbeteringen voorbereiden en het resultaat opnieuw meten. Wij blijven de skill doorontwikkelen; het intellectuele eigendom blijft bij GeoScope.": "For a one-off €500 excluding VAT, we install the GeoScope skill on your existing Hermes and configure it for your business. You receive a licence to use our own approach to being found and following through: measuring your AI visibility, reviewing answers and sources, preparing improvements and measuring the results again. We continue developing the skill; the intellectual property remains with GeoScope.",
-        "De skill staat in jouw eigen Hermes-omgeving. Dat betekent niet dat alle verwerking offline gebeurt: gekoppelde AI-modellen en meetdiensten kunnen extern draaien. Hun gebruikskosten zijn niet inbegrepen. Een nieuwe Hermes-basisinstallatie valt buiten deze €500. We spreken vooraf af welke koppelingen en metingen beschikbaar zijn en wat is inbegrepen aan ondersteuning en eventuele latere updates. Wijzigingen aan je website en andere externe acties gebeuren alleen binnen de afspraken die jij goedkeurt.": "The skill is installed in your own Hermes environment. This does not mean that all processing happens offline: connected AI models and measurement services may run externally. Their usage costs are not included. A new base installation of Hermes is outside this €500. We agree in advance which integrations and measurements are available and what is included in support and any later updates. Changes to your website and other external actions take place only within the scope you approve.",
-        "07. Hoe snel kan een eerste Hermes-agent live zijn?": "07. How quickly can a first Hermes agent go live?",
-        "08. Heb ik eigen ontwikkelaars nodig voor Hermes Agent?": "08. Do I need my own developers for Hermes Agent?",
-        "09. Werkt Hermes met de tools die ik al gebruik?": "09. Does Hermes work with the tools I already use?",
-        "Ja, dat is precies het idee: mail, agenda, documenten, WhatsApp, Slack, CRM, boekhouding of n8n. Geen nieuw eiland, maar een laag over wat er al staat.": "Yes, that is exactly the idea: email, calendar, documents, WhatsApp, Slack, CRM, bookkeeping or n8n. Not a new island, but a layer over what is already in place.",
-        "09b. Kan Hermes mijn facturen verwerken met KNAB en DigiBoox?": "09b. Can Hermes process my invoices using KNAB and DigiBoox?",
-        "Ja. Hermes kan een factuur uit je e-mail of bestanden ophalen, leverancier, datum, bedrag, btw en factuurnummer controleren en nagaan of de kostenpost al bestaat. Na jouw goedkeuring kan Hermes de factuur automatisch in DigiBoox opnemen en koppelen aan de bijbehorende KNAB-banktransactie. Bij ontbrekende of onduidelijke gegevens stopt Hermes en vraagt het om jouw beoordeling.": "Yes. Hermes can retrieve an invoice from your email or files, check the supplier, date, amount, VAT and invoice number, and verify whether the expense already exists. After your approval, Hermes can automatically record the invoice in DigiBoox and link it to the corresponding KNAB bank transaction. If information is missing or unclear, Hermes stops and asks for your review.",
-        "10. Krijg ik alleen een kant-en-klare AI-agent, of leer ik er zelf mee werken?": "10. Do I only get a ready-made AI agent, or do I learn to work with it myself?",
-        "11. Hoe begin ik klein met een AI-agent?": "11. How do I start small with an AI agent?",
-        "12. Wat is een workflow en wat is het verschil met een losse prompt?": "12. What is a workflow and how is it different from a single prompt?",
-        "13. Wat is het kernverschil tussen automatisering en een AI-agent?": "13. What is the key difference between automation and an AI agent?",
-        "14. Kan Hermes mij helpen met het bouwen van een website?": "14. Can Hermes help me build a website?",
-        "15. Hebben jullie ervaring met Respond.io?": "15. Do you have experience with Respond.io?",
-        "16. Kan ik met Hermes praten terwijl ik auto rijd?": "16. Can I talk to Hermes while driving?",
-        "17. Hoe moeilijk is het om een chatbot zoals Sophie die praat en belt te maken?": "17. How hard is it to make a chatbot like Sophie that talks and calls?",
-        "18. Wat betekent een agent die met je meegroeit?": "18. What does an agent that grows with you mean?",
-        "19. Kan ik Hermes via WhatsApp Business gebruiken?": "19. Can I use Hermes through WhatsApp Business?",
-        "20. Wat is MCP en heeft Hermes dat nodig?": "20. What is MCP and does Hermes need it?",
-        "21. Is Hermes Agent AVG-proof in te zetten?": "21. Can Hermes Agent be used in a GDPR-compliant way?",
-        "22. Zijn autonome agents zoals Hermes veilig genoeg voor zakelijk gebruik?": "22. Are autonomous agents like Hermes safe enough for business use?",
-        "23. Stuurt Hermes mijn bedrijfsdata naar een LLM?": "23. Does Hermes send my business data to an LLM?",
-        "24. Wanneer is AI lokaal draaien verstandig?": "24. When is running AI locally sensible?",
-        "25. Wat gebruik je voor hosting als ik de AI modellen op een eigen fysieke server wil hebben?": "25. What hosting do you use if I want the AI models on my own physical server?",
-        "26. Wat betekent het dat Hermes open source is?": "26. What does it mean that Hermes is open source?",
-        "Hermes Agent is een open-source framework van Nous Research in New York voor autonome AI-agents, beschikbaar onder de MIT-licentie: digitale assistenten die niet alleen chatten, maar taken kunnen voorbereiden, tools kunnen gebruiken, context onthouden en terugkerend werk op schema kunnen uitvoeren. ZZPagent helpt zelfstandigen om Hermes praktisch in te richten rond hun eigen werk, kanalen en datagrenzen.": "Hermes Agent is an open-source framework by Nous Research in New York for autonomous AI agents, available under the MIT license: digital assistants that do not just chat, but can prepare tasks, use tools, remember context and run recurring work on a schedule. ZZPagent helps freelancers set up Hermes practically around their own work, channels and data boundaries.",
-        "Ja, mits de inrichting klopt. Bij ZZPagent begint dat met dataminimalisatie, duidelijke toegang, menselijke goedkeuring bij gevoelige acties en een route die past bij je risico’s: VPS in Europa, eigen Mac mini/Mac of hybride. AVG-proof is dus geen losse claim, maar een ontwerpkeuze per workflow, kanaal en databron.": "Yes, provided the setup is right. At ZZPagent that starts with data minimization, clear access, human approval for sensitive actions and a route that fits your risks: VPS in Europe, your own Mac mini/Mac or hybrid. GDPR-proof is therefore not a loose claim, but a design choice per workflow, channel and data source.",
 
-        "Dan gebruiken we lokale hosting, ook wel": "We then use local hosting, also called",
-        "on-premise hosting": "on-premise hosting",
-        "genoemd. Op de server draaien de AI-modellen via software zoals Ollama of vLLM. Je gegevens blijven zo binnen je eigen omgeving.": ". The AI models run on the server using software such as Ollama or vLLM. This keeps your data within your own environment.",
-        "Voor één server is dit meestal voldoende. OpenInfra/OpenStack wordt pas interessant als je meerdere servers of een complete private cloud wilt beheren.": "For one server, this is usually sufficient. OpenInfra/OpenStack only becomes relevant when you want to manage multiple servers or a complete private cloud.",
 
-        "In het eerste startgesprek bepalen we welke taak, toegang en inrichting nodig zijn. Daarna ontvang je vooraf één vaste prijs voor het afgesproken starttraject. Geen open urenrekening en geen verrassingen achteraf. Reken voor het inrichten van een eerste afgebakende Hermes-assistent op ongeveer €1.000 exclusief btw. Voor eenmalig €500 exclusief btw installeren we daarnaast de GeoScope-skill op jouw bestaande Hermes, inclusief gebruikslicentie en inrichting voor jouw bedrijf. Daarmee richten we de werkwijze voor nulmeting, verbeteracties, vervolgmetingen en rapportage over je AI-vindbaarheid in. Gebruikskosten van modellen en meetdiensten staan hier los van. Wil je Hermes op een Europese VPS laten draaien, reken dan doorgaans op ongeveer €10 tot €20 per maand exclusief btw, afhankelijk van de server en eventuele extra’s. Met een bestaand ChatGPT Plus-abonnement met Codex kom je meestal al erg ver en heb je een goede LLM als basis. In Nederland kost dat momenteel ongeveer €23 per maand inclusief btw. Daarnaast richten we veel goedkopere commoditymodellen in als fallback. Bij normaal gebruik blijven de kosten daarvan vaak onder €10 per maand, maar het exacte bedrag hangt af van het daadwerkelijke verbruik. Er is geen verplicht beheerabonnement.": "In the first introductory conversation, we determine which task, access and setup are needed. You then receive one fixed price in advance for the agreed starting project. No open-ended hourly billing and no surprises afterwards. For setting up a first clearly scoped Hermes assistant, expect approximately €1,000 excluding VAT. For a one-off €500 excluding VAT, we also install the GeoScope skill on your existing Hermes, including a usage licence and configuration for your business. This sets up the workflow for baseline measurement, improvement actions, follow-up measurements and reporting on your AI visibility. Usage costs for models and measurement services are separate. If you want Hermes to run on a European VPS, typically allow around €10 to €20 per month excluding VAT, depending on the server and any extras. An existing ChatGPT Plus subscription with Codex will usually take you a long way and gives you a strong LLM as a foundation. In the Netherlands this currently costs approximately €23 per month including VAT. We also configure much cheaper commodity models as fallback. With normal usage, their costs often remain below €10 per month, but the exact amount depends on actual usage. There is no mandatory management subscription.",
 
-        "Reken op weken, niet op maanden. Na het startgesprek spreken we doel, toegang, grenzen en testvoorbeelden af. Daarna richten we de gekozen taken in, testen we met jouw eigen werk en sturen we samen bij. De precieze planning hangt af van de gekozen taken en benodigde toegang.": "Expect weeks, not months. After the introductory conversation we agree on the goal, access, boundaries and test examples. We then set up the chosen tasks, test them with your own work and adjust them together. The exact schedule depends on the chosen tasks and the access required.",
-        "Voor een eerste ZZPagent-route heb je geen eigen ontwikkelaars nodig. Wel zijn jouw keuzes en toegang nodig: welk kanaal, welke mailbox of databron, welke modelroute en welke acties nooit zonder akkoord mogen plaatsvinden. Technische inrichting, koppelingen en beheer worden stap voor stap voorbereid.": "For a first ZZPagent route you do not need your own developers. Your choices and access are needed though: which channel, which mailbox or data source, which model route and which actions must never happen without approval. Technical setup, integrations and management are prepared step by step.",
         "Je kent het gezegde: ‘Geef een man een vis en hij eet één dag, leer hem vissen en hij eet zijn hele leven.’ Veel AI-consultants geven je een vis: een kant-en-klare agent die werkt, maar die je niet begrijpt en niet zelf kunt aanpassen. ZZPagent werkt anders: we leren je vissen. We bouwen niet alleen AI-agents voor je, maar zorgen dat jij als ondernemer begrijpt hoe ze werken, ze zelf kunt aanpassen en nieuwe agents kunt bouwen wanneer je dat wilt. Zo wordt AI met Hermes echt een kracht voor jouw werk en bedrijf, niet een black box die je elke keer moet uitbesteden.": "You know the saying: ‘Give a man a fish and he eats for a day, teach him to fish and he eats for a lifetime.’ Many AI consultants give you a fish: a ready-made agent that works, but that you do not understand and cannot adjust yourself. ZZPagent works differently: we teach you to fish. We do not just build AI agents for you. We make sure you understand how they work, can adjust them yourself and can build new agents when you want to. That makes AI with Hermes a real strength for your work and business, not a black box you have to outsource every time.",
-        "Autonome agents vragen begrenzing. ZZPagent kiest daarom voor menselijke controle, beperkte toegang, duidelijke taakafbakening, logging/controleerbaarheid en geen automatische verzending of gevoelige actie zonder akkoord waar reputatie, geld, rechten of privacy geraakt kunnen worden. Veiligheid zit niet in “de agent mag alles”, maar in professioneel beperken wat hij mag doen.": "Autonomous agents need boundaries. ZZPagent therefore chooses human control, limited access, clear task boundaries, logging/auditability and no automatic sending or sensitive action without approval where reputation, money, rights or privacy may be affected. Safety is not in ‘the agent may do everything’, but in professionally limiting what it may do.",
-        "Een pratende en bellende chatbot zoals Sophie is technisch zeer goed mogelijk. Sophie is een snelle showcase die we gebouwd hebben om te laten zien wat nu al bruikbaar is: spraak, gesprek, bellen, intake en opvolging in één kleine demo. De echte waarde zit niet in de losse demo zelf, maar in wat je ermee kunt laten zien: een agent die zelfstandig een gesprek kan starten, informatie kan verzamelen en een vervolgactie kan voorbereiden. De waarde zit ook in de bredere mogelijkheden van Hermes. Een dienst als Fonio.ai vraagt bijvoorbeeld rond €99 per maand voor alleen al een AI-telefoonassistent, terwijl Hermes zo’n toepassing zelf kan helpen bouwen en koppelen. Je kunt het testen op de website; we hebben haar Sophie genoemd.": "A speaking and calling chatbot like Sophie is technically very feasible. Sophie is a quick showcase we built to show what is already usable today: voice, conversation, calling, intake and follow-up in one small demo. The real value is not the standalone demo itself, but what it shows: an agent that can start a conversation independently, gather information and prepare a follow-up action. The value also lies in the broader possibilities of Hermes. A service such as Fonio.ai, for example, charges around €99 per month for an AI phone assistant alone, while Hermes can help build and connect such an application itself. You can test it on the website; we called her Sophie.",
-        "Een agent die met je meegroeit, onthoudt voorkeuren, werkwijzen en terugkerende taken binnen afgesproken grenzen. Daardoor hoef je niet steeds opnieuw uit te leggen hoe je werkt. Hermes kan zo briefings, conceptmails, documentordening, planning en opvolging steeds beter voorbereiden, terwijl jij de eindcontrole houdt.": "An agent that grows with you remembers preferences, ways of working and recurring tasks within agreed boundaries. That means you do not have to explain how you work again and again. Hermes can increasingly prepare briefings, draft emails, document organization, planning and follow-up while you keep final control.",
-        "Ja. WhatsApp Business kan het laagdrempelige kanaal zijn waarmee jij of je klanten de agent bereiken. Hermes begint veilig: profiel, intake, labels en conceptantwoorden eerst; verdergaande automatisering pas met duidelijke opt-in, logging, officiële routes en menselijke goedkeuring. Hier ligt ook de kracht van Hermes: we kunnen WhatsApp-berichten laten sturen, groeperen, labelen en opvolgen. Zie het als een mini-CRM rond je klantgesprekken.": "Yes. WhatsApp Business can be the low-threshold channel through which you or your customers reach the agent. Hermes starts safely: profile, intake, labels and draft replies first; further automation only with clear opt-in, logging, official routes and human approval. This is also where Hermes is strong: we can have WhatsApp messages sent, grouped, labelled and followed up. Think of it as a mini CRM around your customer conversations.",
-        "MCP staat voor Model Context Protocol. Het is een standaard waarmee een AI-agent verbinding kan maken met externe documenten, agenda’s, databases of andere systemen.": "MCP stands for Model Context Protocol. It is a standard that allows an AI agent to connect to external documents, calendars, databases or other systems.",
-        "Bij Hermes heb je MCP meestal niet nodig. Hermes kan het meeste zelf regelen met ingebouwde tools, vaardigheden en rechtstreekse koppelingen. Alleen als een specifiek extern systeem niet rechtstreeks bereikbaar is, kan MCP een aanvullende koppeling zijn. Het is dus een mogelijkheid, geen vereiste om met Hermes te beginnen.": "With Hermes, you usually do not need MCP. Hermes can handle most things itself with built-in tools, skills and direct integrations. MCP can be an additional connection only when a specific external system cannot be reached directly. It is therefore an option, not a requirement for getting started with Hermes.",
-        "Kies één concrete taak: inboxfiltering, agenda-briefings, klantvragen samenvatten, documenten ordenen of conceptmails voorbereiden. Of misschien wil je beginnen met een AI-telefoonassistent. Eerst één agent en één workflow betrouwbaar maken; daarna pas uitbreiden naar extra kanalen, tools of automatiseringen.": "Choose one concrete task: inbox filtering, agenda briefings, summarizing customer questions, organizing documents or preparing draft emails. Or perhaps you want to start with an AI phone assistant. First make one agent and one workflow reliable; only then expand to extra channels, tools or automations.",
-        "Zie een AI-assistent als een slimme, razendsnelle stagiair: die kan veel, maar kent jouw bedrijf nog niet. Laat zien hoe jij een taak uitvoert, geef voorbeelden van een goed resultaat en spreek af wanneer jouw toestemming nodig is. Begin met één terugkerende taak, controleer het werk en leg de aanpak pas als vaste werkwijze vast wanneer die in de praktijk werkt.": "Think of an AI assistant as a smart, fast-working intern: capable, but not yet familiar with your business. Show it how you perform a task, provide examples of a good result, and agree on when it needs your approval. Start with one recurring task, check the work, and only turn the approach into a reusable routine once it works in practice.",
-        "Goed inwerken is niet alleen beter prompten. Ook de omgeving rond het AI-model, de harness, moet goed zijn ingericht: met toegang tot de juiste bronnen en tools, duidelijke controles en vragen wanneer informatie ontbreekt.": "Good onboarding is not just about better prompts. The environment around the AI model, the harness, also needs the right sources and tools, clear checks, and a way to ask questions when information is missing.",
-        "Een workflow is een vaste reeks stappen die telkens in dezelfde logische volgorde wordt uitgevoerd. Een losse prompt is één afzonderlijke opdracht aan AI. Een workflow beschrijft het hele terugkerende proces, van de informatie die binnenkomt tot jouw controle of akkoord.": "A workflow is a fixed series of steps that is carried out in the same logical order each time. A single prompt is one separate instruction to AI. A workflow describes the entire recurring process, from the information that comes in to your review or approval.",
-        "Een eenvoudige workflow bestaat bijvoorbeeld uit vier stappen: een mail, formulier, bestand of bericht komt binnen; Hermes vat samen, ordent informatie of maakt een concept; Hermes zet een taak, antwoord of document klaar en kan waar nodig een tool gebruiken; jij controleert, past aan en beslist.": "A simple workflow can consist of four steps: an email, form, file or message comes in; Hermes summarizes, organizes information or prepares a draft; Hermes prepares a task, reply or document and can use a tool where needed; you review, adjust and decide.",
-        "Een agent kan binnen zo’n workflow zelfstandiger stappen uitvoeren en bepalen wat er vervolgens nodig is. Jij spreekt vooraf af waar Hermes zelf mag handelen en wanneer jouw akkoord nodig blijft.": "Within such a workflow, an agent can carry out steps more independently and determine what is needed next. You agree in advance where Hermes may act on its own and when your approval remains necessary.",
-        "Automatisering volgt vooraf bepaalde stappen; een agent kiest dynamisch acties op basis van doel en context.": "Automation follows predefined steps; an agent dynamically chooses actions based on its goal and context.",
-        "Deterministische workflows zijn voorspelbaar en goed controleerbaar bij herhaalde taken. Agenten bieden flexibiliteit bij variatie, maar vragen grenzen, toezicht en controle op fouten.": "Deterministic workflows are predictable and easy to control for repeated tasks. Agents offer flexibility when situations vary, but require boundaries, oversight and checks for errors.",
-        "Ja. Hermes kan via kanalen zoals Telegram of WhatsApp op je Apple Watch of iPhone bereikbaar zijn. Je spreekt een bericht in, Hermes kan reageren en je kunt gesproken berichten terugkrijgen, bijvoorbeeld onderweg in de auto.": "Yes. Hermes can be reachable through channels such as Telegram or WhatsApp on your Apple Watch or iPhone. You speak a message, Hermes can respond and you can receive spoken messages back, for example while driving.",
-        "Ja. Hermes kan helpen bij het bouwen, verbeteren en publiceren van een website. Denk aan het ordenen van ideeën, het schrijven van conceptteksten, het voorbereiden van pagina's, het controleren van formulieren en het ondersteunen bij publicatie. Maar ook het eenvoudig ontwikkelen en koppelen van apps. De mens blijft nodig voor keuzes, controle, merkgevoel en akkoord op wat gepubliceerd wordt.": "Yes. Hermes can help build, improve and publish a website. Think of organizing ideas, drafting copy, preparing pages, checking forms and supporting publication. It can also help with simple app development and integrations. A human is still needed for choices, quality control, brand feel and approval of what gets published.",
-        "Hermes Agent is open source. Dat betekent dat de code openbaar beschikbaar is": "Hermes Agent is open source. That means the code is publicly available",
-        ", ongeveer zoals softwareprojecten op GitHub worden bewaard, gedeeld, verbeterd en door anderen kunnen worden voortgezet. GitHub is een online werkplaats en archief voor softwarecode: een soort digitale garage waar ontwikkelaars code bouwen, onderhouden, verbeteren en delen. Omdat Hermes open source is, blijft de code beschikbaar, ook als Nous Research ooit zou stoppen of het project door anderen wordt voortgezet. Je betaalt geen licentie voor Hermes zelf. Nous Research kan geld verdienen met diensten eromheen, zoals modeltoegang, hosting, support of maatwerk voor bedrijven. Dat zie je vaker bij open source: Google maakte Android open source en bouwde daarmee een groot Google-ecosysteem; Meta geeft Llama-modellen vrij en wordt daardoor belangrijker in open AI. Hermes is dan de open werkbank rond agents; het commerciële deel zit in gemak, beheer en professioneel gebruik eromheen.": ", much like software projects are stored, shared, improved and continued by others on GitHub. GitHub is an online workshop and archive for software code: a kind of digital garage where developers build, maintain, improve and share code. Because Hermes is open source, the code remains available, even if Nous Research ever stopped or the project was continued by others. You do not pay a license fee for Hermes itself. Nous Research can earn money from services around it, such as model access, hosting, support or custom work for companies. You see this more often in open source: Google made Android open source and built a large Google ecosystem with it; Meta releases Llama models and becomes more important in open AI as a result. Hermes is the open workbench around agents; the commercial part sits in convenience, management and professional use around it.",
-        "Maar voor onze toepassing hoef je je geen zorgen te maken: Hermes blijft open source, door de community up-to-date en er is geen vendor lock-in.": "But for our use case you do not need to worry: Hermes remains open source, kept up-to-date by the community and there is no vendor lock-in.",
-        "Bekijk ook het": "Also view the",
-        "met concrete voorbeelden voor zzp’ers.": "with practical examples for solo entrepreneurs.",
-        "Bart Boonstra vergelijkt Hermes in zijn cursus Slimmer werken met AI met Het Mainframe en presenteert Hermes daarbij als een beperktere variant. Als je kijkt naar technische vrijheid en uitbreidbaarheid, zien wij het eerder omgekeerd.": "Bart Boonstra compares Hermes with Het Mainframe in his Smarter Working with AI course and presents Hermes as a more limited variant. When it comes to technical freedom and extensibility, we see it the other way around.",
-        "Het Mainframe is een begeleide werkwijze die sterk rond Claude is opgebouwd. Claude is een krachtig maar propriëtair model en platform. Hermes is een open-source agentlaag die niet aan één model vastzit: je kunt onder meer Claude, ChatGPT/Codex, andere cloudmodellen of lokale modellen gebruiken.": "Het Mainframe is a guided working method built strongly around Claude. Claude is a powerful but proprietary model and platform. Hermes is an open-source agent layer that is not tied to a single model: you can use Claude, ChatGPT/Codex, other cloud models or local models, among others.",
-        "Het Mainframe wordt aangeboden als een leertraject van ongeveer acht weken. Met Hermes begin je direct met één afgebakende taak en leer je al doende. Door jouw aanwijzingen, controles en correcties bouwt Hermes geheugen en herbruikbare skills op en sluit het steeds beter aan op jouw werkwijze.": "Het Mainframe is offered as a learning programme of approximately eight weeks. With Hermes, you start directly with one clearly scoped task and learn by doing. Through your instructions, checks and corrections, Hermes builds memory and reusable skills and becomes increasingly aligned with the way you work.",
-        "Het zijn dus verschillende routes. Voor wie modelkeuze, eigen hosting, uitbreidbaarheid en leren in het dagelijkse werk belangrijk vindt, biedt Hermes juist de bredere basis.": "They are therefore different routes. For people who value model choice, their own hosting, extensibility and learning through daily work, Hermes provides the broader foundation.",
         "Agent Platform": "Agent Platform",
-        "Klap uit": "Expand",
         "Sluit": "Close",
         "Hermes, ChatGPT Work, Claude Cowork en n8n/Zapier": "Hermes, ChatGPT Work, Claude Cowork and n8n/Zapier",
         "Een praktisch overzicht voor ZZP’ers: Hermes als open-source assistentlaag met geheugen, skills en eigen modelroutes; ChatGPT Work en Claude Cowork als sterke gesloten werkassistenten; n8n/Zapier als workflowautomatisering voor vaste processen.": "A practical overview for freelancers: Hermes as an open-source assistant layer with memory, skills and own model routes; ChatGPT Work and Claude Cowork as strong closed work assistants; n8n/Zapier as workflow automation for fixed processes.",
@@ -1948,7 +2063,6 @@
         "Zes taken waarmee je direct tijd terugwint": "Six tasks that immediately save you time",
         "Begin met één terugkerende taak die nu onnodig veel tijd kost. We werken je persoonlijke assistent samen in op jouw manier van werken. Daarna bereidt Hermes het werk voor, jij controleert en beslist. Werkt dat goed, dan kun je stap voor stap uitbreiden.": "Start with one recurring task that currently takes up unnecessary time. Together, we train your personal assistant in your way of working. Hermes then prepares the work, while you review and decide. Once that works well, you can expand step by step.",
         "Je kunt ook alvast een kijkje nemen in ons": "You can also take a look at our",
-        "workflowoverzicht": "workflow overview",
         "Zes soorten werk om mee te starten": "Six types of work to get started",
         "De eerste versie richt zich op concrete, terugkerende workflows voor ondernemers. Klein beginnen, bewijzen dat het werkt, daarna uitbreiden, met focus op tijdswinst, overzicht en beheersbare AI.": "The first version focuses on concrete, recurring workflows for entrepreneurs. Start small, prove that it works, then expand, with a focus on time savings, overview and controllable AI.",
         "We bouwen stap voor stap een persoonlijk “operating system” voor jouw werk: afgestemd op jouw manier van werken en in de tijd verder uit te breiden met Hermes.": "Step by step, we build a personal “operating system” for your work: tuned to the way you work and expandable over time with Hermes.",
@@ -2209,24 +2323,7 @@
         "· Gebouwd voor ZZP met Bernard's AI visie.": "· Built for freelancers with Bernard's AI vision.",
         "Gebouwd voor ZZP met Bernard's AI visie.": "Built for freelancers with Bernard's AI vision.",
         "Hermes-video": "Hermes video",
-        "Niet standaard je volledige bedrijfsomgeving. Een extern model ontvangt alleen wat voor een taak in de context wordt geplaatst: je prompt, relevante gespreksinformatie, geselecteerde tool- of bestandsresultaten en eventueel memory. Memory wordt lokaal opgeslagen, maar kan bij gebruik wel in de modelcontext terechtkomen.": "Not your full business environment by default. An external model only receives what is placed in context for a task: your prompt, relevant conversation context, selected tool or file results and possibly memory. Memory is stored locally, but when used it can enter the model context.",
-        "Gebruik je": "When you use",
-        "/moa (Mixture of Agents)": "/moa (Mixture of Agents)",
-        ", een feature van Hermes, dan laat Hermes voor één opdracht meerdere referentiemodellen eerst naar dezelfde vraag kijken. Een aggregatormodel gebruikt hun analyses om één antwoord te maken. Daarna schakelt Hermes terug naar het model dat je al gebruikte. Als de gekozen modellen extern draaien, ontvangen zij dus dezelfde geselecteerde taakcontext.": ", a Hermes feature, Hermes first lets multiple reference models examine the same question for one task. An aggregator model uses their analyses to produce one answer. Hermes then switches back to the model you were already using. If the selected models run externally, they therefore receive the same selected task context.",
-        "Open source geeft controle en keuze, maar is niet automatisch privé. Privacy ontwerp je per workflow: context minimaliseren, rechten scheiden en per taak kiezen tussen lokaal, eigen VPS, Europese cloud of externe modellen.": "Open source gives control and choice, but is not automatically private. Privacy is designed per workflow: minimize context, separate permissions and choose per task between local, your own VPS, European cloud or external models.",
 
-        "Zelf het model beheren": "Managing the model yourself",
-        "Ja, je kunt een beschikbaar AI-model zelf laten draaien als de licentie dat toestaat en de hardware geschikt is. Dat heet zelf hosten. Je gebruikt dan de bestaande modelbestanden, ook wel weights genoemd. Je hoeft dus niet zelf een taalmodel vanaf nul te trainen. De vraag is vooral of deze inrichting past bij jouw werk, gegevens en budget.": "Yes, you can run an available AI model yourself if its licence permits it and the hardware is suitable. This is called self-hosting. You use the existing model files, also known as weights. You do not need to train a language model from scratch. The main question is whether this setup suits your work, data and budget.",
-        "Een bruikbaar AI-systeem bestaat uit meer dan een model. Het model interpreteert de vraag en maakt een antwoord of voorstel. De applicatielaag eromheen levert bedrijfsgegevens, instructies, tools, toegangsrechten en controles. De derde laag is de rekenkracht: de computer of server waarop dit alles draait. Vergelijk het model met de motor van een auto. Een goede motor is belangrijk, maar pas met besturing, remmen en de rest van de auto kun je verantwoord de weg op.": "A useful AI system consists of more than a model. The model interprets the question and produces an answer or proposal. The application layer around it supplies business data, instructions, tools, access permissions and checks. The third layer is computing power: the computer or server on which it all runs. Think of the model as a car engine. A good engine matters, but you also need steering, brakes and the rest of the car before you can drive responsibly.",
-        "Voor een afgebakende taak kan een open model met passende software en goede bedrijfsinformatie veel waarde leveren. Dat betekent niet dat het op elk gebied even goed presteert als de krachtigste commerciële modellen. Een kleinere motor kan prima passen bij de rit die je wilt maken. Test daarom de concrete taak, inclusief uitzonderingen: wordt het werk betrouwbaar afgerond, klopt het resultaat en stopt het systeem als informatie of toestemming ontbreekt? Alleen een slim klinkend antwoord is niet genoeg.": "For a well-defined task, an open model with suitable software and good business information can provide considerable value. That does not mean it performs as well as the most capable commercial models in every area. A smaller engine may be perfectly adequate for the journey you need to make. Test the actual task, including exceptions: is the work completed reliably, is the result correct and does the system stop when information or permission is missing? An answer that sounds clever is not enough.",
-        "Een voorbeeld voor een zzp’er: een conceptofferte opstellen met je eigen tarieven, voorwaarden en een goedgekeurd voorbeeld. Het model helpt de aanvraag te begrijpen en de tekst te schrijven. De applicatie haalt de juiste tarieven op, rekent bedragen met een rekentool na en meldt ontbrekende gegevens. Jij controleert de offerte en geeft akkoord voordat deze naar de klant gaat.": "For a self-employed professional, consider preparing a draft quotation using your own rates, terms and an approved example. The model helps interpret the request and write the text. The application retrieves the correct rates, verifies amounts with a calculation tool and flags missing information. You review the quotation and approve it before it goes to the customer.",
-        "Jouw bedrijfskennis maakt hierbij het verschil: tarieven, afspraken, documenten en de manier waarop je werkt. Die informatie hoef je niet allemaal in het model zelf te trainen. De applicatie kan de relevante gegevens per taak ophalen en meegeven. Bewaak welke informatie daarvoor nodig is, wie erbij mag en hoelang die wordt bewaard. Controleer bij een leverancier de contracten en het databeleid, waaronder afspraken over opslag, hergebruik en training. Dat verschilt per dienst en overeenkomst.": "Your business knowledge makes the difference here: rates, agreements, documents and the way you work. You do not have to train all that information into the model itself. The application can retrieve the relevant data for each task and supply it as context. Control which information is needed, who may access it and how long it is retained. Check a supplier’s contracts and data policy, including arrangements for storage, reuse and training. These differ between services and agreements.",
-        "Een eigen agentomgeving beheren is niet hetzelfde als het model lokaal draaien. Je kunt Hermes zelf beheren en toch een extern model gebruiken. Dan gaan de geselecteerde opdracht, gesprekscontext, geheugeninformatie en toolresultaten die voor die taak worden meegestuurd naar de modelaanbieder. Ook lokaal bewaard geheugen kan zo extern worden verwerkt. Alleen als ook het model en de overige verwerking binnen de afgesproken eigen omgeving blijven, blijft die gegevensverwerking daar.": "Managing your own agent environment is not the same as running the model locally. You can manage Hermes yourself while still using an external model. In that case, the selected request, conversation context, memory information and tool results included for the task are sent to the model provider. Even locally stored memory can therefore be processed externally. That processing stays within your agreed environment only if the model and the other processing also remain there.",
-        "Zelf hosten kan op eigen hardware, zoals een geschikte computer of bedrijfsserver, of op een gehuurde cloudserver. Een Europese VPS is dus geen computer bij jou op kantoor. Kijk per route naar de benodigde capaciteit, de locatie van de gegevens en wie het beheer doet. Niet iedere server is geschikt voor ieder model. Je krijgt meer zeggenschap over de inrichting, maar blijft afhankelijk van onder meer hardware, software, modellicenties en eventueel een hostingpartij.": "Self-hosting can use your own hardware, such as a suitable computer or business server, or a rented cloud server. A European VPS is not a computer in your office. For each route, consider the required capacity, the location of the data and who manages the setup. Not every server is suitable for every model. You gain more control over the setup, but still depend on hardware, software, model licences and possibly a hosting provider.",
-        "Bij eigen beheer horen ook updates, beveiliging, back-ups, hersteltests en het opnieuw testen van workflows na wijzigingen. Je betaalt mogelijk geen externe modelprijs per token, maar wel voor hardware of cloudcapaciteit, elektriciteit en beheertijd. Zelf hosten is daarom niet automatisch goedkoper, veiliger of volledig onafhankelijk. Spreek vooraf af wie verantwoordelijk is en vergelijk de totale kosten met de kwaliteit die de taak vraagt.": "Self-management also involves updates, security, backups, recovery tests and retesting workflows after changes. You may no longer pay an external model provider per token, but you still pay for hardware or cloud capacity, electricity and management time. Self-hosting is therefore not automatically cheaper, safer or fully independent. Agree in advance who is responsible and compare total costs with the quality the task requires.",
-        "Een hybride inrichting kan ook passen: gevoelige verwerking in de eigen omgeving en een extern model voor taken waarvoor dat is toegestaan. Leg die grens expliciet vast, ook voor geheugen, documenten, hulpmiddelen en een eventuele fallback. Een storing mag niet ongemerkt betekenen dat vertrouwelijke gegevens alsnog naar buiten gaan.": "A hybrid setup may also be suitable: sensitive processing within your own environment and an external model for tasks where this is permitted. Define that boundary explicitly, including memory, documents, tools and any fallback. An outage must not silently cause confidential data to be sent outside that boundary.",
-        "ZZPagent kiest daarom per workflow: lokaal waar gegevensgrenzen en controle dat vragen, extern waar dat is toegestaan en beter past. Met een open agentomgeving kun je een andere modelroute aansluiten zonder noodzakelijk al je werkwijzen opnieuw op te bouwen. Koppelingen en resultaten moet je daarna wel opnieuw testen. Begin met één nuttige taak, vergelijk de routes op dezelfde voorbeelden en kies op basis van betrouwbaar afgerond werk.": "ZZPagent therefore chooses per workflow: local processing where data boundaries and control require it, external processing where it is permitted and a better fit. An open agent environment lets you connect a different model route without necessarily rebuilding all your procedures. Integrations and results still need to be retested afterwards. Start with one useful task, compare the routes using the same examples and choose based on reliably completed work.",
-        "Ja. We hebben ervaring met een praktijkcase waarin Respond.io niet alleen als centrale inbox werkte, maar ook als eerste AI-intakelaag. In die opzet kwamen WhatsApp en sociale kanalen samen in Respond.io, stelde de Respond.io-agent de eerste intakevragen en zorgde n8n daarna voor de vaste workflow richting CRM, kanaallabeling en leadregistratie. Dat is leerzaam voor ZZPagent: Respond.io is sterk als kanaal- en intakelaag, n8n als voorspelbare workflowlaag en Hermes als bredere agentlaag voor samenvatten, duiden, conceptantwoorden en vervolgstappen. De concrete inrichting maken we altijd eigen en AVG-bewust, zonder bestaande cases één-op-één te kopiëren.": "Yes. We have experience with a practical case where Respond.io was not only a central inbox, but also the first AI intake layer. In that setup WhatsApp and social channels came together in Respond.io, the Respond.io agent asked the first intake questions and n8n then handled the fixed workflow towards CRM, channel labeling and lead registration. That is useful for ZZPagent: Respond.io is strong as a channel and intake layer, n8n as a predictable workflow layer and Hermes as the broader agent layer for summaries, interpretation, draft replies and next steps. We always make the actual setup original and GDPR-aware, without copying existing cases one-to-one.",
         "Praat met Sophie": "Talk to Sophie",
         "Praat live met Sophie": "Talk live with Sophie",
         "Laat Sophie jou bellen": "Let Sophie call you",
@@ -2272,6 +2369,14 @@
       document.querySelectorAll('[data-lang-button]').forEach(button => {
         button.classList.toggle('active', button.dataset.langButton === lang);
       });
+      const faqStructured = document.querySelector('script[type="application/ld+json"]');
+      if (faqStructured) {
+        const graph = JSON.parse(faqStructured.textContent);
+        const faq = graph['@graph'].find(item => item['@type'] === 'FAQPage');
+        faq.mainEntity = [...document.querySelectorAll('#faq .hero-faq-list > details')].map(item => ({'@type':'Question', name:item.querySelector('summary').textContent.trim().replace(/^\d+[a-z]?\.\s*/, ''), acceptedAnswer:{'@type':'Answer',text:[...item.children].filter(el => el.tagName !== 'SUMMARY').map(el => el.textContent.trim()).join(' ').replace(/\s+/g,' ')}}));
+        faqStructured.textContent = JSON.stringify(graph);
+      }
+      document.querySelector('#faq-geoscope-tools img').alt = lang === 'en' ? 'The GEO Strategy House with GEO auditing, prompt research, reporting, content and channels' : 'Het GEO Strategy House met GEO-auditing, promptonderzoek, rapportage, content en kanalen';
       localStorage.setItem('zzpAgentLang', lang);
     }
 
