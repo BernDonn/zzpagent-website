@@ -1021,7 +1021,18 @@
 /* Laptop: match the five video-entry icons (138.90625px from the card edge).
    Direct-child selector excludes the nested video entries and the green CTA. */
 @media(min-width:1200px){#oplossingen .case-actions .expand-label > .video-entry-screen{transform:translateX(-48.34375px)}}
-</style></head>
+</style><style id="provider-video-style">
+#providers .provider-overview-grid{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:36px;align-items:center}
+#providers .provider-overview-copy{display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:0}
+#providers .provider-overview-copy p{margin:0}
+#providers .provider-video{margin:0;width:100%;max-width:240px;justify-self:end}
+#providers .provider-video figcaption{display:grid;gap:2px;margin-bottom:10px;color:inherit;line-height:1.35;font-size:16px;font-weight:700}
+#providers .provider-video figcaption span+span{font-weight:400;font-size:14px}
+#providers .provider-video video{display:block;width:100%;height:auto;aspect-ratio:9/16;border-radius:12px;background:#10223d}
+#providers .provider-prices{margin-top:20px}
+@media(max-width:700px){#providers .provider-overview-grid{grid-template-columns:minmax(0,1fr);gap:24px}#providers .provider-video{justify-self:center}}
+</style>
+</head>
 <body>
   <nav class="nav">
     <div class="nav-inner">
@@ -1580,14 +1591,24 @@
       <div class="eyebrow">Modelkeuze & toegang</div>
       <h2>Wijs per taak het juiste model toe</h2>
       <p class="lead">We starten Hermes op met ChatGPT/Codex via OAuth op basis van je maandelijkse ChatGPT-abonnement, of met Claude via OAuth op basis van je Claude-abonnement, aangevuld met commodity modellen via OpenRouter. Als een route zijn limiet bereikt, schakelt de agent over naar een vooraf gekozen alternatief. Hermes beschikt over MOA (Mix of Agents) waar je de modellen in principe per taak kunt alloceren.</p>
-      <details class="provider-card">
-        <summary class="provider-summary">
+      <div class="provider-card provider-overview">
+        <div class="provider-overview-grid">
+          <div class="provider-overview-copy">
           <span class="tag">OAuth + OpenRouter</span>
           <strong>Twee toegangswegen, één agentlaag</strong>
           <p class="muted">Je logt in met ChatGPT/Codex of Claude via OAuth op basis van je abonnement, of gebruikt OpenRouter als modelhub. Daarna kiest de agent per taak de ingestelde route en fallback.</p>
           <ul class="provider-summary-list"><li>ChatGPT/Codex via OAuth</li><li>Claude via OAuth (beperkte capaciteit)</li><li>OpenRouter voor meerdere modellen</li><li>Automatische fallback bij limieten of storingen</li></ul>
-          <span class="provider-toggle">Modelprijzen (per 1M tokens)</span>
-        </summary>
+          </div>
+          <figure class="provider-video">
+            <figcaption><span>Bekijk de uitleg</span><span>in een korte video</span></figcaption>
+            <video controls playsinline preload="metadata" width="720" height="1280" poster="/assets/modelkeuze-toegang-poster.jpg" aria-label="Modelkeuze en toegang">
+              <source src="/assets/modelkeuze-toegang.mp4" type="video/mp4">
+              <a href="/assets/modelkeuze-toegang.mp4">Download de video</a>
+            </video>
+          </figure>
+        </div>
+        <details class="provider-prices">
+          <summary class="provider-summary"><span class="provider-toggle">Modelprijzen (per 1M tokens)</span></summary>
         <div class="provider-detail">
           <div class="provider-grid">
             <article class="provider-card">
@@ -1623,6 +1644,8 @@
           <p class="muted"><span>Bronnen OpenRouter</span>: <a href="https://openrouter.ai/anthropic/claude-sonnet-5.5">Claude Sonnet 5.5</a> · <a href="https://openrouter.ai/openai/gpt-6-astra">GPT-6 Astra</a> · <a href="https://openrouter.ai/z-ai/glm-5.2">GLM 5.2</a> · <a href="https://openrouter.ai/deepseek/deepseek-v4-flash">DeepSeek V4 Flash 0423</a>. <a href="https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus">ChatGPT Plus en Codex</a> · <a href="https://developers.openai.com/codex/pricing/">Codex</a>.</p>
           <div class="flow-note"><strong>Hoe het werkt:</strong> tijdens deployment bepalen we of een OAuth-route (ChatGPT of Claude) of OpenRouter de primaire route wordt, plus minimaal één fallback. Als een OAuth-route zijn limiet bereikt of niet beschikbaar is, schakelt de agent door naar het OpenRouter-model dat we vooraf hebben gekozen. Sleutels en OAuth-tokens horen in de private agent-workspace, niet in de website.</div>
         </div>
+      </details>
+      </div>
       </section>
 
     <section class="section" id="contact">
