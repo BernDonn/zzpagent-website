@@ -1018,6 +1018,9 @@
 <style id="handover-note-style">.handover-note{margin-top:24px;padding-top:20px;border-top:1px solid var(--line,rgba(22,63,43,.17))}.handover-note h4{font-size:18px;line-height:1.35;margin:0 0 10px;color:var(--green,#143f2b)}.handover-note p{margin:0;font-size:16px;line-height:1.65}</style>
 <style id="video-entry-style">
 .video-entry{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;max-width:100%;vertical-align:middle;color:inherit;text-align:left;line-height:1.35;white-space:normal}.video-entry-copy{display:grid;gap:2px;min-width:0}.video-entry-copy>span:first-child{font-weight:700}.video-entry-copy>span:last-child{font-size:.85em;font-weight:400}.video-entry-screen{display:block;position:relative;flex:0 0 42px;width:42px;height:29px;border:1.5px solid currentColor;border-radius:5px;background:color-mix(in srgb,currentColor 6%,transparent)}.video-entry-screen:after{content:"";position:absolute;left:17px;top:8px;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid currentColor}.short-video-details>summary{list-style:none}.short-video-details>summary::-webkit-details-marker{display:none}.installation-note{margin-top:20px;padding-top:16px;border-top:1px solid var(--line,rgba(22,63,43,.17))}.installation-note h4{font-size:18px;line-height:1.35;margin:0 0 8px;color:var(--green,currentColor)}.product.featured .installation-note h4{color:inherit}.installation-note p{margin:0;font-size:16px;line-height:1.65}@media(max-width:700px){.video-entry{gap:9px}.video-entry-screen{flex-basis:36px;width:36px;height:26px}.video-entry-screen:after{left:14px;top:6px}}
+/* Laptop: match the five video-entry icons (138.90625px from the card edge).
+   Direct-child selector excludes the nested video entries and the green CTA. */
+@media(min-width:1200px){#oplossingen .case-actions .expand-label > .video-entry-screen{transform:translateX(-48.34375px)}}
 </style></head>
 <body>
   <nav class="nav">
