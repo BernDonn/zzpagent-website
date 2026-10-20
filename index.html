@@ -1022,13 +1022,16 @@
    Direct-child selector excludes the nested video entries and the green CTA. */
 @media(min-width:1200px){#oplossingen .case-actions .expand-label > .video-entry-screen{transform:translateX(-48.34375px)}}
 </style><style id="provider-video-style">
+#providers .provider-video-heading{display:grid;gap:2px;color:inherit;line-height:1.35;font-size:16px;font-weight:700}
+#providers .provider-video-heading span+span{font-weight:400;font-size:14px}
+@media(min-width:701px){#providers .provider-video>summary{display:none}}
+@media(max-width:700px){#providers .provider-video-heading{display:none}}
+
 #providers .provider-overview-grid{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:36px;align-items:center}
 #providers .provider-overview-copy{display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:0}
 #providers .provider-overview-copy p{margin:0}
 #providers .provider-video{margin:0;width:100%;max-width:240px;justify-self:end}
-#providers .provider-video figcaption{display:grid;gap:2px;margin-bottom:10px;color:inherit;line-height:1.35;font-size:16px;font-weight:700}
-#providers .provider-video figcaption span+span{font-weight:400;font-size:14px}
-#providers .provider-video video{display:block;width:100%;height:auto;aspect-ratio:9/16;border-radius:12px;background:#10223d}
+#providers .provider-video video{display:block;width:75%;height:auto;margin:14px auto 0;aspect-ratio:9/16;border-radius:12px;background:#10223d}
 #providers .provider-prices{margin-top:20px}
 @media(max-width:700px){#providers .provider-overview-grid{grid-template-columns:minmax(0,1fr);gap:24px}#providers .provider-video{justify-self:center}}
 </style>
@@ -1599,13 +1602,15 @@
           <p class="muted">Je logt in met ChatGPT/Codex of Claude via OAuth op basis van je abonnement, of gebruikt OpenRouter als modelhub. Daarna kiest de agent per taak de ingestelde route en fallback.</p>
           <ul class="provider-summary-list"><li>ChatGPT/Codex via OAuth</li><li>Claude via OAuth (beperkte capaciteit)</li><li>OpenRouter voor meerdere modellen</li><li>Automatische fallback bij limieten of storingen</li></ul>
           </div>
-          <figure class="provider-video">
-            <figcaption><span>Bekijk de uitleg</span><span>in een korte video</span></figcaption>
-            <video controls playsinline preload="metadata" width="720" height="1280" poster="/assets/modelkeuze-toegang-poster.jpg" aria-label="Modelkeuze en toegang">
+          <details class="provider-video short-video-details">
+            <summary style="cursor:pointer;font-weight:700;margin-top:18px"><span class="video-entry"><span class="video-entry-copy"><span data-copy>Bekijk de uitleg</span><span data-copy>in een korte video</span></span><span class="video-entry-screen" aria-hidden="true"></span></span></summary>
+            <div class="case-short-video"><div class="provider-video-heading"><span>Bekijk de uitleg</span><span>in een korte video</span></div>
+            <video controls playsinline preload="none" width="720" height="1280" poster="/assets/modelkeuze-toegang-poster.jpg" aria-label="Modelkeuze en toegang">
               <source src="/assets/modelkeuze-toegang.mp4" type="video/mp4">
               <a href="/assets/modelkeuze-toegang.mp4">Download de video</a>
             </video>
-          </figure>
+            </div>
+          </details>
         </div>
         <details class="provider-prices">
           <summary class="provider-summary"><span class="provider-toggle">Modelprijzen (per 1M tokens)</span></summary>
@@ -2985,6 +2990,15 @@
 document.querySelectorAll('.case-short-video video').forEach(function(video){
   video.closest('details').addEventListener('toggle',function(){if(!this.open)video.pause();});
 });
+</script>
+<script>
+(function(){
+  var videoDetails=document.querySelector('#providers .provider-video');
+  var desktop=window.matchMedia('(min-width:701px)');
+  function syncVideoLayout(){videoDetails.open=desktop.matches;}
+  syncVideoLayout();
+  desktop.addEventListener('change',syncVideoLayout);
+})();
 </script>
 </body>
 </html> 
