@@ -1175,7 +1175,7 @@
               <div class="trust-copy">
                 <h3>Een tweede brein voor je bedrijf</h3>
                 <p>Brengt relevante afspraken, projectkennis en jouw werkwijzen bij elkaar. Zo hoef je niet steeds opnieuw uit te leggen wat er speelt. Jij bepaalt welke informatie Hermes mag gebruiken.</p>
-                <details class="brain-details"><summary>Bekijk details</summary><div class="brain-content"><h4>Niet alleen bewaren, ook gebruiken</h4><p>Een map bewaart je documenten. Een tweede brein helpt je de relevante informatie weer te gebruiken. Bijvoorbeeld wanneer je een klantgesprek voorbereidt:</p><blockquote>“Bereid mijn gesprek met deze klant voor. Zoek de laatste afspraken erbij, laat zien welke vragen nog openstaan en maak een korte gespreksagenda.”</blockquote><p>Hermes gebruikt daarvoor de bronnen waarvoor je toegang hebt gegeven. Je kunt terugzien waar de informatie vandaan komt. Ontbreekt er iets of spreken bronnen elkaar tegen, dan moet dat zichtbaar blijven.</p><p>Je begint met één taak en een paar relevante bronnen. Door samen te werken, afspraken vast te leggen en fouten te corrigeren, bouw je de kennisbasis verder op.</p></div></details>
+                <details class="brain-details"><summary>Bekijk details</summary><div class="brain-content"><h4>Niet alleen bewaren, ook gebruiken</h4><p>Een map bewaart je documenten. Een tweede brein helpt je de relevante informatie weer te gebruiken. Bijvoorbeeld wanneer je een klantgesprek voorbereidt:</p><blockquote>“Bereid mijn gesprek met deze klant voor. Zoek de laatste afspraken erbij, laat zien welke vragen nog openstaan en maak een korte gespreksagenda.”</blockquote><p>Hermes gebruikt daarvoor de bronnen waarvoor je toegang hebt gegeven. Je kunt terugzien waar de informatie vandaan komt. Ontbreekt er iets of spreken bronnen elkaar tegen, dan moet dat zichtbaar blijven.</p><p>Je begint met één taak en een paar relevante bronnen. Door samen te werken, afspraken vast te leggen en fouten te corrigeren, bouw je de kennisbasis verder op.</p><details class="brain-video"><summary><span class="video-entry"><span class="video-entry-copy"><span data-copy>Bekijk de uitleg</span><span data-copy>in een korte video</span></span><span class="video-entry-screen" aria-hidden="true"></span></span></summary><video controls playsinline preload="none" width="1280" height="720" style="display:block;width:100%;height:auto;aspect-ratio:16/9;margin-top:16px;border-radius:12px;background:#111"><source src="/assets/tweede-brein-voor-je-werk.mp4" type="video/mp4"></video></details></div></details>
               </div>
               <div class="trust-no">01</div>
             </article>
@@ -3008,6 +3008,14 @@ document.querySelectorAll('.case-short-video video').forEach(function(video){
   syncVideoLayout();
   desktop.addEventListener('change',syncVideoLayout);
 })();
+</script>
+<script>
+document.querySelectorAll('.brain-details').forEach(function(details){
+  details.querySelectorAll('details').forEach(function(inner){
+    inner.addEventListener('toggle',function(){if(!inner.open)inner.querySelectorAll('video').forEach(function(video){video.pause();});});
+  });
+  details.addEventListener('toggle',function(){if(!details.open)details.querySelectorAll('video').forEach(function(video){video.pause();});});
+});
 </script>
 </body>
 </html> 
