@@ -39,3 +39,7 @@ ZZPagent wijst Big Tech-modellen niet af en belooft geen absolute onafhankelijkh
 - [Originele SRT-ondertitels](https://zzpagent.nl/assets/zzpagent-hermes-tutorial.srt): ondertitels van de Hermes/ZZPagent-tutorial
 - [LinkedIn-publicatie over Hermes](https://www.linkedin.com/posts/bernard-donners-288b0aa_hermes-nous-opensource-activity-7482889244345294848-jCQX): Bernard Donners over Hermes, open source en minder vendor lock-in
 - [Bluesky-profiel](https://bsky.app/profile/bernard-ai.bsky.social): aanvullende signalen van Bernard AI en ZZPagent
+
+## Kosten Hermes-assistent
+- Vaste prijs: €1.000 exclusief btw, eenmalig, voor de vooraf afgesproken inrichting, begeleiding, testen en overdracht. Geen jaarlijkse verlenging of verplicht beheerabonnement. Externe model-, hosting- en overige gebruikskosten apart. Aanvullende opdrachten vooraf afzonderlijk afspreken.
+- [Kosten en afspraken](https://zzpagent.nl/kosten-hermes-assistent/): volledig kostenoverzicht, inclusief GeoScope als afzonderlijke uitbreiding van €500 exclusief btw, eenmalig.

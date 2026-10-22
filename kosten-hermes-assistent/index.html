@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Wat kost een Hermes-assistent? | ZZPagent</title><style>
+    @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+    :root{
+      --bg:#f6f2ea;
+      --paper:#fffaf1;
+      --ink:#101512;
+      --muted:#5e665f;
+      --line:#ded5c4;
+      --green:#163f2b;
+      --green2:#23563c;
+      --lime:#d7f268;
+      --sand:#eadcc5;
+      --blue:#1b3f55;
+      --shadow: 0 22px 70px rgba(16,21,18,.12);
+      --radius: 28px;
+      --max: 1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      overflow-x:hidden;
+      font-family: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 8% 2%, rgba(215,242,104,.38), transparent 26rem),
+        radial-gradient(circle at 90% 10%, rgba(35,86,60,.18), transparent 28rem),
+        linear-gradient(180deg, #fbf7ef 0%, var(--bg) 52%, #efe6d7 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    .nav{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter: blur(18px);
+      background:rgba(246,242,234,.78);
+      border-bottom:1px solid rgba(222,213,196,.7);
+    }
+    .nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:18px 24px;gap:20px}
+    .nav-left{display:flex;align-items:center;gap:14px;min-width:0;flex-shrink:0}
+    .nav-compact-actions{display:flex;align-items:center;gap:8px;min-width:0}
+    .brand{font-weight:800;letter-spacing:-.04em;font-size:22px;display:flex;align-items:center;gap:10px;white-space:nowrap;flex-shrink:0}
+    .brand-dot{width:12px;height:12px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 6px rgba(215,242,104,.23)}
+    .nav-links{display:flex;gap:14px;align-items:center;font-size:13px;color:#303832;margin-left:auto}
+    .nav .button{padding:11px 14px}
+    .language-toggle{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:rgba(255,250,241,.9);border-radius:999px;padding:5px;color:var(--green);font-size:12px;font-weight:850;box-shadow:0 8px 22px rgba(22,63,43,.08);white-space:nowrap}
+    .language-toggle button{border:0;background:transparent;color:var(--green);border-radius:999px;padding:7px 9px;font:inherit;cursor:pointer;opacity:.55}
+    .language-toggle button.active{background:var(--green);color:#fff;opacity:1}
+    .mobile-qa-link{display:none;align-items:center;justify-content:center;border:1px solid rgba(22,63,43,.22);background:rgba(255,250,241,.9);border-radius:999px;padding:11px 13px;color:var(--green);font-size:12px;font-weight:850;box-shadow:0 8px 22px rgba(22,63,43,.08);white-space:nowrap}
+    .mobile-qa-link.mobile-quickscan-link{background:var(--lime);border-color:var(--lime);color:var(--green);box-shadow:none}
+    .nav-faq-link{border:1px solid rgba(22,63,43,.22);border-radius:999px;padding:10px 13px;color:var(--green);background:rgba(255,250,241,.62);font-weight:820}
+    .nav-over-ons-link,.mobile-qa-link.mobile-over-ons-link{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 10px 24px rgba(22,63,43,.15)}
+    .button{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 18px;font-weight:700;border:1px solid var(--green);background:var(--green);color:#fff;box-shadow:0 10px 26px rgba(22,63,43,.16)}
+    .button.quickscan-nav{background:var(--lime);color:var(--green);border-color:var(--lime);box-shadow:none;font-size:13px}
+    .button.secondary{background:transparent;color:var(--green);box-shadow:none}
+    .button.light{background:var(--lime);color:#17240f;border-color:var(--lime)}
+    .visibility-check-cta{max-width:100%;text-align:center;gap:12px}
+    .visibility-check-cta > [data-copy]{min-width:0}
+    .visibility-check-cta:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+    .section{max-width:var(--max);margin:0 auto;padding:86px 24px}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start;min-height:auto;padding-top:74px;padding-bottom:40px}
+    .hero > *{min-width:0}
+    .eyebrow{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--line);background:rgba(255,250,241,.72);padding:8px 12px;border-radius:999px;color:var(--green);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em}
+    h1,h2,h3,p{margin:0}
+    h1{font-size:clamp(50px, 6.6vw, 86px);font-weight:800;line-height:.98;letter-spacing:-.04em;margin:24px 0 24px;max-width:900px}
+    h2{font-size:clamp(36px, 4.7vw, 58px);font-weight:700;line-height:1.04;letter-spacing:-.03em;margin:14px 0 18px}
+    h3{font-size:24px;font-weight:700;letter-spacing:-.025em;margin-bottom:12px}
+    .lead{font-size:clamp(18px,1.8vw,22px);line-height:1.55;letter-spacing:-.005em;color:#323b34;max-width:760px}
+    .workflow-inline-link{color:var(--green);font-weight:800;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+    #faq .workflow-inline-link{font-weight:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+    #oplossingen > .lead{max-width:1050px}
+    #oplossingen > .lead .workflow-inline-link{font-weight:600;text-decoration-thickness:1px;text-underline-offset:3px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 24px}
+    .trust-row{display:flex;gap:10px;flex-wrap:wrap;color:#2b362e;font-size:14px}
+    .pill{border:1px solid var(--line);background:rgba(255,250,241,.82);padding:9px 12px;border-radius:999px;font-weight:650}
+    .agent-card{background:#122b20;color:#f7f2e7;border-radius:38px;padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+    .hero-mini-video{position:relative;z-index:1;margin:0 0 38px;max-width:100%;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 40px rgba(20,35,24,.12);background:#fffaf1}
+    .hero-mini-video video{display:block;width:100%;height:170px;object-fit:cover;background:#06100c}
+    .hero-faq{margin-top:0;background:rgba(255,250,241,.96);color:#172019;border:1px solid var(--line);border-radius:30px;padding:24px;box-shadow:0 16px 42px rgba(20,35,24,.06);max-width:820px}
+    .hero-faq .tag{margin-bottom:10px}
+    .hero-faq h2{font-size:clamp(30px,3.5vw,44px);line-height:1.04;margin:0 0 10px;letter-spacing:-.035em;color:#172019}
+    .hero-faq .lead{font-size:17px;margin-bottom:18px}
+    .hero-faq-list{display:grid;gap:8px}
+    .faq-group-title{margin:14px 2px 4px;padding:8px 13px;border-radius:999px;background:rgba(215,242,104,.24);border:1px solid rgba(22,63,43,.12);color:#172019;font-size:13px;font-weight:900;letter-spacing:.02em;text-transform:uppercase;width:max-content;max-width:100%}
+    .hero-faq details{border:1px solid var(--line);background:#fffaf1;border-radius:17px;overflow:hidden}
+    .hero-faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:14px 16px;font-weight:800;line-height:1.22;font-size:16px;color:#172019}
+    .hero-faq summary::-webkit-details-marker{display:none}
+    .hero-faq summary:after{content:"+";display:grid;place-items:center;width:24px;height:24px;border-radius:999px;background:#f0e6d6;border:1px solid var(--line);color:var(--green);font-weight:900}
+    .hero-faq details[open] summary:after{content:"−"}
+    .hero-faq p{padding:0 16px 15px;color:var(--muted);font-size:15px;line-height:1.58}
+    .hero-faq figure{margin:4px 16px 16px;padding:14px;border:1px solid var(--line);border-radius:18px;background:#fffefb}
+    .hero-faq figure img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+    .hero-faq figcaption{margin-top:10px;color:var(--muted);font-size:13px;line-height:1.45}
+    .faq-section{padding-top:32px;padding-bottom:28px}
+    .compare-section{padding-top:24px;padding-bottom:34px}
+    .top-panels{padding-top:28px;padding-bottom:28px;display:grid;gap:14px}
+    .top-panels.nav-panel-overlay[hidden]{display:none}
+    .top-panels.nav-panel-overlay{position:fixed;inset:0;z-index:1000;display:block;overflow:auto;padding:86px 22px 34px;background:rgba(16,41,31,.72);backdrop-filter:blur(14px);max-width:none;width:100%;box-sizing:border-box}
+    .nav-panel-shell{width:100%;max-width:1120px;margin:0 auto;display:grid;gap:14px;min-width:0}
+    .panel-close{justify-self:end;border:1px solid rgba(255,255,255,.3);background:#fffaf1;color:#10291f;border-radius:999px;padding:10px 16px;font-weight:900;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,.16)}
+    .top-panels .faq-section,.top-panels .compare-section{padding:0}
+    .nav-panel-overlay .top-panel{display:none}
+    .nav-panel-overlay .top-panel.active{display:block}
+    .top-panel{border:1px solid var(--line);background:rgba(255,250,241,.96);border-radius:26px;box-shadow:0 14px 38px rgba(20,35,24,.05);overflow:hidden;scroll-margin-top:96px}
+    .top-panel-summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:18px 20px}
+    .top-panel-summary::-webkit-details-marker{display:none}
+    .top-panel-summary strong{display:block;margin-top:8px;font-size:clamp(24px,3vw,34px);line-height:1.05;letter-spacing:-.03em;color:#172019}
+    .top-panel-body{padding:0 18px 18px}
+    .top-panel-body .hero-faq,.top-panel-body .comparison-wrap{max-width:none;box-shadow:none}
+    .comparison-wrap{background:linear-gradient(180deg,rgba(255,250,241,.92),rgba(240,230,214,.76));border:1px solid var(--line);border-radius:34px;padding:28px;box-shadow:0 16px 42px rgba(20,35,24,.06);overflow:hidden}
+    .comparison-wrap .lead{max-width:860px;font-size:17px;margin-bottom:22px}
+    .comparison-scroll{overflow-x:auto;padding-bottom:4px}
+    .comparison-table{width:100%;min-width:980px;border-collapse:separate;border-spacing:0;font-size:14px;line-height:1.38}
+    .comparison-table th,.comparison-table td{padding:14px 13px;border-bottom:1px solid rgba(222,213,196,.82);border-right:1px solid rgba(222,213,196,.58);vertical-align:top;background:rgba(255,250,241,.66)}
+    .comparison-table th{position:sticky;top:0;background:#fffaf1;color:#172019;font-size:13px;text-align:left;font-weight:850;letter-spacing:-.01em;z-index:1}
+    .comparison-table th:first-child,.comparison-table td:first-child{font-weight:850;color:#172019;background:#f0e6d6;min-width:170px}
+    .comparison-table th:last-child,.comparison-table td:last-child{border-right:0}
+    .comparison-table tr:last-child td{border-bottom:0}
+    .comparison-table .positive{color:#163f2b;font-weight:850}
+    .comparison-table .mixed{color:#705a19;font-weight:850}
+    .comparison-table .negative{color:#8a2d1d;font-weight:850}
+    .comparison-note{margin-top:18px;background:#10291f;color:#fff;border-radius:22px;padding:18px 20px;line-height:1.55}
+    .comparison-note .muted{color:#dce7dc;font-size:15px}
+    .phone-frame{width:168px;margin:14px auto 0 auto;background:#1a1a1a;border-radius:20px;padding:8px 3px 6px 3px;border:2px solid #333;position:relative;max-height:340px}
+    .phone-notch{width:42px;height:4px;background:#333;margin:0 auto 6px auto;border-radius:8px}
+    .phone-screen{background:linear-gradient(135deg,#0e1621 0%,#1a2a3a 50%,#0e1621 100%);border-radius:10px;overflow:hidden;min-height:180px;position:relative}
+    .tg-header{background:#2a6ea8;padding:7px 10px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .tg-back{color:#fff;font-size:13px;line-height:1}
+    .tg-contact{display:flex;flex-direction:column}
+    .tg-chat{padding:8px 8px;display:flex;flex-direction:column;gap:7px;min-height:110px}
+    .tg-msg{max-width:88%;padding:6px 8px;border-radius:10px;font-size:10px;line-height:1.35;position:relative}
+    .tg-msg-agent{background:#2b5278;color:#fff;align-self:flex-start;border-bottom-left-radius:3px}
+    .tg-msg-user{background:#1ea356;color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
+    .tg-msg-time{font-size:8px;margin-top:3px;opacity:.65;text-align:right}
+    .tg-input-bar{background:#17212b;padding:6px 10px;margin:0 3px 3px 3px;border-radius:12px;display:flex;align-items:center}
+    .phone-home{width:26px;height:3px;background:#444;margin:6px auto 0 auto;border-radius:3px}
+    .hero-phone{width:min(188px,52vw);height:390px;margin:14px auto 0;position:relative;overflow:visible;border-radius:34px;background:linear-gradient(90deg,#050607 0%,#2b2d2d 3%,#080909 7%,#0f1112 50%,#353636 93%,#050606 100%);box-shadow:inset 0 0 0 2px rgba(255,255,255,.50),inset 0 0 0 6px rgba(0,0,0,.88),0 24px 46px rgba(0,0,0,.26)}
+    .hero-phone:before{content:"";position:absolute;left:50%;top:11px;transform:translateX(-50%);width:72px;height:20px;border-radius:999px;background:#050607;z-index:5;box-shadow:inset 18px 0 28px rgba(255,255,255,.04),0 1px 3px rgba(255,255,255,.12)}
+    .hero-phone:after{content:"";position:absolute;inset:10px;border-radius:28px;background:linear-gradient(118deg,rgba(255,255,255,.16),transparent 22% 58%,rgba(255,255,255,.07) 62%,transparent 76%),linear-gradient(180deg,#050607,#111516 72%,#050607);pointer-events:none;z-index:0}
+    .hero-phone-screen{position:absolute;left:7.2%;top:7.3%;width:85.6%;height:85.5%;border-radius:25px;overflow:hidden;background:linear-gradient(145deg,rgba(7,12,17,.98),rgba(16,24,33,.96));box-shadow:inset 0 0 18px rgba(255,255,255,.08);z-index:2}
+    .hero-phone-screen:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 26% 18%,rgba(65,185,213,.18),transparent 24%),linear-gradient(112deg,transparent 0 52%,rgba(255,255,255,.07) 53%,transparent 72%);z-index:0;pointer-events:none}
+    .hero-phone-screen .tg-header{position:relative;z-index:2;background:rgba(29,95,146,.92);padding:8px 10px 7px;margin-top:15px}
+    .hero-phone-screen .agent-motion{position:absolute;z-index:1;inset:52px 10px 42px;min-height:0;padding:9px 8px 7px;background:transparent}
+    .hero-phone-screen .signal-chip{font-size:7.5px;padding:4px 6px}
+    .hero-phone-screen .sort-line{height:18px}
+    .hero-phone-screen .briefing-card strong{font-size:8.6px}
+    .hero-phone-screen .briefing-card p{font-size:7.4px;line-height:1.22}
+    .hero-phone-screen .tg-input-bar{position:absolute;left:8px;right:8px;bottom:10px;z-index:3;margin:0;background:rgba(23,33,43,.94);padding:6px 10px;border-radius:13px}
+    .agent-motion{position:relative;min-height:172px;padding:10px 8px 8px;overflow:hidden;background:radial-gradient(circle at 18% 14%,rgba(40,166,205,.24),transparent 22%),linear-gradient(135deg,#0e1621 0%,#19283a 56%,#0d1723 100%)}
+    .agent-motion:before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(105,213,238,.35) 1px,transparent 1.6px);background-size:16px 16px;opacity:.28;animation:signalPulse 4.8s ease-in-out infinite}
+    .agent-motion:after{content:"";position:absolute;left:-45%;top:22%;width:58%;height:2px;background:linear-gradient(90deg,transparent,rgba(215,242,104,.8),transparent);filter:blur(.2px);animation:scanLine 5.8s ease-in-out infinite}
+    .motion-stage{position:relative;z-index:1;display:grid;gap:7px}
+    .motion-status{display:flex;align-items:center;justify-content:space-between;gap:6px;color:#b9c8d3;font-size:8px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    .motion-dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(215,242,104,.14),0 0 16px rgba(215,242,104,.7);animation:dotBreath 1.8s ease-in-out infinite}
+    .signal-stack{display:grid;gap:5px;margin-top:3px}
+    .signal-chip{display:flex;align-items:center;justify-content:space-between;gap:6px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.08);border-radius:12px;padding:6px 7px;color:#eaf3ee;font-size:8.5px;line-height:1.15;opacity:0;transform:translateX(-12px) scale(.98);animation:signalIn 5.8s ease-in-out infinite}
+    .signal-chip:nth-child(2){animation-delay:.22s}.signal-chip:nth-child(3){animation-delay:.44s}.signal-chip:nth-child(4){animation-delay:.66s}
+    .signal-chip span:first-child{font-weight:850}.signal-chip small{color:var(--lime);font-size:7px;font-weight:850;text-transform:uppercase;letter-spacing:.06em}
+    .sort-line{height:28px;position:relative;margin:1px 2px 0}.sort-line i{position:absolute;width:6px;height:6px;border-radius:50%;background:#5cc8df;box-shadow:0 0 12px rgba(92,200,223,.75);opacity:0;animation:routeDot 5.8s ease-in-out infinite}.sort-line i:nth-child(1){left:8%;top:7px}.sort-line i:nth-child(2){left:25%;top:16px;animation-delay:.12s}.sort-line i:nth-child(3){left:42%;top:4px;animation-delay:.24s}.sort-line i:nth-child(4){left:61%;top:15px;animation-delay:.36s}.sort-line i:nth-child(5){left:78%;top:8px;background:var(--lime);animation-delay:.48s}
+    .briefing-card{border:1px solid rgba(132,171,197,.34);background:linear-gradient(180deg,rgba(20,33,45,.96),rgba(13,24,36,.96));color:#edf5fa;border-radius:14px;padding:8px 9px;box-shadow:0 12px 24px rgba(0,0,0,.18);opacity:0;transform:translateY(12px) scale(.97);animation:briefingReveal 5.8s ease-in-out infinite}
+    .briefing-card strong{display:flex;align-items:center;gap:5px;font-size:9.5px;letter-spacing:-.01em}.briefing-card strong:before{content:"✓";display:grid;place-items:center;width:13px;height:13px;border-radius:50%;background:#204b69;color:#d7f268;font-size:9px}.briefing-card p{margin:5px 0 0;font-size:8.6px;line-height:1.28;color:#c7d8e3}
+    .typing-dots{display:flex;gap:3px;align-items:center;margin-top:4px}.typing-dots b{width:4px;height:4px;border-radius:50%;background:#9ab0a2;animation:typeDot 1.2s ease-in-out infinite}.typing-dots b:nth-child(2){animation-delay:.18s}.typing-dots b:nth-child(3){animation-delay:.36s}
+    @keyframes signalPulse{0%,100%{opacity:.18;transform:translateY(0)}45%{opacity:.42;transform:translateY(-4px)}}
+    @keyframes scanLine{0%,18%{transform:translateX(0);opacity:0}34%,50%{opacity:1}70%,100%{transform:translateX(250%);opacity:0}}
+    @keyframes dotBreath{0%,100%{transform:scale(.88);opacity:.75}50%{transform:scale(1.15);opacity:1}}
+    @keyframes signalIn{0%,8%{opacity:0;transform:translateX(-12px) scale(.98)}16%,44%{opacity:1;transform:translateX(0) scale(1)}60%,100%{opacity:.18;transform:translateX(10px) scale(.96)}}
+    @keyframes routeDot{0%,35%{opacity:0;transform:translateX(0) scale(.8)}47%,62%{opacity:1;transform:translateX(18px) scale(1)}78%,100%{opacity:0;transform:translateX(38px) scale(.7)}}
+    @keyframes briefingReveal{0%,50%{opacity:0;transform:translateY(12px) scale(.97)}62%,92%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-4px) scale(.99)}}
+    @keyframes typeDot{0%,100%{opacity:.35;transform:translateY(0)}50%{opacity:1;transform:translateY(-2px)}}
+    @media (prefers-reduced-motion: reduce){.agent-motion:before,.agent-motion:after,.motion-dot,.signal-chip,.sort-line i,.briefing-card,.typing-dots b{animation:none!important}.signal-chip,.briefing-card{opacity:1;transform:none}.sort-line i{opacity:.65}}
+    .hero .agent-card{margin-top:0}
+    .hero-visual-column{display:grid;justify-items:center;gap:18px;min-width:0}
+    .hero-agent-photo{width:77%;margin:0;border-radius:24px;overflow:hidden;border:1px solid rgba(22,63,43,.14);box-shadow:0 18px 42px rgba(20,35,24,.12);background:#fffaf1}
+    .hero-agent-photo img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover}
+    @media(min-width:901px){
+      .hero-visual-column{margin-top:76px}
+      .hero .hero-visual-column .agent-card{width:77%;justify-self:center;margin-top:0;padding:19px;border-radius:30px}
+      .hero .card-top strong{font-size:15px;line-height:1.25}
+      .hero .hero-phone{width:min(188px,41vw);height:390px;margin-top:11px;border-radius:34px}
+      .hero .hero-phone:before{top:11px;width:72px;height:20px}
+      .hero .hero-phone:after{inset:10px;border-radius:28px}
+      .hero .hero-phone-screen{border-radius:25px}
+      .hero .hero-phone-screen .tg-header{margin-top:15px;padding:8px 10px 7px}
+      .hero .hero-phone-screen .agent-motion{inset:52px 10px 42px;padding:9px 8px 7px}
+      .hero .hero-phone-screen .tg-input-bar{left:8px;right:8px;bottom:10px;padding:6px 10px}
+      .hero .voice-entry{grid-template-columns:66px 1fr;gap:12px;margin-top:17px;padding:14px;border-radius:20px}
+      .hero .voice-entry .voice-orb{width:66px;height:66px}
+      .hero .voice-entry small{font-size:11px;margin-bottom:3px}
+      .hero .voice-entry h3{font-size:19px;margin-bottom:4px}
+      .hero .voice-entry p{font-size:13px;line-height:1.38}
+      .hero .voice-actions{gap:7px;margin-top:9px}
+      .hero .voice-actions .button{padding:8px 11px;font-size:13px}
+    }
+    .agent-card:before{content:none}
+    .card-top{display:flex;justify-content:center;align-items:center;text-align:center;position:relative;z-index:1}
+    .voice-entry{position:relative;z-index:1;margin-top:22px;background:rgba(255,250,241,.96);color:#172019;border:1px solid rgba(255,255,255,.16);border-radius:26px;padding:18px;text-align:left;display:grid;grid-template-columns:86px 1fr;gap:16px;align-items:center;box-shadow:0 18px 42px rgba(0,0,0,.16)}
+    .voice-orb{width:86px;height:86px;border:0;border-radius:50%;padding:0;background:radial-gradient(circle at 50% 50%,rgba(215,242,104,.34),rgba(45,98,58,.26) 36%,rgba(11,38,27,.84) 70%,rgba(215,242,104,.16));box-shadow:0 0 30px rgba(215,242,104,.30),inset 0 0 30px rgba(215,242,104,.16);position:relative;display:grid;place-items:center;cursor:pointer;overflow:hidden}
+    .voice-orb canvas{position:absolute;inset:0;width:100%;height:100%;border-radius:50%}
+    .voice-orb span{position:relative;z-index:1;font-size:10px;font-weight:900;letter-spacing:.16em;color:#f5ffd4;text-transform:uppercase;text-shadow:0 0 14px rgba(215,242,104,.82)}
+    .voice-entry small{display:inline-flex;color:var(--green);font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+    .voice-entry h3{font-size:21px;margin:0 0 5px;letter-spacing:-.03em;color:#172019}
+    .voice-entry p{margin:0;color:#546259;font-size:14px;line-height:1.45}
+    .voice-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.voice-actions .button{padding:9px 12px;font-size:13px;box-shadow:none}.voice-actions .button.secondary{background:#f0e6d6;color:var(--green);border-color:rgba(22,63,43,.16)}
+    .voice-note{margin-top:9px;color:#5d6a61;font-size:12.5px;line-height:1.4}
+    .floating-voice{position:fixed;left:22px;bottom:22px;z-index:999;display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;max-width:min(350px,calc(100vw - 44px));border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,#10291f,#163f2b);color:#fffaf1;border-radius:999px;padding:10px 18px 10px 10px;box-shadow:0 18px 50px rgba(16,41,31,.28);cursor:pointer;font:inherit;text-align:left}
+    .floating-voice .voice-orb{width:54px;height:54px;background:#050b14;box-shadow:0 0 28px rgba(0,229,255,.46),0 0 0 4px rgba(10,127,150,.22),inset 0 0 26px rgba(25,240,216,.20);border:1px solid rgba(0,229,255,.44)}
+    .floating-voice small{display:block;color:var(--lime);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;line-height:1.1}
+    .floating-voice strong{display:block;font-size:16px;line-height:1.15;letter-spacing:-.02em}
+    .sophie-voice-panel,.sophie-callback-panel{width:min(235px,calc(100vw - 44px));min-height:9.5cm;align-content:start;justify-items:start}
+    .sophie-voice-panel .voice-orb{width:112px;height:112px;justify-self:center;margin:2px 0 12px;background:#050b14;box-shadow:0 0 58px rgba(0,229,255,.54),0 0 0 5px rgba(10,127,150,.22),inset 0 0 48px rgba(0,229,255,.18);cursor:pointer;border:1px solid rgba(0,229,255,.50)}
+    .sophie-voice-panel .voice-orb:before{content:"";position:absolute;inset:-10px;border-radius:50%;border:1px solid rgba(0,229,255,.42);box-shadow:0 0 38px rgba(0,229,255,.34);animation:jarvisHalo 2.8s ease-in-out infinite;pointer-events:none}
+    .sophie-voice-panel.live-active .voice-orb{background:#050b14;box-shadow:0 0 70px rgba(25,240,216,.64),0 0 0 5px rgba(25,240,216,.26),inset 0 0 54px rgba(25,240,216,.24)}
+    .sophie-voice-panel.voice-error .voice-orb{background:radial-gradient(circle at 50% 50%,rgba(255,179,0,.28),rgba(0,229,255,.18) 34%,rgba(5,11,20,.94) 68%,rgba(255,179,0,.16));box-shadow:0 0 42px rgba(255,179,0,.32),0 0 0 5px rgba(0,229,255,.12),inset 0 0 34px rgba(0,229,255,.16)}
+    @keyframes jarvisHalo{0%,100%{transform:scale(.96);opacity:.45}50%{transform:scale(1.06);opacity:.9}}
+    .sophie-voice-panel .voice-orb span{font-size:11px;letter-spacing:.16em;color:#9fd8e8;text-shadow:0 0 16px rgba(0,229,255,.95),0 0 30px rgba(25,240,216,.55);font-family:var(--font-display)}
+    .sophie-voice-panel .voice-inline-note{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(25,240,216,.24);background:rgba(25,240,216,.09);color:#174137;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+    .sophie-voice-panel .voice-panel-content{display:grid;gap:13px}
+    .sophie-voice-panel p{margin:0;color:#5d6a61;font-size:14px;line-height:1.42}
+    .crisp-client{display:none!important;visibility:hidden!important;pointer-events:none!important}
+    .sophie-call-widget{position:fixed;right:22px;bottom:22px;z-index:1000;display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:center;max-width:min(360px,calc(100vw - 44px));border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,#fffaf1,#f2eadc);color:var(--green);border-radius:999px;padding:9px 18px 9px 9px;box-shadow:0 18px 50px rgba(16,41,31,.20);font:inherit;text-align:left}
+    .sophie-call-widget:hover{transform:translateY(-1px);box-shadow:0 22px 58px rgba(16,41,31,.25)}
+    .sophie-call-photo{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;position:relative;overflow:hidden;background:#faf1e5;box-shadow:0 0 0 3px rgba(215,242,104,.34),0 10px 26px rgba(22,63,43,.18)}
+    .sophie-call-photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}
+    .sophie-call-photo:after{content:"☎";position:absolute;right:0;bottom:0;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:var(--green);font-size:12px;font-weight:900;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+    .sophie-call-widget small{display:block;color:#5d6a61;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;line-height:1.1}
+    .sophie-call-widget strong{display:block;font-size:16px;line-height:1.16;letter-spacing:-.02em}
+    .sophie-call-widget em{display:block;font-style:normal;color:#687568;font-size:12px;line-height:1.25;margin-top:2px}
+    .sophie-callback-panel,.sophie-voice-panel{position:fixed;bottom:98px;z-index:1001;background:rgba(255,250,241,.98);border:1px solid rgba(22,63,43,.16);border-radius:28px;padding:18px;box-shadow:0 24px 70px rgba(16,41,31,.24);color:var(--green);display:none}.sophie-callback-panel{right:22px}.sophie-voice-panel{left:22px}
+    .sophie-callback-panel.open,.sophie-voice-panel.open{display:grid;gap:11px}.sophie-callback-panel h3,.sophie-voice-panel h3{font-size:23px;margin:0;color:#17240f;letter-spacing:-.03em}.sophie-callback-panel p{font-size:14px;line-height:1.42;margin:0 0 12px;color:#5d6a61}.sophie-callback-panel .sophie-callback-tech{font-size:11px;line-height:1.25;margin-bottom:13px;color:#687568}.sophie-callback-form{display:grid;gap:9px}.sophie-callback-form label{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:#415147}.sophie-callback-form input{width:100%;box-sizing:border-box;border:1px solid rgba(22,63,43,.18);background:#fff;border-radius:999px;padding:12px 14px;font:inherit;color:#17240f}.sophie-callback-form input:focus{outline:2px solid rgba(215,242,104,.85);border-color:rgba(22,63,43,.35)}.sophie-callback-actions,.sophie-voice-actions{display:flex;gap:8px;align-items:center}.sophie-callback-actions button,.sophie-voice-actions button{border:1px solid var(--green);border-radius:999px;padding:11px 14px;font:inherit;font-weight:850;cursor:pointer}.sophie-callback-submit,.sophie-voice-start{background:var(--lime);color:var(--green);border-color:var(--lime);box-shadow:0 10px 24px rgba(215,242,104,.32)}.sophie-callback-privacy{font-size:11px;line-height:1.3;color:#687568;margin-top:2px}.sophie-callback-status{font-size:12.5px;color:#5d6a61;min-height:18px}.sophie-callback-status.ok{color:#1d6a3b}.sophie-callback-status.err{color:#9a2d2d}
+
+    .status{color:#bde9c5;font-size:13px}
+    .metric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:12px;border-radius:18px;color:#fff}
+    .chat{margin-top:22px;display:grid;gap:12px;position:relative;z-index:1}
+    .bubble{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:15px;line-height:1.35;color:#f4efe4}
+    .bubble.agent{background:var(--paper);color:#172019}
+    .mini{font-size:13px;color:#c7d5cc;margin-bottom:6px}
+    .logos{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;color:#646b65;text-transform:uppercase;letter-spacing:.08em;font-size:13px;font-weight:760}
+    .sector-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;color:#202720;text-transform:none;letter-spacing:0;font-size:16px;font-weight:650}
+    .sector-row a{display:inline-flex;align-items:center;padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,250,241,.82);color:#143f2b;text-decoration:none;font-weight:750}
+    .sector-row a:hover{text-decoration:underline;text-underline-offset:3px}
+    .two-col{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+    .statement{font-size:clamp(28px,4vw,50px);line-height:1.08;letter-spacing:-.04em;font-weight:800}
+    .muted{color:var(--muted);line-height:1.65;font-size:17px;letter-spacing:-.003em}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+    .tile{background:rgba(255,250,241,.78);border:1px solid var(--line);border-radius:var(--radius);padding:24px;min-height:220px;box-shadow:0 12px 35px rgba(20,35,24,.05)}
+    .tile .nr{color:var(--green);font-weight:850;font-size:13px;letter-spacing:.12em;margin-bottom:42px;display:block}
+    .tile.dark{background:var(--green);color:#fff;border-color:var(--green)}
+    .tile.dark .muted{color:#dfe8db}
+    .usecases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+    #oplossingen .case-summary{grid-template-columns:1fr}
+    .case-actions{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .new-badge{display:inline-flex;align-items:center;justify-content:center;flex:none;min-width:68px;padding:6px 14px;border:1px solid #789a13;border-radius:999px;background:#d7f268;color:var(--green);font-size:15px;font-weight:750;line-height:1.4;letter-spacing:.025em}
+    .case.case-new{position:relative;overflow:visible;margin-top:12px;outline:3px solid #789a13;outline-offset:5px;border-radius:24px}
+    .case.case-new .new-badge{position:absolute;right:7px;top:-20px;transform:rotate(8deg);min-width:0;padding:2px 9px;border:1px solid #789a13;border-radius:999px;background:#d7f268;color:var(--green);font-size:11px;font-weight:750;line-height:1.4;letter-spacing:.025em;pointer-events:none}
+    .case.case-new .new-badge.is-waiting,.case.case-new .new-badge.is-revealed{transform:rotate(8deg)}
+    @keyframes new-card-pulse{0%,100%{outline-color:rgba(120,154,19,1)}50%{outline-color:rgba(120,154,19,.18)}}
+    .visibility-pulse{position:relative;outline:3px solid #789a13;outline-offset:3px;border-radius:999px}
+    .sector-row:has(.visibility-pulse){row-gap:28px;margin-top:28px}
+    .visibility-pulse .visibility-new-badge{position:absolute;right:7px;top:-20px;transform:rotate(8deg);display:inline-flex;align-items:center;justify-content:center;padding:2px 9px;border:1px solid #789a13;border-radius:999px;background:#d7f268;color:var(--green);font-size:11px;font-weight:750;line-height:1.4;letter-spacing:.025em;pointer-events:none}
+    @media(prefers-reduced-motion:no-preference){.case.case-new,.visibility-pulse{animation:new-card-pulse 1s ease-in-out infinite}}
+    @media(max-width:700px){.case.case-new{outline-offset:3px}.case-new .new-badge{font-size:14px;min-width:62px;padding:5px 11px}}
+    @media(prefers-reduced-motion:no-preference){
+      .new-badge.is-waiting{opacity:0;transform:translateY(3px)}
+      .new-badge.is-revealed{transition:opacity 450ms ease-out,transform 450ms ease-out;opacity:1;transform:translateY(0)}
+    }
+    .case-link{display:block;color:inherit;text-decoration:none}
+    .case-link .expand-label:after{content:"→"}
+    .case-link:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+    .case{background:#fffaf1;border:1px solid var(--line);border-radius:26px;padding:0;overflow:hidden;box-shadow:0 12px 35px rgba(20,35,24,.05)}
+    .case summary,.integration-card summary{list-style:none;cursor:pointer}
+    .case summary::-webkit-details-marker,.integration-card summary::-webkit-details-marker{display:none}
+    .case-summary,.integration-summary{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:20px 22px}
+    .case-summary small,.integration-summary .tag{font-weight:850;letter-spacing:.1em;color:var(--green);text-transform:uppercase}
+    .case-summary h3,.integration-summary h3{margin:6px 0 0;font-size:22px;line-height:1.12}
+    .expand-label{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(22,63,43,.14);background:#f0e6d6;border-radius:999px;padding:8px 11px;color:var(--green);font-size:13px;font-weight:850;white-space:nowrap}
+    .expand-label:after{content:"+";display:grid;place-items:center;width:20px;height:20px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+    details[open] > summary .expand-label:after{content:"−"}
+    .case-body,.integration-body{display:grid;gap:16px;padding:0 22px 22px;border-top:1px solid rgba(222,213,196,.72)}
+    .case-body{padding-top:18px}
+    .example{background:#f0e6d6;border-radius:18px;padding:13px;color:#304034;font-size:14px}
+    .integration-wrap{background:linear-gradient(180deg,rgba(255,250,241,.86),rgba(240,230,214,.74));border:1px solid var(--line);border-radius:38px;padding:34px;box-shadow:0 16px 42px rgba(20,35,24,.06)}
+    .integration-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+    .integration-card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:0;overflow:hidden;box-shadow:0 12px 30px rgba(20,35,24,.045)}
+    .integration-card .muted{font-size:16px}
+    .integration-apps{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+    .app-chip{display:inline-flex;border:1px solid rgba(22,63,43,.14);background:#f0e6d6;border-radius:999px;padding:7px 10px;color:var(--green);font-size:13px;font-weight:800}
+    .integration-note{margin-top:22px;background:#10291f;color:#fff;border-radius:24px;padding:22px;line-height:1.55}
+    .integration-note .muted{color:#dce7dc}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .product{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:28px;display:flex;flex-direction:column;gap:18px;min-height:390px}
+    .product.featured{background:#10291f;color:white;transform:none}
+    .product.featured .muted{color:#d6e5d9}.product.featured .tag{background:rgba(215,242,104,.15);color:var(--lime);border-color:rgba(215,242,104,.3)}
+    .tag{align-self:flex-start;border:1px solid var(--line);border-radius:999px;padding:8px 10px;font-weight:800;font-size:12px;color:var(--green);text-transform:uppercase;letter-spacing:.08em}
+    ul{padding-left:19px;margin:0;line-height:1.75;color:inherit}.price{font-size:34px;font-weight:800;letter-spacing:-.04em;margin-top:auto}.price.package-price-inline{margin-top:0}.price.package-price-offset{margin-top:84px}.price span{font-size:14px;color:inherit;font-weight:600;opacity:.75}.price span.macmini-price-note{font-size:1em;font-weight:800;opacity:1;letter-spacing:-.04em}
+    .deploy-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+    .deploy-panel{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:0 12px 35px rgba(20,35,24,.05)}
+    .deploy-steps{counter-reset:step;display:grid;gap:14px;margin-top:18px}
+    .deploy-step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start;background:#f0e6d6;border-radius:20px;padding:14px}
+    .deploy-step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;font-weight:850}
+    .channel-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.channel{border:1px solid var(--line);background:#fff;border-radius:16px;padding:12px 14px;font-weight:800;color:var(--green)}
+    .provider-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .provider-card{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:26px;display:flex;flex-direction:column;gap:16px;min-height:310px}
+    .provider-card strong{font-size:21px;letter-spacing:-.035em}.provider-card code{background:#f0e6d6;border-radius:10px;padding:3px 7px;font-size:13px}
+    details.provider-card{min-height:auto}
+    .provider-summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:16px}
+    .provider-summary::-webkit-details-marker{display:none}
+    .provider-summary::marker{display:none}
+    .provider-toggle{display:inline-flex;align-items:center;gap:8px;margin-top:auto;font-weight:800;color:var(--green)}
+    .provider-toggle:after{content:"+";display:inline-grid;place-items:center;width:24px;height:24px;border-radius:999px;background:#f0e6d6;border:1px solid var(--line)}
+    details[open] .provider-toggle:after{content:"−"}
+    .provider-summary-list{display:grid;gap:8px;padding-left:19px;margin:0;color:var(--muted)}
+    .provider-summary-list li{line-height:1.6}
+    .provider-detail{display:grid;gap:20px;padding-top:8px}
+    .provider-detail .provider-grid{margin-top:0}
+    .provider-detail .provider-card{min-height:0}
+    .macmini-inline .provider-grid{grid-template-columns:1fr;gap:12px}
+    .macmini-inline .provider-card{padding:18px;border-radius:22px}
+    .price-mini-table{display:grid;gap:10px;margin-top:4px}
+    .price-mini-row{display:grid;grid-template-columns:1.15fr .9fr;gap:12px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .price-mini-row strong{font-size:15px;letter-spacing:-.01em}
+    .price-mini-row span{display:block;color:var(--muted);font-size:14px;line-height:1.45}
+    .price-mini-cost{font-weight:850;color:var(--green);text-align:right}
+    .flow-note{margin-top:22px;background:#f0e6d6;border:1px solid var(--line);border-radius:24px;padding:20px;color:#304034;line-height:1.55}
+    .legal-grid{display:grid;grid-template-columns:1.15fr 1.05fr .8fr;gap:18px;margin-top:32px;align-items:start}
+    .legal-card{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:26px;display:grid;gap:14px}
+    .legal-card h3{margin-bottom:0}.legal-card p,.legal-card li{color:var(--muted);line-height:1.62;font-size:16px}.legal-card ul{padding-left:20px}
+    #voorwaarden{grid-column:1;grid-row:1 / span 2}
+    .acceptance-box{grid-column:2;grid-row:1 / span 2;background:#10291f;color:#fff;border-radius:26px;padding:24px;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
+    #privacy{grid-column:3;grid-row:1}
+    .legal-card.agents-usage{grid-column:3;grid-row:2}
+    .legal-card.compact{padding:20px;gap:12px}
+    .legal-card.compact h3{font-size:20px}
+    .legal-card.compact p,.legal-card.compact li{font-size:15px;line-height:1.55}
+    .acceptance-box .tag{margin-bottom:10px}
+    .acceptance-box h3{color:#fff;margin-bottom:10px}
+    .acceptance-box p,.acceptance-box li{color:#dce7dc}.checkline{display:flex;gap:12px;align-items:flex-start;margin-top:14px;font-weight:700;color:#fff}.checkline:before{content:"✓";display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--lime);color:#10291f;flex:0 0 26px;font-weight:900}
+    .trust-stack{background:linear-gradient(180deg,#163f2b 0%, #10291f 100%);color:#eef2e8;border-radius:38px;padding:38px 36px;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);margin-top:48px}
+    .trust-stack .eyebrow{background:transparent;border:0;padding:0;color:var(--lime);letter-spacing:.14em}
+    .trust-stack h2{color:#fffaf1;font-size:clamp(30px,3.8vw,46px);font-weight:700;line-height:1.05;letter-spacing:-.03em;max-width:520px;margin:10px 0 14px}
+    .trust-stack .lead{color:#dce7dc;max-width:520px;margin-top:0;font-size:17px;line-height:1.55;letter-spacing:-.003em}
+    .trust-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:24px;margin-top:24px;align-items:start}
+    .trust-list{display:grid;gap:14px}
+    .trust-item{display:grid;grid-template-columns:56px 1fr 34px;gap:14px;align-items:start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:16px 18px;color:#e4ede3}
+    .trust-item.active{border-color:rgba(215,242,104,.42);box-shadow:0 0 0 1px rgba(215,242,104,.22) inset;background:rgba(215,242,104,.06)}
+    .trust-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(215,242,104,.14);color:var(--lime);font-size:22px;line-height:1}
+    .trust-icon.muted{background:rgba(255,255,255,.08);color:#dce7dc}
+    .trust-copy h3{margin:0 0 4px;color:#fffaf1;font-size:18px}
+    .trust-copy p{margin:0;color:#d0dbd0;line-height:1.45;font-size:14px}
+    .trust-no{font-weight:800;color:#c4d1c3;font-size:14px;align-self:start;margin-top:2px}
+    .trust-visual{position:relative;overflow:hidden;background:linear-gradient(180deg, rgba(19,46,33,.96), rgba(13,31,22,.98));border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:24px}
+    .trust-visual.align-lower{margin-top:34px}
+    .trust-visual:after{content:"";position:absolute;right:-90px;top:-70px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle, rgba(215,242,104,.14) 0%, rgba(215,242,104,0) 68%)}
+    .trust-visual > *{position:relative;z-index:1}
+    .diagram-title{display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:14px;text-align:center}
+    .diagram-title h3{margin:0;color:#fffaf1;font-size:22px}
+    .diagram-title span{color:#d7e2d7;font-size:13px}
+    .diagram-frame{background:rgba(6,18,12,.36);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:14px}
+    .diagram-frame svg{display:block;width:100%;height:auto}
+    .device-showcase{margin-top:18px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:rgba(3,12,8,.34);box-shadow:0 24px 60px rgba(0,0,0,.28);position:relative;isolation:isolate}
+    .device-showcase img{display:block;width:100%;height:auto}
+    .device-labels{position:absolute;left:0;right:0;top:clamp(18px,7.5vw,72px);height:0;z-index:3;pointer-events:none}
+    .device-label-heading{position:absolute;left:50%;top:-38px;transform:translateX(-50%);white-space:nowrap;color:#fffaf1;font-family:inherit;font-size:15.3px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.42)}
+    .device-label{position:absolute;transform:translateX(-50%);display:inline-flex;align-items:center;justify-content:center;padding:7px 12px;border-radius:999px;background:rgba(255,250,241,.92);border:1px solid rgba(215,242,104,.45);color:var(--green);font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 10px 26px rgba(0,0,0,.18),0 0 0 1px rgba(255,255,255,.18) inset;backdrop-filter:blur(10px)}
+    .device-label:after{content:"";position:absolute;left:50%;top:100%;width:1px;height:clamp(34px,7vw,70px);background:linear-gradient(180deg,rgba(215,242,104,.78),rgba(215,242,104,0));transform:translateX(-50%)}
+    .label-watch{left:19%}.label-phone{left:39%}.label-mac{left:72%}
+    @media(max-width:700px){.device-labels{top:30px}.device-label-heading{top:-22px;font-size:6.2px;letter-spacing:.08em}.device-label{padding:4px 6px;font-size:8px;letter-spacing:.02em}.device-label:after{height:24px}.label-watch{left:18%}.label-phone{left:40%}.label-mac{left:73%}}
+    .diagram-legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .diagram-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);border-radius:999px;padding:7px 10px;color:#e5eee5;font-size:12px;font-weight:700}
+    .diagram-dot{width:9px;height:9px;border-radius:50%}
+    .diagram-dot.lime{background:var(--lime)}
+    .diagram-dot.green{background:#78c28c}
+    .diagram-dot.sand{background:#e7cfa0}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+    .compare-card{background:rgba(255,250,241,.82);border:1px solid var(--line);border-radius:28px;padding:26px;box-shadow:0 12px 35px rgba(20,35,24,.05);display:grid;gap:14px}
+    .compare-card h3{margin:0;font-size:30px}
+    .compare-card .muted{font-size:16px}
+    .compare-card.proprietary{background:rgba(255,248,242,.82)}
+    .compare-card.opensource{background:linear-gradient(180deg, rgba(22,63,43,.96), rgba(16,41,31,.98));color:#fff;border-color:rgba(255,255,255,.08)}
+    .compare-card.opensource .muted,.compare-card.opensource li{color:#dce7dc}
+    .compare-card.opensource .tag{background:rgba(215,242,104,.16);color:var(--lime);border-color:rgba(215,242,104,.3)}
+    .compare-note{margin-top:18px;background:#f0e6d6;border:1px solid var(--line);border-radius:24px;padding:18px 20px;color:#304034;line-height:1.6}
+    .compare-aside{margin-top:16px;max-width:860px;padding:14px 16px;border:1px solid rgba(20,63,43,.12);border-radius:18px;background:rgba(255,250,241,.72);color:#546259;font-size:13px;line-height:1.55;box-shadow:0 8px 24px rgba(20,35,24,.04)}
+    .why-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:28px;align-items:start}
+    .why-grid .why-intro{grid-column:1;max-width:760px}
+    .why-grid .why-copy{display:grid;gap:10px}
+    .vendor-lock-details > summary{cursor:pointer;color:var(--green);font-weight:700;line-height:1.5}
+    .vendor-lock-details > summary:focus-visible{outline:2px solid var(--green);outline-offset:4px;border-radius:4px}
+    .vendor-lock-details > p{margin-top:10px}
+    .why-grid .compare-aside{max-width:none}
+    .why-video-card{grid-column:2;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:16px;box-shadow:0 12px 35px rgba(20,35,24,.06);align-self:start;margin-top:calc(259px - 0.5cm)}
+    .why-video-card .tag{margin-bottom:12px}
+    .video-label{display:block;margin:0 2px 10px;color:#172019;font-size:15px;font-weight:900;line-height:1.25;letter-spacing:-.015em}
+    .evolution-preview{display:block;margin:0 0 14px 0;text-decoration:none;color:inherit}
+    .evolution-preview img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(20,35,24,.06)}
+    .evolution-preview .caption{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:8px 1px 0;color:#546259;font-size:12px;font-weight:750;line-height:1.35}
+    .evolution-preview .caption span:last-child{color:var(--green);white-space:nowrap}
+    .why-video-card video{display:block;width:100%;max-height:300px;object-fit:cover;border-radius:18px;border:1px solid var(--line);background:#10291f;box-shadow:0 10px 24px rgba(20,35,24,.06)}
+    @media(min-width:1500px){
+      .why-video-card{margin-top:calc(168px - 0.5cm)}
+      .why-intro .tag{margin-top:42px!important}
+    }
+    .proof{background:#13291f;color:#fff;border-radius:42px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+    .proof h2{color:#fff}.proof .muted{color:#dce7dc}.quote{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:22px;border-radius:26px;font-size:22px;line-height:1.35;letter-spacing:-.03em}
+    .footer-cta{background:linear-gradient(135deg, #143f2b, #0c1d16);color:#fff;border-radius:48px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;overflow:hidden;position:relative}
+    .footer-cta:after{content:"ZZPagent";position:absolute;right:-18px;bottom:-22px;font-size:92px;font-weight:900;letter-spacing:-.09em;color:rgba(255,255,255,.05)}
+    .footer-cta > *{position:relative;z-index:2}
+    .footer-cta .muted{color:#d9e3dc}
+    .footer-cta-actions{display:grid;gap:14px;justify-items:start;z-index:2}
+    .footer-cta-actions .button{width:100%;justify-content:center;min-height:54px;padding-inline:26px;border-width:1.5px;box-shadow:0 10px 26px rgba(0,0,0,.16)}
+    .footer-cta-actions .button.light{background:#d7f268;color:#14211a;border-color:#d7f268}
+    .footer-cta-actions .button.secondary{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.55)}
+    .footer-cta-actions .button.secondary:hover{background:rgba(255,255,255,.22)}
+    .order-layout{display:grid;grid-template-columns:.42fr .58fr;gap:26px;margin-top:32px;align-items:start}
+    .order-steps{display:grid;gap:14px}
+    .order-step{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;color:#223127}
+    .order-step .badge{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:rgba(255,250,241,.88);font-weight:850;color:var(--green)}
+    .order-step strong{display:block;font-size:26px;letter-spacing:-.03em;margin-bottom:4px}
+    .order-price{margin-top:16px;background:#10291f;color:#fff;border-radius:30px;padding:28px;box-shadow:var(--shadow)}
+    .order-price .muted{color:#d9e3dc}
+    .order-card{background:rgba(255,250,241,.95);border:1px solid var(--line);border-radius:34px;padding:36px;box-shadow:0 14px 40px rgba(20,35,24,.06)}
+    .order-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:grid;gap:8px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:15px;font-weight:800;color:#243228}
+    .label-help{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .label-help details{display:inline-block}
+    .label-help summary{list-style:none;width:20px;height:20px;border-radius:999px;display:inline-grid;place-items:center;background:#d7f268;color:#17240f;border:1px solid rgba(22,63,43,.18);font-size:13px;font-weight:900;cursor:pointer}
+    .label-help summary::-webkit-details-marker{display:none}
+    .label-help details[open] summary{background:#17240f;color:#d7f268}
+    .help-pop{margin-top:8px;background:#17240f;color:#f7f2e7;border-radius:16px;padding:12px 14px;line-height:1.45;font-size:13px;font-weight:550;max-width:560px;box-shadow:0 12px 26px rgba(16,21,18,.18)}
+    .setup-note{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;color:#304034;line-height:1.55}
+    .field input{width:100%;border:1px solid var(--line);border-radius:18px;padding:16px 18px;background:#fff;font:inherit;color:var(--ink)}
+    .field input:focus{outline:2px solid rgba(35,86,60,.18);border-color:var(--green2)}
+    .agent-choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .agent-option{border:2px solid var(--line);background:#fff;border-radius:24px;padding:18px;display:grid;gap:8px;cursor:pointer;text-align:left;font:inherit;color:var(--ink)}
+    .agent-option strong{font-size:18px;letter-spacing:-.025em}
+    .agent-option.active{border-color:#1db9d5;background:#eef9fc;box-shadow:0 8px 24px rgba(29,185,213,.12)}
+    .segment-switch{display:inline-flex;gap:6px;padding:6px;border:1px solid var(--line);background:#f3ebdd;border-radius:999px;flex-wrap:wrap}
+    .segment-switch button{border:0;background:transparent;padding:11px 16px;border-radius:999px;font:inherit;font-weight:800;color:#607067;cursor:pointer}
+    .segment-switch button.active{background:#fff;color:var(--ink);box-shadow:0 4px 12px rgba(16,21,18,.08)}
+    .segment-switch button.disabled{color:#8ea19a;cursor:not-allowed}
+    .check{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:15px;line-height:1.55}
+    .check input{margin-top:4px}
+    .notice{margin-top:18px;background:#f0e6d6;border:1px solid var(--line);border-radius:22px;padding:18px;color:#304034;line-height:1.6}
+    .notice strong{display:block;margin-bottom:8px;color:#17240f}
+    footer{padding:34px 24px;color:#626961;border-top:1px solid var(--line)}
+    .foot-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
+    .footer-contact{font-style:normal;line-height:1.7;color:#4f5a52}
+    .footer-contact strong{color:#17240f}
+    .footer-contact a{color:#143f2b;text-decoration:none;font-weight:700}
+    .footer-contact a:hover{text-decoration:underline}
+
+    .footer-legal{display:grid;gap:10px;min-width:min(520px,100%);max-width:680px}
+    .footer-legal-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:#626961}
+    .footer-legal details{display:inline-block;position:relative}
+    .footer-legal summary{list-style:none;cursor:pointer;color:#143f2b;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+    .footer-legal summary::-webkit-details-marker{display:none}
+    .footer-legal-panel{margin-top:10px;background:#fffaf1;border:1px solid var(--line);border-radius:18px;padding:16px 18px;color:#4f5a52;line-height:1.58;font-size:14px;box-shadow:0 14px 34px rgba(20,35,24,.08)}
+    .footer-legal-panel h3{margin:0 0 8px;color:#17240f;font-size:17px;letter-spacing:-.02em}
+    .footer-legal-panel ul{margin:8px 0 0;padding-left:18px;display:grid;gap:4px}
+
+    @media(max-width:1100px){.nav-links{display:none}.mobile-qa-link{display:inline-flex}}
+    @media(max-width:900px){
+      .nav-inner{padding:14px 20px}
+      .nav-left{width:100%;justify-content:space-between}
+      .nav-compact-actions{margin-left:auto;gap:7px;justify-content:flex-end}
+      .nav-compact-actions .mobile-qa-link{padding:10px 11px;font-size:12px}
+      .nav-compact-actions .language-toggle{display:none}
+      .nav-compact-actions .language-toggle button{padding:7px 8px}
+      .section{padding:64px 20px}
+      .hero,.two-col,.proof,.footer-cta,.trust-layout,.compare-grid,.why-grid{grid-template-columns:1fr}
+      .why-video-card{grid-column:1;margin-top:18px}
+      .why-video-card video{max-height:none}
+      .products,.grid,.usecases,.deploy-grid,.provider-grid,.legal-grid,.integration-grid{grid-template-columns:1fr}
+      .hero{min-height:auto;padding-top:48px}
+      .hero > div:first-child,.hero .agent-card{max-width:min(330px,calc(100vw - 48px));width:100%;margin-left:0;margin-right:0}
+      .hero-visual-column{width:100%;max-width:min(330px,calc(100vw - 48px));margin:0;justify-self:start}
+      .hero-agent-photo{width:100%;border-radius:22px}
+      .hero h1,.hero .lead{max-width:100%;overflow-wrap:break-word}
+      h1{font-size:clamp(38px, 12vw, 54px);margin:18px 0}
+      .hero h1{font-size:clamp(28px,8vw,36px)!important;line-height:1.06}
+      h2{font-size:clamp(30px, 9vw, 40px)}
+      .lead,.muted{font-size:16px}
+      .hero-actions,.footer-cta .button{width:100%}
+      .hero-actions .button,.footer-cta .button{justify-content:center}
+      .agent-card,.trust-stack,.proof,.footer-cta,.compare-card,.deploy-panel,.provider-card,.product,.tile,.case,.legal-card,.acceptance-box,.integration-wrap,.integration-card{padding:22px;border-radius:28px}
+      .agent-card{width:100%;max-width:100%;overflow:hidden}
+      .card-top strong{display:block;max-width:100%;font-size:15px;line-height:1.25;overflow-wrap:anywhere}
+      .voice-entry{grid-template-columns:74px 1fr;padding:15px;border-radius:22px}
+      .hero .hero-phone{width:min(162px,48vw);height:336px;margin-top:12px}
+      .hero .hero-phone:before{top:10px;width:62px;height:17px}
+      .hero .hero-phone:after{inset:9px;border-radius:25px}
+      .hero .hero-phone-screen .tg-header{margin-top:13px;padding:7px 9px 6px}
+      .hero .hero-phone-screen .agent-motion{inset:47px 8px 37px;padding:8px 7px 6px}
+      .hero .hero-phone-screen .tg-input-bar{left:7px;right:7px;bottom:9px;padding:5px 8px}
+      .voice-orb{width:74px;height:74px}
+      .voice-actions .button{width:100%;justify-content:center}
+      .floating-voice{left:10px;bottom:10px;grid-template-columns:34px minmax(0,1fr);gap:8px;width:calc(50vw - 52px);max-width:148px;box-sizing:border-box;padding:6px 9px 6px 6px;overflow:hidden}
+      .floating-voice .voice-orb{width:34px;height:34px}
+      .floating-voice small{font-size:8px;letter-spacing:.07em}
+      .floating-voice strong{font-size:10.5px;line-height:1.12}
+      .floating-voice span:not(.voice-orb){min-width:0}
+      .sophie-call-widget{left:min(calc(50vw + 38px),233px);right:auto;bottom:10px;grid-template-columns:34px minmax(0,1fr);gap:8px;width:min(calc(50vw - 48px),147px);box-sizing:border-box;padding:6px 9px 6px 6px;overflow:hidden}
+      .sophie-call-photo{width:34px;height:34px}
+      .sophie-call-photo:after{width:15px;height:15px;font-size:9px}
+      .sophie-call-widget span:not(.sophie-call-photo){min-width:0}
+      .sophie-call-widget small{font-size:8px;letter-spacing:.06em}
+      .sophie-call-widget strong{font-size:10px;line-height:1.12}
+      .sophie-call-widget em{display:none}
+      .sophie-callback-panel,.sophie-voice-panel{bottom:88px;width:calc(100vw - 28px)}.sophie-callback-panel{right:14px}.sophie-voice-panel{left:14px}
+
+      .hero .agent-card{margin-top:0}
+      .trust-stack{margin-top:32px}
+      .trust-item{grid-template-columns:42px 1fr 24px;padding:14px}
+      .trust-icon{width:36px;height:36px;font-size:18px}
+      .trust-copy h3{font-size:17px}
+      .diagram-title{flex-direction:column;align-items:center}
+      .trust-visual.align-lower{margin-top:0}
+      .device-showcase{margin-top:12px}
+      .proof,.footer-cta,.order-layout{grid-template-columns:1fr}
+      .provider-grid,.compare-grid,.products,.grid,.legal-grid{grid-template-columns:1fr}
+      .order-grid,.agent-choice-grid{grid-template-columns:1fr}
+      .compare-card h3{font-size:24px}
+      .quote{font-size:18px}
+      .footer-cta:after{display:none}
+      .footer-cta-actions{justify-items:stretch}
+      .product.featured{transform:none}
+      .order-card{padding:26px}
+      #voorwaarden,.acceptance-box,#privacy,.legal-card.agents-usage{grid-column:auto;grid-row:auto}
+    }
+    @media(max-width:560px){
+      .case-summary,.integration-summary{grid-template-columns:1fr;gap:12px;padding:18px}
+      .expand-label{justify-content:space-between;width:100%}
+      .case-body,.integration-body{padding:16px 18px 18px}
+      .integration-wrap{padding:22px}
+      .hero-disclosures > div:first-child{gap:6px!important;flex-wrap:nowrap!important}
+      .hero-disclosures .disclosure-btn{padding:8px 11px!important;font-size:13px!important;line-height:1.15!important;white-space:nowrap!important}
+    }
+
+    /* Liquid Glass readiness layer: subtle Apple-style glass polish without changing content. */
+    @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))){
+      .nav{
+        -webkit-backdrop-filter:saturate(1.35) blur(24px);
+        backdrop-filter:saturate(1.35) blur(24px);
+        background:linear-gradient(180deg,rgba(255,253,248,.78),rgba(246,242,234,.64));
+        border-bottom:1px solid rgba(255,255,255,.48);
+        box-shadow:0 12px 34px rgba(18,43,32,.08);
+      }
+      .language-toggle,.mobile-qa-link,.pill,
+      .hero-faq,.top-panel,.comparison-wrap,.case,.integration-card,.compare-card,
+      .deploy-panel,.provider-card,.legal-card,.pricing-card,.price-mini-row,.hero-mini-video{
+        -webkit-backdrop-filter:saturate(1.2) blur(18px);
+        backdrop-filter:saturate(1.2) blur(18px);
+        background:linear-gradient(145deg,rgba(255,253,248,.82),rgba(255,255,255,.56));
+        border-color:rgba(255,255,255,.50);
+        box-shadow:0 18px 48px rgba(18,43,32,.07), inset 0 1px 0 rgba(255,255,255,.72);
+      }
+      .agent-card,.demo-card,.dark-card,.cta-band,.footer-card,.tile.dark,.trust-stack,
+      .trust-visual,.integration-note,.product.featured,.acceptance-box,.compare-card.opensource,
+      .proof,.footer-cta{
+        background:linear-gradient(150deg,rgba(22,63,43,.94),rgba(35,86,60,.84) 55%,rgba(16,41,31,.94));
+        border-color:rgba(255,255,255,.20);
+        box-shadow:0 28px 80px rgba(16,41,31,.18), inset 0 1px 0 rgba(255,255,255,.22);
+        isolation:isolate;
+      }
+      .agent-card:before,.demo-card:before,.dark-card:before,.cta-band:before,.footer-cta:before{
+        content:"";
+        position:absolute;
+        inset:0;
+        pointer-events:none;
+        z-index:0;
+        background:
+          radial-gradient(circle at 16% 0%,rgba(255,255,255,.28),transparent 30%),
+          linear-gradient(115deg,rgba(255,255,255,.20),transparent 22% 62%,rgba(255,255,255,.08));
+        mix-blend-mode:screen;
+      }
+      .card-top,.voice-entry,.agent-card > *,.demo-card > *,.dark-card > *,.cta-band > *,.footer-cta > *{position:relative;z-index:1}
+      .agent-card p,.demo-card p,.dark-card p,.cta-band p,.footer-card p,.tile.dark p,.tile.dark li,
+      .trust-stack p,.trust-stack li,.trust-stack .lead,.trust-stack .muted,.trust-copy p,
+      .integration-note p,.integration-note li,.product.featured p,.product.featured li,
+      .acceptance-box p,.acceptance-box li,.compare-card.opensource p,.compare-card.opensource li,
+      .proof p,.proof li,.footer-cta p,.footer-cta li{color:rgba(248,251,255,.80)}
+      .trust-stack h2,.trust-stack h3,.trust-visual h2,.trust-visual h3,.integration-note h2,.integration-note h3,
+      .product.featured h2,.product.featured h3,.acceptance-box h2,.acceptance-box h3,
+      .compare-card.opensource h2,.compare-card.opensource h3,.proof h2,.proof h3,.footer-cta h2,.footer-cta h3{color:#f8fbff}
+      .voice-entry,.sophie-callback-panel,.sophie-voice-panel,.sophie-call-widget{
+        -webkit-backdrop-filter:saturate(1.25) blur(20px);
+        backdrop-filter:saturate(1.25) blur(20px);
+        background:linear-gradient(145deg,rgba(255,253,248,.88),rgba(255,255,255,.64));
+        border-color:rgba(255,255,255,.48);
+        box-shadow:0 24px 70px rgba(18,43,32,.12), inset 0 1px 0 rgba(255,255,255,.72);
+      }
+      .floating-voice{
+        -webkit-backdrop-filter:saturate(1.35) blur(18px);
+        backdrop-filter:saturate(1.35) blur(18px);
+        background:linear-gradient(135deg,rgba(9,26,42,.88),rgba(13,86,103,.76));
+        border-color:rgba(128,235,255,.30);
+        box-shadow:0 22px 58px rgba(3,25,39,.26), inset 0 1px 0 rgba(255,255,255,.16);
+      }
+      .button.secondary,.disclosure-btn{
+        -webkit-backdrop-filter:saturate(1.15) blur(14px);
+        backdrop-filter:saturate(1.15) blur(14px);
+        background:rgba(255,255,255,.34)!important;
+        border-color:rgba(255,255,255,.52)!important;
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 10px 26px rgba(18,43,32,.06);
+      }
+    }
+
+  </style><link href="https://zzpagent.nl/assets/sophie-invite.css?v=2" rel="stylesheet"/><style id="solutions-badge-sizing">
+#oplossingen .case.case-new{margin-top:0}
+#oplossingen .case.case-new .case-summary{padding-top:20px}
+#oplossingen .case.case-new .case-actions{position:static;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:0;padding-top:0}
+#oplossingen .case.case-new .case-actions .expand-label{width:100%;justify-content:space-between}
+#oplossingen .case.case-new .new-badge{top:-20px;right:7px;font-size:14px;padding:3px 11px}
+@media(max-width:700px){#oplossingen .case.case-new .new-badge{font-size:24px;padding:7px 19px;scale:0.8;transform-origin:top right}}
+</style><style id="handover-note-style">.handover-note{margin-top:24px;padding-top:20px;border-top:1px solid var(--line,rgba(22,63,43,.17))}.handover-note h4{font-size:18px;line-height:1.35;margin:0 0 10px;color:var(--green,#143f2b)}.handover-note p{margin:0;font-size:16px;line-height:1.65}</style><style id="video-entry-style">
+.video-entry{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;max-width:100%;vertical-align:middle;color:inherit;text-align:left;line-height:1.35;white-space:normal}.video-entry-copy{display:grid;gap:2px;min-width:0}.video-entry-copy>span:first-child{font-weight:700}.video-entry-copy>span:last-child{font-size:.85em;font-weight:400}.video-entry-screen{display:block;position:relative;flex:0 0 42px;width:42px;height:29px;border:1.5px solid currentColor;border-radius:5px;background:color-mix(in srgb,currentColor 6%,transparent)}.video-entry-screen:after{content:"";position:absolute;left:17px;top:8px;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid currentColor}.short-video-details>summary{list-style:none}.short-video-details>summary::-webkit-details-marker{display:none}.installation-note{margin-top:20px;padding-top:16px;border-top:1px solid var(--line,rgba(22,63,43,.17))}.installation-note h4{font-size:18px;line-height:1.35;margin:0 0 8px;color:var(--green,currentColor)}.product.featured .installation-note h4{color:inherit}.installation-note p{margin:0;font-size:16px;line-height:1.65}@media(max-width:700px){.video-entry{gap:9px}.video-entry-screen{flex-basis:36px;width:36px;height:26px}.video-entry-screen:after{left:14px;top:6px}}
+/* Laptop: match the five video-entry icons (138.90625px from the card edge).
+   Direct-child selector excludes the nested video entries and the green CTA. */
+@media(min-width:1200px){#oplossingen .case-actions .expand-label > .video-entry-screen{transform:translateX(-48.34375px)}}
+</style><style id="provider-video-style">
+#providers .provider-video-heading{display:grid;gap:2px;color:inherit;line-height:1.35;font-size:16px;font-weight:700}
+#providers .provider-video-heading span+span{font-weight:400;font-size:14px}
+@media(min-width:701px){#providers .provider-video>summary{display:none}#providers .provider-video-heading{width:75%;margin-inline:auto;text-align:center}}
+@media(max-width:700px){#providers .provider-video-heading{display:none}#providers .provider-video .video-entry{display:grid;grid-template-columns:1fr auto 1fr;width:100%;text-align:center;transform:translateX(-3mm)}#providers .provider-video .video-entry-copy{grid-column:2}#providers .provider-video .video-entry-screen{justify-self:start}}
+
+#providers .provider-overview-grid{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:36px;align-items:center}
+#providers .provider-overview-copy{display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:0}
+#providers .provider-overview-copy p{margin:0}
+#providers .provider-video{margin:0;width:100%;max-width:240px;justify-self:end}
+#providers .provider-video video{display:block;width:75%;height:auto;margin:14px auto 0;aspect-ratio:9/16;border-radius:12px;background:#10223d}
+#providers .provider-prices{margin-top:20px}
+@media(max-width:700px){#providers .provider-overview-grid{grid-template-columns:minmax(0,1fr);gap:24px}#providers .provider-video{justify-self:center}}
+</style><style>
+    .brain-details{margin-top:16px}.brain-details summary{cursor:pointer;font-weight:700;text-decoration:underline;text-underline-offset:4px}.brain-content{padding:16px 0 0;max-width:58ch}.brain-content h4{font-size:20px;margin:0 0 12px}.brain-content p{margin-bottom:16px!important}.brain-content blockquote{margin:16px 0;padding:12px 16px;border-left:3px solid currentColor;font-style:italic}.trust-item:has(.brain-details[open]){align-items:start}
+  </style><style>body{overflow-x:hidden}main.costs{max-width:1040px;margin:auto;padding:35px 24px 70px}.costs h1{font-size:clamp(32px,5vw,54px);line-height:1.12}.costs h2{font-size:28px;margin-top:40px}.costs h3{font-size:21px;margin-top:26px}.costs p{line-height:1.7}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:620px}th,td{text-align:left;vertical-align:top;padding:16px 12px;border-bottom:1px solid #8885}th{font-weight:750}.phases{display:grid;grid-template-columns:1fr 1fr;gap:18px}.phase{padding:22px;border:1px solid #8885;border-radius:18px}@media(max-width:600px){.phases{grid-template-columns:1fr}}</style><link rel="canonical" href="https://zzpagent.nl/kosten-hermes-assistent/"><meta name="description" content="Een Hermes-assistent voor een vaste prijs van €1.000 exclusief btw, eenmalig. Bekijk wat is inbegrepen en welke externe kosten apart zijn."></head><body><nav class="nav"><div class="nav-inner"><a class="brand" href="/">ZZPagent</a><div class="language-toggle" aria-label="Language"><button type="button" data-cost-lang="nl">NL</button><button type="button" data-cost-lang="en">EN</button></div><a href="/#contact">Contact</a></div></nav><main class="costs"><p>ZZPagent / Kosten en afspraken</p><h1>Wat kost een Hermes-assistent?</h1><p class="lead">Eenmalige inrichting, doorlopende kosten en wat is inbegrepen.</p><h2>Wat is Hermes Agent?</h2><p>Hermes Agent is open-source software van Nous Research voor een persoonlijke AI-assistent die context kan onthouden, hulpmiddelen kan gebruiken en terugkerende taken kan uitvoeren. Je betaalt ons voor de afgesproken inrichting en begeleiding, niet voor een jaarlijkse Hermes-licentie.</p><p>In het startgesprek bespreken we waarbij je ondersteuning wilt en welke taken en mogelijkheden we bij de inrichting meenemen. De vaste prijs voor de afgesproken inrichting is €1.000 exclusief btw, eenmalig. Dit bedrag komt niet jaarlijks terug. We leggen de scope vooraf vast; aanvullende opdrachten spreken we vooraf afzonderlijk af.</p><p>Je betaalt ons geen terugkerende licentie- of abonnementskosten voor deze inrichting. Het gebruik van taalmodellen en eventuele hosting of andere externe diensten betaal je apart. Vooraf maken we duidelijk welke kosten voor jouw situatie gelden.</p><div class="phases"><div class="phase"><h2>Bij de start</h2><p>De eenmalige projectprijs voor de afgesproken inrichting. Eventuele hardware of aanvullende opdrachten maken we apart zichtbaar.</p></div><div class="phase"><h2>Daarna</h2><p>Geen jaarlijkse herhaling van de inrichtingskosten. Wel de externe abonnementen en gebruikskosten die bij jouw gekozen inrichting horen.</p></div></div><h2>Het volledige kostenoverzicht</h2><div class="tablewrap"><table><thead><tr><th>Onderdeel</th><th>Wanneer betaal je?</th><th>Wat betekent dit?</th></tr></thead><tbody><tr><td>Inrichting en begeleiding</td><td>Eenmalig</td><td>Vaste prijs: €1.000 exclusief btw, eenmalig, voor de vooraf afgesproken inrichting, begeleiding, test en overdracht.</td></tr><tr><td>Jaarlijkse verlenging bij ons</td><td>Niet van toepassing</td><td>De afgesproken inrichtingskosten komen niet jaarlijks terug. Er is geen terugkerend licentie- of beheerabonnement bij ons voor deze inrichting.</td></tr><tr><td>Taalmodellen</td><td>Doorlopend</td><td>Je normale maandelijkse abonnement, waar de gekozen aanbieder en toegangsroute dat ondersteunen, en/of betaling naar verbruik. Modelkeuze, gebruik en limieten bepalen de kosten.</td></tr><tr><td>VPS en back-ups</td><td>Doorlopend, indien gekozen</td><td>Hosting betaal je apart aan de aanbieder. Servercapaciteit en eventuele back-ups bepalen het bedrag. De passende inrichting en kosten spreken we vooraf af.</td></tr><tr><td>Eigen computer</td><td>Afhankelijk van je situatie</td><td>Bij volledig lokaal draaien is geen VPS nodig. Eventuele aanschaf van apparatuur, elektriciteit en tijd voor beheer blijven wel kosten.</td></tr><tr><td>Andere gekoppelde diensten</td><td>Alleen indien gebruikt</td><td>Denk aan betaalde zoek-, spraak- of meetdiensten. Eventuele abonnementen of verbruikskosten staan los van onze inrichting.</td></tr><tr><td>Uitbreidingen en aanvullende hulp</td><td>Op afzonderlijke afspraak</td><td>GeoScope op je bestaande Hermes kost €500 exclusief btw, eenmalig, inclusief gebruikslicentie en inrichting voor je bedrijf. Model- en meetkosten zijn apart. Websitewerk, aanvullende inrichting en hulp buiten de afgesproken nazorg spreken we vooraf apart af. Geen automatisch doorlopend contract.</td></tr></tbody></table></div><p>Onze genoemde prijzen zijn exclusief btw. Voor externe diensten gelden de tarieven, belastingen en voorwaarden van de betreffende aanbieder. We geven geen vast maandtotaal zonder jouw inrichting en verwachte gebruik te kennen.</p><h2>Veelgestelde vragen</h2><h3>Moet ik volgend jaar opnieuw voor de inrichting betalen?</h3><p>Nee. De afgesproken inrichtingskosten zijn eenmalig. Alleen gekozen externe abonnementen, hosting en gebruikskosten lopen door. Nieuw werk spreken we afzonderlijk af.</p><h3>Wat krijg ik voor de eenmalige inrichting?</h3><p>Een werkende Hermes-assistent ingericht rond de afgesproken taken en jouw manier van werken, met begeleiding, testen en overdracht. Inbox, agenda, documenten en administratie zijn voorbeelden, geen volledige lijst. We leggen vooraf vast wat we samen inrichten.</p><h3>Kan ik mijn bestaande modelabonnement gebruiken?</h3><p>Dat hangt af van de aanbieder, het abonnement en de ondersteunde toegangsroute. We controleren dit bij de inrichting. Los API-gebruik en OpenRouter-verbruik kunnen afzonderlijk worden afgerekend, ook wanneer je al een modelabonnement hebt.</p><h3>Heb ik altijd een VPS nodig?</h3><p>Nee. Hermes kan op je eigen geschikte computer, op een VPS of in een combinatie draaien. Een lokale computer moet beschikbaar zijn om lokale taken uit te voeren. Voor taken die moeten doorlopen wanneer je laptop uitstaat kan een VPS passend zijn.</p><h3>Wie verzorgt updates en ondersteuning?</h3><p>Vooraf leggen we vast wie accounts, toegangsrechten, updates en back-ups beheert, welke nazorg inbegrepen is en welke hulp een aanvullende opdracht wordt. Geen beheerabonnement betekent niet dat beheer overbodig is.</p><h3>Kan ik later zelf uitbreiden?</h3><p>Ja. Na de overdracht kun je zelf verder uitbreiden, zonder licentielimiet vanuit ons. Dat betekent niet dat onbeperkt maatwerk of ondersteuning door ons inbegrepen is.</p><h2>Vooraf duidelijkheid over jouw situatie</h2><p>In een persoonlijk startgesprek bespreken we je wensen. We leggen vooraf vast wat we voor de vaste eenmalige prijs van €1.000 exclusief btw inrichten, welke externe kosten erbij komen en welke afspraken gelden over beheer en nazorg.</p><a class="button secondary" href="/">Terug naar ZZPagent</a></main><script>
+(() => {
+const translations = {"ZZPagent": "ZZPagent", "Contact": "Contact", "ZZPagent / Kosten en afspraken": "ZZPagent / Costs and agreements", "Wat kost een Hermes-assistent?": "What does a Hermes assistant cost?", "Eenmalige inrichting, doorlopende kosten en wat is inbegrepen.": "One-off setup, ongoing costs and what is included.", "Wat is Hermes Agent?": "What is Hermes Agent?", "Hermes Agent is open-source software van Nous Research voor een persoonlijke AI-assistent die context kan onthouden, hulpmiddelen kan gebruiken en terugkerende taken kan uitvoeren. Je betaalt ons voor de afgesproken inrichting en begeleiding, niet voor een jaarlijkse Hermes-licentie.": "Hermes Agent is open-source software from Nous Research for a personal AI assistant that can remember context, use tools and perform recurring tasks. You pay us for the agreed setup and guidance, not for an annual Hermes licence.", "In het startgesprek bespreken we waarbij je ondersteuning wilt en welke taken en mogelijkheden we bij de inrichting meenemen. De vaste prijs voor de afgesproken inrichting is €1.000 exclusief btw, eenmalig. Dit bedrag komt niet jaarlijks terug. We leggen de scope vooraf vast; aanvullende opdrachten spreken we vooraf afzonderlijk af.": "During the introductory conversation, we discuss where you want support and which tasks and capabilities to include in the setup. The fixed price for the agreed setup is €1,000 excluding VAT, paid once. This amount does not recur annually. We agree the scope in advance; additional work is agreed separately beforehand.", "Je betaalt ons geen terugkerende licentie- of abonnementskosten voor deze inrichting. Het gebruik van taalmodellen en eventuele hosting of andere externe diensten betaal je apart. Vooraf maken we duidelijk welke kosten voor jouw situatie gelden.": "You do not pay us recurring licence or subscription fees for this setup. Language model usage and any hosting or other external services are paid separately. We clarify the costs for your situation in advance.", "Bij de start": "At the start", "De eenmalige projectprijs voor de afgesproken inrichting. Eventuele hardware of aanvullende opdrachten maken we apart zichtbaar.": "The one-off project price for the agreed setup. Any hardware or additional assignments are listed separately.", "Daarna": "Afterwards", "Geen jaarlijkse herhaling van de inrichtingskosten. Wel de externe abonnementen en gebruikskosten die bij jouw gekozen inrichting horen.": "No annual repetition of setup costs. External subscriptions and usage costs associated with your chosen setup do continue.", "Het volledige kostenoverzicht": "The full cost overview", "Onderdeel": "Item", "Wanneer betaal je?": "When do you pay?", "Wat betekent dit?": "What does this mean?", "Inrichting en begeleiding": "Setup and guidance", "Eenmalig": "One-off", "Vaste prijs: €1.000 exclusief btw, eenmalig, voor de vooraf afgesproken inrichting, begeleiding, test en overdracht.": "Fixed price: €1,000 excluding VAT, paid once, for the setup, guidance, testing and handover agreed in advance.", "Jaarlijkse verlenging bij ons": "Annual renewal with us", "Niet van toepassing": "Not applicable", "De afgesproken inrichtingskosten komen niet jaarlijks terug. Er is geen terugkerend licentie- of beheerabonnement bij ons voor deze inrichting.": "The agreed setup costs do not recur annually. There is no recurring licence or management subscription with us for this setup.", "Taalmodellen": "Language models", "Doorlopend": "Ongoing", "Je normale maandelijkse abonnement, waar de gekozen aanbieder en toegangsroute dat ondersteunen, en/of betaling naar verbruik. Modelkeuze, gebruik en limieten bepalen de kosten.": "Your normal monthly subscription, where the selected provider and access method support it, and/or usage-based payment. Model choice, usage and limits determine the costs.", "VPS en back-ups": "VPS and backups", "Doorlopend, indien gekozen": "Ongoing, if chosen", "Hosting betaal je apart aan de aanbieder. Servercapaciteit en eventuele back-ups bepalen het bedrag. De passende inrichting en kosten spreken we vooraf af.": "Hosting is paid separately to the provider. Server capacity and any backups determine the amount. We agree the appropriate setup and costs in advance.", "Eigen computer": "Your own computer", "Afhankelijk van je situatie": "Depending on your situation", "Bij volledig lokaal draaien is geen VPS nodig. Eventuele aanschaf van apparatuur, elektriciteit en tijd voor beheer blijven wel kosten.": "A fully local setup does not require a VPS. Any equipment purchases, electricity and time spent on maintenance still have a cost.", "Andere gekoppelde diensten": "Other connected services", "Alleen indien gebruikt": "Only if used", "Denk aan betaalde zoek-, spraak- of meetdiensten. Eventuele abonnementen of verbruikskosten staan los van onze inrichting.": "For example, paid search, voice or measurement services. Any subscriptions or usage charges are separate from our setup fee.", "Uitbreidingen en aanvullende hulp": "Extensions and additional help", "Op afzonderlijke afspraak": "By separate agreement", "GeoScope op je bestaande Hermes kost €500 exclusief btw, eenmalig, inclusief gebruikslicentie en inrichting voor je bedrijf. Model- en meetkosten zijn apart. Websitewerk, aanvullende inrichting en hulp buiten de afgesproken nazorg spreken we vooraf apart af. Geen automatisch doorlopend contract.": "GeoScope on your existing Hermes costs a one-off €500 excluding VAT, including a usage licence and configuration for your business. Model and measurement costs are separate. Website work, additional configuration and help beyond the agreed aftercare are agreed separately in advance. No automatically recurring contract.", "Onze genoemde prijzen zijn exclusief btw. Voor externe diensten gelden de tarieven, belastingen en voorwaarden van de betreffende aanbieder. We geven geen vast maandtotaal zonder jouw inrichting en verwachte gebruik te kennen.": "Our quoted prices exclude VAT. External services are subject to the relevant provider’s rates, taxes and terms. We do not quote a fixed monthly total without knowing your setup and expected usage.", "Veelgestelde vragen": "Frequently asked questions", "Moet ik volgend jaar opnieuw voor de inrichting betalen?": "Do I have to pay for setup again next year?", "Nee. De afgesproken inrichtingskosten zijn eenmalig. Alleen gekozen externe abonnementen, hosting en gebruikskosten lopen door. Nieuw werk spreken we afzonderlijk af.": "No. The agreed setup costs are one-off. Only selected external subscriptions, hosting and usage costs continue. New work is agreed separately.", "Wat krijg ik voor de eenmalige inrichting?": "What do I get for the one-off setup fee?", "Een werkende Hermes-assistent ingericht rond de afgesproken taken en jouw manier van werken, met begeleiding, testen en overdracht. Inbox, agenda, documenten en administratie zijn voorbeelden, geen volledige lijst. We leggen vooraf vast wat we samen inrichten.": "A working Hermes assistant configured around the agreed tasks and your way of working, with guidance, testing and handover. Inbox, calendar, documents and administration are examples, not a complete list. We agree in advance what we will set up together.", "Kan ik mijn bestaande modelabonnement gebruiken?": "Can I use my existing model subscription?", "Dat hangt af van de aanbieder, het abonnement en de ondersteunde toegangsroute. We controleren dit bij de inrichting. Los API-gebruik en OpenRouter-verbruik kunnen afzonderlijk worden afgerekend, ook wanneer je al een modelabonnement hebt.": "That depends on the provider, subscription and supported access method. We check this during setup. Separate API usage and OpenRouter usage may be charged separately, even if you already have a model subscription.", "Heb ik altijd een VPS nodig?": "Do I always need a VPS?", "Nee. Hermes kan op je eigen geschikte computer, op een VPS of in een combinatie draaien. Een lokale computer moet beschikbaar zijn om lokale taken uit te voeren. Voor taken die moeten doorlopen wanneer je laptop uitstaat kan een VPS passend zijn.": "No. Hermes can run on your own suitable computer, a VPS or a combination. A local computer must be available to perform local tasks. A VPS may be appropriate for tasks that need to continue when your laptop is switched off.", "Wie verzorgt updates en ondersteuning?": "Who handles updates and support?", "Vooraf leggen we vast wie accounts, toegangsrechten, updates en back-ups beheert, welke nazorg inbegrepen is en welke hulp een aanvullende opdracht wordt. Geen beheerabonnement betekent niet dat beheer overbodig is.": "We agree in advance who manages accounts, access permissions, updates and backups, which aftercare is included and which help will be an additional assignment. No management subscription does not mean maintenance is unnecessary.", "Kan ik later zelf uitbreiden?": "Can I extend it myself later?", "Ja. Na de overdracht kun je zelf verder uitbreiden, zonder licentielimiet vanuit ons. Dat betekent niet dat onbeperkt maatwerk of ondersteuning door ons inbegrepen is.": "Yes. After handover you can continue extending it yourself, without a licence limit from us. This does not mean unlimited custom work or support from us is included.", "Vooraf duidelijkheid over jouw situatie": "Clarity about your situation in advance", "In een persoonlijk startgesprek bespreken we je wensen. We leggen vooraf vast wat we voor de vaste eenmalige prijs van €1.000 exclusief btw inrichten, welke externe kosten erbij komen en welke afspraken gelden over beheer en nazorg.": "In a personal introductory conversation, we discuss your wishes. We agree in advance what we will set up for the fixed one-off price of €1,000 excluding VAT, which external costs apply and what arrangements cover maintenance and aftercare.", "Terug naar ZZPagent": "Back to ZZPagent"};
+const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+const nodes=[]; let node;
+while(node=walker.nextNode()){if(!['SCRIPT','STYLE'].includes(node.parentElement.tagName)&&node.nodeValue.trim()) nodes.push([node,node.nodeValue]);}
+function setLanguage(lang){
+ document.documentElement.lang=lang;
+ nodes.forEach(([node,original])=>{const value=original.trim();node.nodeValue=lang==='en'&&translations[value]?original.replace(value,translations[value]):original;});
+ document.title=(lang==='en'?'What does a Hermes assistant cost?':'Wat kost een Hermes-assistent?')+' | ZZPagent';
+ document.querySelectorAll('[data-cost-lang]').forEach(button=>{button.classList.toggle('active',button.dataset.costLang===lang);button.setAttribute('aria-pressed',button.dataset.costLang===lang);});
+ try{localStorage.setItem('zzpAgentLang',lang);}catch(e){}
+}
+ document.querySelectorAll('[data-cost-lang]').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.costLang)));
+ let lang='nl';try{lang=localStorage.getItem('zzpAgentLang')==='en'?'en':'nl';}catch(e){}setLanguage(lang);
+})();
+</script></body></html>
