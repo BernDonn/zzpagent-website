@@ -262,7 +262,16 @@
       .radio-group{flex-direction:column}
       .radio-group label{width:100%}
     }
-  </style>
+  
+    .thank-you{border:2px solid #27834a;border-radius:20px;background:#f4fbf6;animation:confirmation-border 1.2s ease-in-out 3}
+    @keyframes confirmation-border{
+      0%,100%{border-color:#27834a;box-shadow:0 0 0 0 rgba(39,131,74,0)}
+      50%{border-color:#9bd8ae;box-shadow:0 0 0 7px rgba(39,131,74,.16)}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .thank-you{animation:none}
+    }
+</style>
 </head>
 <body>
 
@@ -475,7 +484,7 @@
   </div>
 
   <!-- THANK YOU -->
-  <div class="thank-you" id="thank-you">
+  <div class="thank-you" id="thank-you" role="status" aria-live="polite">
     <h2>Bedankt voor het invullen van de Hermes Quickscan.</h2>
     <p>We bekijken je antwoorden en reageren per e-mail met een eerste inschatting of een persoonlijke AI-assistent iets voor jouw werk kan betekenen. Als we mogelijkheden zien, bespreken we samen wat een passende volgende stap kan zijn.</p>
   </div>
