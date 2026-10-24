@@ -521,51 +521,19 @@
     contactStatus.className = 'contact-status is-success';
   }
 
-  contactForm.addEventListener('submit', async function(event) {
-    event.preventDefault();
+  contactForm.addEventListener('submit', function(event) {
     contactStatus.textContent = '';
     contactStatus.className = 'contact-status';
-    if (!contactForm.reportValidity()) return;
-
-    const formData = new FormData(contactForm);
+    if (!contactForm.reportValidity()) {
+      event.preventDefault();
+      return;
+    }
     contactSubmit.disabled = true;
     contactSubmit.textContent = 'Versturen...';
-
-    try {
-      const receiptResponse = await fetch('https://sophie.zzpagent.nl/quickscan-submit', {
-        method: 'POST',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          site: 'zzpagent.nl',
-          visitorId: (crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()),
-          scanType: 'mail_contact',
-          name: String(formData.get('Naam') || ''),
-          email: String(formData.get('email') || ''),
-          dream: String(formData.get('Bericht') || ''),
-          consent: formData.get('Akkoord contact') === 'Ja',
-          path: location.pathname + location.search,
-          referrer: document.referrer || '',
-          userAgent: navigator.userAgent || ''
-        }),
-        keepalive: true
-      });
-      if (!receiptResponse.ok) throw new Error('Ontvangstregistratie mislukt: ' + receiptResponse.status);
-      if (typeof gtag === 'function') {
-        gtag('event', 'quickscan_contact_submit', { 'event_category': 'conversion' });
-      }
-      contactStatus.textContent = 'Je bericht is veilig ontvangen. Rond zo nodig de e-mailcontrole af.';
-      contactStatus.className = 'contact-status is-success';
-      contactForm.submit();
-      return;
-    } catch (receiptError) {
-      console.error(receiptError);
-      contactStatus.textContent = 'Versturen lukt nu niet. Noteer eventueel info@zzpagent.nl en probeer het later opnieuw.';
-      contactStatus.className = 'contact-status is-error';
-      contactSubmit.disabled = false;
-      contactSubmit.textContent = 'Verstuur bericht →';
-    }
+    // Native form submission goes directly to FormSubmit.
+    // Sophie availability must not block contact mail.
   });
+
 
   function showStep(n) {
     for (let i = 1; i <= totalSteps; i++) {
