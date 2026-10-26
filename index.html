@@ -86,6 +86,14 @@
       "@type": "FAQPage",
       "@id": "https://zzpagent.nl/#faq",
       "mainEntity": [
+{
+  "@type": "Question",
+  "name": "Wat is MOA (Mixture of Agents) en waarom zou je meerdere AI-modellen laten samenwerken?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "MOA staat voor Mixture of Agents. Daarbij werken meerdere AI-agents aan hetzelfde vraagstuk. Ze kunnen verschillende modellen gebruiken. Hun bijdragen worden vergeleken, beoordeeld en samengebracht tot één antwoord of aanpak. Je kunt het vergelijken met verschillende specialisten die samen naar een opdracht kijken. Dat is iets anders dan alleen overschakelen naar een reservemodel wanneer het eerste niet beschikbaar is. Bij MOA worden meerdere bijdragen bewust gecombineerd. Het is ook niet voor iedere taak nodig: een eenvoudige opdracht kan vaak prima met één agent worden uitgevoerd. Een denker én een doener Een goed plan maken is niet hetzelfde als het werk afmaken. Bij een ingewikkeld vraagstuk wil je zorgvuldig redeneren en mogelijkheden afwegen. Bij uitvoerend werk wil je dat de assistent de stappen doorloopt, het resultaat controleert en niet na ieder tussenbericht op nieuwe instructies wacht. Modellen kunnen daarin verschillen. Zo melden sommige Hermes-gebruikers dat DeepSeek bij uitvoerende taken gemakkelijker doorwerkt, terwijl zij Claude waarderen voor planning en zorgvuldige afwegingen. Dat zijn praktijkervaringen, geen vaste ranglijst. Bij een samenwerking van agents kun je zulke verschillen benutten: de ene bijdrage helpt bij het plan, een andere bij de uitvoering of de controle. Welke combinatie zinvol is, hangt af van de opdracht. Meer agents betekent niet automatisch een beter resultaat en kan extra tijd, kosten en gegevensverwerking bij externe aanbieders betekenen. Het doel is niet zoveel mogelijk AI inzetten, maar het werk goed afronden. Jij bepaalt de grenzen. Een goede doener weet ook wanneer hij moet stoppen en overleggen."
+  }
+},
         {
           "@type": "Question",
           "name": "Wat is een Hermes Agent en wie maakt het?",
@@ -1352,6 +1360,16 @@
                     <p>Hermes is open source en kun je zelf beheren. Je kunt de software aanpassen en verschillende AI-modellen aansluiten. Daardoor houd je meer ruimte om van aanbieder te wisselen, zonder je hele agentsysteem opnieuw op te bouwen.</p>
                     <p>Dat maakt je niet automatisch volledig onafhankelijk van big tech: gebruik je via Hermes een model van OpenAI of Anthropic, dan blijf je voor dat onderdeel afhankelijk van die aanbieder. Het verschil is dat je agentsysteem niet onlosmakelijk aan één leverancier vastzit.</p>
                   </details>
+          <details id="faq-moa">
+<summary>03a. Wat is MOA (Mixture of Agents) en waarom zou je meerdere AI-modellen laten samenwerken?</summary>
+<p>MOA staat voor Mixture of Agents. Daarbij werken meerdere AI-agents aan hetzelfde vraagstuk. Ze kunnen verschillende modellen gebruiken. Hun bijdragen worden vergeleken, beoordeeld en samengebracht tot één antwoord of aanpak. Je kunt het vergelijken met verschillende specialisten die samen naar een opdracht kijken.</p>
+<p>Dat is iets anders dan alleen overschakelen naar een reservemodel wanneer het eerste niet beschikbaar is. Bij MOA worden meerdere bijdragen bewust gecombineerd. Het is ook niet voor iedere taak nodig: een eenvoudige opdracht kan vaak prima met één agent worden uitgevoerd.</p>
+<h3 style="margin:16px 18px">Een denker én een doener</h3>
+<p>Een goed plan maken is niet hetzelfde als het werk afmaken. Bij een ingewikkeld vraagstuk wil je zorgvuldig redeneren en mogelijkheden afwegen. Bij uitvoerend werk wil je dat de assistent de stappen doorloopt, het resultaat controleert en niet na ieder tussenbericht op nieuwe instructies wacht.</p>
+<p>Modellen kunnen daarin verschillen. Zo melden sommige Hermes-gebruikers dat DeepSeek bij uitvoerende taken gemakkelijker doorwerkt, terwijl zij Claude waarderen voor planning en zorgvuldige afwegingen. Dat zijn praktijkervaringen, geen vaste ranglijst.</p>
+<p>Bij een samenwerking van agents kun je zulke verschillen benutten: de ene bijdrage helpt bij het plan, een andere bij de uitvoering of de controle. Welke combinatie zinvol is, hangt af van de opdracht. Meer agents betekent niet automatisch een beter resultaat en kan extra tijd, kosten en gegevensverwerking bij externe aanbieders betekenen.</p>
+<p><strong>Het doel is niet zoveel mogelijk AI inzetten, maar het werk goed afronden. Jij bepaalt de grenzen. Een goede doener weet ook wanneer hij moet stoppen en overleggen.</strong></p>
+</details>
           <details id="faq-hermes-openclaw">
             <summary>03b. Wat is het verschil tussen Hermes en OpenClaw 2.0 voor mij als zzp’er?</summary>
             <p><strong>Hermes is vooral een persoonlijke AI-assistent. OpenClaw biedt daarnaast ingebouwde mogelijkheden om met meerdere mensen dezelfde agentomgeving te gebruiken.</strong></p><p>Werk je zelfstandig en zoek je een assistent die jouw werkwijze onthoudt, terugkerende taken uitvoert en specialistische agents kan inschakelen? Dan is Hermes een logische keuze. De samenwerking draait vooral om jou en de agents die voor jou werken.</p><p>Wil je met collega’s of vaste samenwerkingspartners in dezelfde gesprekken werken, taken overnemen en afspreken wie mag lezen, voorstellen doen of meewerken? Dan komt OpenClaw 2.0 eerder in beeld.</p><p>Het is geen harde scheiding: OpenClaw kan ook persoonlijk worden gebruikt en Hermes kan ook binnen een bedrijf worden ingezet. De keuze hangt vooral af van hoe je wilt samenwerken, niet alleen van de grootte van je onderneming.</p>
@@ -1788,6 +1806,15 @@
   <script>
     const translations = {
       en: {
+"03a. Wat is MOA (Mixture of Agents) en waarom zou je meerdere AI-modellen laten samenwerken?": "03a. What is MOA (Mixture of Agents) and why would you have multiple AI models work together?",
+"MOA staat voor Mixture of Agents. Daarbij werken meerdere AI-agents aan hetzelfde vraagstuk. Ze kunnen verschillende modellen gebruiken. Hun bijdragen worden vergeleken, beoordeeld en samengebracht tot één antwoord of aanpak. Je kunt het vergelijken met verschillende specialisten die samen naar een opdracht kijken.": "MOA stands for Mixture of Agents. Several AI agents work on the same problem. They can use different models. Their contributions are compared, assessed and combined into a single answer or approach. You can think of it as different specialists looking at an assignment together.",
+"Dat is iets anders dan alleen overschakelen naar een reservemodel wanneer het eerste niet beschikbaar is. Bij MOA worden meerdere bijdragen bewust gecombineerd. Het is ook niet voor iedere taak nodig: een eenvoudige opdracht kan vaak prima met één agent worden uitgevoerd.": "This is different from simply switching to a backup model when the first one is unavailable. With MOA, multiple contributions are deliberately combined. It is not necessary for every task either: a simple assignment can often be handled perfectly well by one agent.",
+"Een denker én een doener": "A thinker and a doer",
+"Een goed plan maken is niet hetzelfde als het werk afmaken. Bij een ingewikkeld vraagstuk wil je zorgvuldig redeneren en mogelijkheden afwegen. Bij uitvoerend werk wil je dat de assistent de stappen doorloopt, het resultaat controleert en niet na ieder tussenbericht op nieuwe instructies wacht.": "Making a good plan is not the same as finishing the work. For a complex problem, you want careful reasoning and consideration of the options. For execution, you want the assistant to work through the steps, check the result and not wait for new instructions after every progress message.",
+"Modellen kunnen daarin verschillen. Zo melden sommige Hermes-gebruikers dat DeepSeek bij uitvoerende taken gemakkelijker doorwerkt, terwijl zij Claude waarderen voor planning en zorgvuldige afwegingen. Dat zijn praktijkervaringen, geen vaste ranglijst.": "Models can differ in this respect. For example, some Hermes users report that DeepSeek keeps working more readily on execution tasks, while they value Claude for planning and careful consideration. These are practical experiences, not a fixed ranking.",
+"Bij een samenwerking van agents kun je zulke verschillen benutten: de ene bijdrage helpt bij het plan, een andere bij de uitvoering of de controle. Welke combinatie zinvol is, hangt af van de opdracht. Meer agents betekent niet automatisch een beter resultaat en kan extra tijd, kosten en gegevensverwerking bij externe aanbieders betekenen.": "When agents work together, you can make use of these differences: one contribution helps with the plan, another with execution or checking. Which combination makes sense depends on the assignment. More agents do not automatically mean a better result and can mean extra time, costs and data processing by external providers.",
+"Het doel is niet zoveel mogelijk AI inzetten, maar het werk goed afronden. Jij bepaalt de grenzen. Een goede doener weet ook wanneer hij moet stoppen en overleggen.": "The goal is not to use as much AI as possible, but to finish the work properly. You set the boundaries. A good doer also knows when to stop and consult you.",
+
 "WhatsApp":"WhatsApp",
 "Je bestaande nummer behouden":"Keep your existing number",
 "Je kunt je bestaande WhatsApp-account omzetten naar WhatsApp Business en je nummer behouden. Voor de koppeling aan Hermes richten we daarna de officiële WhatsApp Business API in. We controleren vooraf hoe je het nummer en de app kunt blijven gebruiken.":"You can switch your existing WhatsApp account to WhatsApp Business and keep your number. We then set up the official WhatsApp Business API to connect it to Hermes. Beforehand, we check how you can continue using your number and the app.",
@@ -2517,6 +2544,12 @@
     function openTopPanelFromHash(){
       const id = window.location.hash ? window.location.hash.slice(1) : '';
       if(id === 'faq' || id === 'vergelijking') openNavPanel(id);
+      if(id === 'faq-moa'){
+        openNavPanel('faq');
+        const item = document.getElementById('faq-moa');
+        item.open = true;
+        requestAnimationFrame(() => item.scrollIntoView({block:'start'}));
+      }
     }
 
     window.addEventListener('hashchange', openTopPanelFromHash);
