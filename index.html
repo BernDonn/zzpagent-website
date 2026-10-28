@@ -136,14 +136,6 @@
         },
         {
           "@type": "Question",
-          "name": "Wat is het verschil tussen Hermes en OpenClaw 2.0 voor mij als zzp’er?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Hermes is vooral een persoonlijke AI-assistent. OpenClaw biedt daarnaast ingebouwde mogelijkheden om met meerdere mensen dezelfde agentomgeving te gebruiken. Werk je zelfstandig en zoek je een assistent die jouw werkwijze onthoudt, terugkerende taken uitvoert en specialistische agents kan inschakelen? Dan is Hermes een logische keuze. De samenwerking draait vooral om jou en de agents die voor jou werken. Wil je met collega’s of vaste samenwerkingspartners in dezelfde gesprekken werken, taken overnemen en afspreken wie mag lezen, voorstellen doen of meewerken? Dan komt OpenClaw 2.0 eerder in beeld. Het is geen harde scheiding: OpenClaw kan ook persoonlijk worden gebruikt en Hermes kan ook binnen een bedrijf worden ingezet. De keuze hangt vooral af van hoe je wilt samenwerken, niet alleen van de grootte van je onderneming."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "Waarom zou ik ook modellen zoals DeepSeek overwegen?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -155,7 +147,15 @@
           "name": "Hoe verschillen OpenAI Dots, Meta Muse en Grok Bot van Hermes?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "OpenAI Dots, Meta Muse en Grok Bot zijn AI-assistenten die niet alleen antwoorden geven, maar ook met apps werken, context onthouden en taken op de achtergrond uitvoeren. Hun aanbieders leveren daarvoor een beheerde omgeving. De beschikbaarheid verschilt per land, abonnement en uitrolfase. Hermes is een open-source werkomgeving voor een AI-assistent. Je kunt Hermes op je eigen computer of server laten draaien en kiezen uit verschillende ondersteunde taalmodellen. Je geheugen, tools en opgebouwde werkwijzen staan in die omgeving, zodat je bij een modelwissel niet automatisch je hele assistent opnieuw hoeft op te bouwen. Het belangrijkste verschil zit dus in keuze en zeggenschap over de inrichting. Bij Dots, Muse en Grok Bot bepaalt de aanbieder de mogelijkheden van het platform. Bij Hermes kun je meer zelf bepalen over hosting, modellen en koppelingen. Daar hoort wel beheer bij. Een eigen installatie betekent bovendien niet dat alle verwerking lokaal gebeurt: dat hangt af van de modellen en diensten die je aansluit."
+            "text": "OpenAI Dots, Meta Muse en Grok Bot zijn AI-assistenten die niet alleen antwoorden geven, maar ook met apps werken, context onthouden en taken op de achtergrond uitvoeren. Hun aanbieders leveren daarvoor een beheerde omgeving. De beschikbaarheid verschilt per land, abonnement en uitrolfase. Hermes is een open-source werkomgeving voor een AI-assistent. Je kunt Hermes op je eigen computer of server laten draaien en kiezen uit verschillende ondersteunde taalmodellen. Je geheugen, tools en opgebouwde werkwijzen staan in die omgeving, zodat je bij een modelwissel niet automatisch je hele assistent opnieuw hoeft op te bouwen. Het belangrijkste verschil zit dus in keuze en zeggenschap over de inrichting. Bij Dots, Muse en Grok Bot bepaalt de aanbieder de mogelijkheden van het platform. Bij Hermes kun je meer zelf bepalen over hosting, modellen en koppelingen. Daar hoort wel beheer bij. Een eigen installatie betekent bovendien niet dat alle verwerking lokaal gebeurt: dat hangt af van de modellen en diensten die je aansluit. In mijn LinkedIn-publicatie van 27 oktober 2026 vergelijk ik Hermes met vijf alternatieven van Big Tech. Hieronder staat de oorspronkelijke dia uit die publicatie. Lees de vergelijking op LinkedIn: https://www.linkedin.com/pulse/de-ai-assistent-zal-binnenkort-ook-bij-ons-mainstream-bernard-donners-vprpe/ Oorspronkelijke dia (Nederlands): OpenAI Dots, Grok Bot, Claude Duet, Gemini Spark, Meta Muse en Hermes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat is het verschil tussen Hermes en OpenClaw 2.0 voor mij als zzp’er?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hermes is vooral een persoonlijke AI-assistent. OpenClaw biedt daarnaast ingebouwde mogelijkheden om met meerdere mensen dezelfde agentomgeving te gebruiken. Werk je zelfstandig en zoek je een assistent die jouw werkwijze onthoudt, terugkerende taken uitvoert en specialistische agents kan inschakelen? Dan is Hermes een logische keuze. De samenwerking draait vooral om jou en de agents die voor jou werken. Wil je met collega’s of vaste samenwerkingspartners in dezelfde gesprekken werken, taken overnemen en afspreken wie mag lezen, voorstellen doen of meewerken? Dan komt OpenClaw 2.0 eerder in beeld. Het is geen harde scheiding: OpenClaw kan ook persoonlijk worden gebruikt en Hermes kan ook binnen een bedrijf worden ingezet. De keuze hangt vooral af van hoe je wilt samenwerken, niet alleen van de grootte van je onderneming."
           }
         },
         {
@@ -1068,6 +1068,12 @@
 </style>
   <style>
     .brain-details{margin-top:16px}.brain-details summary{cursor:pointer;font-weight:700;text-decoration:underline;text-underline-offset:4px}.brain-content{padding:16px 0 0;max-width:58ch}.brain-content h4{font-size:20px;margin:0 0 12px}.brain-content p{margin-bottom:16px!important}.brain-content blockquote{margin:16px 0;padding:12px 16px;border-left:3px solid currentColor;font-style:italic}.trust-item:has(.brain-details[open]){align-items:start}
+    #faq .faq-comparison-slide{margin:20px 18px 24px;padding:0;border:0;background:transparent;max-width:100%}
+    #faq-assistenten-vergelijking > p a{text-decoration:underline;text-underline-offset:3px}
+    #faq .faq-comparison-slide > a{display:block;cursor:zoom-in}
+    #faq .faq-comparison-slide img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;border-radius:8px}
+    #faq .faq-comparison-slide figcaption{margin-top:10px;font-size:15px;line-height:1.6;overflow-wrap:anywhere}
+    #faq .faq-comparison-slide figcaption a{display:inline-block;padding:8px 0;text-decoration:underline}
   </style>
 </head>
 <body>
@@ -1386,12 +1392,8 @@
 <p>Bij een samenwerking van agents kun je zulke verschillen benutten: de ene bijdrage helpt bij het plan, een andere bij de uitvoering of de controle. Welke combinatie zinvol is, hangt af van de opdracht. Meer agents betekent niet automatisch een beter resultaat en kan extra tijd, kosten en gegevensverwerking bij externe aanbieders betekenen.</p>
 <p><strong>Het doel is niet zoveel mogelijk AI inzetten, maar het werk goed afronden. Jij bepaalt de grenzen. Een goede doener weet ook wanneer hij moet stoppen en overleggen.</strong></p>
 </details>
-          <details id="faq-hermes-openclaw">
-            <summary>03b. Wat is het verschil tussen Hermes en OpenClaw 2.0 voor mij als zzp’er?</summary>
-            <p><strong>Hermes is vooral een persoonlijke AI-assistent. OpenClaw biedt daarnaast ingebouwde mogelijkheden om met meerdere mensen dezelfde agentomgeving te gebruiken.</strong></p><p>Werk je zelfstandig en zoek je een assistent die jouw werkwijze onthoudt, terugkerende taken uitvoert en specialistische agents kan inschakelen? Dan is Hermes een logische keuze. De samenwerking draait vooral om jou en de agents die voor jou werken.</p><p>Wil je met collega’s of vaste samenwerkingspartners in dezelfde gesprekken werken, taken overnemen en afspreken wie mag lezen, voorstellen doen of meewerken? Dan komt OpenClaw 2.0 eerder in beeld.</p><p>Het is geen harde scheiding: OpenClaw kan ook persoonlijk worden gebruikt en Hermes kan ook binnen een bedrijf worden ingezet. De keuze hangt vooral af van hoe je wilt samenwerken, niet alleen van de grootte van je onderneming.</p>
-          </details>
           <details id="faq-modelkeuze-deepseek">
-            <summary>03c. Waarom zou ik ook modellen zoals DeepSeek overwegen?</summary>
+            <summary>03b. Waarom zou ik ook modellen zoals DeepSeek overwegen?</summary>
             <p>Je hoeft je AI-assistent niet vast te leggen op één model of leverancier. Naast modellen van OpenAI en Anthropic zijn er alternatieven zoals DeepSeek. Welke keuze verstandig is, hangt af van de taak, de kwaliteit van het resultaat, de kosten en de afspraken over je gegevens.</p>
             <p>Open modellen zijn geen kleine niche meer. In september 2026 verwerkten open-weight modellen 71,5% van het tokenverkeer via Vercel AI Gateway, terwijl ze 23% van de geschatte modeluitgaven vertegenwoordigden. Tokens zijn de stukjes informatie die een model verwerkt. Deze cijfers betreffen één platform, niet de hele AI-markt, maar laten zien waarom het verstandig is verder te kijken dan alleen OpenAI en Anthropic.</p>
             <p>Daarbij is er een belangrijk verschil tussen waar een model is ontwikkeld en waar het wordt uitgevoerd. Een model van Chinese oorsprong hoeft niet op servers in China te draaien. Bij modellen waarvan de modelbestanden beschikbaar zijn, kan uitvoering bij een andere hostingpartij of op geschikte eigen hardware mogelijk zijn. De licentie en de gekozen inrichting bepalen wat kan.</p>
@@ -1399,12 +1401,21 @@
             <p>Met Hermes kun je verschillende ondersteunde modellen gebruiken en per taak kiezen wat past. Je opgebouwde werkwijzen en bedrijfskennis beheer je in je eigen agentomgeving, zodat je bij een modelwissel niet automatisch je hele assistent opnieuw hoeft op te bouwen. Een ander model moet je wel opnieuw testen op jouw werkzaamheden.</p>
             <p><strong>Kies dus niet alleen een merk. Kies een inrichting waarin je modellen kunt vergelijken en vervangen, terwijl jij de controle over je werk houdt.</strong></p>
           </details>
-          <details>
+          <details id="faq-assistenten-vergelijking">
 <summary>04. Hoe verschillen OpenAI Dots, Meta Muse en Grok Bot van Hermes?</summary>
 <p>OpenAI Dots, Meta Muse en Grok Bot zijn AI-assistenten die niet alleen antwoorden geven, maar ook met apps werken, context onthouden en taken op de achtergrond uitvoeren. Hun aanbieders leveren daarvoor een beheerde omgeving. De beschikbaarheid verschilt per land, abonnement en uitrolfase.</p>
 <p>Hermes is een open-source werkomgeving voor een AI-assistent. Je kunt Hermes op je eigen computer of server laten draaien en kiezen uit verschillende ondersteunde taalmodellen. Je geheugen, tools en opgebouwde werkwijzen staan in die omgeving, zodat je bij een modelwissel niet automatisch je hele assistent opnieuw hoeft op te bouwen.</p>
 <p>Het belangrijkste verschil zit dus in keuze en zeggenschap over de inrichting. Bij Dots, Muse en Grok Bot bepaalt de aanbieder de mogelijkheden van het platform. Bij Hermes kun je meer zelf bepalen over hosting, modellen en koppelingen. Daar hoort wel beheer bij. Een eigen installatie betekent bovendien niet dat alle verwerking lokaal gebeurt: dat hangt af van de modellen en diensten die je aansluit.</p>
+<p>In mijn LinkedIn-publicatie van 27 oktober 2026 vergelijk ik Hermes met vijf alternatieven van Big Tech. Hieronder staat de oorspronkelijke dia uit die publicatie. <a href="https://www.linkedin.com/pulse/de-ai-assistent-zal-binnenkort-ook-bij-ons-mainstream-bernard-donners-vprpe/" target="_blank" rel="noopener noreferrer">Lees de vergelijking op LinkedIn</a>.</p>
+<figure class="faq-comparison-slide">
+  <a href="/assets/li-hermes-zes-maanden-20261027.webp" target="_blank" rel="noopener noreferrer"><img src="/assets/li-hermes-zes-maanden-20261027.webp" alt="Dia van Bernard Donners: vijf alternatieven naast Hermes" width="1488" height="910" loading="lazy" /></a>
+  <figcaption><span>Oorspronkelijke dia (Nederlands): OpenAI Dots, Grok Bot, Claude Duet, Gemini Spark, Meta Muse en Hermes.</span> <a href="/assets/li-hermes-zes-maanden-20261027.webp" target="_blank" rel="noopener noreferrer">Vergroot de dia (nieuw tabblad)</a></figcaption>
+</figure>
 </details>
+          <details id="faq-hermes-openclaw">
+            <summary>04b. Wat is het verschil tussen Hermes en OpenClaw 2.0 voor mij als zzp’er?</summary>
+            <p><strong>Hermes is vooral een persoonlijke AI-assistent. OpenClaw biedt daarnaast ingebouwde mogelijkheden om met meerdere mensen dezelfde agentomgeving te gebruiken.</strong></p><p>Werk je zelfstandig en zoek je een assistent die jouw werkwijze onthoudt, terugkerende taken uitvoert en specialistische agents kan inschakelen? Dan is Hermes een logische keuze. De samenwerking draait vooral om jou en de agents die voor jou werken.</p><p>Wil je met collega’s of vaste samenwerkingspartners in dezelfde gesprekken werken, taken overnemen en afspreken wie mag lezen, voorstellen doen of meewerken? Dan komt OpenClaw 2.0 eerder in beeld.</p><p>Het is geen harde scheiding: OpenClaw kan ook persoonlijk worden gebruikt en Hermes kan ook binnen een bedrijf worden ingezet. De keuze hangt vooral af van hoe je wilt samenwerken, niet alleen van de grootte van je onderneming.</p>
+          </details>
                   <details>
                     <summary>05. Wat als de agent twijfelt of iets fout kan doen?</summary>
                     <p>Dan stopt hij en vraagt akkoord. Geen klantbericht, betaling of gevoelige actie zonder menselijke controle. Dat is geen bijzaak, het is het uitgangspunt.</p>
@@ -1844,7 +1855,12 @@
   <script>
     const translations = {
       en: {
-        "03c. Waarom zou ik ook modellen zoals DeepSeek overwegen?": "03c. Why should I also consider models such as DeepSeek?",
+        "In mijn LinkedIn-publicatie van 27 oktober 2026 vergelijk ik Hermes met vijf alternatieven van Big Tech. Hieronder staat de oorspronkelijke dia uit die publicatie.": "In my LinkedIn publication of 27 October 2026, I compare Hermes with five Big Tech alternatives. The original slide from that publication is shown below.",
+        "Lees de vergelijking op LinkedIn": "Read the comparison on LinkedIn",
+        "Oorspronkelijke dia (Nederlands): OpenAI Dots, Grok Bot, Claude Duet, Gemini Spark, Meta Muse en Hermes.": "Original slide (in Dutch): OpenAI Dots, Grok Bot, Claude Duet, Gemini Spark, Meta Muse and Hermes.",
+        "Vergroot de dia (nieuw tabblad)": "Enlarge the slide (new tab)",
+        "Dia van Bernard Donners: vijf alternatieven naast Hermes": "Slide by Bernard Donners: five alternatives alongside Hermes",
+        "03b. Waarom zou ik ook modellen zoals DeepSeek overwegen?": "03b. Why should I also consider models such as DeepSeek?",
         "Je hoeft je AI-assistent niet vast te leggen op één model of leverancier. Naast modellen van OpenAI en Anthropic zijn er alternatieven zoals DeepSeek. Welke keuze verstandig is, hangt af van de taak, de kwaliteit van het resultaat, de kosten en de afspraken over je gegevens.": "You do not have to tie your AI assistant to a single model or provider. Alongside models from OpenAI and Anthropic, there are alternatives such as DeepSeek. The right choice depends on the task, the quality of the result, the costs and the agreements governing your data.",
         "Open modellen zijn geen kleine niche meer. In september 2026 verwerkten open-weight modellen 71,5% van het tokenverkeer via Vercel AI Gateway, terwijl ze 23% van de geschatte modeluitgaven vertegenwoordigden. Tokens zijn de stukjes informatie die een model verwerkt. Deze cijfers betreffen één platform, niet de hele AI-markt, maar laten zien waarom het verstandig is verder te kijken dan alleen OpenAI en Anthropic.": "Open models are no longer a small niche. In September 2026, open-weight models processed 71.5% of token traffic through Vercel AI Gateway, while accounting for 23% of estimated model spending. Tokens are the pieces of information that a model processes. These figures concern one platform, not the entire AI market, but show why it makes sense to look beyond OpenAI and Anthropic.",
         "Daarbij is er een belangrijk verschil tussen waar een model is ontwikkeld en waar het wordt uitgevoerd. Een model van Chinese oorsprong hoeft niet op servers in China te draaien. Bij modellen waarvan de modelbestanden beschikbaar zijn, kan uitvoering bij een andere hostingpartij of op geschikte eigen hardware mogelijk zijn. De licentie en de gekozen inrichting bepalen wat kan.": "There is an important distinction between where a model was developed and where it runs. A model of Chinese origin does not have to run on servers in China. For models whose model files are available, running them with another hosting provider or on suitable hardware of your own may be possible. The licence and the chosen setup determine what is possible.",
@@ -1915,7 +1931,7 @@
         "ChatGPT en Claude zijn propriëtaire oplossingen: de leverancier bepaalt de mogelijkheden, prijzen en voorwaarden. Als je je werkprocessen daarop inricht, word je ook afhankelijk van toekomstige keuzes van die leverancier.": "ChatGPT and Claude are proprietary solutions: the provider determines the features, prices and terms. If you build your workflows around them, you also become dependent on that provider’s future decisions.",
         "Hermes is open source en kun je zelf beheren. Je kunt de software aanpassen en verschillende AI-modellen aansluiten. Daardoor houd je meer ruimte om van aanbieder te wisselen, zonder je hele agentsysteem opnieuw op te bouwen.": "Hermes is open source and you can manage it yourself. You can modify the software and connect different AI models. This gives you more freedom to switch providers without having to rebuild your entire agent system.",
         "Dat maakt je niet automatisch volledig onafhankelijk van big tech: gebruik je via Hermes een model van OpenAI of Anthropic, dan blijf je voor dat onderdeel afhankelijk van die aanbieder. Het verschil is dat je agentsysteem niet onlosmakelijk aan één leverancier vastzit.": "That does not automatically make you fully independent of big tech: if you use an OpenAI or Anthropic model through Hermes, you still depend on that provider for that component. The difference is that your agent system is not inseparably tied to a single provider.",
-        "03b. Wat is het verschil tussen Hermes en OpenClaw 2.0 voor mij als zzp’er?": "03b. What is the difference between Hermes and OpenClaw 2.0 for me as a freelancer?",
+        "04b. Wat is het verschil tussen Hermes en OpenClaw 2.0 voor mij als zzp’er?": "04b. What is the difference between Hermes and OpenClaw 2.0 for me as a freelancer?",
         "Hermes is vooral een persoonlijke AI-assistent. OpenClaw biedt daarnaast ingebouwde mogelijkheden om met meerdere mensen dezelfde agentomgeving te gebruiken.": "Hermes is primarily a personal AI assistant. OpenClaw also offers built-in ways for several people to use the same agent environment.",
         "Werk je zelfstandig en zoek je een assistent die jouw werkwijze onthoudt, terugkerende taken uitvoert en specialistische agents kan inschakelen? Dan is Hermes een logische keuze. De samenwerking draait vooral om jou en de agents die voor jou werken.": "If you work independently and want an assistant that remembers how you work, handles recurring tasks and can call on specialist agents, Hermes is a logical choice. Collaboration mainly centres on you and the agents working for you.",
         "Wil je met collega’s of vaste samenwerkingspartners in dezelfde gesprekken werken, taken overnemen en afspreken wie mag lezen, voorstellen doen of meewerken? Dan komt OpenClaw 2.0 eerder in beeld.": "If you want to work with colleagues or regular partners in the same conversations, take over tasks and agree who may read, suggest or contribute, OpenClaw 2.0 becomes more relevant.",
@@ -2551,6 +2567,7 @@
         faqStructured.textContent = JSON.stringify(graph);
       }
       document.querySelector('#faq-geoscope-tools img').alt = lang === 'en' ? 'The GEO Strategy House with GEO auditing, prompt research, reporting, content and channels' : 'Het GEO Strategy House met GEO-auditing, promptonderzoek, rapportage, content en kanalen';
+      document.querySelector('#faq-assistenten-vergelijking img').alt = lang === 'en' ? "Slide by Bernard Donners: five alternatives alongside Hermes" : "Dia van Bernard Donners: vijf alternatieven naast Hermes";
       localStorage.setItem('zzpAgentLang', lang);
     }
 
