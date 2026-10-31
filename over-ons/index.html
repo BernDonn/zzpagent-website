@@ -111,8 +111,55 @@
     @media (max-width:1000px){.bio-hero{grid-template-columns:1fr}.bio-photo-stack{order:-1}.bio-photo-title{display:none}.bio-role-mobile{display:inline-flex}.bio-info h2{display:block}.bio-info .bio-role{display:none}.bio-image img{height:320px}}
     @media (max-width:800px){.bio-details{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}.linkedin-feed{grid-template-columns:1fr}}
   </style>
+<style id="restored-main-navigation">
+/* Homepage navigation, scoped to keep the biography styling unchanged. */
+.site-main-nav{--nav-primary:#163f2b;--nav-accent:#d7f268;--nav-paper:#fffaf1;position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--nav-paper) 84%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid #ded5c4;color:#101512}
+.site-main-nav-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 24px}
+.site-main-nav a{color:inherit;text-decoration:none}
+.site-home-brand{font-size:22px;font-weight:800;letter-spacing:-.04em;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.site-home-brand span{width:12px;height:12px;border-radius:50%;background:var(--nav-accent);box-shadow:0 0 0 6px color-mix(in srgb,var(--nav-accent) 23%,transparent)}
+.site-desktop-links{display:flex;align-items:center;gap:14px;font-size:13px}
+.site-main-nav .button,.site-main-nav .nav-faq-link{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 14px;border:1px solid var(--nav-primary);font-weight:700;color:var(--nav-primary)}
+.site-main-nav .quickscan-nav{background:var(--nav-accent);border-color:var(--nav-accent)}
+.site-main-nav .nav-over-ons-link{background:var(--nav-primary);color:white}
+.site-main-nav .nav-over-ons-link.secondary{background:transparent;color:var(--nav-primary)}
+.site-main-nav a:focus-visible,.site-mobile-menu summary:focus-visible{outline:3px solid var(--nav-primary);outline-offset:4px}
+.site-mobile-menu{display:none}
+@media(max-width:1100px){
+ .site-desktop-links{display:none}
+ .site-main-nav-inner{padding:14px 20px}
+ .site-mobile-menu{display:block}
+ .site-mobile-menu summary{cursor:pointer;border:1px solid var(--nav-primary);border-radius:999px;padding:10px 16px;color:var(--nav-primary);font-weight:700;font-size:14px}
+ .site-mobile-links{position:absolute;top:100%;left:0;right:0;background:var(--nav-paper);border-bottom:1px solid #ded5c4;padding:16px 20px;display:grid;gap:8px;max-height:calc(100dvh - 75px);overflow:auto;box-shadow:0 16px 24px #0001}
+ .site-mobile-links a{padding:12px 14px;min-height:44px;font-size:14px}
+}
+</style>
 </head>
 <body>
+<nav class="site-main-nav" aria-label="Hoofdnavigatie">
+  <div class="site-main-nav-inner">
+    <a class="site-home-brand" href="/"><span aria-hidden="true"></span>ZZPagent</a>
+    <div class="site-desktop-links">
+        <a href="/#oplossingen">Oplossingen</a>
+        <a href="/#vergelijking">Agent Platform</a>
+        <a href="/#providers">Modelkeuze</a>
+        <a class="nav-faq-link" href="/#faq">Q&A</a>
+        <a href="/quickscan/" class="button quickscan-nav">Quickscan</a>
+        <a class="button secondary nav-over-ons-link" href="/over-ons/" aria-current="page">Over ons</a>
+      </div>
+    <details class="site-mobile-menu">
+      <summary>Menu</summary>
+      <div class="site-mobile-links">
+        <a href="/#oplossingen">Oplossingen</a>
+        <a href="/#vergelijking">Agent Platform</a>
+        <a href="/#providers">Modelkeuze</a>
+        <a class="nav-faq-link" href="/#faq">Q&A</a>
+        <a href="/quickscan/" class="button quickscan-nav">Quickscan</a>
+        <a class="button secondary nav-over-ons-link" href="/over-ons/" aria-current="page">Over ons</a>
+      </div>
+    </details>
+  </div>
+</nav>
   <main class="page">
     <!-- ZZP SITE -->
     <section class="site zzp">
