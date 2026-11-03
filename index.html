@@ -70,17 +70,36 @@
       ]
     },
     {
-      "@type": "ProfessionalService",
+      "@type": "Service",
       "@id": "https://zzpagent.nl/#service",
-      "name": "ZZPagent",
-      "url": "https://zzpagent.nl/",
-      "image": "https://zzpagent.nl/assets/zzpagent-ai-assistent-ai-label-1200x630.jpg",
-      "description": "Implementatie, configuratie en beheer van AI-agents voor ZZP rond bestaande workflows, kanalen en veilige automatisering.",
+      "name": "Hermes-assistent: eenmalige inrichting",
+      "url": "https://zzpagent.nl/kosten-hermes-assistent/",
+      "description": "Eenmalige inrichting van een werkende Hermes-assistent voor Nederlandse ZZP’ers rond vooraf afgesproken taken, inclusief begeleiding, testen en overdracht.",
       "provider": {
         "@id": "https://zzpagent.nl/#organization"
       },
       "areaServed": "NL",
-      "serviceType": "Managed AI agents and workflow automation"
+      "serviceType": "Inrichting, begeleiding, testen en overdracht van een Hermes-assistent",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "zelfstandige kenniswerkers, ZZP’ers, eenmanszaken en kleine zelfstandige dienstverleners"
+      },
+      "termsOfService": "De scope wordt vooraf afgesproken. Geen jaarlijkse verlenging of verplicht beheerabonnement. Externe model-, hosting- en overige gebruikskosten apart. Aanvullende opdrachten vooraf afzonderlijk afspreken.",
+      "offers": {
+        "@type": "Offer",
+        "@id": "https://zzpagent.nl/#hermes-inrichting-offer",
+        "name": "Hermes-assistent: eenmalige inrichting",
+        "url": "https://zzpagent.nl/kosten-hermes-assistent/",
+        "description": "De scope wordt vooraf afgesproken. Geen jaarlijkse verlenging of verplicht beheerabonnement. Externe model-, hosting- en overige gebruikskosten apart. Aanvullende opdrachten vooraf afzonderlijk afspreken.",
+        "price": 1000,
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": 1000,
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      }
     },
     {
       "@type": "FAQPage",
@@ -830,6 +849,7 @@
     .footer-contact a:hover{text-decoration:underline}
 
     .footer-legal{display:grid;gap:10px;min-width:min(520px,100%);max-width:680px}
+    #contact, footer details[id]{scroll-margin-top:96px}
     .footer-legal-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:#626961}
     .footer-legal details{display:inline-block;position:relative}
     .footer-legal summary{list-style:none;cursor:pointer;color:#143f2b;font-weight:800;text-decoration:underline;text-underline-offset:3px}
@@ -1344,9 +1364,9 @@
 </article>
         <article class="product">
           <span class="tag">Vaste prijs</span>
-          <h3>€1.000 excl. btw, eenmalig</h3>
-          <p class="muted">In het startgesprek bespreken we waarbij je ondersteuning wilt en welke taken en mogelijkheden we bij de inrichting meenemen. De vaste prijs voor de afgesproken inrichting is €1.000 exclusief btw, eenmalig. Dit bedrag komt niet jaarlijks terug. We leggen de scope vooraf vast; aanvullende opdrachten spreken we vooraf afzonderlijk af.</p>
-          <ul><li>Begeleiding, inrichting, test en overdracht in de projectprijs</li><li>Geen jaarlijkse verlenging of beheerabonnement bij ons</li><li>Modelgebruik, eventuele hosting en andere externe diensten apart</li></ul><p class="muted">Je betaalt ons geen terugkerende licentie- of abonnementskosten voor deze inrichting. Het gebruik van taalmodellen en eventuele hosting of andere externe diensten betaal je apart. Vooraf maken we duidelijk welke kosten voor jouw situatie gelden.</p><a class="cost-link" href="/kosten-hermes-assistent/">Bekijk alle kosten en wat is inbegrepen</a>
+          <h3 data-offer-fact="price">€1.000 excl. btw, eenmalig</h3>
+          <p class="muted" data-offer-fact="scope">In het startgesprek bespreken we waarbij je ondersteuning wilt en welke taken en mogelijkheden we bij de inrichting meenemen. De vaste prijs voor de afgesproken inrichting is €1.000 exclusief btw, eenmalig. Dit bedrag komt niet jaarlijks terug. We leggen de scope vooraf vast; aanvullende opdrachten spreken we vooraf afzonderlijk af.</p>
+          <ul><li>Begeleiding, inrichting, test en overdracht in de projectprijs</li><li>Geen jaarlijkse verlenging of beheerabonnement bij ons</li><li>Modelgebruik, eventuele hosting en andere externe diensten apart</li></ul><p class="muted" data-offer-fact="external">Je betaalt ons geen terugkerende licentie- of abonnementskosten voor deze inrichting. Het gebruik van taalmodellen en eventuele hosting of andere externe diensten betaal je apart. Vooraf maken we duidelijk welke kosten voor jouw situatie gelden.</p><a class="cost-link" href="/kosten-hermes-assistent/">Bekijk alle kosten en wat is inbegrepen</a>
         <details class="short-video-details"><summary style="cursor:pointer;font-weight:700;margin-top:18px"><span class="video-entry"><span class="video-entry-copy"><span data-copy>Bekijk de uitleg</span><span data-copy>in een korte video</span></span><span class="video-entry-screen" aria-hidden="true"></span></span></summary><div class="case-short-video remaining-short-video" data-video-code="09"><video controls playsinline preload="none" width="720" height="1280" poster="/assets/hermes-vaste-prijs-voorbeelden-geen-volledige-lijst.jpg" aria-label="Vaste prijs" style="display:block;width:100%;max-width:320px;height:auto;margin:20px auto 0;border-radius:16px;background:#111"><source src="/assets/hermes-vaste-prijs-voorbeelden-geen-volledige-lijst-atelier-replaced-6930bb65e982.mp4" type="video/mp4">Je browser ondersteunt deze video niet. <a href="/assets/hermes-vaste-prijs-voorbeelden-geen-volledige-lijst-atelier-replaced-6930bb65e982.mp4">Download de video</a>.</video></div></details>
 </article>
       </div>
@@ -1815,7 +1835,7 @@
     </section>
   </main>
 
-  <footer>
+  <footer id="footer">
     <div class="foot-inner">
       <div>
         <div>ZZPagent © 2026</div>
@@ -1825,6 +1845,12 @@
         </address>
       </div>
       <div class="footer-legal" aria-label="Voorwaarden en privacy ZZPagent">
+        <nav class="footer-legal-links" aria-label="Informatie en contact">
+          <a href="/#contact">Contact</a><span aria-hidden="true">·</span>
+          <a href="/over-ons/">Over ons</a><span aria-hidden="true">·</span>
+          <a href="/#privacy">Privacybeleid</a><span aria-hidden="true">·</span>
+          <a href="/kosten-hermes-assistent/">Kosten en afspraken</a>
+        </nav>
         <div class="footer-legal-links">
           <details id="voorwaarden">
             <summary>Voorwaarden</summary>
@@ -1862,15 +1888,18 @@
   </footer>
   <script>
     (function(){
-      function openFooterLegalFromHash(){
+      function openFooterDestinationFromHash(){
         var id = window.location.hash ? window.location.hash.slice(1) : '';
-        if(id === 'voorwaarden' || id === 'privacy'){
+        if(id === 'voorwaarden' || id === 'privacy' || id === 'contact'){
           var item = document.getElementById(id);
-          if(item && item.tagName === 'DETAILS') item.open = true;
+          if(!item) return;
+          if(item.tagName === 'DETAILS') item.open = true;
+          item.scrollIntoView({block:'start', behavior:'instant'});
         }
       }
-      window.addEventListener('hashchange', openFooterLegalFromHash);
-      openFooterLegalFromHash();
+      window.addEventListener('hashchange', openFooterDestinationFromHash);
+      window.addEventListener('load', openFooterDestinationFromHash);
+      openFooterDestinationFromHash();
     })();
   </script>
   <button class="floating-voice" type="button" data-voice-action aria-label="Praat live met Sophie">
@@ -2139,6 +2168,7 @@
         "WhatsApp automatiseren": "Automate WhatsApp",
         "Verstuur": "Send",
         "Over ons": "About us",
+        "Kosten en afspraken": "Costs and agreements",
         "Vacatures": "Vacancies",
 
 
@@ -2616,7 +2646,7 @@
       document.title = lang === 'en' ? dict['ZZPagent, de Hermes AI-assistent voor ZZP’ers'] : 'ZZPagent, de Hermes AI-assistent voor ZZP’ers';
       const meta = document.querySelector('meta[name="description"]');
       if(meta){
-        meta.setAttribute('content', lang === 'en' ? dict['ZZPagent uit Amsterdam helpt Nederlandse ZZP’ers een persoonlijke Hermes AI-assistent in te richten rond terugkerend werk, met menselijke controle.'] : 'ZZPagent levert beheerde AI-agent voor ZZP’ers die snel willen automatiseren: veilig, controleerbaar en AVG-bewust.');
+        meta.setAttribute('content', lang === 'en' ? dict['ZZPagent uit Amsterdam helpt Nederlandse ZZP’ers een persoonlijke Hermes AI-assistent in te richten rond terugkerend werk, met menselijke controle.'] : 'ZZPagent uit Amsterdam helpt Nederlandse ZZP’ers een persoonlijke Hermes AI-assistent in te richten rond terugkerend werk, met menselijke controle.');
       }
       translatableNodes.forEach(node => {
         const original = node.datasetKey;

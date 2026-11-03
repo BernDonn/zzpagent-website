@@ -1,0 +1,20 @@
+{
+  "name": "Hermes-assistent: eenmalige inrichting",
+  "serviceType": "Inrichting, begeleiding, testen en overdracht van een Hermes-assistent",
+  "description": "Eenmalige inrichting van een werkende Hermes-assistent voor Nederlandse ZZP’ers rond vooraf afgesproken taken, inclusief begeleiding, testen en overdracht.",
+  "audience": "zelfstandige kenniswerkers, ZZP’ers, eenmanszaken en kleine zelfstandige dienstverleners",
+  "price": 1000,
+  "currency": "EUR",
+  "vatIncluded": false,
+  "terms": "De scope wordt vooraf afgesproken. Geen jaarlijkse verlenging of verplicht beheerabonnement. Externe model-, hosting- en overige gebruikskosten apart. Aanvullende opdrachten vooraf afzonderlijk afspreken.",
+  "url": "https://zzpagent.nl/kosten-hermes-assistent/",
+  "visible": {
+    "index.html:price": "€1.000 excl. btw, eenmalig",
+    "index.html:scope": "In het startgesprek bespreken we waarbij je ondersteuning wilt en welke taken en mogelijkheden we bij de inrichting meenemen. De vaste prijs voor de afgesproken inrichting is €1.000 exclusief btw, eenmalig. Dit bedrag komt niet jaarlijks terug. We leggen de scope vooraf vast; aanvullende opdrachten spreken we vooraf afzonderlijk af.",
+    "kosten-hermes-assistent/index.html:scope": "In het startgesprek bespreken we waarbij je ondersteuning wilt en welke taken en mogelijkheden we bij de inrichting meenemen. De vaste prijs voor de afgesproken inrichting is €1.000 exclusief btw, eenmalig. Dit bedrag komt niet jaarlijks terug. We leggen de scope vooraf vast; aanvullende opdrachten spreken we vooraf afzonderlijk af.",
+    "index.html:external": "Je betaalt ons geen terugkerende licentie- of abonnementskosten voor deze inrichting. Het gebruik van taalmodellen en eventuele hosting of andere externe diensten betaal je apart. Vooraf maken we duidelijk welke kosten voor jouw situatie gelden.",
+    "kosten-hermes-assistent/index.html:external": "Je betaalt ons geen terugkerende licentie- of abonnementskosten voor deze inrichting. Het gebruik van taalmodellen en eventuele hosting of andere externe diensten betaal je apart. Vooraf maken we duidelijk welke kosten voor jouw situatie gelden.",
+    "kosten-hermes-assistent/index.html:table-price": "Vaste prijs: €1.000 exclusief btw, eenmalig, voor de vooraf afgesproken inrichting, begeleiding, test en overdracht."
+  },
+  "llmsCostLine": "- Vaste prijs: €1.000 exclusief btw, eenmalig, voor de vooraf afgesproken inrichting, begeleiding, testen en overdracht. Geen jaarlijkse verlenging of verplicht beheerabonnement. Externe model-, hosting- en overige gebruikskosten apart. Aanvullende opdrachten vooraf afzonderlijk afspreken."
+}
