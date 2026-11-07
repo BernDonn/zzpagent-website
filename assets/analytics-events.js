@@ -5,7 +5,7 @@
     String(value || '').trim().replace(/\s+/g, ' ').slice(0, limit);
 
   const sendEvent = (name, parameters = {}) => {
-    if (typeof window.gtag !== 'function') return;
+    if (!window.siteAnalyticsPrivacy || window.siteAnalyticsPrivacy.isDisabled() || typeof window.gtag !== 'function') return;
     window.gtag('event', name, {
       ...parameters,
       transport_type: 'beacon'

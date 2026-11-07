@@ -5,14 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Over mij | ZZPagent</title>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BBKJXQGWV"></script>
+  <script src="/assets/analytics-privacy.js?v=1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){
+      if (!window.siteAnalyticsPrivacy || window.siteAnalyticsPrivacy.isDisabled()) return;
+      dataLayer.push(arguments);
+    }
+    if (window.siteAnalyticsPrivacy && !window.siteAnalyticsPrivacy.isDisabled()) {
+      const tag = document.createElement('script');
+      tag.async = true;
+      tag.src = 'https://www.googletagmanager.com/gtag/js?id=G-4BBKJXQGWV';
+      document.head.appendChild(tag);
+    }
     gtag('js', new Date());
     gtag('config', 'G-4BBKJXQGWV');
   </script>
-  <script defer src="/assets/analytics-events.js?v=20260810-2"></script>
+  <script defer src="/assets/analytics-events.js?v=20261107-optout"></script>
   <style>
     :root{
       --zzp-green:#163f2b;

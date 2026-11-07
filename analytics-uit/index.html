@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Google Analytics uitschakelen | ZZPagent</title>
+  <style>body{font:18px/1.6 system-ui,sans-serif;max-width:680px;margin:8vh auto;padding:0 24px;color:#152b27;background:#fafcfb}h1{line-height:1.2}#status{padding:16px;border:2px solid #426b5e;border-radius:8px}button{font:inherit;padding:10px 16px;cursor:pointer}a{color:#205a49}</style>
+  <script src="/assets/analytics-privacy.js?v=1"></script>
+</head>
+<body>
+  <main>
+    <h1>Google Analytics uitschakelen</h1>
+    <p id="status" role="status" aria-live="polite">De browservoorkeur wordt gecontroleerd…</p>
+    <p>Door deze pagina te openen schakel je Google Analytics uit voor deze website in deze browser. De keuze wordt alleen lokaal opgeslagen, zonder naam, IP-adres of andere identificatie. Deze pagina laadt geen Google Analytics.</p>
+    <p>De voorkeur geldt voor dit webadres (inclusief het onderscheid tussen met en zonder www), niet voor andere browsers, apparaten of de andere website. Wis je de websitegegevens of sluit je een privésessie, dan kan de voorkeur verdwijnen. Open deze link dan opnieuw. Ververs al geopende websitepagina’s om ook daar alle eerder geladen Analytics-code te stoppen.</p>
+    <p><a href="/">Naar ZZPagent</a></p>
+    <button id="reset" type="button">Uitsluiting opheffen</button>
+    <p>Opheffen herstelt bij een volgend websitebezoek het bestaande Analytics- en toestemmingsgedrag. Op deze pagina blijft Analytics uit. Deze link opnieuw openen schakelt de uitsluiting weer in.</p>
+    <noscript><p>JavaScript staat uit. De voorkeur kan niet worden opgeslagen; schakel JavaScript in om de uitsluiting in te stellen.</p></noscript>
+  </main>
+  <script>
+    const status = document.getElementById('status');
+    const privacy = window.siteAnalyticsPrivacy;
+    if (privacy && privacy.setDisabled(true)) {
+      status.textContent = 'Bevestigd: Google Analytics is uitgeschakeld voor ' + location.host + ' in deze browser. De voorkeur is opgeslagen.';
+    } else {
+      status.textContent = 'Niet opgeslagen: deze browser blokkeert lokale opslag of het voorkeurenscript. Deze pagina meet niets, maar uitsluiting bij volgende bezoeken is niet bevestigd.';
+    }
+    document.getElementById('reset').addEventListener('click', () => {
+      if (privacy && privacy.setDisabled(false)) {
+        status.textContent = 'Uitsluiting opgeheven. Bij een volgend websitebezoek geldt het bestaande Analytics- en toestemmingsgedrag.';
+      } else {
+        status.textContent = 'De voorkeur kon niet worden verwijderd. Controleer de websitegegevens in je browser.';
+      }
+    });
+  </script>
+</body>
+</html>
