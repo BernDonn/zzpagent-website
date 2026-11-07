@@ -726,7 +726,7 @@
     .price-mini-row{display:grid;grid-template-columns:1.15fr .9fr;gap:12px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:18px;background:#fff}
     .price-mini-row strong{font-size:15px;letter-spacing:-.01em}
     .price-mini-row span{display:block;color:var(--muted);font-size:14px;line-height:1.45}
-    .price-mini-cost{font-weight:850;color:var(--green);text-align:right}
+    .price-mini-cost{font-weight:850;color:var(--green);text-align:right;overflow-wrap:anywhere}
     .flow-note{margin-top:22px;background:#f0e6d6;border:1px solid var(--line);border-radius:24px;padding:20px;color:#304034;line-height:1.55}
     .legal-grid{display:grid;grid-template-columns:1.15fr 1.05fr .8fr;gap:18px;margin-top:32px;align-items:start}
     .legal-card{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:26px;display:grid;gap:14px}
@@ -1778,14 +1778,14 @@
     <section class="section" id="providers">
       <div class="eyebrow">Modelkeuze & toegang</div>
       <h2>Wijs per taak het juiste model toe</h2>
-      <p class="lead">We starten Hermes op met ChatGPT/Codex via OAuth op basis van je maandelijkse ChatGPT-abonnement, of met Claude via OAuth op basis van je Claude-abonnement, aangevuld met commodity modellen via OpenRouter. Als een route zijn limiet bereikt, schakelt de agent over naar een vooraf gekozen alternatief. Hermes beschikt over MOA (Mix of Agents) waar je de modellen in principe per taak kunt alloceren.</p>
+      <p class="lead">We starten Hermes op met ChatGPT/Codex via OAuth op basis van je maandelijkse ChatGPT-abonnement, of met Claude via OpenRouter of de directe Anthropic API met aparte gebruikskosten, aangevuld met commodity modellen via OpenRouter. Als een route zijn limiet bereikt, schakelt de agent over naar een vooraf gekozen alternatief. Hermes beschikt over MOA (Mix of Agents) waar je de modellen in principe per taak kunt alloceren.</p>
       <div class="provider-card provider-overview">
         <div class="provider-overview-grid">
           <div class="provider-overview-copy">
           <span class="tag">OAuth + OpenRouter</span>
           <strong>Twee toegangswegen, één agentlaag</strong>
-          <p class="muted">Je logt in met ChatGPT/Codex of Claude via OAuth op basis van je abonnement, of gebruikt OpenRouter als modelhub. Daarna kiest de agent per taak de ingestelde route en fallback.</p>
-          <ul class="provider-summary-list"><li>ChatGPT/Codex via OAuth</li><li>Claude via OAuth (beperkte capaciteit)</li><li>OpenRouter voor meerdere modellen</li><li>Automatische fallback bij limieten of storingen</li></ul>
+          <p class="muted">Je logt in met ChatGPT/Codex via OAuth op basis van je abonnement. Voor Claude gebruik je OpenRouter of de directe Anthropic API met aparte gebruikskosten. Daarna kiest de agent per taak de ingestelde route en fallback.</p>
+          <ul class="provider-summary-list"><li>ChatGPT/Codex via OAuth</li><li>Claude via OpenRouter of Anthropic API</li><li>OpenRouter voor meerdere modellen</li><li>Automatische fallback bij limieten of storingen</li></ul>
           </div>
           <details class="provider-video short-video-details">
             <summary style="cursor:pointer;font-weight:700;margin-top:18px"><span class="video-entry"><span class="video-entry-copy"><span data-copy>Bekijk de uitleg</span><span data-copy>in een korte video</span></span><span class="video-entry-screen" aria-hidden="true"></span></span></summary>
@@ -1811,28 +1811,28 @@
               <ul><li>Geen API-key kopiëren</li><li>Handig voor ChatGPT- en Codex-workflows</li><li>Plus werkt met gebruikslimieten, niet met een publieke vaste tokenpot</li></ul>
             </article>
             <article class="provider-card">
-              <span class="tag">OAuth</span>
-              <strong>Claude OAuth</strong>
-              <p class="muted">Voor klanten die via Claude willen werken zonder losse API-key. Anthropic staat OAuth toe, maar de beschikbare capaciteit is beperkt; de yield is laag en limieten kunnen snel bereikt zijn.</p>
-              <ul><li>Geen API-key kopiëren</li><li>Anthropic OAuth-koppeling</li><li>Beperkte capaciteit: geschikt als lichte route, niet voor hoog volume</li></ul>
+              <span class="tag">API</span>
+              <strong>Claude via OpenRouter of API</strong>
+              <p class="muted">Voor Claude in Hermes gebruiken we OpenRouter of de directe Anthropic API, met aparte gebruikskosten. Een Claude-abonnement is geen algemene OAuth-toegang tot Hermes. Zelf inloggen in ongewijzigde Claude Code met je eigen abonnement is een afzonderlijke route onder de voorwaarden van Anthropic, geen hier aangeboden Hermes-koppeling.</p>
+              <ul><li>Eigen OpenRouter- of Anthropic API-key</li><li>Aparte gebruikskosten</li><li>Providerlimieten en voorwaarden zijn van toepassing</li></ul>
             </article>
             <article class="provider-card">
               <span class="tag">Open Router</span>
               <strong>Meerdere modellen onder één sleutel</strong>
               <p class="muted">OpenRouter geeft via één sleutel toegang tot modellen zoals Claude, GPT, DeepSeek en GLM. Handig voor fallback, prijsbewuste routering en het kiezen van een ander model zodra dat beter past.</p>
-              <p class="muted">OpenRouter. Bedragen in USD per miljoen tokens: input / output. Tarieven uit de modelcatalogus; providerkeuze, caching, zoektools en lange invoer kunnen de kosten veranderen. Geen abonnement.</p>
+              <p class="muted">OpenRouter. Bedragen in USD per miljoen tokens: input / output. Catalogusindicaties en provider-/Standard-voorbeelden, geen absolute minimumprijzen. Providerkeuze, caching, zoektools en lange invoer kunnen de kosten veranderen. Geen abonnement.</p>
               <div class="price-mini-table" aria-label="OpenRouter modelprijzen">
-                <div class="price-mini-row"><div><strong>Claude Sonnet 5.5</strong><span>Veelgekozen premium model voor schrijven, analyse en code.</span></div><div class="price-mini-cost">vanaf $2 / $10 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>GPT-6 Astra</strong><span>Voor complex redeneren en tooling. Boven 272K inputtokens: $20 input / $75 output per miljoen voor het hele verzoek.</span></div><div class="price-mini-cost">vanaf $10 / $50 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>GLM 5.2</strong><span>Open-weight model met sterke agentische coding- en tool-use, 1M context.</span></div><div class="price-mini-cost">vanaf $0,62 / $2,42 per 1M</div></div>
-                <div class="price-mini-row"><div><strong>DeepSeek V4 Flash 0423</strong><span>OpenRouter-model deepseek/deepseek-v4-flash. Niet hetzelfde model als DeepSeek-V4.1-Flash bij de directe DeepSeek API.</span></div><div class="price-mini-cost">vanaf $0,091 / $0,182 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>Claude Sonnet 5.5</strong><span>Veelgekozen premium model voor schrijven, analyse en code.</span></div><div class="price-mini-cost">Catalogusindicatie: $2 / $10 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>GPT-6 Astra</strong><span>Voor complex redeneren en tooling. Boven 272K inputtokens: $20 input / $75 output per miljoen voor het hele verzoek.</span></div><div class="price-mini-cost">Standard: $10 / $50 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>GLM 5.2</strong><span>Open-weight model met sterke agentische coding- en tool-use, tot 1M context, afhankelijk van provider.</span></div><div class="price-mini-cost">Via CoreWeave (coreweave/fp4): $0,62 / $2,42 per 1M</div></div>
+                <div class="price-mini-row"><div><strong>DeepSeek V4 Flash 0423</strong><span>OpenRouter-model deepseek/deepseek-v4-flash. Niet hetzelfde model als DeepSeek-V4.1-Flash bij de directe DeepSeek API.</span></div><div class="price-mini-cost">Catalogusindicatie: $0,091 / $0,182 per 1M</div></div>
               </div>
               <ul><li>Pay-as-you-go; prijzen kunnen per provider, tijdstip en OpenRouter-route verschillen</li><li>Geschikt voor fallback, vergelijking en budgetcontrole</li><li>Hermes kiest daarna per taak de ingestelde route</li></ul>
             </article>
             <article class="provider-card" id="directe-api-prijzen" style="grid-column:1 / -1"><span class="tag">Directe API, apart van OpenRouter</span><strong>GPT-6.1 Sol (Sol 6.1)</strong><p class="muted">OpenAI · gpt-6.1-sol · USD per miljoen tokens, Standard, maximaal 272K inputtokens per verzoek.</p><p class="muted">Input $2 · cached input $0,10 · output $10</p><p class="muted">Cache writes kosten $2,50 per miljoen tokens. Boven 272K inputtokens gelden voor het hele verzoek 2× input- en cachetarieven en 1,5× output. Fast, Batch, Flex en regionale verwerking hebben andere tarieven.</p><p class="muted">Volgens OpenAI benadert Sol het prestatieniveau van Astra bij complex werk. Dat is geen onafhankelijke kwaliteitsgarantie; vergelijk op je eigen taken.</p><strong>DeepSeek-V4.1-Flash · directe API</strong><p class="muted">Model-ID deepseek-flash. USD per miljoen tokens; input zonder cache / output.</p><p class="muted">Dal $0,15 / $0,60 · piek $0,30 / $1,20</p><p class="muted">Cached input: $0,003 dal en $0,006 piek. Piekuren: maandag t/m vrijdag 01:00–04:00 en 06:00–10:00 UTC, behalve Chinese feestdagen. Alle overige uren zijn daluren.</p><p class="muted">API-kosten staan los van ChatGPT/Codex-abonnementen en onze dienstverlening.</p><p><a href="https://developers.openai.com/api/docs/models/gpt-6.1-sol">Officiële modelprijzen OpenAI</a> · <a href="https://api-docs.deepseek.com/quick_start/pricing/">Officiële modelprijzen DeepSeek</a></p></article>
           </div>
           <p class="muted"><span>Bronnen OpenRouter</span>: <a href="https://openrouter.ai/anthropic/claude-sonnet-5.5">Claude Sonnet 5.5</a> · <a href="https://openrouter.ai/openai/gpt-6-astra">GPT-6 Astra</a> · <a href="https://openrouter.ai/z-ai/glm-5.2">GLM 5.2</a> · <a href="https://openrouter.ai/deepseek/deepseek-v4-flash">DeepSeek V4 Flash 0423</a>. <a href="https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus">ChatGPT Plus en Codex</a> · <a href="https://developers.openai.com/codex/pricing/">Codex</a>.</p>
-          <div class="flow-note"><strong>Hoe het werkt:</strong> tijdens deployment bepalen we of een OAuth-route (ChatGPT of Claude) of OpenRouter de primaire route wordt, plus minimaal één fallback. Als een OAuth-route zijn limiet bereikt of niet beschikbaar is, schakelt de agent door naar het OpenRouter-model dat we vooraf hebben gekozen. Sleutels en OAuth-tokens horen in de private agent-workspace, niet in de website.</div>
+          <div class="flow-note"><strong>Hoe het werkt:</strong> tijdens deployment bepalen we of ChatGPT/Codex via OAuth, OpenRouter of de directe Anthropic API de primaire route wordt, plus minimaal één fallback. Als een OAuth-route zijn limiet bereikt of niet beschikbaar is, schakelt de agent door naar het OpenRouter-model dat we vooraf hebben gekozen. Sleutels en OAuth-tokens horen in de private agent-workspace, niet in de website.</div>
         </div>
       </details>
       </div>
@@ -2550,12 +2550,12 @@
         "ZZPagent helpt je begrijpen welke inrichting past bij jouw werk, risico’s en budget. Daarna kun je zelf kiezen of je de installatie zelf doet, samen voorbereidt of later apart laat beheren.": "ZZPagent helps you understand which setup fits your work, risks and budget. After that, you can choose whether to do the installation yourself, prepare it together or arrange separate management later.",
         "Modelkeuze & toegang": "Model choice & access",
         "Wijs per taak het juiste model toe": "Assign the right model to each task",
-        "We starten Hermes op met ChatGPT/Codex via OAuth op basis van je maandelijkse ChatGPT-abonnement, of met Claude via OAuth op basis van je Claude-abonnement, aangevuld met commodity modellen via OpenRouter. Als een route zijn limiet bereikt, schakelt de agent over naar een vooraf gekozen alternatief. Hermes beschikt over MOA (Mix of Agents) waar je de modellen in principe per taak kunt alloceren.": "We start Hermes with ChatGPT/Codex through OAuth using your monthly ChatGPT subscription, or with Claude through OAuth using your Claude subscription, supplemented by commodity models through OpenRouter. If a route reaches its limit, the agent switches to a preselected alternative. Hermes supports MOA (Mix of Agents), letting you allocate models per task in principle.",
+        "We starten Hermes op met ChatGPT/Codex via OAuth op basis van je maandelijkse ChatGPT-abonnement, of met Claude via OpenRouter of de directe Anthropic API met aparte gebruikskosten, aangevuld met commodity modellen via OpenRouter. Als een route zijn limiet bereikt, schakelt de agent over naar een vooraf gekozen alternatief. Hermes beschikt over MOA (Mix of Agents) waar je de modellen in principe per taak kunt alloceren.": "We start Hermes with ChatGPT/Codex through OAuth using your monthly ChatGPT subscription, or with Claude through OpenRouter or the direct Anthropic API with separate usage costs, supplemented by commodity models through OpenRouter. If a route reaches its limit, the agent switches to a preselected alternative. Hermes supports MOA (Mix of Agents), letting you allocate models per task in principle.",
         "OAuth + OpenRouter": "OAuth + OpenRouter",
         "Twee toegangswegen, één agentlaag": "Two access routes, one agent layer",
-        "Je logt in met ChatGPT/Codex of Claude via OAuth op basis van je abonnement, of gebruikt OpenRouter als modelhub. Daarna kiest de agent per taak de ingestelde route en fallback.": "You sign in with ChatGPT/Codex or Claude through OAuth using your subscription, or use OpenRouter as a model hub. After that, the agent chooses the configured route and fallback per task.",
+        "Je logt in met ChatGPT/Codex via OAuth op basis van je abonnement. Voor Claude gebruik je OpenRouter of de directe Anthropic API met aparte gebruikskosten. Daarna kiest de agent per taak de ingestelde route en fallback.": "You sign in with ChatGPT/Codex through OAuth using your subscription. For Claude, you use OpenRouter or the direct Anthropic API with separate usage costs. After that, the agent chooses the configured route and fallback per task.",
         "ChatGPT/Codex via OAuth": "ChatGPT/Codex through OAuth",
-        "Claude via OAuth (beperkte capaciteit)": "Claude through OAuth (limited capacity)",
+        "Claude via OpenRouter of Anthropic API": "Claude through OpenRouter or Anthropic API",
         "OpenRouter voor meerdere modellen": "OpenRouter for multiple models",
         "Automatische fallback bij limieten of storingen": "Automatic fallback when limits are hit or outages occur",
         "Modelprijzen (per 1M tokens)": "Model prices (per 1M tokens)",
@@ -2564,14 +2564,15 @@
         "Geen API-key kopiëren": "No API key copying",
         "Handig voor ChatGPT- en Codex-workflows": "Useful for ChatGPT and Codex workflows",
         "Plus werkt met gebruikslimieten, niet met een publieke vaste tokenpot": "Plus works with usage limits, not with a public fixed token bucket",
-        "Claude OAuth": "Claude OAuth",
-        "Voor klanten die via Claude willen werken zonder losse API-key. Anthropic staat OAuth toe, maar de beschikbare capaciteit is beperkt; de yield is laag en limieten kunnen snel bereikt zijn.": "For customers who want to work through Claude without a separate API key. Anthropic allows OAuth, but available capacity is limited; yield is low and limits can be reached quickly.",
-        "Anthropic OAuth-koppeling": "Anthropic OAuth connection",
-        "Beperkte capaciteit: geschikt als lichte route, niet voor hoog volume": "Limited capacity: suitable as a light route, not for high volume",
+        "Claude via OpenRouter of API": "Claude through OpenRouter or API",
+        "Voor Claude in Hermes gebruiken we OpenRouter of de directe Anthropic API, met aparte gebruikskosten. Een Claude-abonnement is geen algemene OAuth-toegang tot Hermes. Zelf inloggen in ongewijzigde Claude Code met je eigen abonnement is een afzonderlijke route onder de voorwaarden van Anthropic, geen hier aangeboden Hermes-koppeling.": "For Claude in Hermes, we use OpenRouter or the direct Anthropic API, with separate usage costs. A Claude subscription does not provide general OAuth access to Hermes. Signing in to unmodified Claude Code with your own subscription is a separate route under Anthropic’s terms, not a Hermes integration offered here.",
+        "Eigen OpenRouter- of Anthropic API-key": "Your own OpenRouter or Anthropic API key",
+        "Aparte gebruikskosten": "Separate usage costs",
+        "Providerlimieten en voorwaarden zijn van toepassing": "Provider limits and terms apply",
         "Open Router": "Open Router",
         "Meerdere modellen onder één sleutel": "Multiple models under one key",
         "OpenRouter geeft via één sleutel toegang tot modellen zoals Claude, GPT, DeepSeek en GLM. Handig voor fallback, prijsbewuste routering en het kiezen van een ander model zodra dat beter past.": "OpenRouter gives access through one key to models such as Claude, GPT, DeepSeek and GLM. Useful for fallback, cost-aware routing, and switching to another model as soon as that fits better.",
-        "OpenRouter. Bedragen in USD per miljoen tokens: input / output. Tarieven uit de modelcatalogus; providerkeuze, caching, zoektools en lange invoer kunnen de kosten veranderen. Geen abonnement.": "OpenRouter. USD per million tokens: input / output. Rates from the model catalogue; provider selection, caching, search tools and long inputs can change costs. Not a subscription.",
+        "OpenRouter. Bedragen in USD per miljoen tokens: input / output. Catalogusindicaties en provider-/Standard-voorbeelden, geen absolute minimumprijzen. Providerkeuze, caching, zoektools en lange invoer kunnen de kosten veranderen. Geen abonnement.": "OpenRouter. USD per million tokens: input / output. Catalogue indications and provider/Standard examples, not absolute minimum prices. Provider selection, caching, search tools and long inputs can change costs. Not a subscription.",
         "ChatGPT Plus prijs": "ChatGPT Plus price",
         "ChatGPT Plus": "ChatGPT Plus",
         "Officiële USD-prijs. Lokale valuta en belasting zie je bij het afrekenen. Codex gebruikt de limieten van je abonnement; API-gebruik wordt apart afgerekend.": "Official USD price. Local currency and taxes are shown at checkout. Codex uses your plan allowance; API usage is billed separately.",
@@ -2594,21 +2595,21 @@
         "OpenRouter modelprijzen": "OpenRouter model prices",
         "Claude Sonnet 5.5": "Claude Sonnet 5.5",
         "Veelgekozen premium model voor schrijven, analyse en code.": "Often-chosen premium model for writing, analysis and code.",
-        "vanaf $2 / $10 per 1M": "from $2 / $10 per 1M",
+        "Catalogusindicatie: $2 / $10 per 1M": "Catalogue indication: $2 / $10 per 1M",
         "GPT-6 Astra": "GPT-6 Astra",
         "Voor complex redeneren en tooling. Boven 272K inputtokens: $20 input / $75 output per miljoen voor het hele verzoek.": "For complex reasoning and tooling. Above 272K input tokens: $20 input / $75 output per million for the full request.",
-        "vanaf $10 / $50 per 1M": "from $10 / $50 per 1M",
+        "Standard: $10 / $50 per 1M": "Standard: $10 / $50 per 1M",
         "GLM 5.2": "GLM 5.2",
-        "Open-weight model met sterke agentische coding- en tool-use, 1M context.": "Open-weight model with strong agentic coding and tool use, 1M context.",
-        "vanaf $0,62 / $2,42 per 1M": "from $0.62 / $2.42 per 1M",
+        "Open-weight model met sterke agentische coding- en tool-use, tot 1M context, afhankelijk van provider.": "Open-weight model with strong agentic coding and tool use, up to 1M context, depending on provider.",
+        "Via CoreWeave (coreweave/fp4): $0,62 / $2,42 per 1M": "Via CoreWeave (coreweave/fp4): $0.62 / $2.42 per 1M",
         "DeepSeek V4 Flash 0423": "DeepSeek V4 Flash 0423",
         "OpenRouter-model deepseek/deepseek-v4-flash. Niet hetzelfde model als DeepSeek-V4.1-Flash bij de directe DeepSeek API.": "OpenRouter model deepseek/deepseek-v4-flash. Not the same model as DeepSeek-V4.1-Flash on the direct DeepSeek API.",
-        "vanaf $0,091 / $0,182 per 1M": "from $0.091 / $0.182 per 1M",
+        "Catalogusindicatie: $0,091 / $0,182 per 1M": "Catalogue indication: $0.091 / $0.182 per 1M",
         "Pay-as-you-go; prijzen kunnen per provider, tijdstip en OpenRouter-route verschillen": "Pay as you go; prices may vary by provider, time of day, and OpenRouter route",
         "Geschikt voor fallback, vergelijking en budgetcontrole": "Suitable for fallback, comparison and budget control",
         "Hermes kiest daarna per taak de ingestelde route": "Hermes then chooses the configured route for each task",
         "Hoe het werkt:": "How it works:",
-        "tijdens deployment bepalen we of een OAuth-route (ChatGPT of Claude) of OpenRouter de primaire route wordt, plus minimaal één fallback. Als een OAuth-route zijn limiet bereikt of niet beschikbaar is, schakelt de agent door naar het OpenRouter-model dat we vooraf hebben gekozen. Sleutels en OAuth-tokens horen in de private agent-workspace, niet in de website.": "during deployment we decide whether an OAuth route (ChatGPT or Claude) or OpenRouter becomes the primary route, plus at least one fallback. If an OAuth route hits its limit or is unavailable, the agent switches to the OpenRouter model we selected in advance. Keys and OAuth tokens belong in the private agent workspace, not in the website.",
+        "tijdens deployment bepalen we of ChatGPT/Codex via OAuth, OpenRouter of de directe Anthropic API de primaire route wordt, plus minimaal één fallback. Als een OAuth-route zijn limiet bereikt of niet beschikbaar is, schakelt de agent door naar het OpenRouter-model dat we vooraf hebben gekozen. Sleutels en OAuth-tokens horen in de private agent-workspace, niet in de website.": "during deployment we decide whether ChatGPT/Codex through OAuth, OpenRouter or the direct Anthropic API becomes the primary route, plus at least one fallback. If an OAuth route hits its limit or is unavailable, the agent switches to the OpenRouter model we selected in advance. Keys and OAuth tokens belong in the private agent workspace, not in the website.",
         "Security & data": "Security & data",
         "Controle, governance en privacy zijn geen details. Ze zijn de basis.": "Control, governance and privacy are not details. They are the basis.",
         "Wanneer AI met klantgegevens, bedrijfsinformatie of gevoelige context werkt, moet het niet alleen handig zijn. Het moet uitlegbaar, beheersbaar en begrensd zijn.": "When AI works with client data, business information or sensitive context, it must not only be useful. It must be explainable, controllable and bounded.",
