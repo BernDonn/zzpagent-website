@@ -866,7 +866,7 @@
     @media(min-width:701px){.sector-row #hermes-tips-trigger{transform:translateY(-4px)}}
     #hermes-tips-trigger:hover{text-decoration:underline;text-underline-offset:3px}
     .hermes-tips-new{position:absolute;right:7px;top:-20px;transform:rotate(8deg);padding:2px 9px;border:1px solid #b85c00;border-radius:999px;background:#ffb45c;color:#492300;font-size:11px;font-weight:750;line-height:1.4;pointer-events:none}
-    @media(max-width:700px){.hermes-tips-new{font-size:15px;padding:4px 12px;top:-32px}.sector-row:has(#hermes-tips-trigger){font-size:14px;column-gap:14px}.sector-row:has(#hermes-tips-trigger) a,.sector-row #hermes-tips-trigger{padding:9px 8px}}
+    @media(max-width:700px){.hermes-tips-new{font-size:15px;padding:4px 12px;top:-32px}.sector-row:has(#hermes-tips-trigger){font-size:14px;column-gap:14px}.sector-row:has(#hermes-tips-trigger) a,.sector-row #hermes-tips-trigger{padding:9px 8px}.sector-row #hermes-tips-trigger{width:139px;justify-content:center;text-align:center}}
     .hermes-tips>details>summary{cursor:pointer;font-weight:700;font-size:18px}
     .hermes-tips-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:900px;margin-top:24px}
     .hermes-tips-grid figure{margin:0;min-width:0}
@@ -1886,11 +1886,11 @@
           <a href="/telefoonassistent-voor-zzp/">Telefoonassistent</a>
           <a href="/workflowautomatisering-voor-zzp/">Workflow automatisering</a>
           <a class="visibility-pulse" href="/ai-zichtbaarheidscheck/"><span class="visibility-new-badge">Nieuw</span><span>AI-zichtbaarheidscheck</span></a>
-          <button class="visibility-pulse" id="hermes-tips-trigger" type="button" aria-expanded="false" aria-controls="hermes-tips-videos"><span class="hermes-tips-new">Nieuw</span><span>Hermes Token Tips</span></button>
+          <button class="visibility-pulse" id="hermes-tips-trigger" type="button" aria-expanded="false" aria-controls="hermes-tips-videos"><span class="hermes-tips-new">Nieuw</span><span>Hermes Token Video Tips</span></button>
         </div>
-    <div class="hermes-tips" id="hermes-tips" aria-label="Hermes Token Tips">
+    <div class="hermes-tips" id="hermes-tips" aria-label="Hermes Token Video Tips">
       <details id="hermes-tips-videos">
-        <summary hidden>Hermes Token Tips</summary>
+        <summary hidden>Hermes Token Video Tips</summary>
         <div class="hermes-tips-grid">
           <figure><figcaption id="hermes-tip-1">1. Begrijp je tokengebruik</figcaption><video controls playsinline preload="none" aria-labelledby="hermes-tip-1" poster="/assets/hermes-tips/tokengebruik.jpg"><source src="/assets/hermes-tips/tokengebruik.mp4" type="video/mp4"></video></figure>
           <figure><figcaption id="hermes-tip-2">2. Begin een nieuw gesprek als het onderwerp verandert</figcaption><video controls playsinline preload="none" aria-labelledby="hermes-tip-2" poster="/assets/hermes-tips/nieuw-gesprek.jpg"><source src="/assets/hermes-tips/nieuw-gesprek.mp4" type="video/mp4"></video></figure>
@@ -2006,7 +2006,7 @@
   <script>
     const translations = {
       en: {
-"Hermes Token Tips":"Hermes Token Tips",
+"Hermes Token Video Tips":"Hermes Token Video Tips",
 "Pers. AI assistent":"Personal AI assistant",
 "Workflow automatisering":"Workflow automation",
 "1. Begrijp je tokengebruik":"1. Understand your token usage",
