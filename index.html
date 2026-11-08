@@ -859,6 +859,13 @@
     .check input{margin-top:4px}
     .notice{margin-top:18px;background:#f0e6d6;border:1px solid var(--line);border-radius:22px;padding:18px;color:#304034;line-height:1.6}
     .notice strong{display:block;margin-bottom:8px;color:#17240f}
+    .hermes-tips{padding-top:24px;padding-bottom:24px}
+    .hermes-tips>details>summary{cursor:pointer;font-weight:700;font-size:18px}
+    .hermes-tips-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:600px;margin-top:24px}
+    .hermes-tips-grid figure{margin:0;min-width:0}
+    .hermes-tips-grid figcaption{font-size:16px;font-weight:700;line-height:1.4;min-height:4.2em;margin-bottom:10px}
+    .hermes-tips-grid video{display:block;width:180px;max-width:100%;aspect-ratio:9/16;object-fit:contain;border-radius:14px;background:#17211c}
+    @media(max-width:700px){.hermes-tips-grid{grid-template-columns:1fr}.hermes-tips-grid figcaption{min-height:0}}
     footer{padding:34px 24px;color:#626961;border-top:1px solid var(--line)}
     .foot-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
     .footer-contact{font-style:normal;line-height:1.7;color:#4f5a52}
@@ -1875,6 +1882,15 @@
         </div>
       </div>
     </section>
+    <section class="section hermes-tips" id="hermes-tips" aria-label="Hermes-tips">
+      <details id="hermes-tips-videos">
+        <summary>Hermes-tips: haal meer uit je tokens</summary>
+        <div class="hermes-tips-grid">
+          <figure><figcaption id="hermes-tip-1">1. Begrijp je tokengebruik</figcaption><video controls playsinline preload="none" aria-labelledby="hermes-tip-1" poster="/assets/hermes-tips/tokengebruik.jpg"><source src="/assets/hermes-tips/tokengebruik.mp4" type="video/mp4"></video></figure>
+          <figure><figcaption id="hermes-tip-2">2. Begin een nieuw gesprek als het onderwerp verandert</figcaption><video controls playsinline preload="none" aria-labelledby="hermes-tip-2" poster="/assets/hermes-tips/nieuw-gesprek.jpg"><source src="/assets/hermes-tips/nieuw-gesprek.mp4" type="video/mp4"></video></figure>
+        </div>
+      </details>
+    </section>
   </main>
 
   <footer id="footer">
@@ -1981,6 +1997,10 @@
   <script>
     const translations = {
       en: {
+"Hermes-tips: haal meer uit je tokens":"Hermes tips: get more from your tokens",
+"1. Begrijp je tokengebruik":"1. Understand your token usage",
+"2. Begin een nieuw gesprek als het onderwerp verandert":"2. Start a new conversation when the subject changes",
+
 "Bekijk de video: Kun je straks nog van AI-leverancier wisselen?":"Watch the video: Will you still be able to switch AI providers?",
 "Vijf vragen over je gegevens, werkstromen, modelkeuze, kosten en continuïteit.":"Five questions about your data, workflows, model choice, costs and continuity.",
 "in een korte video · 1:33":"in a short video · 1:33",
@@ -3346,5 +3366,10 @@ document.querySelectorAll('.brain-details').forEach(function(details){
 <script id="dillon-pause">
 document.querySelectorAll('details').forEach(details=>{if(details.querySelector('.dillon-video video'))details.addEventListener('toggle',()=>{if(!details.open)details.querySelectorAll('.dillon-video video').forEach(video=>video.pause());});});
 </script>
+  <script>
+    document.getElementById('hermes-tips-videos').addEventListener('toggle', function () {
+      if (!this.open) this.querySelectorAll('video').forEach(function (video) { video.pause(); });
+    });
+  </script>
 </body>
 </html> 
