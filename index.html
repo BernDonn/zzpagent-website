@@ -860,12 +860,12 @@
     .notice{margin-top:18px;background:#f0e6d6;border:1px solid var(--line);border-radius:22px;padding:18px;color:#304034;line-height:1.6}
     .notice strong{display:block;margin-bottom:8px;color:#17240f}
     .hermes-tips{text-transform:none;letter-spacing:0}
-    .sector-row:has(#hermes-tips-trigger){gap:32px 8px;font-size:15px}
+    .sector-row:has(#hermes-tips-trigger){gap:32px 14px;font-size:15px}
     .sector-row:has(#hermes-tips-trigger) a{padding:9px 10px}
     .sector-row #hermes-tips-trigger{position:relative;display:inline-flex;align-items:center;padding:9px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,250,241,.82);color:#143f2b;font:inherit;font-weight:750;cursor:pointer}
     #hermes-tips-trigger:hover{text-decoration:underline;text-underline-offset:3px}
     .hermes-tips-new{position:absolute;right:7px;top:-20px;transform:rotate(8deg);padding:2px 9px;border:1px solid #b85c00;border-radius:999px;background:#ffb45c;color:#492300;font-size:11px;font-weight:750;line-height:1.4;pointer-events:none}
-    @media(max-width:700px){.hermes-tips-new{font-size:15px;padding:4px 12px;top:-32px}}
+    @media(max-width:700px){.hermes-tips-new{font-size:15px;padding:4px 12px;top:-32px}.sector-row:has(#hermes-tips-trigger){font-size:14px;column-gap:14px}.sector-row:has(#hermes-tips-trigger) a,.sector-row #hermes-tips-trigger{padding:9px 8px}}
     .hermes-tips>details>summary{cursor:pointer;font-weight:700;font-size:18px}
     .hermes-tips-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:600px;margin-top:24px}
     .hermes-tips-grid figure{margin:0;min-width:0}
@@ -1883,13 +1883,13 @@
           <a href="/wat-is-een-ai-agent-voor-zzp/">AI-agent voor ZZP</a>
           <a href="/persoonlijke-ai-assistent-voor-zzp/">Pers. AI assistent</a>
           <a href="/telefoonassistent-voor-zzp/">Telefoonassistent</a>
-          <a href="/workflowautomatisering-voor-zzp/">Workflows</a>
+          <a href="/workflowautomatisering-voor-zzp/">Workflow automatisering</a>
           <a class="visibility-pulse" href="/ai-zichtbaarheidscheck/"><span class="visibility-new-badge">Nieuw</span><span>AI-zichtbaarheidscheck</span></a>
-          <button id="hermes-tips-trigger" type="button" aria-expanded="false" aria-controls="hermes-tips-videos"><span class="hermes-tips-new">Nieuw</span><span>Hermes Tips</span></button>
+          <button class="visibility-pulse" id="hermes-tips-trigger" type="button" aria-expanded="false" aria-controls="hermes-tips-videos"><span class="hermes-tips-new">Nieuw</span><span>Hermes Token Tips</span></button>
         </div>
-    <div class="hermes-tips" id="hermes-tips" aria-label="Hermes Tips">
+    <div class="hermes-tips" id="hermes-tips" aria-label="Hermes Token Tips">
       <details id="hermes-tips-videos">
-        <summary hidden>Hermes Tips</summary>
+        <summary hidden>Hermes Token Tips</summary>
         <div class="hermes-tips-grid">
           <figure><figcaption id="hermes-tip-1">1. Begrijp je tokengebruik</figcaption><video controls playsinline preload="none" aria-labelledby="hermes-tip-1" poster="/assets/hermes-tips/tokengebruik.jpg"><source src="/assets/hermes-tips/tokengebruik.mp4" type="video/mp4"></video></figure>
           <figure><figcaption id="hermes-tip-2">2. Begin een nieuw gesprek als het onderwerp verandert</figcaption><video controls playsinline preload="none" aria-labelledby="hermes-tip-2" poster="/assets/hermes-tips/nieuw-gesprek.jpg"><source src="/assets/hermes-tips/nieuw-gesprek.mp4" type="video/mp4"></video></figure>
@@ -2005,8 +2005,9 @@
   <script>
     const translations = {
       en: {
-"Hermes Tips":"Hermes Tips",
+"Hermes Token Tips":"Hermes Token Tips",
 "Pers. AI assistent":"Personal AI assistant",
+"Workflow automatisering":"Workflow automation",
 "1. Begrijp je tokengebruik":"1. Understand your token usage",
 "2. Begin een nieuw gesprek als het onderwerp verandert":"2. Start a new conversation when the subject changes",
 "3. Houd je vaste basis compact en correct":"3. Keep your core context compact and correct",
