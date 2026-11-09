@@ -15,7 +15,7 @@
 <span class="eyebrow">Direct antwoord</span>
 <h1>Wat is een AI-agent voor een ZZP’er?</h1>
 <p class="answer">Een AI-agent is een persoonlijke digitale assistent die niet alleen antwoord geeft, maar ook context kan vasthouden, tools kan gebruiken en afgesproken stappen kan voorbereiden of uitvoeren. De ZZP’er bepaalt waar de agent zelfstandig mag werken en wanneer eerst akkoord nodig is.</p><h2>Bekijk de uitleg in een korte video</h2><div class="case-short-video remaining-short-video" data-video-code="12"><video controls playsinline preload="none" width="720" height="1280" poster="/assets/hermes-wat-is-een-ai-assistent-kort.jpg" aria-label="Wat is een AI-assistent?" style="display:block;width:100%;max-width:320px;height:auto;margin:20px auto 0;border-radius:16px;background:#111"><source src="/assets/atelier-zzpagent-15-ed563953d9fa3294.mp4" type="video/mp4">Je browser ondersteunt deze video niet. <a href="/assets/atelier-zzpagent-15-ed563953d9fa3294.mp4">Download de video</a>.</video></div>
-<h2>Van ChatGPT of Claude naar een assistent die werk afmaakt</h2>
+<h2 id="wat-is-een-ai-agent">Van ChatGPT of Claude naar een assistent die werk afmaakt</h2>
 <p>Veel zelfstandigen beginnen met ChatGPT of Claude voor een losse mail, samenvatting of vraag. Dat is nuttig, maar je begint vaak opnieuw: je legt de context uit, kopieert informatie en voert de vervolgstappen zelf uit.</p>
 <p>Een agent zoals Hermes plaatst sterke taalmodellen in een werkomgeving met instructies, tools, bestanden, planning en grenzen. Daardoor kan dezelfde aanpak terugkeren zonder dat je telkens vanaf nul begint.</p>
 <blockquote>Een chatbot vertelt vaak hoe je iets kunt doen. Een goed ingerichte agent bereidt het werk voor, gebruikt de afgesproken tools, controleert het resultaat en stopt wanneer jouw beslissing nodig is.</blockquote>
@@ -27,4 +27,20 @@
 <p>Kies één terugkerende taak voor één persoon. Laat Hermes die taak eerst voorbereiden, controleer de uitkomst en leg daarna pas een volgende stap vast.</p>
 <h2>Lees verder</h2><nav class="related"><a href="/persoonlijke-ai-assistent-voor-zzp/">Wat kan een persoonlijke AI-assistent voor een ZZP’er doen?</a><a href="/ai-agent-via-whatsapp-business/">Hoe werkt een AI-agent via WhatsApp Business?</a><a href="/#faq">Veelgestelde vragen over Hermes en AI-assistenten</a></nav>
 </article></main><footer>ZZPagent · Amsterdam · Voor Nederlandse zelfstandige kenniswerkers · Bijgewerkt 17 augustus 2026</footer>
+<script>
+/* Open the actual topic and its disclosure ancestors before positioning it. */
+(()=>{const topics=["wat-is-een-ai-agent"];
+function revealTopic(){let id;try{id=decodeURIComponent(location.hash.slice(1))}catch(e){return}if(!topics.includes(id))return;
+const target=document.getElementById(id);if(!target)return;
+const panel=target.closest('.top-panel');if(panel&&typeof openNavPanel==='function')openNavPanel(panel.id);
+for(let el=target;el;el=el.parentElement){if(el.tagName==='DETAILS')el.open=true;}
+function position(){const overlay=target.closest('.nav-panel-overlay');
+let offset=24;if(!overlay){document.querySelectorAll('header,nav').forEach(el=>{const s=getComputedStyle(el),r=el.getBoundingClientRect();if((s.position==='fixed'||s.position==='sticky')&&r.top<=1&&r.bottom>0)offset=Math.max(offset,r.bottom+16)});}
+target.style.scrollMarginTop=offset+'px';target.scrollIntoView({block:'start',behavior:'instant'});}
+requestAnimationFrame(()=>requestAnimationFrame(position));if(document.fonts)document.fonts.ready.then(position);
+}
+addEventListener('hashchange',revealTopic);addEventListener('load',revealTopic);addEventListener('pageshow',revealTopic);
+document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a)return;const u=new URL(a.href,location.href);if(u.origin===location.origin&&u.pathname===location.pathname&&u.search===location.search&&u.hash===location.hash)revealTopic()});
+revealTopic();})();
+</script>
 </body></html>

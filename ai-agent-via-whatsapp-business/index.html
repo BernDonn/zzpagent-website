@@ -9,11 +9,27 @@
 </head><body><header><a class="brand" href="/">ZZPagent</a><a class="back" href="/">Terug naar de homepage</a></header><main><article>
 <span class="eyebrow">Direct antwoord</span><h1>Hoe gebruik je een AI-agent via WhatsApp Business?</h1>
 <p class="answer">WhatsApp Business kan het vertrouwde communicatiekanaal zijn waarmee een zelfstandige of klant de AI-assistent bereikt. Hermes is de agentlaag erachter en organiseert context, tools, stappen en menselijke controle.</p><section data-video-code="15"><h2>Bekijk de uitleg in een korte video</h2><video controls playsinline preload="metadata" width="720" height="1280" poster="/assets/hermes-whatsapp-business-kort.jpg" aria-label="Hoe gebruik je een AI-agent via WhatsApp Business?" style="display:block;width:100%;max-width:360px;height:auto;margin:20px auto;border-radius:18px;background:#111"><source src="/assets/atelier-zzpagent-17-d1a043ad69eacf21.mp4" type="video/mp4">Je browser ondersteunt deze video niet. <a href="/assets/atelier-zzpagent-17-d1a043ad69eacf21.mp4">Download de video</a>.</video></section>
-<h2>WhatsApp is het kanaal, niet de hele assistent</h2><p>Een WhatsApp-agent hoeft geen algemene chatbot te zijn die automatisch alles beantwoordt. Het kanaal is vooral laagdrempelig. De persoonlijke assistent kan daarnaast werken met mail, agenda, documenten, taken en andere afgesproken bronnen.</p>
+<h2 id="whatsapp-business-koppeling">WhatsApp is het kanaal, niet de hele assistent</h2><p>Een WhatsApp-agent hoeft geen algemene chatbot te zijn die automatisch alles beantwoordt. Het kanaal is vooral laagdrempelig. De persoonlijke assistent kan daarnaast werken met mail, agenda, documenten, taken en andere afgesproken bronnen.</p>
 <h2>Praktische voorbeelden</h2><div class="examples"><div><strong>Klantvragen ordenen</strong><br>Nieuwe vragen samenvatten, labelen en prioriteren.</div><div><strong>Conceptantwoorden klaarzetten</strong><br>Een voorstel maken in jouw toon, zonder het al te versturen.</div><div><strong>Intake en opvolging</strong><br>Ontbrekende informatie signaleren en een vervolgstap voorbereiden.</div><div><strong>Eigen assistent onderweg</strong><br>Een bericht inspreken en later een gecontroleerd overzicht ontvangen.</div></div>
 <h2>Kan Hermes mijn WhatsApp-berichten uitlezen?</h2><p>Ja, als je Hermes daar expliciet toegang voor geeft en de WhatsApp-koppeling is ingericht. Dan kan Hermes bijvoorbeeld je recente berichten opzoeken, gesprekken samenvatten, open vragen signaleren en een voorstel voor opvolging klaarzetten. Jij bepaalt welke gesprekken Hermes mag gebruiken en of een antwoord alleen als concept wordt voorbereid of pas na jouw akkoord wordt verstuurd.</p>
 <h2>Menselijke controle</h2><div class="guard"><strong>Externe communicatie blijft begrensd.</strong><br>Bij gevoelige klantberichten, betalingen, privacy, reputatie of andere risicovolle acties maakt Hermes eerst zichtbaar wat er gaat gebeuren en vraagt de gebruiker om akkoord.</div>
 <h2>Is WhatsApp verplicht?</h2><p>Nee. Telegram, Slack, browser, mobiel of een andere route kan beter passen. Het kanaal volgt de taak en de gebruiker, niet andersom.</p>
 <h2>Hoe begin je veilig?</h2><p>Start met één beperkte functie, bijvoorbeeld klantvragen samenvatten of conceptantwoorden maken. Gebruik officiële koppelingen, opt-in, logging en zo weinig mogelijk toegang. Breid pas uit wanneer die eerste stap betrouwbaar werkt.</p>
 <h2>Lees verder</h2><nav class="related"><a href="/wat-is-een-ai-agent-voor-zzp/">Wat is een AI-agent voor een ZZP’er?</a><a href="/persoonlijke-ai-assistent-voor-zzp/">Persoonlijke AI-assistent voor ZZP</a><a href="/whatsapp-business-uitleg/">Meer uitleg over WhatsApp Business en AI</a></nav>
-</article></main><footer>ZZPagent · Amsterdam · Voor Nederlandse zelfstandige kenniswerkers · Bijgewerkt 17 augustus 2026</footer></body></html>
+</article></main><footer>ZZPagent · Amsterdam · Voor Nederlandse zelfstandige kenniswerkers · Bijgewerkt 17 augustus 2026</footer><script>
+/* Open the actual topic and its disclosure ancestors before positioning it. */
+(()=>{const topics=["whatsapp-business-koppeling"];
+function revealTopic(){let id;try{id=decodeURIComponent(location.hash.slice(1))}catch(e){return}if(!topics.includes(id))return;
+const target=document.getElementById(id);if(!target)return;
+const panel=target.closest('.top-panel');if(panel&&typeof openNavPanel==='function')openNavPanel(panel.id);
+for(let el=target;el;el=el.parentElement){if(el.tagName==='DETAILS')el.open=true;}
+function position(){const overlay=target.closest('.nav-panel-overlay');
+let offset=24;if(!overlay){document.querySelectorAll('header,nav').forEach(el=>{const s=getComputedStyle(el),r=el.getBoundingClientRect();if((s.position==='fixed'||s.position==='sticky')&&r.top<=1&&r.bottom>0)offset=Math.max(offset,r.bottom+16)});}
+target.style.scrollMarginTop=offset+'px';target.scrollIntoView({block:'start',behavior:'instant'});}
+requestAnimationFrame(()=>requestAnimationFrame(position));if(document.fonts)document.fonts.ready.then(position);
+}
+addEventListener('hashchange',revealTopic);addEventListener('load',revealTopic);addEventListener('pageshow',revealTopic);
+document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a)return;const u=new URL(a.href,location.href);if(u.origin===location.origin&&u.pathname===location.pathname&&u.search===location.search&&u.hash===location.hash)revealTopic()});
+revealTopic();})();
+</script>
+</body></html>
