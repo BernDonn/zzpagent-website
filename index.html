@@ -870,6 +870,8 @@
     .hermes-tips>details>summary{cursor:pointer;font-weight:700;font-size:18px}
     .hermes-tips-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:900px;margin-top:24px}
     .hermes-tips-grid figure{margin:0;min-width:0}
+    .hermes-tips-grid .hermes-intro{grid-column:1/-1}
+    .hermes-tips-grid .hermes-intro figcaption{min-height:0}
     .hermes-tips-grid figcaption{font-size:16px;font-weight:700;line-height:1.4;min-height:4.2em;margin-bottom:10px}
     .hermes-tips-grid video{display:block;width:180px;max-width:100%;aspect-ratio:9/16;object-fit:contain;border-radius:14px;background:#17211c}
     @media(max-width:700px){.hermes-tips-grid{grid-template-columns:1fr}.hermes-tips-grid figcaption{min-height:0}}
@@ -1886,12 +1888,13 @@
           <a href="/telefoonassistent-voor-zzp/">Telefoonassistent</a>
           <a href="/workflowautomatisering-voor-zzp/">Workflow automatisering</a>
           <a class="visibility-pulse" href="/ai-zichtbaarheidscheck/"><span class="visibility-new-badge">Nieuw</span><span>AI-zichtbaarheidscheck</span></a>
-          <button class="visibility-pulse" id="hermes-tips-trigger" type="button" aria-expanded="false" aria-controls="hermes-tips-videos"><span class="hermes-tips-new">Nieuw</span><span>Hermes Token Video Tips</span></button>
+          <button class="visibility-pulse" id="hermes-tips-trigger" type="button" aria-expanded="false" aria-controls="hermes-tips-videos"><span class="hermes-tips-new">Nieuw</span><span>Hermes Optimaliseren</span></button>
         </div>
-    <div class="hermes-tips" id="hermes-tips" aria-label="Hermes Token Video Tips">
+    <div class="hermes-tips" id="hermes-tips" aria-label="Hermes Optimaliseren">
       <details id="hermes-tips-videos">
-        <summary hidden>Hermes Token Video Tips</summary>
+        <summary hidden>Hermes Optimaliseren</summary>
         <div class="hermes-tips-grid">
+          <figure class="hermes-intro"><figcaption id="hermes-intro">Introductie</figcaption><video controls playsinline preload="none" aria-labelledby="hermes-intro" poster="/assets/hermes-tips/introductie.jpg"><source src="/assets/hermes-tips/introductie.mp4" type="video/mp4"></video></figure>
           <figure><figcaption id="hermes-tip-1">1. Begrijp je tokengebruik</figcaption><video controls playsinline preload="none" aria-labelledby="hermes-tip-1" poster="/assets/hermes-tips/tokengebruik.jpg"><source src="/assets/hermes-tips/tokengebruik.mp4" type="video/mp4"></video></figure>
           <figure><figcaption id="hermes-tip-2">2. Begin een nieuw gesprek als het onderwerp verandert</figcaption><video controls playsinline preload="none" aria-labelledby="hermes-tip-2" poster="/assets/hermes-tips/nieuw-gesprek.jpg"><source src="/assets/hermes-tips/nieuw-gesprek.mp4" type="video/mp4"></video></figure>
           <figure><figcaption id="hermes-tip-3">3. Houd je vaste basis compact en correct</figcaption><video controls playsinline preload="none" aria-labelledby="hermes-tip-3" poster="/assets/hermes-tips/vaste-basis.jpg"><source src="/assets/hermes-tips/vaste-basis-a383c8abe2c9.mp4" type="video/mp4"></video></figure>
@@ -2006,7 +2009,8 @@
   <script>
     const translations = {
       en: {
-"Hermes Token Video Tips":"Hermes Token Video Tips",
+"Hermes Optimaliseren":"Optimize Hermes",
+"Introductie":"Introduction",
 "Pers. AI assistent":"Personal AI assistant",
 "Workflow automatisering":"Workflow automation",
 "1. Begrijp je tokengebruik":"1. Understand your token usage",
