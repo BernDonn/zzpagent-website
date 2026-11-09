@@ -85,9 +85,37 @@ def validate(root=ROOT):
     equal(bool(re.search(r'User-agent:\s*GPTBot\s+Disallow:\s*/', robots, re.I)), True, 'GPTBot stays blocked')
     return checks
 
+
+def validate_visibility(root):
+    facts = json.loads((root / 'data/offer-facts.json').read_text())
+    expected = {"price": 19, "currency": "EUR", "vatIncluded": False, "optional": True,
+                "frequency": "one measurement per month", "websites": 1,
+                "questionAndPlatformSet": "fixed and agreed in advance",
+                "measurementCostsIncluded": True, "cancellation": "monthly",
+                "summary": True, "previousRoundComparison": True,
+                "keyAttentionPoints": True, "websiteChangesIncluded": False,
+                "additionalResearchIncluded": False, "selfManagementExternalCosts": "customer"}
+    if facts.get('aiVisibilityMeasurement') != expected:
+        raise ValueError('AI visibility measurement contract differs from approved scope')
+    checks = 1
+    for filename in ['index.html', 'kosten-hermes-assistent/index.html', 'ai-zichtbaarheidscheck/index.html', 'llms.txt']:
+        source = (root / filename).read_text()
+        if '€500' in source or '€19' not in source:
+            raise ValueError(filename + ': retired or missing visibility price')
+        checks += 1
+    for filename in ['index.html', 'kosten-hermes-assistent/index.html']:
+        source = (root / filename).read_text()
+        for phrase in ['één meting', 'één website', 'vooraf afgesproken set vragen en AI-platformen', 'inclusief meetkosten',
+                       'vergelijking met de vorige ronde', 'Maandelijks opzegbaar', 'Bij zelfbeheer', 'Websiteaanpassingen en extra onderzoek']:
+            if phrase not in source:
+                raise ValueError(filename + ': missing visibility term: ' + phrase)
+            checks += 1
+    return checks
+
 if __name__ == '__main__':
     try:
-        print(f'PASS: {validate(Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT)} offer consistency checks')
+        root = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT
+        print(f'PASS: {validate(root) + validate_visibility(root)} offer consistency checks')
     except (ValueError, KeyError, OSError) as error:
         print('FAIL:', error, file=sys.stderr)
         sys.exit(1)
