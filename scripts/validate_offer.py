@@ -88,28 +88,42 @@ def validate(root=ROOT):
 
 def validate_visibility(root):
     facts = json.loads((root / 'data/offer-facts.json').read_text())
-    expected = {"price": 19, "currency": "EUR", "vatIncluded": False, "optional": True,
-                "frequency": "one measurement per month", "websites": 1,
-                "questionAndPlatformSet": "fixed and agreed in advance",
-                "measurementCostsIncluded": True, "cancellation": "monthly",
-                "summary": True, "previousRoundComparison": True,
-                "keyAttentionPoints": True, "websiteChangesIncluded": False,
-                "additionalResearchIncluded": False, "selfManagementExternalCosts": "customer"}
-    if facts.get('aiVisibilityMeasurement') != expected:
-        raise ValueError('AI visibility measurement contract differs from approved scope')
-    checks = 1
-    for filename in ['index.html', 'kosten-hermes-assistent/index.html', 'ai-zichtbaarheidscheck/index.html', 'llms.txt']:
-        source = (root / filename).read_text()
-        if '€500' in source or '€19' not in source:
-            raise ValueError(filename + ': retired or missing visibility price')
+    p = facts['aiVisibilityPackage']
+    expected = {'price': 49.95, 'currency': 'EUR', 'vatIncluded': False,
+                'projects': 10, 'keywords': 50, 'automaticKeywordTracking': 'weekly',
+                'visibilityScan': 'weekly', 'rescans': 'unlimited', 'geoDiyPrompts': 'unlimited',
+                'pageAdvice': True, 'searchConsole': True, 'brandCheck': True,
+                'sentimentAnalysis': True, 'competitorAnalysis': 'weekly', 'promptExplorer': True,
+                'geoAudit': True, 'chromeExtension': True, 'wordpressPlugin': True,
+                'support': ['telephone', 'email'], 'measurementCostsIncluded': True,
+                'mandatoryHermesSetup': True, 'availability': 'https://schema.org/PreOrder',
+                'status': 'planned-introductory-offer'}
+    checks = 0
+    for key, value in expected.items():
+        if p.get(key) != value:
+            raise ValueError('AI visibility contract: ' + key)
         checks += 1
-    for filename in ['index.html', 'kosten-hermes-assistent/index.html']:
+    qualifier = 'Dit pakket wordt momenteel ingericht. Je kunt alvast een kennismaking aanvragen; vóór de start bevestigen we de beschikbaarheid en startdatum.'
+    if p['qualifierNL'] != qualifier:
+        raise ValueError('Exact approved qualifier missing')
+    for filename in ['index.html', 'kosten-hermes-assistent/index.html', 'ai-zichtbaarheidscheck/index.html', 'llms.txt', *[x.name for x in root.glob('faq-ai-agents-*.md')]]:
         source = (root / filename).read_text()
-        for phrase in ['één meting', 'één website', 'vooraf afgesproken set vragen en AI-platformen', 'inclusief meetkosten',
-                       'vergelijking met de vorige ronde', 'Maandelijks opzegbaar', 'Bij zelfbeheer', 'Websiteaanpassingen en extra onderzoek']:
-            if phrase not in source:
-                raise ValueError(filename + ': missing visibility term: ' + phrase)
+        for stale in ['€500', '€19', 'InStock', 'Teun']:
+            if stale in source:
+                raise ValueError(filename + ': stale or unsupported claim: ' + stale)
             checks += 1
+        for phrase in ['€49,95', '€1.000', qualifier]:
+            if phrase not in source:
+                raise ValueError(filename + ': missing ' + phrase)
+            checks += 1
+        if filename.endswith('.html'):
+            offer = next(x for x in Page(source).schemas if x.get('@id', '').endswith('#introductieaanbod'))
+            if offer['price'] != 49.95 or offer['availability'] != 'https://schema.org/PreOrder' or offer['priceSpecification']['valueAddedTaxIncluded'] is not False:
+                raise ValueError(filename + ': monthly schema')
+            for phrase in [p['qualifierEN'], '10 projecten', '50 zoekwoorden', 'GEO-audit', 'WordPress-plugin', 'meet-API-kosten', 'Jij bedient Hermes']:
+                if phrase not in source:
+                    raise ValueError(filename + ': missing ' + phrase)
+                checks += 1
     return checks
 
 if __name__ == '__main__':

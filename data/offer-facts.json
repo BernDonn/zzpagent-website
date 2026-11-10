@@ -6,16 +6,58 @@
   "price": 1000,
   "currency": "EUR",
   "vatIncluded": false,
-  "terms": "De scope wordt vooraf afgesproken. Geen jaarlijkse verlenging of verplicht beheerabonnement. Externe model-, hosting- en overige gebruikskosten apart. Aanvullende opdrachten vooraf afzonderlijk afspreken. GeoScope, Vindeo en AI-zichtbaarheid zijn inbegrepen bij de afgesproken Hermes-inrichting. Optioneel voeren we voor €19 excl. btw per maand één meting uit voor één website en een vaste, vooraf afgesproken set vragen en AI-platformen, inclusief meetkosten, een korte samenvatting, vergelijking met de vorige ronde en de belangrijkste aandachtspunten. Maandelijks opzegbaar. Bij zelfbeheer betaal je externe model- en meetkosten zelf. Websiteaanpassingen en extra onderzoek vallen niet onder deze maandelijkse meting.",
+  "terms": "De scope wordt vooraf afgesproken. Geen jaarlijkse verlenging of verplicht beheerabonnement. Externe model-, hosting- en overige gebruikskosten apart. Aanvullende opdrachten vooraf afzonderlijk afspreken. GeoScope, Vindeo en AI-zichtbaarheid zijn inbegrepen bij de afgesproken Hermes-inrichting. Introductieaanbod AI-zichtbaarheid: €49,95 exclusief btw per maand, inclusief meet-API-kosten. Hiervoor is de Hermes-inrichting verplicht: €1.000 exclusief btw, eenmalig. Dit pakket wordt momenteel ingericht. Je kunt alvast een kennismaking aanvragen; vóór de start bevestigen we de beschikbaarheid en startdatum. Het geplande pakket omvat 10 projecten, 50 zoekwoorden met automatische wekelijkse tracking, een wekelijkse zichtbaarheidsscan en onbeperkte rescans, onbeperkte GEO-doe-het-zelfprompts, pagina-advies, een koppeling met Google Search Console, merkcontrole en sentimentanalyse, wekelijkse concurrentieanalyse, een promptverkenner, een GEO-audit, een Chrome-extensie, een WordPress-plugin en ondersteuning per telefoon en e-mail. Je gebruikt je eigen Hermes om websiteverbeteringen zelf te laten uitvoeren, als Hermes toegang heeft tot je website en de koppeling dit ondersteunt. Jij bedient Hermes en keurt wijzigingen goed, of leert iemand anders dat te doen. Dit is geen doorlopend websitebeheer of onbeperkte uitvoering door ons en geen onbeperkt trainingsprogramma. Modelgebruik voor websiteaanpassingen en algemeen Hermes-gebruik valt niet onder de inbegrepen meet-API-kosten; de kostenafspraken leggen we vooraf vast.",
   "url": "https://zzpagent.nl/kosten-hermes-assistent/",
-  "aiVisibilityMeasurement": {"price": 19, "currency": "EUR", "vatIncluded": false, "optional": true, "frequency": "one measurement per month", "websites": 1, "questionAndPlatformSet": "fixed and agreed in advance", "measurementCostsIncluded": true, "cancellation": "monthly", "summary": true, "previousRoundComparison": true, "keyAttentionPoints": true, "websiteChangesIncluded": false, "additionalResearchIncluded": false, "selfManagementExternalCosts": "customer"},
   "visible": {
     "index.html:price": "€1.000 excl. btw, eenmalig",
     "index.html:scope": "In het startgesprek bespreken we waarbij je ondersteuning wilt en welke taken en mogelijkheden we bij de inrichting meenemen. De vaste prijs voor de afgesproken inrichting is €1.000 exclusief btw, eenmalig. Dit bedrag komt niet jaarlijks terug. We leggen de scope vooraf vast; aanvullende opdrachten spreken we vooraf afzonderlijk af.",
     "kosten-hermes-assistent/index.html:scope": "In het startgesprek bespreken we waarbij je ondersteuning wilt en welke taken en mogelijkheden we bij de inrichting meenemen. De vaste prijs voor de afgesproken inrichting is €1.000 exclusief btw, eenmalig. Dit bedrag komt niet jaarlijks terug. We leggen de scope vooraf vast; aanvullende opdrachten spreken we vooraf afzonderlijk af.",
-    "index.html:external": "Je betaalt ons geen verplichte terugkerende licentie- of abonnementskosten voor deze inrichting. GeoScope, Vindeo en AI-zichtbaarheid zijn inbegrepen. De maandelijkse AI-zichtbaarheidsmeting van €19 excl. btw is optioneel. Het gebruik van taalmodellen en eventuele hosting of andere externe diensten betaal je apart. Vooraf maken we duidelijk welke kosten voor jouw situatie gelden.",
-    "kosten-hermes-assistent/index.html:external": "Je betaalt ons geen verplichte terugkerende licentie- of abonnementskosten voor deze inrichting. GeoScope, Vindeo en AI-zichtbaarheid zijn inbegrepen. De maandelijkse AI-zichtbaarheidsmeting van €19 excl. btw is optioneel. Het gebruik van taalmodellen en eventuele hosting of andere externe diensten betaal je apart. Vooraf maken we duidelijk welke kosten voor jouw situatie gelden.",
+    "index.html:external": "GeoScope, Vindeo en AI-zichtbaarheid zijn inbegrepen bij de afgesproken Hermes-inrichting. Introductieaanbod AI-zichtbaarheid: €49,95 exclusief btw per maand, inclusief meet-API-kosten. Hiervoor is de Hermes-inrichting verplicht: €1.000 exclusief btw, eenmalig. Dit pakket wordt momenteel ingericht. Je kunt alvast een kennismaking aanvragen; vóór de start bevestigen we de beschikbaarheid en startdatum. Externe modelkosten, eventuele hosting en andere externe diensten betaal je apart. De meet-API-kosten binnen het maandpakket zijn inbegrepen.",
+    "kosten-hermes-assistent/index.html:external": "GeoScope, Vindeo en AI-zichtbaarheid zijn inbegrepen bij de afgesproken Hermes-inrichting. Introductieaanbod AI-zichtbaarheid: €49,95 exclusief btw per maand, inclusief meet-API-kosten. Hiervoor is de Hermes-inrichting verplicht: €1.000 exclusief btw, eenmalig. Dit pakket wordt momenteel ingericht. Je kunt alvast een kennismaking aanvragen; vóór de start bevestigen we de beschikbaarheid en startdatum. Externe modelkosten, eventuele hosting en andere externe diensten betaal je apart. De meet-API-kosten binnen het maandpakket zijn inbegrepen.",
     "kosten-hermes-assistent/index.html:table-price": "Vaste prijs: €1.000 exclusief btw, eenmalig, voor de vooraf afgesproken inrichting, begeleiding, test en overdracht."
   },
-  "llmsCostLine": "- Vaste prijs: €1.000 exclusief btw, eenmalig, voor de vooraf afgesproken inrichting, begeleiding, testen en overdracht. Geen jaarlijkse verlenging of verplicht beheerabonnement. Externe model-, hosting- en overige gebruikskosten apart. Aanvullende opdrachten vooraf afzonderlijk afspreken."
+  "llmsCostLine": "- Vaste prijs: €1.000 exclusief btw, eenmalig, voor de vooraf afgesproken inrichting, begeleiding, testen en overdracht. Geen jaarlijkse verlenging of verplicht beheerabonnement. Externe model-, hosting- en overige gebruikskosten apart. Aanvullende opdrachten vooraf afzonderlijk afspreken.",
+  "aiVisibilityPackage": {
+    "price": 49.95,
+    "currency": "EUR",
+    "vatIncluded": false,
+    "billingPeriod": "month",
+    "projects": 10,
+    "keywords": 50,
+    "keywordAllocationPerProject": null,
+    "automaticKeywordTracking": "weekly",
+    "visibilityScan": "weekly",
+    "rescans": "unlimited",
+    "geoDiyPrompts": "unlimited",
+    "pageAdvice": true,
+    "searchConsole": true,
+    "brandTools": true,
+    "chromeExtension": true,
+    "wordpressPlugin": true,
+    "support": [
+      "telephone",
+      "email"
+    ],
+    "measurementCostsIncluded": true,
+    "cancellationTerms": null,
+    "status": "planned-introductory-offer",
+    "availability": "https://schema.org/PreOrder",
+    "qualifierNL": "Dit pakket wordt momenteel ingericht. Je kunt alvast een kennismaking aanvragen; vóór de start bevestigen we de beschikbaarheid en startdatum.",
+    "qualifierEN": "This package is currently being set up. You can already request an introductory conversation; before you start, we will confirm availability and the start date.",
+    "mandatoryHermesSetup": true,
+    "brandCheck": true,
+    "sentimentAnalysis": true,
+    "competitorAnalysis": "weekly",
+    "promptExplorer": true,
+    "geoAudit": true
+  },
+  "websiteImprovement": {
+    "mode": "customer-operated self-service with own Hermes",
+    "operator": "customer or someone taught by the customer",
+    "customerApprovalRequired": true,
+    "requiresWebsiteAccess": true,
+    "requiresWorkingIntegration": true,
+    "unlimitedAgencyImplementation": false,
+    "websiteEditModelCostsIncluded": false
+  }
 }
