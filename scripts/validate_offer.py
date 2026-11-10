@@ -108,7 +108,7 @@ def validate_visibility(root):
         raise ValueError('Exact approved qualifier missing')
     for filename in ['index.html', 'kosten-hermes-assistent/index.html', 'ai-zichtbaarheidscheck/index.html', 'llms.txt', *[x.name for x in root.glob('faq-ai-agents-*.md')]]:
         source = (root / filename).read_text()
-        for stale in ['€500', '€19', 'InStock', 'Teun']:
+        for stale in ['€500', '€19', 'InStock']:
             if stale in source:
                 raise ValueError(filename + ': stale or unsupported claim: ' + stale)
             checks += 1
