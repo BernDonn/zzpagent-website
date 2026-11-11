@@ -94,7 +94,7 @@ def validate_visibility(root):
                 'visibilityScan': 'weekly', 'rescans': 'unlimited', 'geoDiyPrompts': 'unlimited',
                 'pageAdvice': True, 'searchConsole': True, 'brandCheck': True,
                 'sentimentAnalysis': True, 'competitorAnalysis': 'weekly', 'promptExplorer': True,
-                'geoAudit': True, 'chromeExtension': True, 'wordpressPlugin': True,
+                'geoAudit': True,
                 'support': ['telephone', 'email'], 'measurementCostsIncluded': True,
                 'mandatoryHermesSetup': True, 'availability': 'https://schema.org/PreOrder',
                 'status': 'planned-introductory-offer'}
@@ -120,7 +120,7 @@ def validate_visibility(root):
             offer = next(x for x in Page(source).schemas if x.get('@id', '').endswith('#introductieaanbod'))
             if offer['price'] != 49.95 or offer['availability'] != 'https://schema.org/PreOrder' or offer['priceSpecification']['valueAddedTaxIncluded'] is not False:
                 raise ValueError(filename + ': monthly schema')
-            for phrase in [p['qualifierEN'], '10 projecten', '50 zoekwoorden', 'GEO-audit', 'WordPress-plugin', 'meet-API-kosten', 'Jij bedient Hermes']:
+            for phrase in [p['qualifierEN'], '10 projecten', '50 zoekwoorden', 'GEO-audit', 'meet-API-kosten', 'Jij bedient Hermes']:
                 if phrase not in source:
                     raise ValueError(filename + ': missing ' + phrase)
                 checks += 1

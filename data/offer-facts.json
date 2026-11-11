@@ -6,7 +6,7 @@
   "price": 1000,
   "currency": "EUR",
   "vatIncluded": false,
-  "terms": "De scope wordt vooraf afgesproken. Geen jaarlijkse verlenging of verplicht beheerabonnement. Externe model-, hosting- en overige gebruikskosten apart. Aanvullende opdrachten vooraf afzonderlijk afspreken. GeoScope, Vindeo en AI-zichtbaarheid zijn inbegrepen bij de afgesproken Hermes-inrichting. Optioneel introductieaanbod AI-zichtbaarheid: €49,95 exclusief btw per maand, inclusief meet-API-kosten. Hiervoor is de Hermes-inrichting verplicht: €1.000 exclusief btw, eenmalig. Dit pakket wordt momenteel ingericht. Je kunt alvast een kennismaking aanvragen; vóór de start bevestigen we de beschikbaarheid en startdatum. Het geplande pakket omvat 10 projecten, 50 zoekwoorden met automatische wekelijkse tracking, een wekelijkse zichtbaarheidsscan en onbeperkte rescans, onbeperkte GEO-doe-het-zelfprompts, pagina-advies, een koppeling met Google Search Console, merkcontrole en sentimentanalyse, wekelijkse concurrentieanalyse, een promptverkenner, een GEO-audit, een Chrome-extensie, een WordPress-plugin en ondersteuning per telefoon en e-mail. Je gebruikt je eigen Hermes om websiteverbeteringen zelf te laten uitvoeren, als Hermes toegang heeft tot je website en de koppeling dit ondersteunt. Jij bedient Hermes en keurt wijzigingen goed, of leert iemand anders dat te doen. Dit is geen doorlopend websitebeheer of onbeperkte uitvoering door ons en geen onbeperkt trainingsprogramma. Modelgebruik voor websiteaanpassingen en algemeen Hermes-gebruik valt niet onder de inbegrepen meet-API-kosten; de kostenafspraken leggen we vooraf vast.",
+  "terms": "De scope wordt vooraf afgesproken. Geen jaarlijkse verlenging of verplicht beheerabonnement. Externe model-, hosting- en overige gebruikskosten apart. Aanvullende opdrachten vooraf afzonderlijk afspreken. GeoScope, Vindeo en AI-zichtbaarheid zijn inbegrepen bij de afgesproken Hermes-inrichting. Optioneel introductieaanbod AI-zichtbaarheid: €49,95 exclusief btw per maand, inclusief meet-API-kosten. Hiervoor is de Hermes-inrichting verplicht: €1.000 exclusief btw, eenmalig. Dit pakket wordt momenteel ingericht. Je kunt alvast een kennismaking aanvragen; vóór de start bevestigen we de beschikbaarheid en startdatum. Het geplande pakket omvat 10 projecten, 50 zoekwoorden met automatische wekelijkse tracking, een wekelijkse zichtbaarheidsscan en onbeperkte rescans, onbeperkte GEO-doe-het-zelfprompts, pagina-advies, een koppeling met Google Search Console, merkcontrole en sentimentanalyse, wekelijkse concurrentieanalyse, een promptverkenner, een GEO-audit en ondersteuning per telefoon en e-mail. Je gebruikt je eigen Hermes om websiteverbeteringen zelf te laten uitvoeren, als Hermes toegang heeft tot je website en de koppeling dit ondersteunt. Jij bedient Hermes en keurt wijzigingen goed, of leert iemand anders dat te doen. Dit is geen doorlopend websitebeheer of onbeperkte uitvoering door ons en geen onbeperkt trainingsprogramma. Modelgebruik voor websiteaanpassingen en algemeen Hermes-gebruik valt niet onder de inbegrepen meet-API-kosten; de kostenafspraken leggen we vooraf vast.",
   "url": "https://zzpagent.nl/kosten-hermes-assistent/",
   "visible": {
     "index.html:price": "€1.000 excl. btw, eenmalig",
@@ -33,8 +33,6 @@
     "pageAdvice": true,
     "searchConsole": true,
     "brandTools": true,
-    "chromeExtension": true,
-    "wordpressPlugin": true,
     "support": [
       "telephone",
       "email"
