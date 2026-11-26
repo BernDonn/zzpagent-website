@@ -1,9 +1,13 @@
-/* Native media only. Events contain public content metadata, never form values. */
+/* Candidate: aggregate native video counts; no Google, cookies or visitor identifiers. */
 (() => {
   'use strict';
   if (window.siteVideoAnalyticsLoaded) return;
   window.siteVideoAnalyticsLoaded = true;
-  const allowed = () => window.siteAnalyticsPrivacy && !window.siteAnalyticsPrivacy.isDisabled();
+  const allowed = () => {
+    if (location.pathname.replace(/\/+$/, '') === '/analytics-uit') return false;
+    try { return localStorage.getItem('site-analytics-opt-out') !== '1' && localStorage.getItem('site-analytics-consent-v1') !== 'refused'; }
+    catch (_) { return false; }
+  };
   const titles = {
   "/assets/workshop.mp4": "Workshop AI meets Business Amsterdam",
   "/assets/zzpagent-intro-met-openingsfoto-atelier-replaced-deba74940a33.mp4": "Hermes, je eigen digitale assistent (verdieping)",
@@ -49,17 +53,16 @@
     let seconds = 0, pending = 0, milestones = new Set();
     const source = video.getAttribute('src') || video.querySelector('source')?.getAttribute('src') || '';
     const path = new URL(source || location.pathname, location.href).pathname;
-    let hash = 2166136261;
-    for (const char of path) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619);
-    const filename = path.split('/').pop().replace(/\.[^.]+$/, '');
-    const meta = {video_id:filename.slice(0,70) + '-' + (hash >>> 0).toString(16),
-      video_title:(titles[path] || filename.replace(/[-_]+/g,' ')).slice(0,100), video_provider:'native',
-      site:location.hostname, page_path:location.pathname,
-      page_location:location.origin + location.pathname, page_referrer:''};
     const emit = (name, extra = {}) => {
-      if (allowed() && typeof window.gtag === 'function') window.gtag('event',name,{
-        ...meta, video_duration:Math.round(video.duration || 0), ...extra, transport_type:'beacon'
-      });
+      if (!allowed() || !Object.hasOwn(titles,path)) return;
+      const kind = {video_start:'start',video_watch_time:'watch',video_complete:'complete'}[name];
+      if (!kind) return;
+      // No retry or persistent queue: failures undercount rather than double-count.
+      fetch('https://sophie.zzpagent.nl/video-count', {
+        method:'POST', mode:'cors', credentials:'omit', referrerPolicy:'no-referrer', keepalive:true,
+        headers:{'Content-Type':'text/plain'},
+        body:JSON.stringify({video:path,kind,seconds:extra.watch_seconds || 0})
+      }).catch(() => {});
     };
     const reset = () => { started = finished = running = false; seconds = pending = 0; milestones = new Set(); };
     const baseline = () => { lastMedia = video.currentTime; lastClock = performance.now(); };
@@ -71,7 +74,7 @@
       const now = performance.now(), media = video.currentTime;
       const wall = (now-lastClock)/1000, delta = media-lastMedia;
       // Reject discontinuities. Seek, waiting and pause handlers reset baselines.
-      if (allowed() && running && !video.seeking && wall > 0 && wall <= 2 && delta > 0 && delta <= wall*video.playbackRate + 0.35) {
+      if (allowed() && !document.hidden && running && !video.seeking && wall > 0 && wall <= 2 && delta > 0 && delta <= wall*video.playbackRate + 0.35) {
         const watched = Math.min(wall, delta/video.playbackRate);
         seconds += watched; pending += watched;
         for (const percent of [25,50,75]) {
@@ -105,7 +108,7 @@
     video.addEventListener('emptied', () => { flush(); reset(); });
     window.addEventListener('pagehide', () => { sample(); flush(); running = false; });
     document.addEventListener('visibilitychange', () => { if (document.hidden) { sample(); flush(); } baseline(); });
-    window.addEventListener('site-analytics-change', () => { if (!allowed()) reset(); else if (typeof window.gtag === 'function' && !video.paused) { reset(); started = true; running = true; baseline(); emit('video_start'); } });
+    window.addEventListener('site-analytics-change', () => { if (!allowed()) reset(); else if (!video.paused) begin(); });
   };
   const scan = () => document.querySelectorAll('video').forEach(bind);
   scan(); new MutationObserver(scan).observe(document.documentElement,{childList:true,subtree:true});
