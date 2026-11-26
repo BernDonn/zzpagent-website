@@ -6,13 +6,18 @@
   const ids = ['G-4BBKJXQGWV', 'G-FEM9HLKQ43'];
   const id = location.hostname.includes('mkbagents') ? ids[1] : ids[0];
   const excludedPage = location.pathname.replace(/\/+$/, '') === '/analytics-uit';
-  let optedOut = false, choice = '', loaded = false;
+  let optedOut = false, choice = '', loaded = false, crispStarted = false;
   const read = () => { try { optedOut = localStorage.getItem(key) === '1'; choice = localStorage.getItem(consentKey) || ''; } catch (_) {} };
   const isDisabled = () => {
     read();
     const disabled = optedOut || choice !== 'accepted' || excludedPage;
     ids.forEach(x => { window['ga-disable-' + x] = disabled; });
     return disabled;
+  };
+  // Crisp retains its existing no-choice startup, but honors explicit refusals.
+  const isCrispDisabled = () => {
+    read();
+    return optedOut || choice === 'refused' || excludedPage;
   };
   const eraseCookies = () => {
     document.cookie.split(';').forEach(pair => {
@@ -40,11 +45,18 @@
     const disabled = isDisabled();
     if (disabled) eraseCookies();
     window.dispatchEvent(new Event('site-analytics-change'));
-    if (disabled && loaded) { location.reload(); return; }
+    if ((disabled && loaded) || (isCrispDisabled() && crispStarted)) { location.reload(); return; }
     start();
   };
   window.siteAnalyticsPrivacy = {
     isDisabled,
+    runCrispWhenAllowed(fn) {
+      let ran = false;
+      const run = () => {
+        if (!ran && !isCrispDisabled()) { ran = true; crispStarted = true; fn(); }
+      };
+      window.addEventListener('site-analytics-change', run); run();
+    },
     runWhenAllowed(fn) {
       let ran = false;
       const run = () => { if (!ran && !isDisabled()) { ran = true; fn(); } };
@@ -72,7 +84,7 @@
     document.head.appendChild(style);
     const panel = document.createElement('section'); panel.id = 'site-consent';
     panel.setAttribute('aria-label','Keuze voor bezoekersmeting');
-    panel.innerHTML = '<p>Met je toestemming gebruiken we Google Analytics om te zien welke pagina’s en video’s worden bekeken en hoelang video’s afspelen. Ook de bestaande bezoekersmeting start pas na akkoord. Je kunt weigeren of je keuze later wijzigen via Meetvoorkeuren.</p><button type="button" data-choice="accepted">Accepteren</button><button type="button" data-choice="refused">Weigeren</button><p id="site-consent-note" style="margin:10px 0 0"></p>';
+    panel.innerHTML = '<p>Met je toestemming gebruiken we Google Analytics om te zien welke pagina’s en video’s worden bekeken en hoelang video’s afspelen. Crisp registreert bezoek ook zonder keuze; bij weigering of browseruitsluiting start Crisp niet (meer). Je kunt weigeren of je keuze later wijzigen via Meetvoorkeuren.</p><button type="button" data-choice="accepted">Accepteren</button><button type="button" data-choice="refused">Weigeren</button><p id="site-consent-note" style="margin:10px 0 0"></p>';
     const settings = document.createElement('button'); settings.id = 'site-consent-settings'; settings.type = 'button'; settings.textContent = 'Meetvoorkeuren';
     settings.addEventListener('click', () => { panel.hidden = false; panel.querySelector('button').focus(); });
     panel.querySelectorAll('[data-choice]').forEach(button => button.addEventListener('click', () => { window.siteAnalyticsPrivacy.setConsent(button.dataset.choice); panel.hidden = true; settings.focus(); }));
