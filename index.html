@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="nl">
 <head>
+<script src="/assets/analytics-privacy.js?v=20261126-consent"></script>
+<script defer src="/assets/video-analytics.js?v=20261126"></script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ZZPagent, de Hermes AI-assistent voor ZZP’ers</title>
@@ -22,23 +25,8 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/zzpagent-marktplaats-icon-512.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <!-- Google tag (gtag.js) -->
-  <script src="/assets/analytics-privacy.js?v=1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){
-      if (!window.siteAnalyticsPrivacy || window.siteAnalyticsPrivacy.isDisabled()) return;
-      dataLayer.push(arguments);
-    }
-    if (window.siteAnalyticsPrivacy && !window.siteAnalyticsPrivacy.isDisabled()) {
-      const tag = document.createElement('script');
-      tag.async = true;
-      tag.src = 'https://www.googletagmanager.com/gtag/js?id=G-4BBKJXQGWV';
-      document.head.appendChild(tag);
-    }
-    gtag('js', new Date());
 
-    gtag('config', 'G-4BBKJXQGWV');
-  </script>
+
   <script defer src="/assets/analytics-events.js?v=20261107-optout"></script>
   <script type="application/ld+json">
 {
@@ -1043,7 +1031,7 @@
 
   .cost-link{display:inline-block;margin:15px 0;font-weight:700;text-decoration:underline}
 </style>
-  <script type="text/javascript">
+  <script type="text/javascript">window.siteAnalyticsPrivacy.runWhenAllowed(() => {
     window.$crisp=[];
     window.$crisp.push(["do", "chat:hide"]);
     window.CRISP_WEBSITE_ID="453fc521-ac48-4172-b5b5-c5da448f5178";
@@ -1092,6 +1080,7 @@
       });
       setTimeout(function(){
         try {
+          if (window.siteAnalyticsPrivacy.isDisabled()) return;
           fetch(endpointBase + "/visitor-ping", {
             method:"POST",
             mode:"no-cors",
@@ -1102,7 +1091,7 @@
         } catch(e) {}
       }, 900);
     })();
-  </script>
+  });</script>
   <link rel="stylesheet" href="/assets/sophie-invite.css?v=2">
 <style id="solutions-badge-sizing">
 #oplossingen .case.case-new{margin-top:0}
@@ -2894,6 +2883,7 @@
       const stages={websocket:1,office_ambience:2,get_user_media:3,inline_voice_start:4};
       if(stages[stage]) traceInlineVoice(11,inlineVoiceSession,stages[stage]*100+({TypeError:1,NotAllowedError:2,NotFoundError:3,InvalidStateError:4}[error?.name]||0));
       try{
+        if (window.siteAnalyticsPrivacy.isDisabled()) return;
         fetch(callbackEndpointBase() + '/visitor-ping', {
           method:'POST', mode:'cors', headers:{'Content-Type':'application/json'}, keepalive:true,
           body:JSON.stringify({

@@ -1,3 +1,4 @@
+window.siteAnalyticsPrivacy?.runWhenAllowed(() => {
     window.$crisp=[];
     window.$crisp.push(["do", "chat:hide"]);
     window.CRISP_WEBSITE_ID="453fc521-ac48-4172-b5b5-c5da448f5178";
@@ -16,3 +17,5 @@
       setTimeout(hideCrisp, 3500);
     })();
 
+
+});
