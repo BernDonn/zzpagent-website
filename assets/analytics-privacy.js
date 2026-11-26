@@ -64,7 +64,7 @@
   };
   isDisabled();
   window.addEventListener('storage', e => { if ([key,consentKey,null].includes(e.key)) update(); });
-  window.addEventListener('pageshow', update);
+  window.addEventListener('pageshow', event => { if (event.persisted) update(); });
   const ui = () => {
     if (excludedPage) return;
     const style = document.createElement('style');
