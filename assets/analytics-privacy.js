@@ -32,7 +32,7 @@
         document.cookie=name+'=; Max-Age=0; path=/'+(domain?'; domain='+domain:'');
       });
     });
-    try {if(disabled('visitor'))localStorage.removeItem('zzpagent_visitor_id_v1');}catch(_){}
+    try {if(disabled('visitor'))['zzpagent_visitor_id_v1','mkbagents_visitor_id_v1'].forEach(k=>localStorage.removeItem(k));}catch(_){}
   };
   const start=()=>{
     if(isGaDisabled()||loaded)return;
@@ -45,7 +45,7 @@
   };
   const update=()=>{
     const ga=isGaDisabled(),crisp=disabled('crisp');
-    if(ga||crisp)erase();
+    erase();
     window.dispatchEvent(new Event('site-analytics-change'));
     if((ga&&loaded)||(crisp&&crispStarted)){location.reload();return;}
     start();
