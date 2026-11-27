@@ -79,8 +79,8 @@
   const ui=()=>{
     if(excludedPage){if(location.search.includes('opslag=mislukt')){const p=document.createElement('p');p.setAttribute('role','alert');p.textContent='Je keuze kon niet worden opgeslagen. Op deze pagina staat meting uit. Je eerdere keuze kan op andere pagina’s nog gelden.';document.body.prepend(p);}return;}
     const style=document.createElement('style');style.textContent=`
-#site-consent{position:fixed;top:16px;left:16px;z-index:2147483646;width:calc(100% - 32px);max-width:540px;max-height:calc(100dvh - 32px);overflow:auto;box-sizing:border-box;padding:18px;border:1px solid #587368;border-radius:10px;background:#fff;color:#18332d;box-shadow:0 4px 22px #0002;font:14px/1.5 system-ui,sans-serif;text-align:left}
-#site-consent[hidden],#site-consent [hidden]{display:none!important}#site-consent p{margin:0 0 12px;font:inherit;color:inherit}#site-consent .choice-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}#site-consent button,#site-consent-settings{font:14px/1.4 system-ui,sans-serif;font-weight:400;border:1px solid #587368;border-radius:6px;background:#fff;color:#18332d;padding:10px 12px;cursor:pointer;text-transform:none;letter-spacing:normal}#site-consent .choice-actions button{flex:1;margin:0;min-width:88px}#site-consent a{color:#18332d;text-decoration:underline}#site-consent label{display:block;margin:14px 0;font:inherit;color:inherit}#site-consent input{appearance:auto;width:18px;height:18px;vertical-align:middle;margin:0 8px 0 0}#site-consent label span{display:block;margin-top:4px}#site-consent-settings{display:block;margin:16px auto 120px}#site-consent h2{font:700 18px/1.4 system-ui;margin:12px 0}#site-consent-note:empty{display:none}`;
+#site-consent{position:fixed;bottom:108px;left:16px;z-index:2147483646;width:calc(100% - 32px);max-width:360px;max-height:calc(100dvh - 140px);overflow:auto;box-sizing:border-box;padding:14px;border:1px solid #d2dcd5;border-radius:12px;background:#fff;color:#18332d;box-shadow:0 4px 18px #18332d12;font:14px/1.5 system-ui,sans-serif;text-align:left}
+#site-consent[hidden],#site-consent [hidden]{display:none!important}#site-consent p{margin:0 0 10px;font:inherit;color:inherit}#site-consent .choice-actions{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 8px}#site-consent button,#site-consent-settings{font:13px/1.4 system-ui,sans-serif;font-weight:400;border:1px solid #b7c7bc;border-radius:7px;background:#f6f8f6;color:#18332d;padding:8px 10px;cursor:pointer;text-transform:none;letter-spacing:normal}#site-consent .choice-actions button{flex:1;margin:0;min-width:80px;min-height:36px}#site-consent a{color:#18332d;text-decoration:underline}#site-consent label{display:block;margin:14px 0;font:inherit;color:inherit}#site-consent input{appearance:auto;width:18px;height:18px;vertical-align:middle;margin:0 8px 0 0}#site-consent label span{display:block;margin-top:4px}#site-consent-settings{display:block;margin:16px auto 120px}#site-consent h2{font:700 18px/1.4 system-ui;margin:12px 0}#site-consent-note:empty{display:none}#site-consent>a{font-size:12px;text-underline-offset:3px}#site-consent button:focus-visible,#site-consent a:focus-visible{outline:2px solid #18332d;outline-offset:2px}@media(max-width:600px){#site-consent{left:12px;bottom:calc(78px + env(safe-area-inset-bottom,0px));width:calc(100% - 24px);max-height:calc(100dvh - 110px);padding:12px}#site-consent .choice-actions button{min-height:40px}}`;
     document.head.append(style);
     const panel=document.createElement('section');panel.id='site-consent';panel.setAttribute('aria-label','Cookiekeuze');
     panel.innerHTML=`<p id="site-consent-title">Deze website maakt gebruik van cookies.</p>
@@ -96,15 +96,21 @@
 <div class="choice-actions"><button type="button" data-action="save">Keuzes opslaan</button><button type="button" data-action="close">Sluiten</button></div></div><p id="site-consent-note" role="status"></p>`;
     const settings=document.createElement('button');settings.id='site-consent-settings';settings.type='button';settings.textContent='Cookie-instellingen';settings.setAttribute('aria-controls','site-consent');
     const details=panel.querySelector('#site-consent-details');
-    const open=()=>{read();panel.hidden=false;details.hidden=false;panel.querySelectorAll('[data-purpose]').forEach(e=>e.checked=state.choices[e.dataset.purpose]===true);details.querySelector('h2').setAttribute('tabindex','-1');details.querySelector('h2').focus();};
-    const close=()=>{panel.hidden=true;settings.focus();};
+    let returnFocus=null;
+    const open=trigger=>{if(trigger&&!panel.contains(trigger))returnFocus=trigger;read();panel.hidden=false;details.hidden=false;panel.querySelectorAll('[data-purpose]').forEach(e=>e.checked=state.choices[e.dataset.purpose]===true);details.querySelector('h2').setAttribute('tabindex','-1');details.querySelector('h2').focus({preventScroll:true});};
+    const close=()=>{
+      if(panel.contains(document.activeElement))document.activeElement.blur();
+      panel.hidden=true;
+      if(returnFocus?.isConnected&&returnFocus.getClientRects().length&&!returnFocus.closest('[hidden]'))returnFocus.focus({preventScroll:true});
+      returnFocus=null;
+    };
     panel.addEventListener('click',e=>{const a=e.target.dataset.action;if(!a)return;
-      if(a==='settings'){open();return;}
+      if(a==='settings'){open(e.target);return;}
       if(a==='close'){close();return;}
       const choices=Object.fromEntries(purposes.map(p=>[p,a==='accept'||(a==='save'&&panel.querySelector('[data-purpose="'+p+'"]').checked)]));
       if(save(choices))close();
     });
-    settings.addEventListener('click',()=>open());
+    settings.addEventListener('click',()=>open(settings));
     panel.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
     read();panel.hidden=state.chosen||state.excluded;
     document.body.append(panel);(document.querySelector('footer')||document.body).append(settings);start();
