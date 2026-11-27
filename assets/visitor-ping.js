@@ -1,4 +1,4 @@
-window.siteAnalyticsPrivacy?.runWhenAllowed(() => {
+window.siteAnalyticsPrivacy?.runVisitorWhenAllowed(() => {
     // Visitor ping with server-side IP logging. Browser JavaScript cannot read
     // the visitor IP itself; the Sophie/Mac-mini endpoint logs it from request headers.
     (function(){
@@ -29,7 +29,7 @@ window.siteAnalyticsPrivacy?.runWhenAllowed(() => {
       });
       setTimeout(function(){
         try {
-          if (window.siteAnalyticsPrivacy.isDisabled()) return;
+          if (window.siteAnalyticsPrivacy.isVisitorDisabled()) return;
           fetch(endpointBase + "/visitor-ping", {
             method:"POST",
             mode:"no-cors",
