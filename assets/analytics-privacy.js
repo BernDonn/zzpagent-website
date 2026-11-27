@@ -93,18 +93,18 @@
 <label><input type="checkbox" data-purpose="visitor">Bezoekmeldingen<span>Een afzonderlijke melding aan de websitebeheerder via onze Sophie-server, Cloudflare en eventueel ntfy.sh: bezoekerscode, pagina inclusief query, verwijzer, taal, schermmaat, tijdzone, tijdstip en IP-adres. Dit is geen Google- of Crisp-meting.</span></label>
 <label><input type="checkbox" data-purpose="video">Videostatistieken<span>Onze server ontvangt via Cloudflare de videocode, start, afspeeltijd en eindbereik. Transport verwerkt ook IP- en technische gegevens. De video zelf werkt zonder deze toestemming.</span></label>
 <p>Opslag, bewaartermijnen en doorgiften: <a href="/privacy-cookies/">Privacy en cookies</a>.</p>
-<div class="choice-actions"><button type="button" data-action="save">Keuzes opslaan</button><button type="button" data-action="confirm" hidden>Alles accepteren</button><button type="button" data-action="close">Sluiten</button></div></div><p id="site-consent-note" role="status"></p>`;
+<div class="choice-actions"><button type="button" data-action="save">Keuzes opslaan</button><button type="button" data-action="close">Sluiten</button></div></div><p id="site-consent-note" role="status"></p>`;
     const settings=document.createElement('button');settings.id='site-consent-settings';settings.type='button';settings.textContent='Cookie-instellingen';settings.setAttribute('aria-controls','site-consent');
     const details=panel.querySelector('#site-consent-details');
-    const open=confirm=>{read();panel.hidden=false;details.hidden=false;panel.querySelectorAll('[data-purpose]').forEach(e=>e.checked=state.choices[e.dataset.purpose]===true);panel.querySelector('[data-action="confirm"]').hidden=!confirm;details.querySelector('h2').setAttribute('tabindex','-1');details.querySelector('h2').focus();};
+    const open=()=>{read();panel.hidden=false;details.hidden=false;panel.querySelectorAll('[data-purpose]').forEach(e=>e.checked=state.choices[e.dataset.purpose]===true);details.querySelector('h2').setAttribute('tabindex','-1');details.querySelector('h2').focus();};
     const close=()=>{panel.hidden=true;settings.focus();};
     panel.addEventListener('click',e=>{const a=e.target.dataset.action;if(!a)return;
-      if(a==='accept'||a==='settings'){open(a==='accept');return;}
+      if(a==='settings'){open();return;}
       if(a==='close'){close();return;}
-      const choices=Object.fromEntries(purposes.map(p=>[p,a==='confirm'||(a==='save'&&panel.querySelector('[data-purpose="'+p+'"]').checked)]));
+      const choices=Object.fromEntries(purposes.map(p=>[p,a==='accept'||(a==='save'&&panel.querySelector('[data-purpose="'+p+'"]').checked)]));
       if(save(choices))close();
     });
-    settings.addEventListener('click',()=>open(false));
+    settings.addEventListener('click',()=>open());
     panel.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
     read();panel.hidden=state.chosen||state.excluded;
     document.body.append(panel);(document.querySelector('footer')||document.body).append(settings);start();
