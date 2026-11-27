@@ -1,13 +1,10 @@
-/* Candidate: aggregate native video counts; no Google, cookies or visitor identifiers. */
+/* aggregate native video counts; no Google, cookies or visitor identifiers. */
 (() => {
   'use strict';
   if (window.siteVideoAnalyticsLoaded) return;
   window.siteVideoAnalyticsLoaded = true;
-  const allowed = () => {
-    if (location.pathname.replace(/\/+$/, '') === '/analytics-uit') return false;
-    try { return localStorage.getItem('site-analytics-opt-out') !== '1' && localStorage.getItem('site-analytics-consent-v1') !== 'refused'; }
-    catch (_) { return false; }
-  };
+  // Fail closed without the shared privacy loader; independent from GA permission.
+  const allowed = () => window.siteAnalyticsPrivacy?.isVideoDisabled() === false;
   const titles = {
   "/assets/workshop.mp4": "Workshop AI meets Business Amsterdam",
   "/assets/zzpagent-intro-met-openingsfoto-atelier-replaced-deba74940a33.mp4": "Hermes, je eigen digitale assistent (verdieping)",
@@ -94,7 +91,7 @@
       running = true; baseline();
     };
     video.addEventListener('playing', begin);
-    window.addEventListener('site-analytics-allowed', () => { if (!video.paused) begin(); });
+    // Video permission is observed through site-analytics-change, not GA startup.
     video.addEventListener('timeupdate',sample);
     video.addEventListener('seeking', () => { running = false; baseline(); });
     video.addEventListener('seeked', () => { running = started && !video.paused && allowed(); baseline(); });
